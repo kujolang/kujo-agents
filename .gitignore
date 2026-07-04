@@ -1,0 +1,32 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Agent/runtime outputs
+.runs/
+.tmp/
+tmp/
+out/
+dist/
+build/
+artifacts/
+
+# Logs and reports generated during local work
+*.log
+*.tmp
+*.cache
+
+# Dependency/cache folders if future agents add scripts
+node_modules/
+.venv/
+venv/
+__pycache__/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
