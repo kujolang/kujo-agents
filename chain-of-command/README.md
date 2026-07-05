@@ -99,7 +99,7 @@ The benchmark is intentionally small but cross-functional. It should reveal whet
 
 ## Adding A New Agent
 
-1. Create `agents/<agent-name>/AGENT.md` and `agents/<agent-name>/SKILL.md`.
+1. Create `chain-of-command/<agent-name>/AGENT.md` and `chain-of-command/<agent-name>/SKILL.md`.
 2. Keep the role narrow enough to audit.
 3. Include the common contract fields used by the existing agents.
 4. List tools as allowed, recommended, or explicitly out of scope.

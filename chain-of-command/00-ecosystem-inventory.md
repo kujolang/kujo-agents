@@ -60,8 +60,8 @@ Repo docs support routine local use for Spec, Eval, Scout, Dispatch offline fixt
 New agents in this chain use:
 
 ```text
-agents/<agent-name>/AGENT.md
-agents/<agent-name>/SKILL.md
+chain-of-command/<agent-name>/AGENT.md
+chain-of-command/<agent-name>/SKILL.md
 ```
 
 The existing root Archivist packages are preserved and referenced rather than moved.

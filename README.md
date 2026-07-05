@@ -6,7 +6,7 @@ This repository currently contains:
 
 - `archivist/` - universal source-bound project researcher and handoff dossier builder for any repository, product, workflow, research, documentation, or implementation project.
 - `kujo-archivist/` - KUJO-specific Archivist variant customized for KUJO repos, tools, skills, workflows, docs, examples, and related local sources.
-- `agents/` - KUJO agent chain of command, role contracts, tool-to-agent map, and reusable specialist agents for strategy, planning, execution, verification, knowledge, and routine worker tasks.
+- `chain-of-command/` - coordinated KUJO agent chain of command, role contracts, tool-to-agent map, campaign templates, benchmarks, and reusable specialist agents for strategy, planning, execution, verification, knowledge, and routine worker tasks.
 
 ## Purpose
 
@@ -30,10 +30,10 @@ agent-name/
   references/
 ```
 
-The command-chain agents live under `agents/` and follow the same package convention:
+The command-chain agents live under `chain-of-command/` and follow the same package convention:
 
 ```text
-agents/
+chain-of-command/
   README.md
   00-chain-of-command.md
   00-tool-agent-map.md

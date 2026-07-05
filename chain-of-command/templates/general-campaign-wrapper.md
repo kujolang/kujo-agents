@@ -124,7 +124,7 @@ Create a short "Agent Chain Retrospective" with:
 - Which evidence requirements were missing.
 - Which worker instructions were too loose.
 - Which tool mappings were wrong, unsupported, or incomplete.
-- Recommended edits to files under `agents/`.
+- Recommended edits to files under `chain-of-command/`.
 
 Do not edit agent definitions automatically unless the user explicitly authorizes a follow-up improvement pass.
 
@@ -158,5 +158,4 @@ Return:
 | Spec | You want project specs, milestones, and acceptance criteria | Read/write docs/specs only |
 | Build | You want implementation and local verification | Edit files and run local commands |
 | Release Gate | You want readiness checks before ship | Run gates; no publish/deploy/tag without explicit approval |
-| Retrospective | You want to improve the agent chain after a run | Edit `agents/` only after reviewing evidence |
-
+| Retrospective | You want to improve the agent chain after a run | Edit `chain-of-command/` only after reviewing evidence |

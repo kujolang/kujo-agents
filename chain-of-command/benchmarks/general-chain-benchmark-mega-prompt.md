@@ -6,7 +6,7 @@ This prompt is intentionally project-agnostic and local-first. It can run agains
 
 ## Benchmark Campaign
 
-Paste the content below into `agents/templates/general-campaign-wrapper.md` under `Project Payload`, then fill campaign metadata for the target workspace.
+Paste the content below into `chain-of-command/templates/general-campaign-wrapper.md` under `Project Payload`, then fill campaign metadata for the target workspace.
 
 ```markdown
 # Benchmark Project: ProofPack
@@ -102,7 +102,7 @@ Return:
 4. Evidence artifacts.
 5. Acceptance criteria result.
 6. Chain performance score using the KUJO Agent Benchmark Scorecard.
-7. Recommended edits to `agents/` for the next run.
+7. Recommended edits to `chain-of-command/` for the next run.
 ```
 
 ## Why This Benchmark Works
@@ -121,4 +121,3 @@ This benchmark exercises:
 - Retrospective self-improvement.
 
 It is small enough to repeat, but broad enough to expose weak handoffs.
-

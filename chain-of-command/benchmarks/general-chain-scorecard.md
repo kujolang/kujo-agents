@@ -50,7 +50,7 @@ After scoring, answer:
 4. Which verification step was missing or late?
 5. Which tool was recommended without enough repo-backed support?
 6. Which output would a human reviewer struggle to trust?
-7. Which `agents/<name>/AGENT.md` or `SKILL.md` should be edited before the next benchmark?
+7. Which `chain-of-command/<name>/AGENT.md` or `SKILL.md` should be edited before the next benchmark?
 
 ## Self-Improvement Patch Template
 
@@ -84,4 +84,3 @@ Use this when converting benchmark findings into agent updates:
 - Rerun benchmark section:
 - Expected improvement:
 ```
-
