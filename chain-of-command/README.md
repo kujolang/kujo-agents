@@ -57,6 +57,15 @@ Use [00-docs/templates/general-campaign-wrapper.md](00-docs/templates/general-ca
 
 Paste an existing project mega prompt into the wrapper's `Project Payload` section, fill the metadata and constraints, and send the full packet to the General. The wrapper tells the General to route work through the chain, require evidence, preserve handoffs, and produce a final review packet plus agent-chain improvement notes.
 
+The runner must have access to the chain files. If Codex, Claude, or another agent is already working inside this repository, tell it to read these files before campaign triage:
+
+- `chain-of-command/general-commander/AGENT.md`
+- `chain-of-command/README.md`
+- `chain-of-command/00-chain-of-command.md`
+- `chain-of-command/00-tool-agent-map.md`
+
+If the runner is outside this repository, attach or paste those files with the campaign wrapper. When the General delegates to a role, it should read that role's `AGENT.md` before defining the assignment.
+
 For repeatable testing, use:
 
 - [00-docs/benchmarks/general-chain-benchmark-mega-prompt.md](00-docs/benchmarks/general-chain-benchmark-mega-prompt.md)

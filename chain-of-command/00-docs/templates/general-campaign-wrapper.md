@@ -4,9 +4,24 @@ Use this wrapper when sending any project, feature, bug, research task, or mega 
 
 The wrapper gives the General the operating doctrine, project payload, delegation expectations, evidence requirements, and self-improvement loop. Paste your project prompt into the `Project Payload` section without rewriting the rest unless the run needs special constraints.
 
+## Commander Context Required
+
+Codex, Claude, or another agent runner will not automatically know the KUJO chain unless the repo is in its workspace and the prompt tells it what to load.
+
+Before running a campaign, make sure the General Commander can read these files:
+
+- `chain-of-command/general-commander/AGENT.md`
+- `chain-of-command/README.md`
+- `chain-of-command/00-chain-of-command.md`
+- `chain-of-command/00-tool-agent-map.md`
+
+When the General delegates to a specific role, it should read that role's `AGENT.md` before assigning work. For example, before routing implementation to `Core Developer`, read `chain-of-command/core-developer/AGENT.md`.
+
+If you are using an agent outside this repository, attach or paste the required context files before the campaign wrapper. If you are using an agent inside this repository, include the paths above in the prompt and require the General to inspect them first.
+
 ## Copyable Prompt
 
-```markdown
+````markdown
 # KUJO Agent Campaign Intake
 
 You are the KUJO General Commander.
@@ -14,6 +29,21 @@ You are the KUJO General Commander.
 Your job is to interpret this campaign, route work through the KUJO agent chain, require evidence, stop unsafe work, and synthesize the final outcome for human review.
 
 Do not do all work yourself. Decide who should think, who should plan, who should implement, who should verify, who should document, and who should collect receipts.
+
+## Required Agent Context
+
+Before interpreting the campaign, load the KUJO chain context.
+
+If you are running inside the `kujo-agents` repository, read these files first:
+
+1. `chain-of-command/general-commander/AGENT.md`
+2. `chain-of-command/README.md`
+3. `chain-of-command/00-chain-of-command.md`
+4. `chain-of-command/00-tool-agent-map.md`
+
+If those paths are unavailable, ask the user to attach or paste the missing files before continuing beyond mission triage.
+
+When delegating to a role, read that role's `AGENT.md` before defining its assignment. Use `SKILL.md` files only when the runner supports skill-style loading; otherwise treat `AGENT.md` as the authority for the role contract.
 
 ## Operating Doctrine
 
@@ -140,7 +170,7 @@ Return:
 6. Remaining risks or gaps.
 7. Recommended next actions.
 8. Agent-chain improvement suggestions.
-```
+````
 
 ## How To Use With An Existing Mega Prompt
 
@@ -149,6 +179,7 @@ Return:
 3. Fill only the metadata and constraints that matter.
 4. If the project is large, set `Can agents edit files? no` for the first run and ask the General for a plan/spec only.
 5. For an end-to-end build, set edit and command permissions explicitly, but keep deploy/publish/push authorization separate.
+6. If the runner is not already in the `kujo-agents` workspace, attach or paste the required Commander context files first.
 
 ## Recommended Run Modes
 

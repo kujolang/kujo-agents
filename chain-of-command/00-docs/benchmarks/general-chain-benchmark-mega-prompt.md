@@ -6,9 +6,9 @@ This prompt is intentionally project-agnostic and local-first. It can run agains
 
 ## Benchmark Campaign
 
-Paste the content below into `chain-of-command/00-docs/templates/general-campaign-wrapper.md` under `Project Payload`, then fill campaign metadata for the target workspace.
+Paste the content below into `chain-of-command/00-docs/templates/general-campaign-wrapper.md` under `Project Payload`, then fill campaign metadata for the target workspace. Make sure the runner can also read the Commander context files listed in that wrapper.
 
-```markdown
+````markdown
 # Benchmark Project: ProofPack
 
 Build a small local-first developer tool called `proofpack`.
@@ -103,7 +103,7 @@ Return:
 5. Acceptance criteria result.
 6. Chain performance score using the KUJO Agent Benchmark Scorecard.
 7. Recommended edits to `chain-of-command/` for the next run.
-```
+````
 
 ## Why This Benchmark Works
 
