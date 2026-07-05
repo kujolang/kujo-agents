@@ -6,7 +6,7 @@ This prompt is intentionally project-agnostic and local-first. It can run agains
 
 ## Benchmark Campaign
 
-Paste the content below into `chain-of-command/templates/general-campaign-wrapper.md` under `Project Payload`, then fill campaign metadata for the target workspace.
+Paste the content below into `chain-of-command/00-docs/templates/general-campaign-wrapper.md` under `Project Payload`, then fill campaign metadata for the target workspace.
 
 ```markdown
 # Benchmark Project: ProofPack

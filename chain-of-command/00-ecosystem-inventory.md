@@ -65,3 +65,10 @@ chain-of-command/<agent-name>/SKILL.md
 ```
 
 The existing root Archivist packages are preserved and referenced rather than moved.
+
+Non-agent chain support material lives under `00-docs/` so the remaining folders are visually reserved for agent packages:
+
+```text
+chain-of-command/00-docs/templates/
+chain-of-command/00-docs/benchmarks/
+```
