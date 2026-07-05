@@ -51,6 +51,19 @@ KUJO workflows support the chain by turning work into artifacts:
 
 See `00-tool-agent-map.md` for supported-versus-inferred behavior.
 
+## Running A Campaign
+
+Use [templates/general-campaign-wrapper.md](templates/general-campaign-wrapper.md) as the reusable intake packet for the `General Commander`.
+
+Paste an existing project mega prompt into the wrapper's `Project Payload` section, fill the metadata and constraints, and send the full packet to the General. The wrapper tells the General to route work through the chain, require evidence, preserve handoffs, and produce a final review packet plus agent-chain improvement notes.
+
+For repeatable testing, use:
+
+- [benchmarks/general-chain-benchmark-mega-prompt.md](benchmarks/general-chain-benchmark-mega-prompt.md)
+- [benchmarks/general-chain-scorecard.md](benchmarks/general-chain-scorecard.md)
+
+The benchmark is intentionally small but cross-functional. It should reveal whether the chain can handle product framing, planning, implementation, verification, documentation, evidence collection, and retrospective improvement.
+
 ## Agent Table
 
 | Layer | Agent | Use For | Model Tier | Key Tools |
