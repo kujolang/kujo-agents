@@ -13,21 +13,21 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | Spec | Task contracts, acceptance criteria, eval requirements, review expectations, approval points | Built for production use with environment validation | Planner, Spec Writer, Chief of Staff |
 | Eval | Deterministic local/CI checks for commands, files, JSON, HTTP, snapshots, workflow outputs | Verified local/CI scope; no isolated sandbox | QA Lead, Test Runner, Release Verifier |
 | Scout | Codebase intelligence packs: file tree, dependencies, routes, security smells, AGENTS.md, llms.txt | v1.0.0; does not replace human review | Research Analyst, Security Reviewer |
-| Dispatch | Workflow orchestration, templates, persisted state, traces, reports, approvals, handoffs | Verified offline fixture path; live SDK optional | General Commander, Chief of Staff, Integration Engineer |
+| Dispatch | Workflow orchestration, templates, persisted state, traces, reports, approvals, handoffs | Verified offline fixture path; live SDK optional | General Commander, Chief of Staff, Integration Engineer, Triage Agent |
 | MCP | Local MCP server foundation, repo-specific scaffolds, bounded file operations, guardrails | Launch-honest local foundation; production needs validation | Integration Engineer |
 | RAG | Local RAG pipeline with ingest/query/API, auth options, namespace isolation, release gates | Production-oriented starter kit, not managed service | Research Analyst, Backend Developer |
 | Watchdog | Local AI telemetry/proxy layer with SQLite, dashboard, JSON APIs, redaction/auth/rate limits | Strong local-first reference; production behind controls | Integration Engineer, Receipt Collector |
 | Scent | Task-specific context packs with provenance and redaction metadata | v1.0.0; pattern redaction must be reviewed | Context Packager, Research Analyst |
 | Fence | Deterministic architecture-boundary enforcement with JSON/SARIF/Markdown outputs | Local-first guardrail suitable for CI gating | Systems Architect, Security Reviewer, Release Verifier |
-| PatchBrief | Working-tree diff briefs for implementation review handoffs | Dogfood beta, useful locally | Code Reviewer, Documentation Writer |
+| PatchBrief | Working-tree diff briefs for implementation review handoffs | Dogfood beta, useful locally | Code Reviewer, Triage Agent, Documentation Writer |
 | ShipCheck | Release-readiness scan and gate with blockers/warnings | Production-forward alpha; human release decision remains | Release Verifier, Risk Officer |
 | Concord | Cross-artifact drift checks across CLI/docs/examples/spec/eval/manifests | Early dogfood, not enterprise-ready | Code Reviewer, Documentation Writer, Risk Officer |
-| RunLedger | Local JSON ledger for AI-agent build-run receipts | Practical local receipt system, not workflow manager | Receipt Collector, SITREP Agent |
+| RunLedger | Local JSON ledger for AI-agent build-run receipts | Practical local receipt system, not workflow manager | Receipt Collector, SITREP Agent, Triage Agent |
 | Muzzle | Quiet workflow runner with logs, reports, JSON summaries, loop state | Trusted local workflow compression, not sandbox | Context Packager, Routine Worker, Lint Runner |
 | Howl | Deterministic showcase artifact generation from examples and manifests | Production-ready for narrow offline scope | Documentation Writer |
 | ChangeBucket | Git change footprint and blast-radius metrics | Read-only local footprint tool | Code Reviewer, Risk Officer |
 | PackWrite | MEGA_PROMPT to validated `/agent` execution pack | Production-usable local/team pack compiler | Context Packager, Planner |
-| CaseFile | Local failure/log/manual incident evidence bundles with redaction and handoff docs | Strong local-first v1 CLI; plaintext artifacts | Risk Officer, QA Lead, Receipt Collector |
+| CaseFile | Local failure/log/manual incident evidence bundles with redaction and handoff docs | Strong local-first v1 CLI; plaintext artifacts | Risk Officer, QA Lead, Triage Agent, Receipt Collector |
 | Lens | Deterministic local browser QA with screenshots, reports, repair briefs, flows | Beta/stabilizing, local-first | Visual QA Agent, Frontend Developer |
 | Kennel | Kujo package/dependency manager with manifests, lockfiles, trust/source policies | Production-oriented for launch-safe local/static scope | Dependency Scanner, Tooling Developer |
 
@@ -49,6 +49,7 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | Backend Developer | Eval, Scout | RAG, Watchdog |
 | Integration Engineer | MCP, Dispatch, Watchdog | AI SDK, Agents SDK |
 | Code Reviewer | PatchBrief, ChangeBucket, Concord | Fence |
+| Triage Agent | CaseFile, RunLedger, Dispatch | PatchBrief, ChangeBucket, Eval |
 | QA Lead | Eval, CaseFile | RunLedger |
 | Visual QA Agent | Lens | Eval |
 | Release Verifier | ShipCheck, Eval, Fence, RunLedger | Concord |

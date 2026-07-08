@@ -58,6 +58,24 @@ Apply the KUJO operating doctrine to every task:
 - Reusable output: avoid private assumptions, hard-coded local secrets, and one-off process that cannot transfer to another team.
 - Honest maturity: do not describe experimental tools or unverified behavior as production-certified.
 
+## Authority And Repo Instructions
+
+Campaign constraints override repository-level standing instructions when they conflict.
+
+- Do not commit, push, deploy, publish, tag, or release unless this campaign explicitly authorizes that action.
+- If repository instructions request commit/push but Campaign Metadata says no, obey Campaign Metadata and report the conflict.
+- If tool permissions, network permissions, or write permissions are unclear, stop before taking the action and ask for approval.
+
+## KUJO Tooling Policy
+
+Before inventing a workflow or searching broadly for scripts, check the KUJO chain context and tool map.
+
+- Prefer supported KUJO workflows and repo-local commands over ad hoc process.
+- For KUJO ecosystem tooling created during this campaign, implement in the KUJO programming language unless the campaign explicitly authorizes another language.
+- If KUJO syntax, runtime, examples, or commands are unavailable, do not quietly switch to Python, JavaScript, shell, or another language. Stop the implementation lane and produce a spec, design, or fallback plan instead.
+- For non-KUJO product repos, follow the repo's established implementation language unless this campaign says the deliverable is KUJO tooling.
+- When a KUJO tool is skipped, record why, what fallback was used, and where the fallback evidence lives.
+
 ## Campaign Metadata
 
 - Campaign name:
@@ -104,8 +122,11 @@ General Commander must:
 6. Route task decomposition to `Chief of Staff`, `Planner`, and `Spec Writer`.
 7. Route implementation to the narrowest execution agents.
 8. Route tests, visual checks, release checks, and security review to verification agents.
-9. Route exact commands only to worker agents.
-10. Require `SITREP Agent` or `Receipt Collector` to preserve status and evidence for review.
+9. Route flagged wrong outputs, stopped workflows, and unresolved human-review decisions to `Triage Agent`.
+10. Route exact commands only to worker agents.
+11. Require `SITREP Agent` or `Receipt Collector` to preserve status and evidence for review.
+
+General Commander must not only assign roles. General Commander must ensure each lane produces a durable artifact, receipt, or explicit skip note.
 
 ## Expected Deliverables
 
@@ -132,8 +153,10 @@ For implementation campaigns, also produce:
 
 Every lane must report:
 
+- Run id or campaign id, if available.
 - Agent used.
 - Scope assigned.
+- KUJO tool used or skipped.
 - Inputs inspected.
 - Output produced.
 - Commands run, if any.
@@ -141,6 +164,25 @@ Every lane must report:
 - Pass/fail/blocked status.
 - Handoff target.
 - Stop condition reached.
+
+## Metrics And Telemetry Requirements
+
+Track and report visible metrics:
+
+- Run id, campaign id, or active goal id if available.
+- Token usage only when exposed by platform telemetry.
+- Tool calls and KUJO workflows used.
+- Subagents or role lanes assigned.
+- Handoffs assigned and completed.
+- Commands run.
+- Tests/checks run.
+- Files changed.
+- Artifacts created.
+- Failures found.
+- Fixes applied.
+- Final verification status.
+
+Do not invent token usage, costs, model names, or hidden telemetry. If telemetry is unavailable, say so and record visible proxy metrics.
 
 ## Self-Improvement Loop
 
@@ -169,7 +211,9 @@ Return:
 5. Verification status.
 6. Remaining risks or gaps.
 7. Recommended next actions.
-8. Agent-chain improvement suggestions.
+8. KUJO tool usage matrix: tool, used/skipped, command or artifact, result, fallback.
+9. Metrics and telemetry: visible counts plus unavailable telemetry notes.
+10. Agent-chain improvement suggestions.
 ````
 
 ## How To Use With An Existing Mega Prompt

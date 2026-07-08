@@ -41,6 +41,7 @@ Execution agents use standard coding models. They implement within assigned lane
 Verification agents review, test, and produce proof. They should be independent from the agent that implemented the change whenever possible.
 
 - `code-reviewer`: reviews diffs for bugs, regressions, missing tests, and unsupported behavior claims.
+- `triage-agent`: classifies flagged wrong outputs, stopped workflow states, failed handoffs, and human-review routing before work resumes.
 - `qa-lead`: defines test plans, evidence requirements, and acceptance gates.
 - `visual-qa-agent`: uses Lens-style browser evidence for page load, layout, console, network, accessibility, and visual proof.
 - `release-verifier`: checks release readiness and blocks on failed release gates.
@@ -72,6 +73,7 @@ Routine workers use cheap models and strict instructions. They do not decide pro
 - Worker to execution: command output suggests code changes, test failures need diagnosis, or assigned command is ambiguous.
 - Execution to planning: scope expands, acceptance criteria are incomplete, or architecture/product tradeoffs appear.
 - Planning to strategic: goals conflict, ownership is unclear, or user value/risk cannot be resolved from evidence.
+- Any layer to Triage Agent: an output is flagged as wrong, a stop condition fires, evidence conflicts, or human-review routing is needed before resume.
 - Any layer to verification: there is a diff, release candidate, security-sensitive change, user-facing UI, or external integration.
 - Any layer to knowledge: context must be preserved for another agent, a human reviewer, or future repeatability.
 
@@ -82,6 +84,6 @@ Routine workers use cheap models and strict instructions. They do not decide pro
 3. `planner` and `spec-writer` define work packages and acceptance criteria.
 4. Execution agents implement bounded changes.
 5. Worker agents run assigned commands and collect outputs.
-6. Verification agents review, test, and decide pass/fail.
+6. Verification agents review, test, triage stopped states, and decide pass/fail.
 7. Knowledge agents write docs, handoffs, receipts, and SITREPs.
 8. `general-commander` synthesizes final state only when cross-agent judgment is required.

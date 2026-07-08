@@ -12,6 +12,7 @@ Start as high as the ambiguity requires:
 - Use planning agents when the goal is known but needs milestones, specs, research, or acceptance criteria.
 - Use execution agents when the task has a bounded implementation lane.
 - Use verification agents when there is a diff, build, release candidate, visual surface, or security-sensitive change to inspect.
+- Use the Triage Agent when a result is flagged as wrong, a stop condition fires, or a workflow needs human-review routing before it can resume.
 - Use knowledge agents when context, docs, handoff, or status artifacts are the main output.
 - Use routine workers only for explicit, bounded commands and evidence collection.
 
@@ -73,6 +74,8 @@ For repeatable testing, use:
 
 The benchmark is intentionally small but cross-functional. It should reveal whether the chain can handle product framing, planning, implementation, verification, documentation, evidence collection, and retrospective improvement.
 
+The ProofPack benchmark is also a KUJO dogfood test. It requires a unique `.runs/proofpack-YYYYMMDD-HHMMSS/` workspace, KUJO-language implementation for KUJO ecosystem tooling, KUJO tool usage or explicit skip receipts, and comparison-ready artifacts. Use the copyable review prompt inside the scorecard after each run to compare behavior across benchmark attempts.
+
 ## Agent Table
 
 | Layer | Agent | Use For | Model Tier | Key Tools |
@@ -91,6 +94,7 @@ The benchmark is intentionally small but cross-functional. It should reveal whet
 | Execution | Backend Developer | APIs, persistence, jobs, auth boundaries | Standard coding | Eval, Scout, CaseFile |
 | Execution | Integration Engineer | GitHub/GitLab/MCP/CI/service integration | Standard coding | MCP, Dispatch, Watchdog |
 | Verification | Code Reviewer | Diff review, regressions, missing tests | Standard/high reasoning | PatchBrief, ChangeBucket, Concord |
+| Verification | Triage Agent | Flagged wrong outputs, stopped workflows, human-review routing | Standard/high reasoning | CaseFile, RunLedger, Dispatch, PatchBrief |
 | Verification | QA Lead | Test strategy and evidence requirements | Standard/high reasoning | Eval, CaseFile, RunLedger |
 | Verification | Visual QA Agent | Browser, layout, accessibility, visual proof | Standard coding | Lens |
 | Verification | Release Verifier | Release readiness and blocking gates | Premium/standard | ShipCheck, Eval, Fence, RunLedger |
