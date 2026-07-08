@@ -7,6 +7,7 @@ This repository currently contains:
 - `archivist/` - universal source-bound project researcher and handoff dossier builder for any repository, product, workflow, research, documentation, or implementation project.
 - `kujo-archivist/` - KUJO-specific Archivist variant customized for KUJO repos, tools, skills, workflows, docs, examples, and related local sources.
 - `chain-of-command/` - coordinated KUJO agent chain of command, role contracts, tool-to-agent map, campaign templates, benchmarks, and reusable specialist agents for strategy, planning, execution, verification, knowledge, and routine worker tasks.
+- `tools/proofpack.py` - local-first evidence packet generator used by the ProofPack benchmark.
 
 ## Purpose
 
@@ -43,6 +44,16 @@ chain-of-command/
 ```
 
 Existing Archivist packages remain at the repository root because they predate the command-chain folder and are reusable outside the KUJO-specific hierarchy.
+
+## ProofPack
+
+Run ProofPack against a local project folder to create a reviewable Markdown evidence packet:
+
+```bash
+python3 tools/proofpack.py ./some-project --out ./proofpack-report.md
+```
+
+See [docs/proofpack.md](docs/proofpack.md) for JSON output, dry-run mode, report contents, and safety notes.
 
 ## License
 
