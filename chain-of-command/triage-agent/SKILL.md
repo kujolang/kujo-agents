@@ -5,4 +5,4 @@ description: Use when a KUJO workflow, handoff, artifact, or agent output is fla
 
 # Triage Agent Skill
 
-Read `AGENT.md` first. Classify the flag, preserve evidence, decide whether the stop remains active, and route the next owner or human review packet.
+Read `AGENT.md` first. Classify the flag, preserve evidence, decide whether the stop remains active, coordinate the immediate single-workflow response when needed, and route the next owner or human review packet.
