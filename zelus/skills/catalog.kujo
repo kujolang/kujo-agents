@@ -1,0 +1,77 @@
+# Kujo-native skill registry.
+#
+# Skills are ordinary Kujo records, not dynamically imported prompt files. A
+# runner resolves a skill here, loads the owning agent contract, checks the
+# declared tool family, and records the result in the evidence ledger.
+
+func skill(name, agent, tools, evidence) {
+    return {"name": name, "agent": agent, "tools": tools, "evidence": evidence, "version": "zelus.skill.v1"}
+}
+
+func tools_for(agent) {
+    if agent == "engagement-intelligence" { return ["packet-reader", "scope-gate", "evidence-ledger"] }
+    if agent == "director" { return ["task-graph", "scope-gate", "evidence-ledger"] }
+    if agent == "recon" { return ["scope-gate", "http-client", "dns-client", "evidence-ledger"] }
+    if agent == "wordpress-source" { return ["source-index", "archive-reader", "evidence-ledger"] }
+    if agent == "identity-authorization" { return ["role-matrix", "request-replay", "workcell", "evidence-ledger"] }
+    if agent == "exploit-engineer" { return ["workcell", "request-replay", "snapshotter", "evidence-ledger"] }
+    if agent == "chain-architect" { return ["chain-graph", "evidence-ledger"] }
+    if agent == "verification" { return ["clean-workcell", "request-replay", "duplicate-index", "evidence-ledger"] }
+    if agent == "case-officer" { return ["redactor", "report-renderer", "evidence-ledger"] }
+    return ["scope-gate", "request-replay", "evidence-ledger"]
+}
+
+func evidence_for(agent) {
+    if agent == "director" { return "TaskPackage or campaign decision" }
+    if agent == "engagement-intelligence" { return "manifest provenance and authorization decision" }
+    if agent == "recon" { return "scoped tool receipt and asset record" }
+    if agent == "wordpress-source" { return "source location and data-flow evidence" }
+    if agent == "identity-authorization" { return "role observation and state diff" }
+    if agent == "exploit-engineer" { return "reproduction package and cleanup receipt" }
+    if agent == "chain-architect" { return "primitive edge rationale and chain record" }
+    if agent == "verification" { return "independent verdict and assumption audit" }
+    if agent == "case-officer" { return "redacted casefile or report artifact" }
+    return "integration evidence and approval receipt"
+}
+
+func add_group(result, names, agent) {
+    for name in names { result = push(result, skill(name, agent, tools_for(agent), evidence_for(agent))) }
+    return result
+}
+
+func list_skills() {
+    result := []
+    result = add_group(result, ["engagement_packet_ingest", "authorization_policy_compile", "company_dossier_compile"], "engagement-intelligence")
+    result = add_group(result, ["scope_rule_evaluate", "attacker_model_generate", "campaign_plan_generate", "task_package_generate", "safe_live_validation_plan"], "director")
+    result = add_group(result, ["program_eligibility_evaluate", "casefile_build", "hackerone_report_render", "bugcrowd_report_render", "wordfence_report_render", "patchstack_report_render", "vendor_report_render", "evidence_redact", "campaign_postmortem_generate"], "case-officer")
+    result = add_group(result, ["authorized_domain_enumeration", "http_surface_probe", "wordpress_instance_detect", "wordpress_component_inventory", "authentication_surface_map", "javascript_endpoint_extract", "historical_url_collect", "recon_signal_correlate"], "recon")
+    result = add_group(result, ["external_integration_map", "ai_feature_surface_map", "prompt_to_action_boundary_review", "indirect_prompt_influence_review", "ai_tool_authorization_review", "ai_output_rendering_review", "ai_secret_handling_review", "ai_cross_user_isolation_review", "ai_cross_tenant_isolation_review", "remote_content_retrieval_review", "webhook_trust_review", "oauth_callback_review"], "ai-integration")
+    result = add_group(result, ["wordpress_hook_map", "wordpress_rest_route_map", "wordpress_ajax_action_map", "wordpress_capability_check_map", "wordpress_nonce_usage_review", "wordpress_input_source_map", "wordpress_sensitive_sink_map", "wordpress_data_flow_trace", "wordpress_database_query_review", "wordpress_file_operation_review", "wordpress_remote_request_review", "wordpress_output_context_review", "wordpress_serialization_review", "wordpress_secret_handling_review", "wordpress_version_diff", "wordpress_patch_intent_infer", "wordpress_patch_bypass_hunt"], "wordpress-source")
+    result = add_group(result, ["wordpress_role_capability_review", "wordpress_role_matrix_build", "wordpress_object_authorization_test", "wordpress_multisite_boundary_test", "woocommerce_authorization_test", "wordpress_registration_flow_review", "wordpress_password_reset_review", "wordpress_session_flow_review", "wordpress_privilege_escalation_hunt", "wordpress_admin_influence_hunt", "role_matrix_replay"], "identity-authorization")
+    result = add_group(result, ["wordpress_workcell_provision", "wordpress_fixture_seed", "hypothesis_reproduce", "affected_version_matrix_test", "configuration_matrix_test", "primitive_record_create", "state_cleanup_verify"], "exploit-engineer")
+    result = add_group(result, ["primitive_graph_update", "primitive_compatibility_analyze", "attack_chain_generate", "attack_chain_reproduce", "maximum_credible_impact_assess", "crown_jewel_path_analyze"], "chain-architect")
+    result = add_group(result, ["independent_reproduction", "false_positive_challenge", "duplicate_search", "severity_calibrate", "fix_verify"], "verification")
+    return result
+}
+
+func list_skill_names() {
+    names := []
+    for item in list_skills() { names = push(names, item["name"]) }
+    return names
+}
+
+func get_skill(name) {
+    for item in list_skills() { if item["name"] == name { return item } }
+    return null
+}
+
+func skills_for_agent(agent) {
+    result := []
+    for item in list_skills() { if item["agent"] == agent { result = push(result, item) } }
+    return result
+}
+
+export list_skills := list_skills
+export list_skill_names := list_skill_names
+export get_skill := get_skill
+export skills_for_agent := skills_for_agent

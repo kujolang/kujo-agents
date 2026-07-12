@@ -1,1 +1,0 @@
-{"id":"source-assisted-hunt","steps":[{"id":"index-source","agent":"wordpress-source","skill":"wordpress_hook_map"},{"id":"trace-flows","agent":"wordpress-source","skill":"wordpress_data_flow_trace","requires":["index-source"]},{"id":"generate-hypotheses","agent":"wordpress-source","skill":"source_hypothesis_generate","requires":["trace-flows"]}]}

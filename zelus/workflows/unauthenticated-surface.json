@@ -1,1 +1,0 @@
-{"id":"unauthenticated-surface","pack":"Unauthenticated Surface Hunt","steps":[{"id":"public-routes","agent":"recon","skill":"wordpress_rest_route_map"},{"id":"public-actions","agent":"wordpress-source","skill":"wordpress_ajax_action_map","requires":["public-routes"]},{"id":"reproduce","agent":"exploit-engineer","skill":"hypothesis_reproduce","requires":["public-actions"]}]}

@@ -1,1 +1,0 @@
-{"id":"role-matrix","steps":[{"id":"provision","agent":"identity-authorization","skill":"wordpress_role_matrix_build"},{"id":"replay","agent":"identity-authorization","skill":"role_matrix_replay","requires":["provision"]},{"id":"candidates","agent":"identity-authorization","skill":"wordpress_object_authorization_test","requires":["replay"]}]}

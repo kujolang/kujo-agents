@@ -8,6 +8,8 @@ The implementation is intentionally written in Kujo. The package showcases
 Kujo modules, structured data, file-backed artifacts, deterministic offline
 fixtures, CLI parsing, tests, redaction, policy gates, and Agents SDK-shaped
 handoffs without requiring Python, provider credentials, or network access.
+Start with [HOWTO.md](HOWTO.md) for the operator path, tool adapters, skills,
+workflows, and result review.
 
 ## Run
 
@@ -28,8 +30,9 @@ zelus/
 ├── zelus.kujo             # thin CLI entrypoint
 ├── src/                    # Kujo runtime, contracts, policy, evidence, graph
 ├── agents/                 # Zelus-specific agent contracts and prompts
-├── skills/                 # versioned skill catalog
-├── workflows/              # declarative campaign definitions
+├── skills/                 # Kujo skill registry and agent procedures
+├── workflows/              # Kujo workflow registry
+├── tools/                  # scoped Kujo tool adapters
 ├── schemas/                # machine-readable record contracts
 ├── examples/               # synthetic engagement packets
 └── tests/                  # Kujo-native contract tests
@@ -37,4 +40,6 @@ zelus/
 
 The package is an offline foundation. Live HTTP, DNS, browser, container, and
 provider adapters must be connected through the scope gate and evidence receipt
-contracts before use against any real target.
+contracts before use against any real target. The registry files are ordinary
+Kujo modules: they are read by a runner, not magically executed as arbitrary
+JSON or prompts.

@@ -5,6 +5,8 @@ from src.policy import evaluate
 from src.reference import run
 from src.reporting import validate_readiness
 from src.source import hypotheses, index_source
+from workflows.catalog import list_workflows
+from skills.catalog import list_skills
 
 func usage() {
     return "Zelus " + VERSION + "\n\nUsage:\n  kujo run zelus.kujo -- engagement validate <packet>\n  kujo run zelus.kujo -- engagement ingest <packet> --out <manifest.json>\n  kujo run zelus.kujo -- campaign plan <manifest.json> --out <campaign.json>\n  kujo run zelus.kujo -- campaign reference <packet> --out <run-dir>\n  kujo run zelus.kujo -- campaign start <campaign.json> --out <campaign.json>\n  kujo run zelus.kujo -- campaign status <campaign.json>\n  kujo run zelus.kujo -- hypotheses source <plugin.php> --out <hypotheses.json>\n  kujo run zelus.kujo -- report validate <finding.json> <verification.json>\n  kujo run zelus.kujo -- eval reference <packet> --out <run-dir>\n  kujo run zelus.kujo -- doctor"
@@ -34,7 +36,7 @@ func main(argv) {
     if len(argv) == 0 || argv[0] == "help" || argv[0] == "--help" { print(usage()); return 2 }
     if argv[0] == "version" || argv[0] == "--version" { print("Zelus " + VERSION); return 0 }
     if argv[0] == "doctor" {
-        print(to_json_pretty({"ok": true, "language": "Kujo", "offline_default": true, "python_runtime": false, "entrypoint": "zelus.kujo", "agents": 10, "workflow_files": 12}))
+        print(to_json_pretty({"ok": true, "language": "Kujo", "offline_default": true, "python_runtime": false, "entrypoint": "zelus.kujo", "agents": 10, "workflows": len(list_workflows()), "skills": len(list_skills())}))
         return 0
     }
     if len(argv) < 2 { print(usage()); return 2 }
