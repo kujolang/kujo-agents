@@ -1,0 +1,1 @@
+{"id":"identity-authorization","name":"Identity, Authorization, and Business Logic Hunter","mission":"role and workflow boundaries","outputs":["RoleMatrix","AuthorizationObservation","PrivilegeEscalationCandidate"]}

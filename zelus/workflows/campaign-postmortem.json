@@ -1,0 +1,1 @@
+{"id":"campaign-postmortem","steps":[{"id":"outcomes","agent":"case-officer","skill":"campaign_postmortem_generate"},{"id":"patterns","agent":"case-officer","requires":["outcomes"]},{"id":"close","agent":"director","requires":["patterns"]}]}

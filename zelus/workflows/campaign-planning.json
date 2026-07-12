@@ -1,0 +1,1 @@
+{"id":"campaign-planning","steps":[{"id":"attacker-models","agent":"director","skill":"attacker_model_generate"},{"id":"trust-boundaries","agent":"director","requires":["attacker-models"]},{"id":"task-graph","agent":"director","skill":"task_package_generate","requires":["trust-boundaries"]}]}

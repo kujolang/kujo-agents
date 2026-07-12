@@ -1,0 +1,1 @@
+{"id":"independent-verification","steps":[{"id":"rebuild","agent":"verification","skill":"independent_reproduction"},{"id":"challenge","agent":"verification","skill":"false_positive_challenge","requires":["rebuild"]},{"id":"calibrate","agent":"verification","skill":"severity_calibrate","requires":["challenge"]}]}

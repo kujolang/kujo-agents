@@ -1,0 +1,1 @@
+{"id":"version-patch-hunt","steps":[{"id":"diff","agent":"wordpress-source","skill":"wordpress_version_diff"},{"id":"infer-intent","agent":"wordpress-source","skill":"wordpress_patch_intent_infer","requires":["diff"]},{"id":"bypass","agent":"wordpress-source","skill":"wordpress_patch_bypass_hunt","requires":["infer-intent"]}]}

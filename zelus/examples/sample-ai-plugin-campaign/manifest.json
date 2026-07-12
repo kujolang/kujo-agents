@@ -1,0 +1,7 @@
+{
+  "engagement_id":"eng-zelus-ai-fixture",
+  "name":"Zelus AI Integration Fixture",
+  "objective":"Review prompt-to-action authorization and cross-user chat isolation.",
+  "authorization":{"mode":"internal_simulation","scope_rules":[{"id":"ai-fixture","pattern":"ai-fixture","decision":"allow","actions":["synthetic_ai_review"],"environments":["workcell"]}]},
+  "targets":[{"name":"ai-fixture","identifier":"ai-fixture","type":"wordpress_plugin","environment":"workcell"}]
+}

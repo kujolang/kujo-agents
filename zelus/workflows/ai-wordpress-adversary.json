@@ -1,0 +1,1 @@
+{"id":"ai-wordpress-adversary","steps":[{"id":"map-ai","agent":"ai-integration","skill":"ai_feature_surface_map"},{"id":"tools","agent":"ai-integration","skill":"ai_tool_authorization_review","requires":["map-ai"]},{"id":"isolation","agent":"ai-integration","skill":"ai_cross_tenant_isolation_review","requires":["map-ai"]}]}

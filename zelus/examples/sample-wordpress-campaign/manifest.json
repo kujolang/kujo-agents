@@ -1,0 +1,15 @@
+{
+  "engagement_id":"eng-zelus-fixture",
+  "name":"Zelus WordPress Fixture Campaign",
+  "objective":"Validate whether a low-privilege WordPress principal can cross a protected plugin action boundary.",
+  "authorization":{
+    "mode":"internal_simulation",
+    "program_name":"Zelus deterministic fixture",
+    "scope_rules":[{"id":"fixture-scope","pattern":"sample-wordpress","decision":"allow","actions":["role_matrix_replay"],"environments":["workcell"]}],
+    "prohibited_actions":["dos","real_user_data","persistence"],
+    "required_approvals":{}
+  },
+  "targets":[{"name":"sample-wordpress","identifier":"sample-wordpress","type":"wordpress","environment":"workcell"}],
+  "products":[{"name":"zelus-fixture-plugin","type":"wordpress_plugin","versions":["fixture-1.0","fixture-1.1"]}],
+  "constraints":["synthetic identities and data only","no outbound network","preserve evidence and cleanup proof"]
+}

@@ -16,10 +16,10 @@ def main() -> int:
     errors: list[str] = []
     agents = sorted(ROOT.rglob("AGENT.md"))
     skills = sorted(ROOT.rglob("SKILL.md"))
-    if len(agents) != 30:
-        errors.append(f"expected 30 AGENT.md contracts, found {len(agents)}")
-    if len(skills) != 30:
-        errors.append(f"expected 30 paired SKILL.md contracts, found {len(skills)}")
+    if len(agents) != 40:
+        errors.append(f"expected 40 AGENT.md contracts, found {len(agents)}")
+    if len(skills) != 40:
+        errors.append(f"expected 40 paired SKILL.md contracts, found {len(skills)}")
     skill_dirs = {path.parent for path in skills}
     for agent in agents:
         if agent.parent not in skill_dirs:
