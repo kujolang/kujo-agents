@@ -1,0 +1,34 @@
+from src.common import append_jsonl, ensure_parent, get_or, new_id, now_text, write_json
+
+SECRET_PATTERNS := ["authorization", "api_key", "apikey", "token", "password", "secret", "private_key"]
+
+func redact(text) {
+    result := to_string(text)
+    for marker in SECRET_PATTERNS {
+        result = regex_replace(result, "(?i)(" + marker + "\\s*[:=]\\s*)[^\\s,;]+", "$1[REDACTED]")
+    }
+    result = regex_replace(result, "(?i)(bearer\\s+)[A-Za-z0-9._~+/=-]+", "$1[REDACTED]")
+    return result
+}
+
+func capture(root, engagement_id, campaign_id, creator, evidence_type, claim, content, provenance) {
+    safe := redact(content)
+    digest := sha256(safe)
+    artifact := root + "/" + to_string(current_timestamp()) + "-" + substring(digest, 0, 16) + ".txt"
+    ensure_parent(artifact)
+    write_file(artifact, safe)
+    reference := {"id": new_id("evidence"), "kind": "EvidenceReference", "engagement_id": engagement_id, "campaign_id": campaign_id, "created_at": now_text(), "updated_at": now_text(), "creator": creator, "provenance": provenance, "confidence": "high", "evidence_refs": [], "status": "captured", "tags": ["evidence", evidence_type], "schema_version": "zelus.v1", "artifact_path": artifact, "sha256": digest, "evidence_type": evidence_type, "claim": claim, "redaction_status": "redacted"}
+    return reference
+}
+
+func record_tool(root, receipt, input_value, output_value) {
+    receipt["input_hash"] := sha256(to_json(input_value))
+    receipt["output_hash"] := sha256(to_json(output_value))
+    receipt["duration_ms"] := 0
+    append_jsonl(root + "/tool-executions.jsonl", receipt)
+    return receipt
+}
+
+export redact := redact
+export capture := capture
+export record_tool := record_tool

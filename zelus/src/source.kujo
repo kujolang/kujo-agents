@@ -1,0 +1,56 @@
+from src.common import get_or, list_includes, new_id, path_basename
+from src.contracts import make_hypothesis
+
+PATTERNS := {
+    "rest": "register_rest_route\\s*\\(\\s*['\"]([^'\"]+)['\"]\\s*,\\s*['\"]([^'\"]+)['\"]",
+    "ajax": "add_action\\s*\\(\\s*['\"](wp_ajax_(?:nopriv_)?[^'\"]+)['\"]",
+    "hook": "add_(?:action|filter)\\s*\\(\\s*['\"]([^'\"]+)['\"]",
+    "capability": "(?:current_user_can|user_can)\\s*\\(",
+    "nonce": "(?:check_ajax_referer|check_admin_referer|wp_verify_nonce)\\s*\\(",
+    "sink": "(update_option|update_user_meta|wp_insert_user|wp_set_auth_cookie|file_put_contents|unserialize|wp_remote_(?:get|post)|do_shortcode|eval)\\s*\\(",
+    "input": "(?:\\$_(?:GET|POST|REQUEST|COOKIE|FILES)|get_param|rest\\s*->\\s*get_param)\\b"
+}
+
+func line_number(text, offset) { return len(split(substring(text, 0, offset), "\n")) }
+
+func matches(text, pattern) { return regex_find_all(text, pattern) }
+
+func index_source(source_path, engagement_id) {
+    if file_exists(source_path) == false || path_is_dir(source_path) { return {"ok": false, "error": "source file is missing or is a directory"} }
+    source := to_string(read_file(source_path))
+    relative := path_basename(source_path)
+    hooks := matches(source, PATTERNS["hook"])
+    routes := matches(source, PATTERNS["rest"])
+    sinks := matches(source, PATTERNS["sink"])
+    has_input := len(matches(source, PATTERNS["input"])) > 0
+    has_capability := len(matches(source, PATTERNS["capability"])) > 0
+    has_nonce := len(matches(source, PATTERNS["nonce"])) > 0
+    flows := []
+    if has_input && len(sinks) > 0 {
+        for sink in sinks {
+            boundary := "authorization"
+            if has_capability { boundary = "capability-check" }
+            controls := []
+            if has_nonce { controls = push(controls, "nonce") }
+            if has_capability { controls = push(controls, "capability") }
+            if len(controls) == 0 { controls = ["none-observed"] }
+            flows = push(flows, {"id": new_id("flow"), "kind": "DataFlowCandidate", "engagement_id": engagement_id, "source": "attacker-controlled WordPress input", "sink": sink, "path": [relative], "controls": controls, "reachable": true, "security_boundary": boundary, "status": "candidate", "evidence_refs": [relative]})
+        }
+    }
+    return {"ok": true, "component": {"name": relative, "source_path": source_path, "hooks": hooks, "routes": routes}, "hooks": hooks, "routes": routes, "sinks": sinks, "flows": flows, "source": source}
+}
+
+func hypotheses(index, engagement_id, campaign_id, target) {
+    result := []
+    for flow in get_or(index, "flows", []) {
+        if flow["security_boundary"] == "authorization" {
+            card := make_hypothesis(engagement_id, campaign_id, target, get_or(index["component"], "name", "source"), flow["sink"], flow["source"], flow["path"])
+            result = push(result, card)
+        }
+    }
+    return result
+}
+
+export index_source := index_source
+export hypotheses := hypotheses
+export PATTERNS := PATTERNS

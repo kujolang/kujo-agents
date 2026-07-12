@@ -1,0 +1,42 @@
+from src.common import get_or, list_includes, now_text
+
+func wildcard_match(pattern, value) {
+    if pattern == "*" || pattern == value { return true }
+    if starts_with(pattern, "*") && ends_with(value, substring(pattern, 1, len(pattern))) { return true }
+    if ends_with(pattern, "*") && starts_with(value, substring(pattern, 0, len(pattern) - 1)) { return true }
+    return false
+}
+
+func rule_matches(rule, target, environment) {
+    if wildcard_match(get_or(rule, "pattern", ""), target) == false { return false }
+    environments := get_or(rule, "environments", [])
+    return len(environments) == 0 || contains(environments, environment)
+}
+
+func evaluate(profile, target, action, environment, approval) {
+    if profile == null { return {"allowed": false, "decision": "missing_profile", "reason": "authorization profile is required"} }
+    if list_includes(get_or(profile, "prohibited_actions", []), action) { return {"allowed": false, "decision": "prohibited", "reason": "action is prohibited"} }
+    rules := get_or(profile, "scope_rules", [])
+    matching := []
+    for rule in rules { if rule_matches(rule, target, environment) { matching = push(matching, rule) } }
+    if len(matching) == 0 { return {"allowed": false, "decision": "pending_scope", "reason": "target has no matching scope rule"} }
+    rule := matching[0]
+    if get_or(rule, "decision", "pending") != "allow" { return {"allowed": false, "decision": get_or(rule, "decision", "pending"), "reason": "scope rule is not allow"} }
+    actions := get_or(rule, "actions", [])
+    if len(actions) > 0 && list_includes(actions, action) == false && list_includes(actions, "*") == false { return {"allowed": false, "decision": "action_denied", "reason": "action is not approved for target"} }
+    required := get_or(get_or(profile, "required_approvals", {}), action, get_or(get_or(profile, "required_approvals", {}), "*", ""))
+    if required != "" && approval != true { return {"allowed": false, "decision": "approval_required", "reason": "approval level required: " + required} }
+    if get_or(profile, "expires_at", "") != "" && to_int(get_or(profile, "expires_at", "0")) < current_timestamp() { return {"allowed": false, "decision": "expired", "reason": "authorization has expired"} }
+    return {"allowed": true, "decision": "allow", "reason": "scope, action, environment, and approval checks passed", "checked_at": now_text()}
+}
+
+func tool_receipt(profile, engagement_id, campaign_id, agent, tool, action, target, environment, approval) {
+    decision := evaluate(profile, target, action, environment, approval)
+    status := "denied"
+    if decision["allowed"] { status = "authorized" }
+    return {"id": "tool-" + substring(sha256(engagement_id + action + target + now_text()), 0, 16), "kind": "ToolExecutionRecord", "engagement_id": engagement_id, "campaign_id": campaign_id, "creator": agent, "tool": tool, "action": action, "target": target, "authorization_decision": decision["decision"], "status": status, "exit_state": status, "decision": decision, "created_at": now_text()}
+}
+
+export evaluate := evaluate
+export tool_receipt := tool_receipt
+export wildcard_match := wildcard_match

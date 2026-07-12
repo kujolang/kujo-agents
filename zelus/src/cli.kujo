@@ -1,0 +1,99 @@
+from src.common import VERSION, fail, get_or, read_json, write_json
+from src.contracts import validate_record, transition
+from src.intake import ingest, plan
+from src.policy import evaluate
+from src.reference import run
+from src.reporting import validate_readiness
+from src.source import hypotheses, index_source
+
+func usage() {
+    return "Zelus " + VERSION + "\n\nUsage:\n  kujo run zelus.kujo -- engagement validate <packet>\n  kujo run zelus.kujo -- engagement ingest <packet> --out <manifest.json>\n  kujo run zelus.kujo -- campaign plan <manifest.json> --out <campaign.json>\n  kujo run zelus.kujo -- campaign reference <packet> --out <run-dir>\n  kujo run zelus.kujo -- campaign start <campaign.json> --out <campaign.json>\n  kujo run zelus.kujo -- campaign status <campaign.json>\n  kujo run zelus.kujo -- hypotheses source <plugin.php> --out <hypotheses.json>\n  kujo run zelus.kujo -- report validate <finding.json> <verification.json>\n  kujo run zelus.kujo -- eval reference <packet> --out <run-dir>\n  kujo run zelus.kujo -- doctor"
+}
+
+func flag_value(argv, flag, fallback) {
+    i := 0
+    while i < len(argv) {
+        if argv[i] == flag && i + 1 < len(argv) { return argv[i + 1] }
+        i = i + 1
+    }
+    return fallback
+}
+
+func validate_packet(path) {
+    manifest := read_json(path + "/manifest.json", null)
+    if manifest == null { return fail("manifest.json not found", 1) }
+    required := ["name", "objective", "authorization"]
+    errors := []
+    for field in required { if has_key(manifest, field) == 0 { errors = push(errors, "missing " + field) } }
+    auth := get_or(manifest, "authorization", {})
+    if has_key(auth, "mode") == 0 || has_key(auth, "scope_rules") == 0 { errors = push(errors, "authorization requires mode and scope_rules") }
+    return {"ok": len(errors) == 0, "valid": len(errors) == 0, "errors": errors}
+}
+
+func main(argv) {
+    if len(argv) == 0 || argv[0] == "help" || argv[0] == "--help" { print(usage()); return 2 }
+    if argv[0] == "version" || argv[0] == "--version" { print("Zelus " + VERSION); return 0 }
+    if argv[0] == "doctor" {
+        print(to_json_pretty({"ok": true, "language": "Kujo", "offline_default": true, "python_runtime": false, "entrypoint": "zelus.kujo", "agents": 10, "workflow_files": 12}))
+        return 0
+    }
+    if len(argv) < 2 { print(usage()); return 2 }
+    command := argv[0]
+    subcommand := argv[1]
+    if command == "engagement" && subcommand == "validate" {
+        if len(argv) < 3 { print(to_json_pretty(fail("packet path is required", 2))); return 2 }
+        result := validate_packet(argv[2]); print(to_json_pretty(result)); if result["valid"] { return 0 }; return 1
+    }
+    if command == "engagement" && subcommand == "ingest" {
+        if len(argv) < 3 { print(to_json_pretty(fail("packet path is required", 2))); return 2 }
+        out := flag_value(argv, "--out", ".zelus/engagement-manifest.json")
+        result := ingest(argv[2], get_or(read_json(argv[2] + "/manifest.json", {}), "engagement_id", "eng-" + to_string(current_timestamp())), out)
+        print(to_json_pretty(result)); if result["ok"] { return 0 }; return 1
+    }
+    if command == "campaign" && subcommand == "plan" {
+        if len(argv) < 3 { print(to_json_pretty(fail("manifest path is required", 2))); return 2 }
+        manifest := read_json(argv[2], null)
+        if manifest == null { print(to_json_pretty(fail("manifest not found", 1))); return 1 }
+        out := flag_value(argv, "--out", ".zelus/campaign.json")
+        result := plan(manifest, out); print(to_json_pretty(result)); if result["ok"] { return 0 }; return 1
+    }
+    if (command == "campaign" && subcommand == "reference") || (command == "eval" && subcommand == "reference") {
+        if len(argv) < 3 { print(to_json_pretty(fail("packet path is required", 2))); return 2 }
+        out := flag_value(argv, "--out", ".zelus/reference-run")
+        result := run(argv[2], out); print(to_json_pretty(result)); if result["ok"] { return 0 }; return 1
+    }
+    if command == "campaign" && subcommand == "start" {
+        if len(argv) < 3 { print(to_json_pretty(fail("campaign path is required", 2))); return 2 }
+        path := argv[2]
+        campaign := read_json(path, null)
+        if campaign == null { print(to_json_pretty(fail("campaign not found", 1))); return 1 }
+        result := transition(campaign, "active", "operator", "campaign start", [])
+        if result["ok"] { write_json(flag_value(argv, "--out", path), result["record"]) }
+        print(to_json_pretty(result)); if result["ok"] { return 0 }; return 1
+    }
+    if command == "campaign" && subcommand == "status" {
+        campaign := read_json(argv[2], null)
+        if campaign == null { print(to_json_pretty(fail("campaign not found", 1))); return 1 }
+        print(to_json_pretty({"ok": true, "campaign_id": campaign["id"], "status": campaign["status"], "tasks": len(get_or(campaign, "tasks", [])), "objectives": get_or(campaign, "objective", "") }))
+        return 0
+    }
+    if command == "hypotheses" && subcommand == "source" {
+        if len(argv) < 3 { print(to_json_pretty(fail("source path is required", 2))); return 2 }
+        index := index_source(argv[2], flag_value(argv, "--engagement", "eng-local"))
+        if index["ok"] == false { print(to_json_pretty(index)); return 1 }
+        cards := hypotheses(index, flag_value(argv, "--engagement", "eng-local"), flag_value(argv, "--campaign", "campaign-local"), flag_value(argv, "--target", "source-target"))
+        result := {"ok": true, "hypotheses": cards, "index": index}
+        out := flag_value(argv, "--out", "")
+        if out != "" { write_json(out, result) }
+        print(to_json_pretty(result)); return 0
+    }
+    if command == "report" && subcommand == "validate" {
+        if len(argv) < 4 { print(to_json_pretty(fail("finding and verification paths are required", 2))); return 2 }
+        result := validate_readiness(read_json(argv[2], null), read_json(argv[3], null)); print(to_json_pretty(result)); if result["valid"] { return 0 }; return 1
+    }
+    print(to_json_pretty({"ok": false, "error": "unknown command", "usage": usage()})); return 2
+}
+
+export main := main
+export usage := usage
+export validate_packet := validate_packet

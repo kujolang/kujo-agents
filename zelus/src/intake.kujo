@@ -1,0 +1,47 @@
+from src.common import get_or, new_id, read_json, write_json
+from src.contracts import base_record, make_task, validate_record
+
+AGENT_LANES := [
+    ["wordpress-source", "Index WordPress hooks, routes, sinks, and patches"],
+    ["identity-authorization", "Replay operations across roles and objects"],
+    ["exploit-engineer", "Reproduce hypotheses in a synthetic Workcell"],
+    ["chain-architect", "Compose confirmed primitives into bounded chains"],
+    ["verification", "Independently reproduce and challenge findings"],
+    ["case-officer", "Render responsible-disclosure cases and postmortems"]
+]
+
+func ingest(packet_path, engagement_id, out_path) {
+    manifest_path := packet_path + "/manifest.json"
+    manifest := read_json(manifest_path, null)
+    if manifest == null { return {"ok": false, "error": "manifest.json is required"} }
+    manifest["id"] := engagement_id
+    manifest["kind"] := "EngagementManifest"
+    manifest["engagement_id"] := engagement_id
+    manifest["schema_version"] := "zelus.v1"
+    manifest["status"] := "validated"
+    manifest["provenance"] := [manifest_path]
+    check := validate_record(manifest)
+    if check["valid"] == false { return {"ok": false, "error": to_json(check["errors"])} }
+    write_json(out_path, manifest)
+    return {"ok": true, "manifest": manifest}
+}
+
+func plan(manifest, out_path) {
+    campaign := base_record("Campaign", manifest["engagement_id"], null, "director")
+    campaign["name"] := get_or(manifest, "name", "Zelus campaign")
+    campaign["objective"] := get_or(manifest, "objective", "authorized WordPress security research")
+    campaign["status"] := "planned"
+    campaign["attacker_models"] := [{"id": new_id("attacker"), "name": "low-privilege WordPress user", "starting_access": "subscriber or customer", "goals": ["cross authorization boundary", "reach crown jewel"]}]
+    campaign["trust_boundaries"] := [{"id": new_id("boundary"), "name": "WordPress capability boundary", "from": "low-privilege user", "to": "protected operation", "assumption": "capability and ownership checks"}]
+    campaign["tasks"] := []
+    assets := []
+    for target in get_or(manifest, "targets", []) { assets = push(assets, get_or(target, "identifier", get_or(target, "name", "unknown"))) }
+    for lane in AGENT_LANES { campaign["tasks"] = push(campaign["tasks"], make_task(manifest["engagement_id"], campaign["id"], lane[0], lane[1], campaign["objective"], campaign["attacker_models"][0]["name"], assets)) }
+    campaign["workstreams"] := AGENT_LANES
+    write_json(out_path, campaign)
+    return {"ok": true, "campaign": campaign}
+}
+
+export ingest := ingest
+export plan := plan
+export AGENT_LANES := AGENT_LANES

@@ -1,0 +1,85 @@
+VERSION := "0.1.0"
+SCHEMA_VERSION := "zelus.v1"
+
+func get_or(obj, key, fallback) {
+    if obj == null || has_key(obj, key) == 0 || obj[key] == null { return fallback }
+    return obj[key]
+}
+
+func text(value) { return to_string(value) }
+
+func list_includes(arr, value) {
+    for item in arr { if item == value { return true } }
+    return false
+}
+
+func now_text() { return to_string(current_timestamp()) }
+
+func new_id(prefix) { return prefix + "-" + substring(sha256(prefix + ":" + now_text() + ":" + to_string(uuid_v4())), 0, 16) }
+
+func path_parent(path) {
+    i := len(path) - 1
+    while i >= 0 {
+        if substring(path, i, i + 1) == "/" { return substring(path, 0, i) }
+        i = i - 1
+    }
+    return "."
+}
+
+func path_basename(path) {
+    parent := path_parent(path)
+    if parent == "." { return path }
+    return substring(path, len(parent) + 1, len(path))
+}
+
+func ensure_dir(path) {
+    if path == "" || path == "." || path_is_dir(path) { return true }
+    parent := path_parent(path)
+    if parent != path { ensure_dir(parent) }
+    if path_is_dir(path) == false { create_dir(path) }
+    return true
+}
+
+func ensure_parent(path) {
+    parent := path_parent(path)
+    if parent != "" && path_is_dir(parent) == false { ensure_dir(parent) }
+    return true
+}
+
+func write_json(path, value) {
+    ensure_parent(path)
+    if file_exists(path) { delete_file(path) }
+    write_file(path, to_json_pretty(value) + "\n")
+    return path
+}
+
+func read_json(path, fallback) {
+    if file_exists(path) == false || path_is_dir(path) { return fallback }
+    try { return parse_json(to_string(read_file(path))) } except err { return fallback }
+}
+
+func append_jsonl(path, value) {
+    ensure_parent(path)
+    append_file(path, to_json(value) + "\n")
+    return path
+}
+
+func ok(value) { return {"ok": true, "value": value} }
+func fail(message, code) { return {"ok": false, "error": message, "exit_code": code} }
+
+export VERSION := VERSION
+export SCHEMA_VERSION := SCHEMA_VERSION
+export get_or := get_or
+export text := text
+export list_includes := list_includes
+export path_parent := path_parent
+export path_basename := path_basename
+export now_text := now_text
+export new_id := new_id
+export ensure_parent := ensure_parent
+export ensure_dir := ensure_dir
+export write_json := write_json
+export read_json := read_json
+export append_jsonl := append_jsonl
+export ok := ok
+export fail := fail

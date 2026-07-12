@@ -1,0 +1,21 @@
+from src.common import get_or, now_text, write_json
+
+func validate_readiness(finding, verdict) {
+    if finding == null || verdict == null { return {"valid": false, "errors": ["finding and verification are required"]} }
+    errors := []
+    if get_or(verdict, "verdict", "") != "approved" { errors = push(errors, "independent verification is not approved") }
+    if len(get_or(finding, "evidence_refs", [])) == 0 { errors = push(errors, "finding has no evidence references") }
+    if get_or(finding, "status", "") != "independently_verified" && get_or(finding, "status", "") != "reportable" { errors = push(errors, "finding is not independently verified") }
+    return {"valid": len(errors) == 0, "errors": errors}
+}
+
+func build_case(finding, verdict, channel, out_path) {
+    gate := validate_readiness(finding, verdict)
+    if gate["valid"] == false { return {"ok": false, "error": to_json(gate["errors"]) } }
+    casefile := {"id": "case-" + substring(sha256(finding["id"] + now_text()), 0, 16), "kind": "CaseFile", "engagement_id": finding["engagement_id"], "campaign_id": finding["campaign_id"], "created_at": now_text(), "updated_at": now_text(), "creator": "case-officer", "provenance": [finding["id"], verdict["id"]], "confidence": "high", "evidence_refs": finding["evidence_refs"], "status": "reportable", "tags": ["disclosure", channel], "schema_version": "zelus.v1", "finding_id": finding["id"], "title": finding["title"], "observed_facts": [finding["impact"], "verdict independently reproduced the behavior"], "supported_inferences": [get_or(finding, "maximum_credible_impact", "")], "unverified_possibilities": ["Any impact beyond the reproduced path is unverified"], "redaction_status": "evidence references only"}
+    write_json(out_path, casefile)
+    return {"ok": true, "casefile": casefile}
+}
+
+export validate_readiness := validate_readiness
+export build_case := build_case

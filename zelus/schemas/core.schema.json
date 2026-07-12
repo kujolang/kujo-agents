@@ -1,0 +1,23 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://kujo.local/zelus/core.schema.json",
+  "title":"Zelus record envelope",
+  "type":"object",
+  "required":["id","kind","engagement_id","created_at","updated_at","creator","provenance","confidence","evidence_refs","status","tags","schema_version"],
+  "properties":{
+    "id":{"type":"string","minLength":3},
+    "kind":{"type":"string"},
+    "engagement_id":{"type":"string","minLength":1},
+    "campaign_id":{"type":["string","null"]},
+    "created_at":{"type":"string"},
+    "updated_at":{"type":"string"},
+    "creator":{"type":"string","minLength":1},
+    "provenance":{"type":"array"},
+    "confidence":{"enum":["low","medium","high"]},
+    "evidence_refs":{"type":"array"},
+    "status":{"type":"string","minLength":1},
+    "tags":{"type":"array"},
+    "schema_version":{"const":"zelus.v1"}
+  },
+  "additionalProperties":true
+}

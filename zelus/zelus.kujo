@@ -1,0 +1,6 @@
+#!/usr/bin/env kujo
+
+from src.cli import main
+
+code := main(args())
+exit(code)

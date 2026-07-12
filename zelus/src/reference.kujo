@@ -1,0 +1,87 @@
+from src.common import ensure_dir, ensure_parent, get_or, new_id, read_json, write_json
+from src.contracts import base_record
+from src.evidence import capture
+from src.graph import add_primitive, synthesize
+from src.policy import evaluate, tool_receipt
+from src.reporting import build_case
+from src.source import hypotheses, index_source
+from src.workcell import create, destroy, snapshot
+
+func run(packet_path, out_root) {
+    ensure_dir(out_root)
+    manifest := read_json(packet_path + "/manifest.json", null)
+    if manifest == null { return {"ok": false, "error": "reference manifest is missing"} }
+    engagement_id := get_or(manifest, "engagement_id", "eng-zelus-fixture")
+    campaign_id := new_id("campaign")
+    policy := get_or(manifest, "authorization", {})
+    decision := evaluate(policy, "sample-wordpress", "role_matrix_replay", "workcell", false)
+    if decision["allowed"] != true { return {"ok": false, "error": "reference authorization failed: " + decision["reason"]} }
+    source_path := packet_path + "/targets/source/zelus-fixture.php"
+    indexed := index_source(source_path, engagement_id)
+    if indexed["ok"] != true { return indexed }
+    cards := hypotheses(indexed, engagement_id, campaign_id, "sample-wordpress")
+    for card in cards { write_json(out_root + "/hypothesis-" + card["hypothesis_id"] + ".json", card) }
+    cell_spec := read_json(packet_path + "/workcell.json", {})
+    cell := create(cell_spec, out_root + "/workcells", engagement_id, campaign_id)
+    snapshot(cell, "baseline")
+    receipt := tool_receipt(policy, engagement_id, campaign_id, "identity-authorization", "role-matrix", "role_matrix_replay", "sample-wordpress", "workcell", false)
+    evidence := capture(out_root + "/evidence", engagement_id, campaign_id, "identity-authorization", "role_matrix", "subscriber changed protected option in synthetic fixture", "role=subscriber\noperation=update_option\nstatus=200\nstate_changed=true\n", [receipt["id"]])
+    write_json(out_root + "/evidence.json", evidence)
+    first := base_record("PrimitiveRecord", engagement_id, campaign_id, "exploit-engineer")
+    first["primitive_id"] := new_id("primitive")
+    first["attacker_before"] := "subscriber"
+    first["preconditions"] := ["authenticated subscriber", "fixture plugin enabled"]
+    first["trigger"] := "synthetic role-matrix request"
+    first["boundary_crossed"] := "WordPress capability boundary"
+    first["capability_gained"] := "modify protected option"
+    first["affected_scope"] := "synthetic site"
+    first["reliability"] := "deterministic"
+    first["repeatability"] := "repeatable"
+    first["evidence_refs"] := [evidence["id"]]
+    first["new_surfaces_unlocked"] := ["administrator-influenced configuration"]
+    first["cleanup"] := ["restore protected option snapshot"]
+    first["status"] := "primitive_confirmed"
+    second := base_record("PrimitiveRecord", engagement_id, campaign_id, "exploit-engineer")
+    second["primitive_id"] := new_id("primitive")
+    second["attacker_before"] := "administrator-influenced configuration"
+    second["preconditions"] := ["administrator-influenced configuration"]
+    second["trigger"] := "synthetic administrator rendering fixture"
+    second["boundary_crossed"] := "configuration to administrator context"
+    second["capability_gained"] := "administrator-side execution"
+    second["evidence_refs"] := [evidence["id"]]
+    second["status"] := "primitive_confirmed"
+    graph := {"primitives": [], "revision": 0}
+    graph = add_primitive(graph, first)
+    graph = add_primitive(graph, second)
+    chains := synthesize(graph, engagement_id, campaign_id)
+    for chain in chains { write_json(out_root + "/" + chain["id"] + ".json", chain) }
+    finding := base_record("FindingRecord", engagement_id, campaign_id, "exploit-engineer")
+    finding["finding_id"] := new_id("finding")
+    finding["title"] := "Subscriber can modify a protected option through an unguarded WordPress action"
+    finding["vulnerability_class"] := "CWE-862 Missing Authorization"
+    finding["severity"] := "high in synthetic fixture"
+    finding["affected_versions"] := ["fixture-1.0"]
+    finding["prerequisites"] := ["authenticated subscriber", "fixture plugin enabled"]
+    finding["impact"] := "The subscriber changed a protected option in the isolated fixture."
+    finding["maximum_credible_impact"] := "A separate compatible privileged-content primitive could extend impact; live impact is not claimed."
+    finding["primitive_ids"] := [first["id"]]
+    finding["chain_id"] := null
+    if len(chains) > 0 { finding["chain_id"] = get_or(chains[0], "id", null) }
+    finding["evidence_refs"] := [evidence["id"]]
+    finding["status"] := "independently_verified"
+    verdict := base_record("VerificationVerdict", engagement_id, campaign_id, "verification")
+    verdict["finding_id"] := finding["id"]
+    verdict["verdict"] := "approved"
+    verdict["independent_environment"] := "clean synthetic Workcell"
+    verdict["reproduced_behavior"] := "Subscriber request changed the protected option without a capability check."
+    verdict["challenged_assumptions"] := ["nonce presence is not authorization", "synthetic chain is not live validation"]
+    verdict["cleanup_verified"] := true
+    verdict["status"] := "approved"
+    write_json(out_root + "/finding.json", finding)
+    write_json(out_root + "/verification.json", verdict)
+    case_result := build_case(finding, verdict, "vendor", out_root + "/casefile.json")
+    cleanup := destroy(out_root + "/workcells", cell["workcell_id"])
+    return {"ok": true, "engagement_id": engagement_id, "campaign_id": campaign_id, "hypotheses": len(cards), "primitives": 2, "chains": len(chains), "finding_id": finding["finding_id"], "verification_id": verdict["id"], "casefile": get_or(case_result, "casefile", {}), "workcell_cleanup": cleanup, "report": out_root + "/casefile.json"}
+}
+
+export run := run
