@@ -1,0 +1,30 @@
+# Minimal tool-adapter contract used by every external scanner integration.
+#
+# This fixture adapter is deliberately deterministic. A real adapter can
+# replace the supplied output with argv-based subprocess or API execution,
+# while keeping the same authorization, receipt, and evidence sequence.
+
+from src.common import fail, get_or
+from src.evidence import capture, record_tool
+from src.policy import tool_receipt
+
+func run_fixture_tool(profile, engagement_id, campaign_id, agent, tool, action, target, environment, approval, input_value, output_value, evidence_root) {
+    receipt := tool_receipt(profile, engagement_id, campaign_id, agent, tool, action, target, environment, approval)
+    if receipt["status"] != "authorized" { return {"ok": false, "receipt": receipt, "error": receipt["decision"]["reason"]} }
+    receipt := record_tool(evidence_root, receipt, input_value, output_value)
+    evidence := capture(evidence_root, engagement_id, campaign_id, agent, "tool-output", tool + " output for " + target, to_json(output_value), {"tool": tool, "target": target, "receipt_id": receipt["id"]})
+    return {"ok": true, "receipt": receipt, "evidence": evidence, "output": output_value}
+}
+
+func adapter_contract() {
+    return {
+        "required_inputs": ["authorization_profile", "target", "action", "environment", "approval", "input"],
+        "required_outputs": ["tool_receipt", "evidence_reference", "raw_output"],
+        "execution_rule": "argv-or-structured-api; never interpolate untrusted strings into a shell command",
+        "failure_rule": "fail closed when scope or approval is missing",
+        "cleanup_rule": "record cleanup status before task completion"
+    }
+}
+
+export run_fixture_tool := run_fixture_tool
+export adapter_contract := adapter_contract

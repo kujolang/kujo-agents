@@ -1,0 +1,16 @@
+from skills.catalog import get_skill, list_skills
+from workflows.catalog import get_workflow, list_workflows, validate_workflow
+from tools.adapter_contract import adapter_contract, run_fixture_tool
+
+skills := list_skills()
+workflows := list_workflows()
+if len(skills) != 83 { print("FAIL: skill registry count"); exit(1) }
+if len(workflows) != 14 { print("FAIL: workflow registry count"); exit(1) }
+if get_skill("wordpress_object_authorization_test")["agent"] != "identity-authorization" { print("FAIL: skill ownership"); exit(1) }
+if validate_workflow(get_workflow("source-assisted-hunt"))["valid"] != true { print("FAIL: workflow validation"); exit(1) }
+if adapter_contract()["failure_rule"] == "" { print("FAIL: adapter contract"); exit(1) }
+
+profile := {"scope_rules":[{"pattern":"fixture.example.test", "decision":"allow", "actions":["http.probe"], "environments":["fixture"]}], "required_approvals":{}}
+result := run_fixture_tool(profile, "eng-registry", "campaign-registry", "recon", "fixture-scanner", "http.probe", "fixture.example.test", "fixture", false, {"argv":["--safe"]}, {"hosts":["fixture.example.test"]}, "/tmp/zelus-adapter-test")
+if result["ok"] != true { print("FAIL: authorized fixture adapter"); exit(1) }
+print("Zelus registry and adapter tests: passed")
