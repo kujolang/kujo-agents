@@ -32,9 +32,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: ShipCheck, Fence, Concord, ChangeBucket, CaseFile, Eval, Scout, Scent.
-- Required KUJO skills: `kujo-shipcheck-workflows`, `kujo-fence-workflows`, `kujo-concord-workflows`, `kujo-changebucket-workflows`, `kujo-casefile-workflows` as needed.
-- Recommended tools: ShipCheck for release gates, Fence for boundaries, ChangeBucket for footprint, CaseFile for failure evidence.
+- Allowed: ShipCheck, Fence, Concord, ChangeBucket, Tribunal advisory packets, Workcell boundary evidence, CaseFile, Eval, Scout, Scent.
+- Required KUJO skills: `kujo-shipcheck-workflows`, `kujo-fence-workflows`, `kujo-concord-workflows`, `kujo-changebucket-workflows`, `kujo-casefile-workflows`, `kujo-tribunal-workflows` as needed.
+- Recommended tools: ShipCheck for release gates, Fence for boundaries, ChangeBucket for footprint, Tribunal for advisory decision evidence, CaseFile for failure evidence.
 
 ## Workflow
 

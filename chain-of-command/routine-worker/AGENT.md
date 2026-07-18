@@ -31,9 +31,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Muzzle, Kujo Doctor, repo scripts, CaseFile when instructed.
+- Allowed: Muzzle, Kujo Doctor, Workcell when explicitly assigned, repo scripts, CaseFile when instructed.
 - Required KUJO skills: tool-specific workflow skill only when the assigned command uses that tool.
-- Recommended tools: Muzzle for noisy commands, CaseFile when a failure bundle is requested.
+- Recommended tools: Muzzle for noisy commands, Workcell for predeclared bounded execution packages, CaseFile when a failure bundle is requested.
 
 ## Workflow
 

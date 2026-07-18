@@ -31,9 +31,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Eval, CaseFile, RunLedger, Lens, ShipCheck, repo test scripts.
-- Required KUJO skills: `kujo-eval-workflows`, `kujo-casefile-workflows`, `kujo-runledger-workflows` as needed.
-- Recommended tools: Eval for deterministic checks, CaseFile for failures, RunLedger for multi-agent receipts.
+- Allowed: Eval, CaseFile, RunLedger, Lens, Workcell receipts, ShipCheck, repo test scripts.
+- Required KUJO skills: `kujo-eval-workflows`, `kujo-casefile-workflows`, `kujo-runledger-workflows`, `kujo-workcell-workflows` as needed.
+- Recommended tools: Eval for deterministic checks, CaseFile for failures, RunLedger for multi-agent receipts, Workcell receipts for bounded execution evidence.
 
 ## Workflow
 

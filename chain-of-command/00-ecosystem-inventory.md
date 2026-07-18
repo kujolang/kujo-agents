@@ -15,12 +15,23 @@ The local `kujo-skills/skills/` folder contains workflow skills for Agents SDK, 
 
 ## Existing Workflows
 
-- `kujo-workflows/`: runnable workflow kits such as agency runner, verified fix loop, AI SDK + Muzzle benchmark, CaseFile evidence packet, Dispatch approval router, MCP agent gateway review, RAG enterprise knowledge gate, Howl content factory, doc generation contract runner, and loop engineering.
+- `kujo-workflows/`: runnable workflow kits such as agency runner, verified fix loop, AI SDK + Muzzle benchmark, CaseFile evidence packet, Dispatch approval router, MCP agent gateway review, RAG enterprise knowledge gate, Howl content factory, doc generation contract runner, loop engineering, Tribunal decision gate, Relay lifecycle handoff, and Workcell execution gate.
 - Individual tool repos include repo-specific workflow scripts, release gates, contract tests, examples, and AGENTS guidance.
 
 ## Existing Tools
 
-Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, and benchmark/showcase repos.
+Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, Relay, Workcell, Tribunal, StegoCipher Kujo, CMS Experience, and benchmark/showcase repos.
+
+## Recently Verified Agent-Facing Capabilities
+
+These repositories changed during the 2026-07-18 audit window and expose usable but bounded agent-facing capabilities:
+
+- `relay`: Kujo-native bounded agent mission composition, pause/resume/cancel, lifecycle handoff receipts, provider/tool bridges, run evidence export, and repair replay. Treat as a local alpha orchestration layer for Integration Engineer, General Commander, Chief of Staff, Triage Agent, Receipt Collector, and Release Verifier. Do not treat it as remote exactly-once delivery, enterprise tenancy, or universal provider proof.
+- `workcell`: local Docker/Podman-backed disposable execution workspaces with declared commands, exported artifacts, receipts, verification, and cleanup. Treat as a bounded execution gate for Tooling Developer, Routine Worker, Test Runner, QA Lead, Security Reviewer, Release Verifier, and Risk Officer when host Docker/Podman trust is acceptable. Do not treat it as a hardened microVM or hosted sandbox.
+- `tribunal`: local-first adversarial decision review engine with hearing, fatal-flaw, ruling, and decision-packet artifacts. Treat as advisory governance evidence for Risk Officer, Product Strategist, Systems Architect, General Commander, and Release Verifier. Human authority remains required for consequential business, release, security, legal, or production decisions.
+- `site-kit`: private internal design-system and component bundle with token, component, CSS, snapshot, lint, and validation commands. Treat as a frontend/documentation capability for Frontend Developer, Visual QA Agent, Documentation Writer, Product Strategist, and Release Verifier. Browser/accessibility proof remains separate for consuming layouts.
+- `stego-cipher-kujo`: educational steganography/obfuscation CLI with Kujo smoke tests. Treat as a narrow demo or security-review subject only. Do not route secrets or cryptographic security requirements to it.
+- `cms-experience`: Studio/public-site application layer for the sibling CMS backend with explicit auth and production-readiness gaps. Treat as a frontend/backend/integration showcase tied to `cms`; do not claim CMS human auth, preview-token, or public production readiness.
 
 ## Repeated Operational Patterns
 
@@ -35,7 +46,7 @@ Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec
 
 ## Mature Enough To Recommend For Routine Use
 
-Repo docs support routine local use for Spec, Eval, Scout, Dispatch offline fixture workflows, CaseFile, RunLedger, Scent, Muzzle trusted local workflows, PackWrite local/team pack generation, Fence architecture checks, ShipCheck release scanning, Lens local browser QA, Kennel launch-safe package workflows, and Watchdog local telemetry/proxy workflows. Each still requires environment-specific validation before broad enterprise claims.
+Repo docs support routine local use for Spec, Eval, Scout, Dispatch offline fixture workflows, CaseFile, RunLedger, Scent, Muzzle trusted local workflows, PackWrite local/team pack generation, Fence architecture checks, ShipCheck release scanning, Lens local browser QA, Kennel launch-safe package workflows, Watchdog local telemetry/proxy workflows, Relay local alpha lifecycle handoffs, Workcell local Docker/Podman execution gates, Tribunal advisory decision gates, and SiteKit local design-system builds. Each still requires environment-specific validation before broad enterprise claims.
 
 ## Experimental Or Underdocumented
 

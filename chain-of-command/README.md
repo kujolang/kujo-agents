@@ -49,6 +49,7 @@ KUJO workflows support the chain by turning work into artifacts:
 - `CaseFile`, `RunLedger`, and PatchBrief-style reports preserve evidence.
 - `Watchdog` captures local AI/proxy telemetry where configured.
 - `Kennel`, `MCP`, `RAG`, and related tools support package, integration, and retrieval work.
+- `Relay`, `Workcell`, and `Tribunal` are now recognized as optional, bounded capabilities for lifecycle handoffs, local execution gates, and advisory decision review. They do not grant broad orchestration, sandbox, or approval authority by default.
 
 See `00-tool-agent-map.md` for supported-versus-inferred behavior.
 
@@ -109,6 +110,19 @@ The ProofPack benchmark is also a KUJO dogfood test. It requires a unique `.runs
 | Worker | Issue Hygiene Worker | Assigned stale/duplicate/label checks | Cheap worker | GitHub/GitLab tools when available |
 | Worker | Dependency Scanner | Dependency/package status checks | Cheap worker | Kennel, Scout |
 | Worker | Receipt Collector | Logs, receipts, artifact paths, evidence packets | Cheap worker | RunLedger, CaseFile |
+
+## Common Recovery And Token Protocol
+
+This protocol applies to every agent in the chain unless an individual `AGENT.md` is stricter.
+
+- Re-read local source evidence before changing direction after malformed input, stale assumptions, failed commands, or conflicting tool output.
+- Retry only when the retry is bounded, safe, and likely to succeed; preserve the failed command or artifact when it matters for verification.
+- Repair generated artifacts only when a deterministic validator identifies a concrete defect inside the agent's authority.
+- Stop and escalate on credentials, permissions, unavailable infrastructure, destructive operations, ambiguous authority, protected governance, conflicting requirements, or required human judgment.
+- Suspend instead of looping when human input is required; do not poll, heartbeat, or reload context repeatedly without useful work.
+- Keep routine updates quiet. Do not narrate plans, reasoning, tool calls, or intermediate progress unless the assignment requires a status artifact.
+- Do not claim completion until required acceptance checks pass, and state exact partial-verification boundaries when a check cannot run.
+- Handoffs must preserve decisions, evidence, unresolved risks, next actions, and validation status without secrets or private reasoning.
 
 ## Adding A New Agent
 

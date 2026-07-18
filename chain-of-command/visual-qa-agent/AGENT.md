@@ -30,9 +30,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Lens, repo dev server, Eval for supplemental checks, CaseFile for failures.
-- Required KUJO skills: `kujo-lens-workflows`.
-- Recommended tools: `lens check`, `lens flow --validate`, `lens flow --execute --record --walkthrough`.
+- Allowed: Lens, SiteKit snapshots, repo dev server, Eval for supplemental checks, CaseFile for failures.
+- Required KUJO skills: `kujo-lens-workflows`; `kujo-sitekit-workflows` when validating SiteKit components or generated bundles.
+- Recommended tools: `lens check`, `lens flow --validate`, `lens flow --execute --record --walkthrough`, SiteKit snapshot output when applicable.
 
 ## Workflow
 

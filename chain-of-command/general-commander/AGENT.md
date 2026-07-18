@@ -33,9 +33,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Spec, Dispatch, RunLedger, ShipCheck, Concord, CaseFile, Scent, Muzzle, local repo inspection.
-- Required KUJO skills: `kujo-spec-workflows`, `kujo-dispatch-workflows`, `kujo-runledger-workflows` when those tools are used.
-- Recommended tools: Dispatch for orchestration, Spec for contracts, RunLedger for receipts, ShipCheck for release gates.
+- Allowed: Spec, Dispatch, RunLedger, ShipCheck, Concord, Relay lifecycle evidence, Tribunal advisory packets, CaseFile, Scent, Muzzle, local repo inspection.
+- Required KUJO skills: `kujo-spec-workflows`, `kujo-dispatch-workflows`, `kujo-runledger-workflows`, `kujo-relay-workflows`, `kujo-tribunal-workflows` when those tools are used.
+- Recommended tools: Dispatch for orchestration, Spec for contracts, RunLedger for receipts, ShipCheck for release gates, Relay for bounded lifecycle handoffs, Tribunal for advisory governance evidence.
 
 ## Workflow
 

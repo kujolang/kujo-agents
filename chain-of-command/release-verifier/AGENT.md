@@ -31,9 +31,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: ShipCheck, Eval, Fence, RunLedger, Concord, CaseFile, ChangeBucket, repo release scripts.
-- Required KUJO skills: `kujo-release-gate-runner`, `kujo-shipcheck-workflows`, `kujo-eval-workflows`, `kujo-fence-workflows`, `kujo-runledger-workflows`.
-- Recommended tools: ShipCheck gate, Eval suites, Fence checks, RunLedger receipts.
+- Allowed: ShipCheck, Eval, Fence, RunLedger, Concord, Relay handoff evidence, Workcell execution evidence, Tribunal advisory packets, CaseFile, ChangeBucket, repo release scripts.
+- Required KUJO skills: `kujo-release-gate-runner`, `kujo-shipcheck-workflows`, `kujo-eval-workflows`, `kujo-fence-workflows`, `kujo-runledger-workflows`; `kujo-relay-workflows`, `kujo-workcell-workflows`, and `kujo-tribunal-workflows` when those artifacts are part of the gate.
+- Recommended tools: ShipCheck gate, Eval suites, Fence checks, RunLedger receipts, Relay/Workcell/Tribunal artifacts when the release depends on lifecycle, execution, or advisory decision evidence.
 
 ## Workflow
 

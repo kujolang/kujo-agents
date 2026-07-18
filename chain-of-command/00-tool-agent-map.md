@@ -30,45 +30,54 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | CaseFile | Local failure/log/manual incident evidence bundles with redaction and handoff docs | Strong local-first v1 CLI; plaintext artifacts | Risk Officer, QA Lead, Triage Agent, Receipt Collector |
 | Lens | Deterministic local browser QA with screenshots, reports, repair briefs, flows | Beta/stabilizing, local-first | Visual QA Agent, Frontend Developer |
 | Kennel | Kujo package/dependency manager with manifests, lockfiles, trust/source policies | Production-oriented for launch-safe local/static scope | Dependency Scanner, Tooling Developer |
+| Relay | Bounded agent mission composition, pause/resume/cancel, lifecycle handoff receipts, provider/tool bridges, run evidence export, and repair replay | Hardened local alpha; live-provider and enterprise tenancy remain open | Integration Engineer, Triage Agent, Receipt Collector |
+| Workcell | Local Docker/Podman-backed disposable execution workspace with declared commands, exported artifacts, receipts, verification, and cleanup | Release-gated local Docker MVP; host isolation remains operator-owned | Tooling Developer, Test Runner, QA Lead |
+| Tribunal | Local adversarial decision review engine with hearings, fatal-flaw checks, rulings, and decision packets | Advisory decision gate; not a replacement for human release/security/legal authority | Risk Officer, Product Strategist, General Commander |
+| SiteKit | Internal token-driven design-system and component bundle with build, lint, validation, snapshot, and smoke commands | Private local package; consuming layouts still need browser and accessibility proof | Frontend Developer, Visual QA Agent, Documentation Writer |
+| StegoCipher Kujo | Educational quote/PNG steganography and obfuscation CLI with smoke tests and JSON output | Demo/learning utility; explicitly not cryptographic encryption | Security Reviewer, Research Analyst |
+| CMS Experience | Studio/public-site application layer for the CMS backend with live contract checks and explicit auth gaps | Showcase/application layer; public production readiness remains gated by documented P1 items | Frontend Developer, Backend Developer, Integration Engineer |
 
 ## Agent Ownership
 
 | Agent | Primary tools | Secondary tools |
 |---|---|---|
-| General Commander | Dispatch, RunLedger, Spec | ShipCheck, Concord |
+| General Commander | Dispatch, RunLedger, Spec | ShipCheck, Concord, Relay lifecycle evidence, Tribunal advisory packets |
 | Chief of Staff | Spec, Dispatch, Scent | Muzzle, PackWrite |
 | Systems Architect | Scout, Fence, Concord | Spec, Agents SDK |
 | Product Strategist | Archivist, Spec | Eval, RunLedger |
 | Planner | Spec, Dispatch, Eval | PackWrite |
 | Spec Writer | Spec | CaseFile, Eval |
 | Research Analyst | Archivist, KUJO Archivist, Scout, RAG | Scent |
-| Risk Officer | ShipCheck, Fence, Concord, ChangeBucket | CaseFile |
+| Risk Officer | ShipCheck, Fence, Concord, ChangeBucket | CaseFile, Tribunal advisory packets, Workcell boundary evidence |
 | Core Developer | Spec, Eval | PatchBrief, CaseFile |
-| Tooling Developer | Kujo runtime, Kujo Tool Building, Muzzle | Kennel, Eval |
-| Frontend Developer | Lens, Eval | CaseFile |
+| Tooling Developer | Kujo runtime, Kujo Tool Building, Muzzle | Kennel, Eval, Workcell |
+| Frontend Developer | Lens, Eval | CaseFile, SiteKit, CMS Experience |
 | Backend Developer | Eval, Scout | RAG, Watchdog |
-| Integration Engineer | MCP, Dispatch, Watchdog | AI SDK, Agents SDK |
+| Integration Engineer | MCP, Dispatch, Watchdog | AI SDK, Agents SDK, Relay, CMS Experience |
 | Code Reviewer | PatchBrief, ChangeBucket, Concord | Fence |
-| Triage Agent | CaseFile, RunLedger, Dispatch | PatchBrief, ChangeBucket, Eval |
-| QA Lead | Eval, CaseFile | RunLedger |
-| Visual QA Agent | Lens | Eval |
-| Release Verifier | ShipCheck, Eval, Fence, RunLedger | Concord |
-| Security Reviewer | Scout, Fence, Scent, Eval | CaseFile |
-| Documentation Writer | Concord, PatchBrief, Howl | Spec |
+| Triage Agent | CaseFile, RunLedger, Dispatch | PatchBrief, ChangeBucket, Eval, Relay run evidence |
+| QA Lead | Eval, CaseFile | RunLedger, Workcell receipts |
+| Visual QA Agent | Lens | Eval, SiteKit snapshots |
+| Release Verifier | ShipCheck, Eval, Fence, RunLedger | Concord, Relay handoff evidence, Workcell execution evidence, Tribunal advisory packets |
+| Security Reviewer | Scout, Fence, Scent, Eval | CaseFile, Workcell boundary evidence, StegoCipher review subject |
+| Documentation Writer | Concord, PatchBrief, Howl | Spec, SiteKit docs/components evidence |
 | Context Packager | Scent, PackWrite, Muzzle | Scout |
 | SITREP Agent | RunLedger, CaseFile | PatchBrief |
-| Routine Worker | Muzzle, Kujo Doctor | CaseFile |
-| Test Runner | Eval, repo test scripts | Muzzle |
+| Routine Worker | Muzzle, Kujo Doctor | CaseFile, Workcell when explicitly assigned |
+| Test Runner | Eval, repo test scripts | Muzzle, Workcell when explicitly assigned |
 | Lint Runner | Repo lint/check scripts | Muzzle |
 | Issue Hygiene Worker | GitHub/GitLab issue tools when available | Concord inferred for doc/task drift |
 | Dependency Scanner | Kennel, Scout | ShipCheck |
-| Receipt Collector | RunLedger, CaseFile | Watchdog |
+| Receipt Collector | RunLedger, CaseFile | Watchdog, Relay run evidence |
 
 ## Inferred Relationships
 
 - `SITREP` is treated as a short status-report role, not a confirmed standalone KUJO tool. Local search found workflow references and evidence tools, but no dedicated SITREP repo.
 - `Issue Hygiene Worker` depends on the issue tracker available in the host environment. KUJO docs inspected here do not define a dedicated issue-hygiene tool.
 - `Security` is distributed across tool behavior such as Scout security smells, Fence boundaries, Eval policy controls, Scent redaction, Watchdog auth/redaction, and Kujo runtime capability controls. A standalone `Security` tool repo was not found in the inspected roots.
+- `Relay`, `Workcell`, and `Tribunal` have dedicated workflow kits in `kujo-workflows`, but agent access stays capability-scoped: Relay is lifecycle/evidence orchestration, Workcell is bounded local execution, and Tribunal is advisory decision review.
+- `StegoCipher Kujo` is a reviewable demo/security subject only. Its README says it is not cryptographic encryption, so no agent should route secrecy, credential storage, or cryptographic security requirements to it.
+- `CMS Experience` depends on the sibling `cms` backend contract. Studio uses operator-supplied API tokens and server-side sessions; do not infer human-user auth, MFA, secure preview, or public production readiness.
 
 ## Evidence Sources
 
@@ -79,4 +88,6 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 - `../../fence/README.md`, `../../shipcheck/README.md`, `../../concord/README.md`, `../../changebucket/README.md`
 - `../../patchbrief/README.md`, `../../casefile/README.md`, `../../runledger/README.md`, `../../lens/README.md`
 - `../../mcp/README.md`, `../../rag/README.md`, `../../watchdog/README.md`, `../../kennel/README.md`, `../../howl/README.md`
+- `../../relay/README.md`, `../../workcell/README.md`, `../../tribunal/README.md`, `../../site-kit/README.md`, `../../stego-cipher-kujo/README.md`, `../../cms-experience/README.md`
+- `../../kujo-workflows/README.md`
 - `../../kujo-skills/skills/*/SKILL.md`

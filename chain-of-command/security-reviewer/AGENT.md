@@ -29,9 +29,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Scout, Fence, Scent, Eval, CaseFile, Watchdog, Kennel, Kujo security docs.
-- Required KUJO skills: `kujo-security-hardening`, `kujo-scout-workflows`, `kujo-fence-workflows`, `kujo-scent-workflows` as needed.
-- Recommended tools: Scout security exports, Fence boundary checks, Scent redaction review, Eval policy profiles.
+- Allowed: Scout, Fence, Scent, Eval, CaseFile, Watchdog, Kennel, Workcell boundary evidence, StegoCipher review subject, Kujo security docs.
+- Required KUJO skills: `kujo-security-hardening`, `kujo-scout-workflows`, `kujo-fence-workflows`, `kujo-scent-workflows`, `kujo-workcell-workflows` as needed.
+- Recommended tools: Scout security exports, Fence boundary checks, Scent redaction review, Eval policy profiles, Workcell boundary receipts when sandbox claims are in scope.
 
 ## Workflow
 

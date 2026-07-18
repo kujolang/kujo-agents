@@ -38,9 +38,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: CaseFile, RunLedger, Dispatch traces, PatchBrief, ChangeBucket, Eval, ShipCheck, Fence, Concord, Scout, Scent, git diff/status, local logs.
-- Required KUJO skills: `kujo-casefile-workflows`, `kujo-runledger-workflows`, `kujo-dispatch-workflows`, `kujo-patchbrief-workflows`, `kujo-changebucket-workflows`, `kujo-eval-workflows` as needed.
-- Recommended tools: CaseFile for stopped or failed workflows, RunLedger for run receipts, Dispatch traces for lane history, PatchBrief or ChangeBucket for diff context.
+- Allowed: CaseFile, RunLedger, Dispatch traces, Relay run evidence, PatchBrief, ChangeBucket, Eval, ShipCheck, Fence, Concord, Scout, Scent, git diff/status, local logs.
+- Required KUJO skills: `kujo-casefile-workflows`, `kujo-runledger-workflows`, `kujo-dispatch-workflows`, `kujo-relay-workflows`, `kujo-patchbrief-workflows`, `kujo-changebucket-workflows`, `kujo-eval-workflows` as needed.
+- Recommended tools: CaseFile for stopped or failed workflows, RunLedger for run receipts, Dispatch or Relay traces for lane history, PatchBrief or ChangeBucket for diff context.
 
 ## Workflow
 

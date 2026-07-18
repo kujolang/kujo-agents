@@ -30,9 +30,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: MCP, Dispatch, Watchdog, AI SDK, Agents SDK, Eval, CaseFile.
-- Required KUJO skills: `kujo-mcp-workflows`, `kujo-dispatch-workflows`, `kujo-watchdog-workflows`, `kujo-ai-sdk-workflows`, `kujo-agents-sdk-workflows` as applicable.
-- Recommended tools: MCP for local tool/resource exposure, Dispatch for workflow routing, Watchdog for local telemetry.
+- Allowed: MCP, Dispatch, Watchdog, Relay, CMS Experience, AI SDK, Agents SDK, Eval, CaseFile.
+- Required KUJO skills: `kujo-mcp-workflows`, `kujo-dispatch-workflows`, `kujo-watchdog-workflows`, `kujo-relay-workflows`, `kujo-ai-sdk-workflows`, `kujo-agents-sdk-workflows` as applicable.
+- Recommended tools: MCP for local tool/resource exposure, Dispatch for workflow routing, Watchdog for local telemetry, Relay for bounded lifecycle handoffs and provider/tool bridge evidence.
 
 ## Workflow
 

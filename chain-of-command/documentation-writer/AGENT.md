@@ -28,9 +28,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Concord, PatchBrief, Howl, Spec, Scout, local docs/tests.
-- Required KUJO skills: `kujo-concord-workflows`, `kujo-patchbrief-workflows`, `kujo-howl-workflows` as needed.
-- Recommended tools: Concord for docs/CLI drift, PatchBrief for diff summary, Howl for deterministic showcase artifacts.
+- Allowed: Concord, PatchBrief, Howl, Spec, Scout, SiteKit docs/components evidence, local docs/tests.
+- Required KUJO skills: `kujo-concord-workflows`, `kujo-patchbrief-workflows`, `kujo-howl-workflows`, `kujo-sitekit-workflows` as needed.
+- Recommended tools: Concord for docs/CLI drift, PatchBrief for diff summary, Howl for deterministic showcase artifacts, SiteKit docs when documenting Kujo UI surfaces.
 
 ## Workflow
 

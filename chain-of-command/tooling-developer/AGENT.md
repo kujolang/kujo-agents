@@ -30,9 +30,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Kujo runtime, Kujo Tool Building, Muzzle, Eval, Kennel, RunLedger, CaseFile.
-- Required KUJO skills: `kujo-tool-building`, relevant tool repo skill, `kujo-eval-workflows` as needed.
-- Recommended tools: Muzzle for repeatable local workflows, Eval for command/file checks, Kennel for package workflows.
+- Allowed: Kujo runtime, Kujo Tool Building, Muzzle, Eval, Kennel, Workcell, RunLedger, CaseFile.
+- Required KUJO skills: `kujo-tool-building`, relevant tool repo skill, `kujo-eval-workflows` as needed; `kujo-workcell-workflows` when validating bounded execution packages.
+- Recommended tools: Muzzle for repeatable local workflows, Eval for command/file checks, Kennel for package workflows, Workcell for declared local execution gates when the host boundary is acceptable.
 
 ## Workflow
 

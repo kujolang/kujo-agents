@@ -30,9 +30,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: RunLedger, CaseFile, Watchdog, Muzzle report/log paths, local artifact inspection.
-- Required KUJO skills: `kujo-runledger-workflows`, `kujo-casefile-workflows`, `kujo-watchdog-workflows` when used.
-- Recommended tools: RunLedger for run receipts, CaseFile for failure bundles, Watchdog for telemetry references.
+- Allowed: RunLedger, CaseFile, Watchdog, Relay run evidence, Muzzle report/log paths, local artifact inspection.
+- Required KUJO skills: `kujo-runledger-workflows`, `kujo-casefile-workflows`, `kujo-watchdog-workflows`, `kujo-relay-workflows` when used.
+- Recommended tools: RunLedger for run receipts, CaseFile for failure bundles, Watchdog for telemetry references, Relay for lifecycle handoff receipts.
 
 ## Workflow
 

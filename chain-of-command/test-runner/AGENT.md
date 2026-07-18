@@ -29,9 +29,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Eval, repo test scripts, Muzzle, CaseFile when instructed.
-- Required KUJO skills: `kujo-eval-workflows` when using Eval.
-- Recommended tools: Muzzle for noisy suites, CaseFile for important failures.
+- Allowed: Eval, repo test scripts, Muzzle, Workcell when explicitly assigned, CaseFile when instructed.
+- Required KUJO skills: `kujo-eval-workflows` when using Eval; `kujo-workcell-workflows` when using Workcell.
+- Recommended tools: Muzzle for noisy suites, Workcell for predeclared bounded test packages, CaseFile for important failures.
 
 ## Workflow
 
