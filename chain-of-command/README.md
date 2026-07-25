@@ -45,11 +45,13 @@ KUJO workflows support the chain by turning work into artifacts:
 - `Spec` defines task contracts and acceptance criteria.
 - `Dispatch` routes repeatable workflows and produces traces.
 - `Scout`, `Scent`, `PackWrite`, and `Muzzle` prepare and compress context.
+- `Capsule` can produce deterministic offline project handoff packages when a task needs checksums, command detection, and repeatable context artifacts.
 - `Eval`, `Lens`, `Fence`, `ShipCheck`, `Concord`, and `ChangeBucket` verify outcomes from different angles.
 - `CaseFile`, `RunLedger`, and PatchBrief-style reports preserve evidence.
 - `Watchdog` captures local AI/proxy telemetry where configured.
 - `Kennel`, `MCP`, `RAG`, and related tools support package, integration, and retrieval work.
 - `Relay`, `Workcell`, and `Tribunal` are now recognized as optional, bounded capabilities for lifecycle handoffs, local execution gates, and advisory decision review. They do not grant broad orchestration, sandbox, or approval authority by default.
+- `Benchmark System` and `Kujo Hyperframes` are recognized as prompt-kit and campaign-surface repositories respectively; they remain under existing QA, product, frontend, visual QA, and documentation roles.
 
 See `00-tool-agent-map.md` for supported-versus-inferred behavior.
 
@@ -84,32 +86,32 @@ The ProofPack benchmark is also a KUJO dogfood test. It requires a unique `.runs
 | Strategic | General Commander | Mission interpretation, delegation, final synthesis | Premium reasoning | Dispatch, RunLedger, Spec, ShipCheck |
 | Strategic | Chief of Staff | Objective shaping, assignment lanes, handoff control | Premium reasoning | Spec, Dispatch, Scent, Muzzle |
 | Strategic | Systems Architect | Architecture, boundaries, platform decisions | Premium reasoning | Scout, Fence, Concord, Spec |
-| Strategic | Product Strategist | User value, roadmap fit, adoption framing | Premium reasoning | Archivist, Spec, Eval |
+| Strategic | Product Strategist | User value, roadmap fit, adoption framing | Premium reasoning | Archivist, Spec, Eval, Benchmark System |
 | Planning | Planner | Milestones, sequencing, acceptance criteria | Standard/high reasoning | Spec, Dispatch, Eval |
 | Planning | Spec Writer | Formal task contracts and agent-ready specs | Standard/high reasoning | Spec, CaseFile |
-| Planning | Research Analyst | Repo, API, dependency, and technical context | Standard/high reasoning | Archivist, Scout, RAG, Scent |
+| Planning | Research Analyst | Repo, API, dependency, and technical context | Standard/high reasoning | Archivist, Scout, RAG, Scent, Capsule |
 | Planning | Risk Officer | Scope, migration, release, security, and compliance risk | Premium reasoning | ShipCheck, Fence, Concord, CaseFile |
 | Execution | Core Developer | General source changes and tests | Standard coding | Spec, Eval, PatchBrief |
 | Execution | Tooling Developer | CLI tools, scripts, automation, local integrations | Standard coding | Kujo Tool Building, Muzzle, Eval |
-| Execution | Frontend Developer | UI flows, responsive behavior, browser proof | Standard coding | Lens, Eval |
+| Execution | Frontend Developer | UI flows, responsive behavior, browser proof | Standard coding | Lens, Eval, SiteKit, Hyperframes |
 | Execution | Backend Developer | APIs, persistence, jobs, auth boundaries | Standard coding | Eval, Scout, CaseFile |
 | Execution | Integration Engineer | GitHub/GitLab/MCP/CI/service integration | Standard coding | MCP, Dispatch, Watchdog |
 | Verification | Code Reviewer | Diff review, regressions, missing tests | Standard/high reasoning | PatchBrief, ChangeBucket, Concord |
 | Verification | Triage Agent | Flagged wrong outputs, stopped workflows, human-review routing | Standard/high reasoning | CaseFile, RunLedger, Dispatch, PatchBrief |
-| Verification | QA Lead | Test strategy and evidence requirements | Standard/high reasoning | Eval, CaseFile, RunLedger |
-| Verification | Visual QA Agent | Browser, layout, accessibility, visual proof | Standard coding | Lens |
+| Verification | QA Lead | Test strategy and evidence requirements | Standard/high reasoning | Eval, CaseFile, RunLedger, Capsule |
+| Verification | Visual QA Agent | Browser, layout, accessibility, visual proof | Standard coding | Lens, SiteKit, Hyperframes |
 | Verification | Release Verifier | Release readiness and blocking gates | Premium/standard | ShipCheck, Eval, Fence, RunLedger |
 | Verification | Security Reviewer | Host effects, secrets, auth, boundaries | Premium reasoning | Scout, Fence, Scent, Eval, CaseFile |
 | Knowledge | Archivist | Existing source-grounded dossiers | Standard/high reasoning | Archivist, KUJO Archivist |
-| Knowledge | Documentation Writer | READMEs, changelogs, onboarding, runbooks | Standard writing/coding | Concord, Spec, PatchBrief |
-| Knowledge | Context Packager | Compact execution packs and context bundles | Standard reasoning | Scent, PackWrite, Muzzle |
+| Knowledge | Documentation Writer | READMEs, changelogs, onboarding, runbooks | Standard writing/coding | Concord, Spec, PatchBrief, Hyperframes |
+| Knowledge | Context Packager | Compact execution packs and context bundles | Standard reasoning | Scent, PackWrite, Muzzle, Capsule |
 | Knowledge | SITREP Agent | Short status reports and handoff summaries | Cheap/standard | RunLedger, CaseFile |
 | Worker | Routine Worker | Explicit bounded local commands | Cheap worker | Muzzle, CaseFile |
 | Worker | Test Runner | Explicit test commands only | Cheap worker | Eval, repo test scripts |
 | Worker | Lint Runner | Explicit lint/format/check commands only | Cheap worker | Muzzle, repo scripts |
 | Worker | Issue Hygiene Worker | Assigned stale/duplicate/label checks | Cheap worker | GitHub/GitLab tools when available |
 | Worker | Dependency Scanner | Dependency/package status checks | Cheap worker | Kennel, Scout |
-| Worker | Receipt Collector | Logs, receipts, artifact paths, evidence packets | Cheap worker | RunLedger, CaseFile |
+| Worker | Receipt Collector | Logs, receipts, artifact paths, evidence packets | Cheap worker | RunLedger, CaseFile, Capsule |
 
 ## Common Recovery And Token Protocol
 

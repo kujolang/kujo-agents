@@ -36,6 +36,9 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | SiteKit | Internal token-driven design-system and component bundle with build, lint, validation, snapshot, and smoke commands | Private local package; consuming layouts still need browser and accessibility proof | Frontend Developer, Visual QA Agent, Documentation Writer |
 | StegoCipher Kujo | Educational quote/PNG steganography and obfuscation CLI with smoke tests and JSON output | Demo/learning utility; explicitly not cryptographic encryption | Security Reviewer, Research Analyst |
 | CMS Experience | Studio/public-site application layer for the CMS backend with live contract checks and explicit auth gaps | Showcase/application layer; public production readiness remains gated by documented P1 items | Frontend Developer, Backend Developer, Integration Engineer |
+| Capsule | Offline Kujo CLI for deterministic project handoff packages, manifests, checksums, previews, command detection, and validation | Direct local CLI contract in benchmark repo; redaction is shallow filename/keyword protection | Context Packager, Research Analyst, QA Lead |
+| Benchmark System | Provider-neutral benchmark execution/review prompt kits for AI Chat pane-profile runs and factual review packets | Prompt/documentation kit; no standalone executable contract verified | QA Lead, Product Strategist, General Commander |
+| Kujo Hyperframes | Static/public campaign and video composition repo with source-grounded claim map | Showcase/content surface; claims remain tied to Archivist dossier evidence | Frontend Developer, Visual QA Agent, Documentation Writer |
 
 ## Agent Ownership
 
@@ -47,7 +50,7 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | Product Strategist | Archivist, Spec | Eval, RunLedger |
 | Planner | Spec, Dispatch, Eval | PackWrite |
 | Spec Writer | Spec | CaseFile, Eval |
-| Research Analyst | Archivist, KUJO Archivist, Scout, RAG | Scent |
+| Research Analyst | Archivist, KUJO Archivist, Scout, RAG | Scent, Capsule |
 | Risk Officer | ShipCheck, Fence, Concord, ChangeBucket | CaseFile, Tribunal advisory packets, Workcell boundary evidence |
 | Core Developer | Spec, Eval | PatchBrief, CaseFile |
 | Tooling Developer | Kujo runtime, Kujo Tool Building, Muzzle | Kennel, Eval, Workcell |
@@ -56,19 +59,19 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | Integration Engineer | MCP, Dispatch, Watchdog | AI SDK, Agents SDK, Relay, CMS Experience |
 | Code Reviewer | PatchBrief, ChangeBucket, Concord | Fence |
 | Triage Agent | CaseFile, RunLedger, Dispatch | PatchBrief, ChangeBucket, Eval, Relay run evidence |
-| QA Lead | Eval, CaseFile | RunLedger, Workcell receipts |
+| QA Lead | Eval, CaseFile | RunLedger, Workcell receipts, Capsule benchmark evidence |
 | Visual QA Agent | Lens | Eval, SiteKit snapshots |
 | Release Verifier | ShipCheck, Eval, Fence, RunLedger | Concord, Relay handoff evidence, Workcell execution evidence, Tribunal advisory packets |
 | Security Reviewer | Scout, Fence, Scent, Eval | CaseFile, Workcell boundary evidence, StegoCipher review subject |
 | Documentation Writer | Concord, PatchBrief, Howl | Spec, SiteKit docs/components evidence |
-| Context Packager | Scent, PackWrite, Muzzle | Scout |
+| Context Packager | Scent, PackWrite, Muzzle, Capsule | Scout |
 | SITREP Agent | RunLedger, CaseFile | PatchBrief |
 | Routine Worker | Muzzle, Kujo Doctor | CaseFile, Workcell when explicitly assigned |
 | Test Runner | Eval, repo test scripts | Muzzle, Workcell when explicitly assigned |
 | Lint Runner | Repo lint/check scripts | Muzzle |
 | Issue Hygiene Worker | GitHub/GitLab issue tools when available | Concord inferred for doc/task drift |
 | Dependency Scanner | Kennel, Scout | ShipCheck |
-| Receipt Collector | RunLedger, CaseFile | Watchdog, Relay run evidence |
+| Receipt Collector | RunLedger, CaseFile | Watchdog, Relay run evidence, Capsule manifests |
 
 ## Inferred Relationships
 
@@ -78,6 +81,8 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 - `Relay`, `Workcell`, and `Tribunal` have dedicated workflow kits in `kujo-workflows`, but agent access stays capability-scoped: Relay is lifecycle/evidence orchestration, Workcell is bounded local execution, and Tribunal is advisory decision review.
 - `StegoCipher Kujo` is a reviewable demo/security subject only. Its README says it is not cryptographic encryption, so no agent should route secrecy, credential storage, or cryptographic security requirements to it.
 - `CMS Experience` depends on the sibling `cms` backend contract. Studio uses operator-supplied API tokens and server-side sessions; do not infer human-user auth, MFA, secure preview, or public production readiness.
+- `Capsule` overlaps with Scout and Scent but has a different contract: it produces deterministic offline handoff artifacts with checksums and validation, not semantic code intelligence or task-scoped context selection. Use it through Context Packager or Research Analyst instead of creating a standalone agent.
+- `Benchmark System` and `Kujo Hyperframes` are useful repo-backed surfaces but are not broad tool integrations. Keep Benchmark System as prompt-kit evidence until an executable contract exists, and keep Hyperframes under existing frontend/docs/product ownership.
 
 ## Evidence Sources
 
@@ -89,5 +94,6 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 - `../../patchbrief/README.md`, `../../casefile/README.md`, `../../runledger/README.md`, `../../lens/README.md`
 - `../../mcp/README.md`, `../../rag/README.md`, `../../watchdog/README.md`, `../../kennel/README.md`, `../../howl/README.md`
 - `../../relay/README.md`, `../../workcell/README.md`, `../../tribunal/README.md`, `../../site-kit/README.md`, `../../stego-cipher-kujo/README.md`, `../../cms-experience/README.md`
+- `../../benchmarks-capsule-v3/README.md`, `../../benchmarks-system/README.md`, `../../kujo-hyperframes/README.md`
 - `../../kujo-workflows/README.md`
 - `../../kujo-skills/skills/*/SKILL.md`

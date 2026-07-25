@@ -31,9 +31,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Eval, CaseFile, RunLedger, Lens, Workcell receipts, ShipCheck, repo test scripts.
-- Required KUJO skills: `kujo-eval-workflows`, `kujo-casefile-workflows`, `kujo-runledger-workflows`, `kujo-workcell-workflows` as needed.
-- Recommended tools: Eval for deterministic checks, CaseFile for failures, RunLedger for multi-agent receipts, Workcell receipts for bounded execution evidence.
+- Allowed: Eval, CaseFile, RunLedger, Lens, Workcell receipts, ShipCheck, Capsule benchmark evidence, Benchmark System prompt kits, repo test scripts.
+- Required KUJO skills: `kujo-eval-workflows`, `kujo-casefile-workflows`, `kujo-runledger-workflows`, `kujo-workcell-workflows`, `kujo-benchmarks-capsule-workflows` as needed.
+- Recommended tools: Eval for deterministic checks, CaseFile for failures, RunLedger for multi-agent receipts, Workcell receipts for bounded execution evidence, Capsule for benchmark handoff evidence when the benchmark repo is in scope.
 
 ## Workflow
 
@@ -47,6 +47,7 @@
 ## Evidence Requirements
 
 - Every pass/fail claim must tie to command output or artifact path.
+- Benchmark System outputs are review artifacts, not standalone proof, unless backed by the referenced AI Chat run evidence and generated reports.
 
 ## Handoff Rules
 

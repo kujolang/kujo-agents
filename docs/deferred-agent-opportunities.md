@@ -2,6 +2,56 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-07-25 Audit
+
+### Context Capsule Steward
+
+- Proposed role: Context Capsule Steward.
+- Problem or gap: Capsule can generate deterministic, offline project handoff packages with checksums, manifests, command detection, and validation.
+- Repository-backed evidence: `../../benchmarks-capsule-v3/README.md`, `../../kujo-skills/SKILLS_INDEX.md`.
+- Relevant tools/skills/repositories: Capsule, Scent, Scout, PackWrite, RunLedger, `kujo-benchmarks-capsule-workflows`.
+- Expected inputs: source repo path, include/exclude policy, output path, stable-mode requirement, downstream consumer.
+- Expected outputs: `capsule.json`, `capsule.md`, `manifest.json`, validation result, redaction-boundary note.
+- Overlap: Context Packager, Research Analyst, QA Lead, Receipt Collector.
+- Why not add now: Existing Context Packager and Research Analyst roles can own Capsule use without a new specialized agent. Capsule is a deterministic handoff artifact format, not a broad reasoning or ownership lane.
+- Required authority boundaries: no secret assurance beyond Capsule's documented shallow filename/keyword redaction; no mutation outside declared output paths; no context sharing without redaction review.
+- Verification requirements: `./bin/capsule make`, `inspect`, `validate`, and repository `scripts/run_checks.sh` when changing Capsule itself.
+- Risks/costs/token impact: could duplicate Scout/Scent context workflows if invoked for every task; packages may include bulky previews when source boundaries are weak.
+- Recommendation: reject as a new agent; add Capsule to existing Context Packager, Research Analyst, QA Lead, and Receipt Collector guidance.
+- Evidence still required: repeated failures where existing context roles misuse or skip Capsule in a way a dedicated owner would prevent.
+
+### Benchmark Operator
+
+- Proposed role: Benchmark Operator.
+- Problem or gap: Benchmark System provides portable execution and review prompts for AI Chat pane-profile benchmark runs and PDF-quality review outputs.
+- Repository-backed evidence: `../../benchmarks-system/README.md`.
+- Relevant tools/skills/repositories: Benchmark System, AI Chat, RunLedger, Eval, CaseFile, QA Lead, Product Strategist.
+- Expected inputs: benchmark suite, saved AI Chat pane profile, execution prompt, review kit, output destination.
+- Expected outputs: factual review packet, quality/token/cost/time summaries, dream-team review, PDF-ready artifact, unresolved telemetry boundaries.
+- Overlap: QA Lead, Product Strategist, General Commander, Receipt Collector.
+- Why not add now: The repository is currently a prompt/documentation kit, not a standalone executable CLI or stable agent contract. QA Lead can own benchmark evidence requirements and Product Strategist can consume comparative outcomes.
+- Required authority boundaries: no invented model, token, cost, or quality claims; visible telemetry only; no broad approval authority from benchmark scores alone.
+- Verification requirements: AI Chat run evidence, generated review artifacts, RunLedger or CaseFile receipt where available, exact telemetry-unavailable notes.
+- Risks/costs/token impact: benchmark reviews can be expensive and long-running; a new agent could normalize benchmark theater without executable proof.
+- Recommendation: defer.
+- Evidence still required: stable executable contract or repeated benchmark workload volume that existing QA/product roles cannot manage.
+
+### Campaign Surface Producer
+
+- Proposed role: Campaign Surface Producer.
+- Problem or gap: Kujo Hyperframes is a source-grounded static campaign and video-composition surface with strict claim-map constraints.
+- Repository-backed evidence: `../../kujo-hyperframes/README.md`.
+- Relevant tools/skills/repositories: Kujo Hyperframes, Archivist dossier, Lens, SiteKit, Documentation Writer, Frontend Developer, Visual QA Agent, Product Strategist.
+- Expected inputs: source dossier, claim map, frame or composition brief, browser/video target, approval boundary.
+- Expected outputs: static page or rendered composition update, claim-map validation, browser/video proof, source-grounded copy handoff.
+- Overlap: Documentation Writer, Frontend Developer, Visual QA Agent, Product Strategist.
+- Why not add now: Existing frontend, visual QA, documentation, and product roles naturally cover the work with stricter separation between copy, implementation, and proof.
+- Required authority boundaries: no unsupported launch, adoption, enterprise, benchmark, sandbox, AI-vision, or public-registry claims.
+- Verification requirements: source claim map, local browser proof for `index.html`, render command evidence for video compositions when changed.
+- Risks/costs/token impact: creating a campaign-only agent would add narrow routing overhead and may blur product strategy with implementation.
+- Recommendation: reject.
+- Evidence still required: none; revisit only if multiple campaign surfaces become recurring production work with independent release gates.
+
 ## 2026-07-18 Audit
 
 ### Workflow Orchestrator

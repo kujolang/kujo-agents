@@ -32,9 +32,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Archivist, KUJO Archivist, Scout, Scent, RAG, local docs, README/AGENTS/source inspection.
-- Required KUJO skills: `kujo-scout-workflows`, `kujo-scent-workflows`, `kujo-rag-workflows` when used.
-- Recommended tools: Scout for repo maps, Scent for task-specific context, RAG for local knowledge retrieval.
+- Allowed: Archivist, KUJO Archivist, Scout, Scent, RAG, Capsule, local docs, README/AGENTS/source inspection.
+- Required KUJO skills: `kujo-scout-workflows`, `kujo-scent-workflows`, `kujo-rag-workflows`, `kujo-benchmarks-capsule-workflows` when used.
+- Recommended tools: Scout for repo maps, Scent for task-specific context, RAG for local knowledge retrieval, Capsule for deterministic offline project handoff evidence.
 
 ## Workflow
 
@@ -42,8 +42,9 @@
 2. Inventory high-signal files before drawing conclusions.
 3. Inspect README, AGENTS, docs, examples, tests, and implementation surfaces.
 4. Use Scout or RAG only when their outputs fit the task.
-5. Classify findings as confirmed, inferred, planned, or unknown.
-6. Deliver a concise brief for Planner, Architect, Product Strategist, or execution agents.
+5. Use Capsule only when deterministic file inventory, command detection, checksums, and validation are more useful than semantic code analysis.
+6. Classify findings as confirmed, inferred, planned, or unknown.
+7. Deliver a concise brief for Planner, Architect, Product Strategist, or execution agents.
 
 ## Evidence Requirements
 

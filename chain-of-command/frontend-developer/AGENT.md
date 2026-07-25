@@ -29,9 +29,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Lens, Eval, SiteKit, CMS Experience, repo frontend test/build tools, CaseFile.
+- Allowed: Lens, Eval, SiteKit, CMS Experience, Kujo Hyperframes, repo frontend test/build tools, CaseFile.
 - Required KUJO skills: `kujo-lens-workflows` when using Lens; `kujo-sitekit-workflows` or relevant showcase/app skill when applicable.
-- Recommended tools: Lens for browser evidence, Eval for deterministic output checks, SiteKit for Kujo design-system contracts.
+- Recommended tools: Lens for browser evidence, Eval for deterministic output checks, SiteKit for Kujo design-system contracts, Hyperframes only when assigned to campaign/static-site or video-composition surfaces.
 
 ## Workflow
 

@@ -11,7 +11,7 @@ Existing agents use package directories with `AGENT.md`, `SKILL.md`, and optiona
 
 ## Existing Skills
 
-The local `kujo-skills/skills/` folder contains workflow skills for Agents SDK, AI SDK, CaseFile, ChangeBucket, Concord, Dispatch, Eval, Fence, Howl, Kennel, Lens, MCP, Muzzle, PackWrite, PatchBrief, RAG, RunLedger, Scent, Scout, ShipCheck, Spec, SSG, Watchdog, release gates, readiness auditing, maintainer review, security hardening, tool building, runtime parity, CLI contracts, docs drift, and related KUJO repo work.
+The local `kujo-skills/skills/` folder contains workflow skills for Agents SDK, AI SDK, CaseFile, ChangeBucket, Concord, Dispatch, Eval, Fence, Howl, Kennel, Lens, MCP, Muzzle, PackWrite, PatchBrief, RAG, RunLedger, Scent, Scout, ShipCheck, Spec, SSG, Watchdog, Redact, Capsule benchmark work, release gates, readiness auditing, maintainer review, security hardening, tool building, runtime parity, CLI contracts, docs drift, and related KUJO repo work.
 
 ## Existing Workflows
 
@@ -20,7 +20,7 @@ The local `kujo-skills/skills/` folder contains workflow skills for Agents SDK, 
 
 ## Existing Tools
 
-Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, Relay, Workcell, Tribunal, StegoCipher Kujo, CMS Experience, and benchmark/showcase repos.
+Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, Relay, Workcell, Tribunal, StegoCipher Kujo, CMS Experience, Capsule benchmark tooling, Benchmark System prompt kits, Kujo Hyperframes, and other benchmark/showcase repos.
 
 ## Recently Verified Agent-Facing Capabilities
 
@@ -32,6 +32,15 @@ These repositories changed during the 2026-07-18 audit window and expose usable 
 - `site-kit`: private internal design-system and component bundle with token, component, CSS, snapshot, lint, and validation commands. Treat as a frontend/documentation capability for Frontend Developer, Visual QA Agent, Documentation Writer, Product Strategist, and Release Verifier. Browser/accessibility proof remains separate for consuming layouts.
 - `stego-cipher-kujo`: educational steganography/obfuscation CLI with Kujo smoke tests. Treat as a narrow demo or security-review subject only. Do not route secrets or cryptographic security requirements to it.
 - `cms-experience`: Studio/public-site application layer for the sibling CMS backend with explicit auth and production-readiness gaps. Treat as a frontend/backend/integration showcase tied to `cms`; do not claim CMS human auth, preview-token, or public production readiness.
+
+The 2026-07-25 audit window added or refreshed these agent-facing relationships:
+
+- `benchmarks-capsule-v3`: Kujo-native Capsule CLI that writes deterministic, offline project handoff packages (`capsule.json`, `capsule.md`, `manifest.json`) with command detection, checksums, shallow secret exclusions, and validation. Treat as a directly verified context-packaging and benchmark-evidence capability for Context Packager, Research Analyst, QA Lead, and Receipt Collector. Do not treat its filename/keyword redaction as a complete secret scanner.
+- `benchmarks-system`: provider-neutral benchmark execution and review prompt kits that currently drive saved AI Chat pane profiles and produce quality, token/cost, time, dream-team, and PDF review outputs. Treat as a documentation/prompt-kit reference for QA Lead, Product Strategist, General Commander, and Documentation Writer, not as a supported standalone CLI until repository-backed executable contracts exist.
+- `kujo-hyperframes`: static public campaign and video composition repository backed by the Archivist handoff dossier and claim map. Treat as a frontend/documentation/product surface for Frontend Developer, Visual QA Agent, Documentation Writer, and Product Strategist when assigned. Do not let campaign copy bypass source-grounded claim constraints.
+- `watchdog`: recent changes strengthened dashboard, backup/archive views, long-running trace display, session token visibility, and telemetry preservation. Existing Integration Engineer and Receipt Collector ownership remains current; use Watchdog evidence for visible local proxy telemetry only.
+- `ai-chat`: recent changes hardened streaming durability, tool continuation timeout handling, local runtime tool errors, public tunnel probe endpoints, usage accounting, sidebar/archive UI state, and token-budget behavior. Existing Integration Engineer, Backend Developer, Frontend Developer, Visual QA Agent, and QA Lead routing remains current.
+- `eval`, `fence`, `patchbrief`, `shipcheck`, and `changebucket`: recent CLI parsing and policy-gate fixes strengthen existing verification relationships but do not change agent ownership.
 
 ## Repeated Operational Patterns
 
