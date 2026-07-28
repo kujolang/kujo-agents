@@ -67,3 +67,12 @@ Existing Archivist packages remain at the repository root because they predate t
 ## License
 
 MIT. See `LICENSE`.
+
+## Launch readiness
+
+Current launch scope: locally verified support/distribution technical preview.
+The 2026-07-28 next batch proof validates the agent/template inventory and
+deterministic Zelus doctor, reference campaign, contract, CLI, and registry
+checks. Templates do not provide sandboxing or policy enforcement by
+themselves, and live offensive testing is not part of this proof. See
+[`docs/launch-checklist.md`](docs/launch-checklist.md).
