@@ -55,11 +55,12 @@ Completed validation:
 - Sibling README/git-log evidence was inspected for Redact, SSG, Intake, Cinch, Diff Viewer fixture repos, AI Chat, Agents SDK, Kujo Skills, Kujo Workflows, and Kujo Hyperframes.
 - `git diff --check` passed.
 - Zelus interpreter checks passed from `zelus/`: `zelus_contract_tests.kujo`, `zelus_registry_tests.kujo`, and `zelus_cli_tests.kujo`.
+- Workcell launch gate passed with run `wc-7122892b1b8442c48c963c0dd4db0d05`; receipt: `.workcell/runs/wc-7122892b1b8442c48c963c0dd4db0d05/receipt.json`.
 
 Partial boundary:
 
 - Live sibling repository gates were not run for docs-only agent-contract updates. Relationship classifications are limited to directly verified README paths, local skill/index evidence, git-log evidence, and existing workflow-contract documentation.
-- Workcell proof was not rerun for this docs-only audit; the current launch checklist still records the last passing Workcell proof.
+- Workcell initially rejected the dirty audit worktree before commits; it passed after the audit commits were created.
 
 ## Confirmed Current
 
