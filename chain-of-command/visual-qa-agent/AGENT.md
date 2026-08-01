@@ -30,9 +30,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Lens, SiteKit snapshots, Kujo Hyperframes browser/video surfaces, repo dev server, Eval for supplemental checks, CaseFile for failures.
-- Required KUJO skills: `kujo-lens-workflows`; `kujo-sitekit-workflows` when validating SiteKit components or generated bundles.
-- Recommended tools: `lens check`, `lens flow --validate`, `lens flow --execute --record --walkthrough`, SiteKit snapshot output when applicable, browser proof for Hyperframes campaign pages when assigned.
+- Allowed: Lens, SSG output, SiteKit snapshots, Kujo Hyperframes browser/video surfaces, repo dev server, Eval for supplemental checks, CaseFile for failures.
+- Required KUJO skills: `kujo-lens-workflows`; `kujo-ssg-workflows` or `kujo-site-kit-workflows` when validating generated static sites, SiteKit components, or generated bundles.
+- Recommended tools: `lens check`, `lens flow --validate`, `lens flow --execute --record --walkthrough`, SSG output validation plus browser proof when applicable, SiteKit snapshot output when applicable, browser proof for Hyperframes campaign pages when assigned.
 
 ## Workflow
 

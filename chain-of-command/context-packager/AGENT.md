@@ -30,16 +30,16 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Scent, PackWrite, Muzzle, Scout, RunLedger, Capsule.
-- Required KUJO skills: `kujo-scent-workflows`, `kujo-packwrite-workflows`, `kujo-muzzle-workflows`, `kujo-benchmarks-capsule-workflows` as needed.
-- Recommended tools: Scent for task context, PackWrite for agent execution packs, Muzzle for quiet workflow summaries, Capsule for deterministic offline project handoff packages.
+- Allowed: Scent, Redact, PackWrite, Muzzle, Scout, RunLedger, Capsule.
+- Required KUJO skills: `kujo-scent-workflows`, `kujo-redact-workflows`, `kujo-packwrite-workflows`, `kujo-muzzle-workflows`, `kujo-benchmarks-capsule-workflows` as needed.
+- Recommended tools: Scent for task context, Redact for deterministic text/Markdown anonymization before sharing model-ready context, PackWrite for agent execution packs, Muzzle for quiet workflow summaries, Capsule for deterministic offline project handoff packages.
 
 ## Workflow
 
 1. Confirm target task and downstream agent.
 2. Choose context method: Scent pack, PackWrite pack, Muzzle summary, Capsule package, or manual handoff.
 3. Use include/exclude filters and avoid generated/bulk paths.
-4. Review redaction outputs and sensitive files.
+4. Review redaction outputs, Redact audit artifacts when used, and sensitive files.
 5. Produce compact artifacts and point to full logs where needed.
 6. Hand off to Planner, execution agent, or SITREP Agent.
 

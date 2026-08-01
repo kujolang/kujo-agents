@@ -20,7 +20,7 @@ The local `kujo-skills/skills/` folder contains workflow skills for Agents SDK, 
 
 ## Existing Tools
 
-Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, Relay, Workcell, Tribunal, StegoCipher Kujo, CMS Experience, Capsule benchmark tooling, Benchmark System prompt kits, Kujo Hyperframes, and other benchmark/showcase repos.
+Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Redact, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, Relay, Workcell, Tribunal, StegoCipher Kujo, CMS Experience, Capsule benchmark tooling, Benchmark System prompt kits, Kujo Hyperframes, and other benchmark/showcase repos.
 
 ## Recently Verified Agent-Facing Capabilities
 
@@ -42,6 +42,19 @@ The 2026-07-25 audit window added or refreshed these agent-facing relationships:
 - `ai-chat`: recent changes hardened streaming durability, tool continuation timeout handling, local runtime tool errors, public tunnel probe endpoints, usage accounting, sidebar/archive UI state, and token-budget behavior. Existing Integration Engineer, Backend Developer, Frontend Developer, Visual QA Agent, and QA Lead routing remains current.
 - `eval`, `fence`, `patchbrief`, `shipcheck`, and `changebucket`: recent CLI parsing and policy-gate fixes strengthen existing verification relationships but do not change agent ownership.
 
+The 2026-08-01 audit window added or refreshed these agent-facing relationships:
+
+- `redact`: deterministic local scan/sanitize/verify/pack pipeline for text and Markdown with `.redact/runs/<timestamp>/` audit artifacts. Treat as directly verified for Security Reviewer, Context Packager, and Receipt Collector when sensitive context must be anonymized before sharing or retention. Do not treat it as complete PII removal, compliance approval, full YAML support, stdin support on current Kujo VM builds, or permission to store originals.
+- `ssg`: deterministic Kujo static-site generator with generated-output validation, release gates, DocGen bridge, and reusable docs starter. Treat as directly verified for Documentation Writer, Frontend Developer, Visual QA Agent, and Release Verifier when static docs/sites are in scope. Do not treat it as hosted publishing or a production-certified docs platform.
+- `agents-sdk`: MCP 2026 adapter helpers now cover stateless JSON-RPC helpers, per-request `_meta`, Streamable HTTP routing headers, tool-list cache metadata, input-required normalization, unsupported-version errors, and schema/display metadata mapping. Existing Systems Architect and Integration Engineer ownership remains current.
+- `ai-chat`: recent changes improved sidebar action/title behavior, provider-independent offline smoke, clean port-conflict handling, stream continuity after browser disconnects, and streamed provider error handling. Existing app/integration/frontend/QA ownership remains current; do not infer broader provider quality or production readiness.
+- `kujo-workflows`: weekly workflow audit refreshed the catalog and confirmed Workcell temp-root repair plus contract-gated Tribunal, Relay, and Workcell integrations. Existing General Commander, Chief of Staff, Integration Engineer, QA, Release, Risk, and worker boundaries remain current.
+- `kujo-skills`: weekly skill audit refreshed Agents SDK, AI Chat, SiteKit, and SSG skills. Prefer canonical `kujo-site-kit-workflows`; keep `kujo-sitekit-workflows` only as a compatibility alias.
+- `kujo-hyperframes`: `kujo-ai-transmission/` added a new source-grounded video composition and rendered media outputs. Existing Frontend Developer, Visual QA Agent, Documentation Writer, and Product Strategist ownership remains current.
+- `diff-viewer-demo`, `diff-viewer-demo-fresh`, and `diff-viewer-verified`: small diff-review fixture repositories. Treat as unsupported for active agent capability routing outside testing review UI behavior.
+- `intake`: local-first inbound work normalization, policy-gated actions, dashboard, adapter, and audit-log app. Defer chain integration until a dedicated Kujo skill/workflow contract or explicit task assignment exists.
+- `cinch`: macOS-first local AI development harness with workspaces, files, git, commands, MCP, proof artifacts, and Trail export. Defer broad chain integration until a dedicated Kujo skill/workflow contract exists.
+
 ## Repeated Operational Patterns
 
 - Read README and AGENTS files first.
@@ -55,7 +68,7 @@ The 2026-07-25 audit window added or refreshed these agent-facing relationships:
 
 ## Mature Enough To Recommend For Routine Use
 
-Repo docs support routine local use for Spec, Eval, Scout, Dispatch offline fixture workflows, CaseFile, RunLedger, Scent, Muzzle trusted local workflows, PackWrite local/team pack generation, Fence architecture checks, ShipCheck release scanning, Lens local browser QA, Kennel launch-safe package workflows, Watchdog local telemetry/proxy workflows, Relay local alpha lifecycle handoffs, Workcell local Docker/Podman execution gates, Tribunal advisory decision gates, and SiteKit local design-system builds. Each still requires environment-specific validation before broad enterprise claims.
+Repo docs support routine local use for Spec, Eval, Scout, Dispatch offline fixture workflows, CaseFile, RunLedger, Scent, Redact local anonymization, Muzzle trusted local workflows, PackWrite local/team pack generation, Fence architecture checks, ShipCheck release scanning, Lens local browser QA, Kennel launch-safe package workflows, SSG local static-site builds, Watchdog local telemetry/proxy workflows, Relay local alpha lifecycle handoffs, Workcell local Docker/Podman execution gates, Tribunal advisory decision gates, and SiteKit local design-system builds. Each still requires environment-specific validation before broad enterprise claims.
 
 ## Experimental Or Underdocumented
 
@@ -66,6 +79,8 @@ Repo docs support routine local use for Spec, Eval, Scout, Dispatch offline fixt
 - MCP is launch-honest as a local foundation but production deployment needs target validation.
 - Public Kennel registry behavior, public discovery, moderation, malware scanning, and trust scoring are deferred.
 - SITREP appears as a useful role name but not as a confirmed standalone KUJO tool.
+- Intake and Cinch are deferred as broad chain capabilities until stable chain-specific skills or workflow contracts exist.
+- Diff Viewer demo repositories are fixtures, not tool capabilities.
 
 ## Missing Docs For Agent Onboarding
 
