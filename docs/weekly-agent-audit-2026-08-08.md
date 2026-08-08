@@ -60,6 +60,7 @@ Completed validation:
 - Zelus contract tests passed: 15 passed, 0 failed.
 - Zelus CLI contract tests passed.
 - Zelus registry and adapter tests passed.
+- Workcell launch gate passed with run `wc-a3904d8d8316437f868bf6da88d8d779`; receipt: `.workcell/runs/wc-a3904d8d8316437f868bf6da88d8d779/receipt.json`.
 - `git diff --check` passed.
 
 Partial boundary:
