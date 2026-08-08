@@ -32,9 +32,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Archivist, KUJO Archivist, Spec, Eval, RunLedger, Benchmark System prompt kits, Kujo Hyperframes claim maps, local docs, user-provided research.
+- Allowed: Archivist, KUJO Archivist, Spec, Eval, RunLedger, Benchmark System prompt kits, Kujo Hyperframes claim maps, Kujo Docs content/IA evidence, local docs, user-provided research.
 - Required KUJO skills: `kujo-spec-workflows` for task-contract output; Archivist packages for source-grounded dossiers.
-- Recommended tools: Spec for product contracts, Eval for measurable outcome checks, Benchmark System outputs only when backed by run evidence, Hyperframes only for source-grounded product narrative surfaces.
+- Recommended tools: Spec for product contracts, Eval for measurable outcome checks, Benchmark System outputs only when backed by run evidence, Kujo Docs only for source-backed docs IA and product explanation surfaces, Hyperframes only for source-grounded product narrative surfaces.
 
 ## Workflow
 

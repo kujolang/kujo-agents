@@ -2,6 +2,56 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-08-08 Audit
+
+### Context Ingestion Steward
+
+- Proposed role: Context Ingestion Steward.
+- Problem or gap: `totalrecall` can ingest Fathom meetings, chat exports, Slack threads, and GitHub activity into Strata, markdown folders, static HTML, or local JSON indexes.
+- Repository-backed evidence: `../../totalrecall/README.md`, `../../totalrecall/docs/GETTING_STARTED.md`, `../../totalrecall/docs/SECRETS_AND_KEYCHAIN.md`.
+- Relevant tools/skills/repositories: TotalRecall, Strata destination, local export providers, Fathom provider, Slack and GitHub activity imports, Context Packager, Research Analyst, Archivist, SITREP Agent, Receipt Collector.
+- Expected inputs: provider/export source, destination policy, deduplication mode, sync-state location, redaction policy, credential boundary, and retention target.
+- Expected outputs: import plan, normalized artifacts, destination records, report JSON, audit log, duplicate/reconciliation status, and unresolved credential or retention boundary.
+- Overlap: Research Analyst, Context Packager, Archivist, SITREP Agent, Receipt Collector.
+- Why not add now: Existing knowledge/context roles can inspect TotalRecall artifacts when assigned, and no dedicated chain skill or workflow contract was verified for routine delegation.
+- Required authority boundaries: no live provider pull, API-key use, Strata writes, filesystem export, or cross-system learning ingestion without explicit scope and retention approval.
+- Verification requirements: `./scripts/totalrecall config validate`, dry-run provider import, destination-specific contract harness, duplicate/idempotency proof, and secrets/keychain review.
+- Risks/costs/token impact: broad ingestion could duplicate Archivist and Context Packager while increasing private-context retention risk.
+- Recommendation: defer.
+- Evidence still required: stable `kujo-skills` or `kujo-workflows` contract plus repeated workload showing existing knowledge roles need a specialized ingestion owner.
+
+### Dependabot Security Coordinator
+
+- Proposed role: Dependabot Security Coordinator.
+- Problem or gap: `ward` can collect Dependabot security alerts, plan remediation, generate reports/dashboards, and prepare safe fix branches with read-only defaults.
+- Repository-backed evidence: `../../ward/README.md`, `../../ward/SECURITY.md`, `../../ward/LAUNCH_READINESS.md`.
+- Relevant tools/skills/repositories: Ward, GitHub Dependabot alerts, Dependency Scanner, Security Reviewer, Issue Hygiene Worker, Risk Officer, Release Verifier.
+- Expected inputs: repository config, GitHub token boundary, alert query, planning policy, allowed fix mode, verification commands, and reporting target.
+- Expected outputs: normalized alert report, remediation plan, dashboard/report artifacts, fix dry-run or explicit apply evidence, unresolved risk and token-exposure notes.
+- Overlap: Dependency Scanner, Security Reviewer, Issue Hygiene Worker, Risk Officer, Release Verifier.
+- Why not add now: Ward requires GitHub credentials for live collection, currently has no dedicated chain skill/workflow, and existing security/dependency agents can review its reports when explicitly assigned.
+- Required authority boundaries: no token use, live alert collection, fix application, branch creation, PR creation, alert dismissal, or remote mutation without explicit approval and least-privilege credentials.
+- Verification requirements: `ward doctor`, `ward collect --all` with approved credentials, `ward plan --unplanned`, `ward report --since 7d`, policy tests, and secret/process-list exposure review.
+- Risks/costs/token impact: could blur dependency scanning, security review, issue hygiene, and release-risk ownership while adding credential-handling risk.
+- Recommendation: defer.
+- Evidence still required: stable chain skill/workflow and repeated Dependabot operations that cannot be handled by existing dependency/security roles.
+
+### Mobile Agent Supervisor
+
+- Proposed role: Mobile Agent Supervisor.
+- Problem or gap: `leash` supervises local AI agents from a mobile control plane with policy-as-code risk classification, tmux/agent adapters, JWT auth, audit trails, and approval flows.
+- Repository-backed evidence: `../../leash/README.md`, `../../leash/SECURITY.md`, `../../leash/docs/PRODUCTION_CHECKLIST.md`.
+- Relevant tools/skills/repositories: Leash, Dispatch, Spec, Eval, Scout, Strata integration docs, Integration Engineer, Security Reviewer, Risk Officer, Receipt Collector.
+- Expected inputs: supervised session list, policy file, device registration, auth configuration, adapter scope, allowed actions, and approval boundary.
+- Expected outputs: approval/audit event record, policy decision, adapter event, security review notes, and unresolved device/runtime proof.
+- Overlap: Integration Engineer, Security Reviewer, Risk Officer, Chief of Staff, Dispatch-oriented agents, Receipt Collector.
+- Why not add now: Leash is v0.1.0 hardening with Android/device runtime limitations and no dedicated chain skill/workflow; current agents can review Leash as a product/tool repo when assigned.
+- Required authority boundaries: no unattended approvals, remote input, biometric-sensitive action claims, production push, device registration, or live agent control without explicit human authorization.
+- Verification requirements: daemon health/API smoke, policy tests, adapter tests, Android/device runtime validation where claims require it, audit trail review, and credential/token handling review.
+- Risks/costs/token impact: could centralize human approval authority in an agent role and blur chain-of-command governance if activated prematurely.
+- Recommendation: defer.
+- Evidence still required: validated mobile/runtime proof, stable skill/workflow contract, and governance decision on whether this belongs as an agent role or remains an external control plane.
+
 ## 2026-08-01 Audit
 
 ### Intake Coordinator

@@ -28,9 +28,9 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Concord, PatchBrief, Howl, Spec, Scout, SSG docs starter output, SiteKit docs/components evidence, Kujo Hyperframes claim maps, local docs/tests.
+- Allowed: Concord, PatchBrief, Howl, Spec, Scout, SSG docs starter output, SiteKit docs/components evidence, Kujo Hyperframes claim maps, Kujo Docs public-site content, local docs/tests.
 - Required KUJO skills: `kujo-concord-workflows`, `kujo-patchbrief-workflows`, `kujo-howl-workflows`, `kujo-ssg-workflows`, `kujo-site-kit-workflows` as needed.
-- Recommended tools: Concord for docs/CLI drift, PatchBrief for diff summary, Howl for deterministic showcase artifacts, SSG for static docs pipelines and reusable docs starters, SiteKit docs when documenting Kujo UI surfaces, Hyperframes claim maps only for source-grounded campaign copy.
+- Recommended tools: Concord for docs/CLI drift, PatchBrief for diff summary, Howl for deterministic showcase artifacts including branded social cards, SSG for static docs pipelines and reusable docs starters, SiteKit docs when documenting Kujo UI surfaces, Kujo Docs as the official public docs-site surface, Hyperframes claim maps only for source-grounded campaign copy.
 
 ## Workflow
 

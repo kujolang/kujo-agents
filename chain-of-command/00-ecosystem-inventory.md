@@ -20,7 +20,7 @@ The local `kujo-skills/skills/` folder contains workflow skills for Agents SDK, 
 
 ## Existing Tools
 
-Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Redact, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, Relay, Workcell, Tribunal, StegoCipher Kujo, CMS Experience, Capsule benchmark tooling, Benchmark System prompt kits, Kujo Hyperframes, and other benchmark/showcase repos.
+Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Redact, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, Relay, Workcell, Tribunal, StegoCipher Kujo, CMS Experience, Capsule benchmark tooling, Benchmark System prompt kits, Kujo Hyperframes, TotalRecall, Ward, Leash, Kujo Docs, and other benchmark/showcase repos.
 
 ## Recently Verified Agent-Facing Capabilities
 
@@ -55,6 +55,21 @@ The 2026-08-01 audit window added or refreshed these agent-facing relationships:
 - `intake`: local-first inbound work normalization, policy-gated actions, dashboard, adapter, and audit-log app. Defer chain integration until a dedicated Kujo skill/workflow contract or explicit task assignment exists.
 - `cinch`: macOS-first local AI development harness with workspaces, files, git, commands, MCP, proof artifacts, and Trail export. Defer broad chain integration until a dedicated Kujo skill/workflow contract exists.
 
+The 2026-08-08 audit window added or refreshed these agent-facing relationships:
+
+- `kujo`: v1.0.0 launch evidence, release artifact handling, DocGen concurrency, stable contract version guards, and launch inventory rationale were refreshed. Existing Tooling Developer, Core Developer, Release Verifier, Security Reviewer, and Documentation Writer ownership remains current; use `kujo-testing-release-gates`, `kujo-cli-contracts`, `kujo-docgen-agent-readable`, and related core skills for repository work.
+- `kujo-docs`: official `docs.kujolang.ai` static documentation site built through sibling `ssg`, vendored SiteKit assets, production deployment docs, favicon assets, mobile navigation, content IA, and validation guidance. Treat as directly verified for Documentation Writer, Frontend Developer, Visual QA Agent, Product Strategist, and Release Verifier when public documentation site work is explicitly in scope. Do not treat it as a generic docs generator or as proof that every documented sibling repo is production-ready.
+- `howl`: branded social-card rendering and the refreshed `kujo-howl-workflows` skill make Howl directly useful for deterministic launch/docs/social showcase artifacts. Existing Documentation Writer ownership remains current; Product Strategist may frame source-backed campaign use, and Visual QA/Frontend can inspect rendered HTML/SVG when assigned. Howl remains offline and must not invent claims, post content, or call LLM/network services.
+- `kennel`: v1.0.0 release prep, CLI compatibility shims, module-name collision repair, and refreshed `kujo-kennel-workflows` guidance preserve Kennel as the directly verified dependency/package capability for Dependency Scanner and Tooling Developer. Root compatibility shims must stay aligned with `src/` until downstream root-module imports are retired.
+- `ssg`: v1.0.0 release prep, nested-output directory repair, and Kujo documentation IA support strengthen existing Documentation Writer, Frontend Developer, Visual QA Agent, and Release Verifier ownership.
+- `agents-sdk`, `eval`, `lens`, `mcp`, `muzzle`, `packwrite`, `patchbrief`, `rag`, `runledger`, `scent`, `scout`, `shipcheck`, and `watchdog`: v1.0.0 release prep refreshed repository maturity without changing existing role ownership. Watchdog also refreshed pricing catalogs for the August audit; treat pricing knowledge as retrieval-date sensitive.
+- `kujo-skills`: refreshed Kujo v1 release skill guidance plus Howl and Kennel workflow routing. Existing skill-reference relationships remain current.
+- `kujo-workflows`: weekly workflow audit refreshed catalog validation and preserves contract-gated workflow relationships. Existing Dispatch, Workcell, Relay, Tribunal, Howl, RAG, CaseFile, MCP, and DocsGen workflow boundaries remain current.
+- `totalrecall`: local-first ingestion and recall pipeline for Fathom, chat exports, Slack threads, and GitHub activity into Strata, markdown, HTML, or local indexes with dry-run/plan/report JSON, state, retry, and deduplication surfaces. Defer chain integration until a dedicated skill/workflow contract exists and live-provider credential boundaries are reviewed; existing Research Analyst, Context Packager, Archivist, SITREP Agent, and Receipt Collector can inspect its artifacts when explicitly assigned.
+- `ward`: local Dependabot security command center with read-only default collection/planning/report/dashboard and explicit `--apply` for fix preparation. Defer active chain routing until a dedicated skill/workflow exists and GitHub token/process-list exposure boundaries are accepted; existing Dependency Scanner, Security Reviewer, Issue Hygiene Worker, Risk Officer, and Release Verifier can review Ward outputs when explicitly assigned.
+- `leash`: local-first mobile control plane for supervising AI coding agents through policy, adapters, JWT auth, audit trail, and Android/mobile approval flows. Defer active chain integration until a dedicated skill/workflow and device/runtime validation exist; existing Integration Engineer, Security Reviewer, Risk Officer, Dispatch-oriented agents, and Receipt Collector can review Leash artifacts when explicitly assigned.
+- `diff-viewer-inline-review-fresh`: small inline-review fixture repository with finite-score validation. Treat as unsupported for active Kujo agent capability routing outside review UI fixture testing.
+
 ## Repeated Operational Patterns
 
 - Read README and AGENTS files first.
@@ -79,7 +94,7 @@ Repo docs support routine local use for Spec, Eval, Scout, Dispatch offline fixt
 - MCP is launch-honest as a local foundation but production deployment needs target validation.
 - Public Kennel registry behavior, public discovery, moderation, malware scanning, and trust scoring are deferred.
 - SITREP appears as a useful role name but not as a confirmed standalone KUJO tool.
-- Intake and Cinch are deferred as broad chain capabilities until stable chain-specific skills or workflow contracts exist.
+- Intake, Cinch, TotalRecall, Ward, and Leash are deferred as broad chain capabilities until stable chain-specific skills or workflow contracts exist and their approval/credential/runtime boundaries are reviewed.
 - Diff Viewer demo repositories are fixtures, not tool capabilities.
 
 ## Missing Docs For Agent Onboarding

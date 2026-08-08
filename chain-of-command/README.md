@@ -52,9 +52,10 @@ KUJO workflows support the chain by turning work into artifacts:
 - `CaseFile`, `RunLedger`, and PatchBrief-style reports preserve evidence.
 - `Watchdog` captures local AI/proxy telemetry where configured.
 - `Kennel`, `MCP`, `RAG`, and related tools support package, integration, and retrieval work.
+- `Kujo Docs` is the official SSG/SiteKit-backed public docs site; use it as a concrete docs/frontend/release surface, not as a generic source of production-readiness claims for every documented repo.
 - `Relay`, `Workcell`, and `Tribunal` are now recognized as optional, bounded capabilities for lifecycle handoffs, local execution gates, and advisory decision review. They do not grant broad orchestration, sandbox, or approval authority by default.
 - `Benchmark System` and `Kujo Hyperframes` are recognized as prompt-kit and campaign/video-surface repositories respectively; they remain under existing QA, product, frontend, visual QA, and documentation roles.
-- `Intake` and `Cinch` are recognized as sibling product/tool repositories with agent-facing surfaces, but no active chain ownership is granted until a stable skill/workflow contract is added or a task explicitly targets those repos.
+- `TotalRecall`, `Ward`, `Leash`, `Intake`, and `Cinch` are recognized as sibling product/tool repositories with agent-facing surfaces, but no active chain ownership is granted until a stable skill/workflow contract is added or a task explicitly targets those repos.
 
 See `00-tool-agent-map.md` for supported-versus-inferred behavior.
 
@@ -89,24 +90,24 @@ The ProofPack benchmark is also a KUJO dogfood test. It requires a unique `.runs
 | Strategic | General Commander | Mission interpretation, delegation, final synthesis | Premium reasoning | Dispatch, RunLedger, Spec, ShipCheck |
 | Strategic | Chief of Staff | Objective shaping, assignment lanes, handoff control | Premium reasoning | Spec, Dispatch, Scent, Muzzle |
 | Strategic | Systems Architect | Architecture, boundaries, platform decisions | Premium reasoning | Scout, Fence, Concord, Spec |
-| Strategic | Product Strategist | User value, roadmap fit, adoption framing | Premium reasoning | Archivist, Spec, Eval, Benchmark System |
+| Strategic | Product Strategist | User value, roadmap fit, adoption framing | Premium reasoning | Archivist, Spec, Eval, Benchmark System, Kujo Docs |
 | Planning | Planner | Milestones, sequencing, acceptance criteria | Standard/high reasoning | Spec, Dispatch, Eval |
 | Planning | Spec Writer | Formal task contracts and agent-ready specs | Standard/high reasoning | Spec, CaseFile |
 | Planning | Research Analyst | Repo, API, dependency, and technical context | Standard/high reasoning | Archivist, Scout, RAG, Scent, Capsule |
 | Planning | Risk Officer | Scope, migration, release, security, and compliance risk | Premium reasoning | ShipCheck, Fence, Concord, CaseFile |
 | Execution | Core Developer | General source changes and tests | Standard coding | Spec, Eval, PatchBrief |
 | Execution | Tooling Developer | CLI tools, scripts, automation, local integrations | Standard coding | Kujo Tool Building, Muzzle, Eval |
-| Execution | Frontend Developer | UI flows, responsive behavior, browser proof | Standard coding | Lens, Eval, SSG, SiteKit, Hyperframes |
+| Execution | Frontend Developer | UI flows, responsive behavior, browser proof | Standard coding | Lens, Eval, SSG, SiteKit, Hyperframes, Kujo Docs |
 | Execution | Backend Developer | APIs, persistence, jobs, auth boundaries | Standard coding | Eval, Scout, CaseFile |
 | Execution | Integration Engineer | GitHub/GitLab/MCP/CI/service integration | Standard coding | MCP, Dispatch, Watchdog |
 | Verification | Code Reviewer | Diff review, regressions, missing tests | Standard/high reasoning | PatchBrief, ChangeBucket, Concord |
 | Verification | Triage Agent | Flagged wrong outputs, stopped workflows, human-review routing | Standard/high reasoning | CaseFile, RunLedger, Dispatch, PatchBrief |
 | Verification | QA Lead | Test strategy and evidence requirements | Standard/high reasoning | Eval, CaseFile, RunLedger, Capsule |
-| Verification | Visual QA Agent | Browser, layout, accessibility, visual proof | Standard coding | Lens, SSG, SiteKit, Hyperframes |
+| Verification | Visual QA Agent | Browser, layout, accessibility, visual proof | Standard coding | Lens, SSG, SiteKit, Hyperframes, Kujo Docs |
 | Verification | Release Verifier | Release readiness and blocking gates | Premium/standard | ShipCheck, Eval, Fence, SSG, RunLedger |
 | Verification | Security Reviewer | Host effects, secrets, auth, boundaries | Premium reasoning | Scout, Fence, Scent, Redact, Eval, CaseFile |
 | Knowledge | Archivist | Existing source-grounded dossiers | Standard/high reasoning | Archivist, KUJO Archivist |
-| Knowledge | Documentation Writer | READMEs, changelogs, onboarding, runbooks | Standard writing/coding | Concord, Spec, PatchBrief, SSG, Hyperframes |
+| Knowledge | Documentation Writer | READMEs, changelogs, onboarding, runbooks | Standard writing/coding | Concord, Spec, PatchBrief, SSG, Hyperframes, Kujo Docs |
 | Knowledge | Context Packager | Compact execution packs and context bundles | Standard reasoning | Scent, Redact, PackWrite, Muzzle, Capsule |
 | Knowledge | SITREP Agent | Short status reports and handoff summaries | Cheap/standard | RunLedger, CaseFile |
 | Worker | Routine Worker | Explicit bounded local commands | Cheap worker | Muzzle, CaseFile |

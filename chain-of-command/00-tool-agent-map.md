@@ -26,6 +26,7 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | RunLedger | Local JSON ledger for AI-agent build-run receipts | Practical local receipt system, not workflow manager | Receipt Collector, SITREP Agent, Triage Agent |
 | Muzzle | Quiet workflow runner with logs, reports, JSON summaries, loop state | Trusted local workflow compression, not sandbox | Context Packager, Routine Worker, Lint Runner |
 | Howl | Deterministic showcase artifact generation from examples and manifests | Production-ready for narrow offline scope | Documentation Writer |
+| Kujo Docs | Official static documentation site for `docs.kujolang.ai`, built through sibling SSG with vendored SiteKit assets, content IA, public deploy docs, and generated favicon assets | v1.0.0 docs site; does not promote every documented component to production-ready | Documentation Writer, Frontend Developer, Visual QA Agent |
 | SSG | Deterministic Kujo static-site generation, generated-output validation, DocGen bridge, reusable docs starter, and release gates | Local static-site showcase; not hosted publishing or production-certified docs platform | Documentation Writer, Frontend Developer, Visual QA Agent, Release Verifier |
 | ChangeBucket | Git change footprint and blast-radius metrics | Read-only local footprint tool | Code Reviewer, Risk Officer |
 | PackWrite | MEGA_PROMPT to validated `/agent` execution pack | Production-usable local/team pack compiler | Context Packager, Planner |
@@ -41,9 +42,12 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | Capsule | Offline Kujo CLI for deterministic project handoff packages, manifests, checksums, previews, command detection, and validation | Direct local CLI contract in benchmark repo; redaction is shallow filename/keyword protection | Context Packager, Research Analyst, QA Lead |
 | Benchmark System | Provider-neutral benchmark execution/review prompt kits for AI Chat pane-profile runs and factual review packets | Prompt/documentation kit; no standalone executable contract verified | QA Lead, Product Strategist, General Commander |
 | Kujo Hyperframes | Static/public campaign and video composition repo with source-grounded claim map | Showcase/content surface; claims remain tied to Archivist dossier evidence | Frontend Developer, Visual QA Agent, Documentation Writer |
+| TotalRecall | Local-first ingestion pipeline for Fathom, chat exports, Slack threads, and GitHub activity into Strata, markdown, HTML, or local indexes | CLI/repo surface verified; active chain use deferred pending skill/workflow and credential-boundary review | Deferred for Research Analyst, Context Packager, Archivist, SITREP Agent, Receipt Collector |
+| Ward | Local Dependabot security alert collection, planning, reporting, dashboard, and safe fix preparation with read-only defaults | CLI/repo surface verified; active chain use deferred pending skill/workflow and GitHub-token/process-boundary review | Deferred for Dependency Scanner, Security Reviewer, Issue Hygiene Worker, Risk Officer, Release Verifier |
+| Leash | Local/mobile AI-agent supervision control plane with policy, tmux/agent adapters, JWT auth, audit trail, and approval flows | v0.1.0 hardening; Android/runtime validation and dedicated chain contract still pending | Deferred for Integration Engineer, Security Reviewer, Risk Officer, Receipt Collector |
 | Intake | Local-first source-agnostic intake layer for manual/file/webhook/email and provider issue sources with policy-gated actions and audit logs | Local-first live-smoke ready; no dedicated chain skill/workflow verified | Deferred for Chief of Staff, Triage Agent, Issue Hygiene Worker |
 | Cinch | macOS-first local AI development harness for workspaces, files, git, commands, tools, MCP, proof artifacts, and Trail export | Hardened alpha/release candidate; not broadly production distributed | Deferred product/tool surface; task-specific Frontend, Integration, Tooling, QA review only |
-| Diff Viewer demos | Small fixture repositories for testing workspace diff review and inline review behavior | Fixture/demo repos only | Unsupported as active agent capability |
+| Diff Viewer demos | Small fixture repositories for testing workspace diff review and inline review behavior, including inline review finite-score fixtures | Fixture/demo repos only | Unsupported as active agent capability |
 
 ## Agent Ownership
 
@@ -52,23 +56,23 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | General Commander | Dispatch, RunLedger, Spec | ShipCheck, Concord, Relay lifecycle evidence, Tribunal advisory packets |
 | Chief of Staff | Spec, Dispatch, Scent | Muzzle, PackWrite |
 | Systems Architect | Scout, Fence, Concord | Spec, Agents SDK |
-| Product Strategist | Archivist, Spec | Eval, RunLedger |
+| Product Strategist | Archivist, Spec | Eval, RunLedger, Howl campaign framing, Kujo Docs product IA |
 | Planner | Spec, Dispatch, Eval | PackWrite |
 | Spec Writer | Spec | CaseFile, Eval |
 | Research Analyst | Archivist, KUJO Archivist, Scout, RAG | Scent, Capsule |
 | Risk Officer | ShipCheck, Fence, Concord, ChangeBucket | CaseFile, Tribunal advisory packets, Workcell boundary evidence |
 | Core Developer | Spec, Eval | PatchBrief, CaseFile |
 | Tooling Developer | Kujo runtime, Kujo Tool Building, Muzzle | Kennel, Eval, Workcell |
-| Frontend Developer | Lens, Eval | CaseFile, SSG, SiteKit, CMS Experience |
+| Frontend Developer | Lens, Eval | CaseFile, SSG, SiteKit, CMS Experience, Kujo Docs |
 | Backend Developer | Eval, Scout | RAG, Watchdog |
 | Integration Engineer | MCP, Dispatch, Watchdog | AI SDK, Agents SDK, Relay, CMS Experience |
 | Code Reviewer | PatchBrief, ChangeBucket, Concord | Fence |
 | Triage Agent | CaseFile, RunLedger, Dispatch | PatchBrief, ChangeBucket, Eval, Relay run evidence |
 | QA Lead | Eval, CaseFile | RunLedger, Workcell receipts, Capsule benchmark evidence |
-| Visual QA Agent | Lens | Eval, SSG output, SiteKit snapshots |
+| Visual QA Agent | Lens | Eval, SSG output, SiteKit snapshots, Kujo Docs public/static pages |
 | Release Verifier | ShipCheck, Eval, Fence, RunLedger | Concord, SSG release/output gates, Relay handoff evidence, Workcell execution evidence, Tribunal advisory packets |
 | Security Reviewer | Scout, Fence, Scent, Redact, Eval | CaseFile, Workcell boundary evidence, StegoCipher review subject |
-| Documentation Writer | Concord, PatchBrief, Howl, SSG | Spec, SiteKit docs/components evidence |
+| Documentation Writer | Concord, PatchBrief, Howl, SSG | Spec, SiteKit docs/components evidence, Kujo Docs |
 | Context Packager | Scent, Redact, PackWrite, Muzzle, Capsule | Scout |
 | SITREP Agent | RunLedger, CaseFile | PatchBrief |
 | Routine Worker | Muzzle, Kujo Doctor | CaseFile, Workcell when explicitly assigned |
@@ -90,8 +94,11 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 - `Benchmark System` and `Kujo Hyperframes` are useful repo-backed surfaces but are not broad tool integrations. Keep Benchmark System as prompt-kit evidence until an executable contract exists, and keep Hyperframes under existing frontend/docs/product ownership.
 - `Redact` is directly useful for sensitive context handling, but it does not replace manual review, complete PII removal, or compliance signoff. Its `--unsafe-store-originals` mode is outside normal agent use.
 - `SSG` is directly useful for generated static sites and docs starters. It is not a deployment service, and generated output still needs browser/accessibility/release review when user-facing.
-- `Intake` and `Cinch` are credible future workflow surfaces, but they are deferred in the agent chain because no narrow `kujo-skills` chain skill or `kujo-workflows` contract was verified for routine delegation this week.
-- `diff-viewer-demo`, `diff-viewer-demo-fresh`, and `diff-viewer-verified` are fixture repositories for diff-review testing. They should not be treated as Kujo ecosystem tools.
+- `Kujo Docs` is a concrete public docs-site repository and SSG/SiteKit consumer, not a replacement for Documentation Writer or SSG. Its content pages are evidence surfaces, but each documented tool keeps its own maturity boundary.
+- `Howl` now covers branded social cards, but this only broadens deterministic artifact output. Product Strategist may frame source-backed campaign usage, while Documentation Writer remains the primary owner.
+- `TotalRecall`, `Ward`, and `Leash` are credible future workflow surfaces, but they are deferred in the agent chain because no narrow `kujo-skills` chain skill or `kujo-workflows` contract was verified for routine delegation this week and each has credential, approval, or runtime boundaries.
+- `Intake` and `Cinch` are credible future workflow surfaces, but they remain deferred in the agent chain because no narrow `kujo-skills` chain skill or `kujo-workflows` contract was verified for routine delegation.
+- `diff-viewer-demo`, `diff-viewer-demo-fresh`, `diff-viewer-verified`, and `diff-viewer-inline-review-fresh` are fixture repositories for diff-review testing. They should not be treated as Kujo ecosystem tools.
 
 ## Evidence Sources
 
@@ -105,5 +112,6 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 - `../../redact/README.md`, `../../ssg/README.md`, `../../intake/README.md`, `../../cinch/README.md`
 - `../../relay/README.md`, `../../workcell/README.md`, `../../tribunal/README.md`, `../../site-kit/README.md`, `../../stego-cipher-kujo/README.md`, `../../cms-experience/README.md`
 - `../../benchmarks-capsule-v3/README.md`, `../../benchmarks-system/README.md`, `../../kujo-hyperframes/README.md`
+- `../../kujo-docs/README.md`, `../../totalrecall/README.md`, `../../ward/README.md`, `../../leash/README.md`, `../../howl/README.md`, `../../kennel/README.md`
 - `../../kujo-workflows/README.md`
 - `../../kujo-skills/skills/*/SKILL.md`
