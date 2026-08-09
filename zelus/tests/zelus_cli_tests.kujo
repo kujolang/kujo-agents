@@ -1,5 +1,0 @@
-from src.cli import validate_packet
-
-result := validate_packet("examples/sample-wordpress-campaign")
-if result["valid"] != true { print("FAIL: reference packet is invalid"); exit(1) }
-print("Zelus CLI contract tests: passed")

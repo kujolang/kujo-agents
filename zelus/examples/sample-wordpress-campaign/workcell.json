@@ -1,8 +1,0 @@
-{
-  "wordpress":{"version":"fixture-1.0"},
-  "php":{"version":"fixture-php"},
-  "database":{"engine":"synthetic"},
-  "users":[{"username":"subscriber1","role":"subscriber"},{"username":"administrator1","role":"administrator"}],
-  "fixtures":{"posts":10,"private_posts":3,"orders":5},
-  "network":{"outbound_capture":true,"internet_access":"restricted"}
-}

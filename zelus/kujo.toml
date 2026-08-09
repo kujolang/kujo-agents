@@ -1,8 +1,0 @@
-[package]
-name = "zelus"
-version = "0.1.0"
-
-[dependencies]
-# Agents SDK, Dispatch, Fence, Watchdog, RunLedger, CaseFile, Redact, Scout,
-# Scent, Eval, ShipCheck, and Concord are integration boundaries. Zelus runs
-# offline without provider credentials or network access by default.

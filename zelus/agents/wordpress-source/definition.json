@@ -1,1 +1,0 @@
-{"id":"wordpress-source","name":"WordPress Source and Patch Hunter","mission":"WordPress-aware source and patch analysis","outputs":["WordPressHookMap","DataFlowCandidate","VersionDiff","HypothesisCard"]}

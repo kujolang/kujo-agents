@@ -1,1 +1,0 @@
-{"id":"recon","name":"Recon and Attack Surface Hunter","mission":"authorized attack-surface correlation","outputs":["AssetRecord","EndpointRecord","ReconHypothesis"]}
