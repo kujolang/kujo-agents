@@ -13,7 +13,7 @@
 
 ## Do Not Use This Agent When
 
-- Source facts are unknown; use Archivist, KUJO Archivist, or Research Analyst first.
+- Source facts are unknown; use Research Analyst first.
 - The task is marketing copy without source support.
 
 ## Inputs Expected

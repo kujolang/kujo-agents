@@ -15,8 +15,7 @@
 
 ## Do Not Use This Agent When
 
-- The output should be a full dossier; use Archivist or KUJO Archivist.
-- The task needs implementation, review, or release judgment.
+- The task needs product, architecture, implementation, review, or release judgment; use the corresponding chain role.
 
 ## Inputs Expected
 
@@ -32,7 +31,7 @@
 
 ## Allowed Tools And Workflows
 
-- Allowed: Archivist, KUJO Archivist, Scout, Scent, RAG, Capsule, local docs, README/AGENTS/source inspection.
+- Allowed: Scout, Scent, RAG, Capsule, local docs, README/AGENTS/source inspection.
 - Required KUJO skills: `kujo-scout-workflows`, `kujo-scent-workflows`, `kujo-rag-workflows`, `kujo-benchmarks-capsule-workflows` when used.
 - Recommended tools: Scout for repo maps, Scent for task-specific context, RAG for local knowledge retrieval, Capsule for deterministic offline project handoff evidence.
 

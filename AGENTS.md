@@ -1,34 +1,44 @@
 # Kujo Agents Agent Instructions
 
-This repository contains reusable agent packages and templates. Treat templates as guidance and review material, not sandboxing or policy enforcement.
+This repository contains the reusable KUJO chain-of-command agent packages and
+supporting templates. Treat templates as guidance and review material, not
+sandboxing, authorization, or policy enforcement.
 
 ## Required Reading
 
 - `README.md`
 - `docs/launch-checklist.md`
-- Relevant agent `AGENT.md`, `SKILL.md`, and package `README.md`
-- `zelus/README.md` and `zelus/SECURITY.md` before touching Zelus
+- `chain-of-command/README.md`
+- `chain-of-command/00-chain-of-command.md`
+- Relevant agent `AGENT.md` and `SKILL.md`
 
 ## Validation
 
 ```bash
-find . -maxdepth 3 \( -name AGENT.md -o -name SKILL.md -o -name README.md \) | sort
-cd zelus
-"$KUJO_BIN" run zelus.kujo -- doctor
-"$KUJO_BIN" run zelus.kujo -- campaign reference examples/sample-wordpress-campaign --out /tmp/zelus-reference
-"$KUJO_BIN" run tests/zelus_contract_tests.kujo --interpreter
-"$KUJO_BIN" run tests/zelus_cli_tests.kujo --interpreter
-"$KUJO_BIN" run tests/zelus_registry_tests.kujo --interpreter
-cd ..
+find chain-of-command -mindepth 2 -maxdepth 2 -type f \
+  \( -name AGENT.md -o -name SKILL.md \) | sort
+
+for dir in chain-of-command/*/; do
+  case "$dir" in
+    chain-of-command/00-docs/) continue ;;
+  esac
+  test -f "${dir}AGENT.md" && test -f "${dir}SKILL.md"
+done
+
+bash .github/scripts/check-kujo-tool-artifacts.sh
 git diff --check
 ```
 
 ## Evidence Rules
 
-- Preserve inventories, template review notes, and deterministic Zelus proof logs for launch evidence.
-- Keep offensive-security wording explicitly authorized/research-only.
-- Workcell proof is required for this launch batch unless a blocker receipt documents the Docker/host blocker and closest equivalent proof.
+- Preserve inventories, template review notes, and deterministic validation
+  output when changing agent contracts.
+- Keep tool claims grounded in repository-backed evidence and clearly mark
+  inferred behavior.
+- Keep authority, stop conditions, and handoff requirements explicit.
 
 ## Prohibited Without Approval
 
-Do not run live offensive testing, use live credentials, publish packages, create public releases, push final tags, alter branch protection, force-push, rewrite history, or claim templates enforce policy/sandboxing.
+Do not use live credentials, publish packages, create public releases, push
+final tags, alter branch protection, force-push, rewrite history, or claim that
+templates enforce policy or sandboxing.

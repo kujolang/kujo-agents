@@ -51,8 +51,6 @@ Verification agents review, test, and produce proof. They should be independent 
 
 Knowledge agents preserve context so work does not depend on private memory.
 
-- `../archivist`: existing universal source-grounded dossier builder.
-- `../kujo-archivist`: existing KUJO-specific source-grounded ecosystem dossier builder.
 - `documentation-writer`: updates docs, READMEs, changelogs, onboarding, and runbooks.
 - `context-packager`: prepares compact task context, agent packs, and quiet workflow summaries.
 - `sitrep-agent`: writes short status reports, handoffs, and current-state summaries.
@@ -80,7 +78,7 @@ Routine workers use cheap models and strict instructions. They do not decide pro
 ## Default Flow
 
 1. `general-commander` or `chief-of-staff` interprets the mission.
-2. `research-analyst` or existing Archivist gathers source-grounded context if facts are missing.
+2. `research-analyst` gathers source-grounded context if facts are missing.
 3. `planner` and `spec-writer` define work packages and acceptance criteria.
 4. Execution agents implement bounded changes.
 5. Worker agents run assigned commands and collect outputs.

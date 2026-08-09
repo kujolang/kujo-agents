@@ -9,14 +9,14 @@ This record captures credible new-agent candidates discovered during periodic au
 - Proposed role: Context Ingestion Steward.
 - Problem or gap: `totalrecall` can ingest Fathom meetings, chat exports, Slack threads, and GitHub activity into Strata, markdown folders, static HTML, or local JSON indexes.
 - Repository-backed evidence: `../../totalrecall/README.md`, `../../totalrecall/docs/GETTING_STARTED.md`, `../../totalrecall/docs/SECRETS_AND_KEYCHAIN.md`.
-- Relevant tools/skills/repositories: TotalRecall, Strata destination, local export providers, Fathom provider, Slack and GitHub activity imports, Context Packager, Research Analyst, Archivist, SITREP Agent, Receipt Collector.
+- Relevant tools/skills/repositories: TotalRecall, Strata destination, local export providers, Fathom provider, Slack and GitHub activity imports, Context Packager, Research Analyst, SITREP Agent, Receipt Collector.
 - Expected inputs: provider/export source, destination policy, deduplication mode, sync-state location, redaction policy, credential boundary, and retention target.
 - Expected outputs: import plan, normalized artifacts, destination records, report JSON, audit log, duplicate/reconciliation status, and unresolved credential or retention boundary.
-- Overlap: Research Analyst, Context Packager, Archivist, SITREP Agent, Receipt Collector.
+- Overlap: Research Analyst, Context Packager, SITREP Agent, Receipt Collector.
 - Why not add now: Existing knowledge/context roles can inspect TotalRecall artifacts when assigned, and no dedicated chain skill or workflow contract was verified for routine delegation.
 - Required authority boundaries: no live provider pull, API-key use, Strata writes, filesystem export, or cross-system learning ingestion without explicit scope and retention approval.
 - Verification requirements: `./scripts/totalrecall config validate`, dry-run provider import, destination-specific contract harness, duplicate/idempotency proof, and secrets/keychain review.
-- Risks/costs/token impact: broad ingestion could duplicate Archivist and Context Packager while increasing private-context retention risk.
+- Risks/costs/token impact: broad ingestion could duplicate Research Analyst and Context Packager while increasing private-context retention risk.
 - Recommendation: defer.
 - Evidence still required: stable `kujo-skills` or `kujo-workflows` contract plus repeated workload showing existing knowledge roles need a specialized ingestion owner.
 

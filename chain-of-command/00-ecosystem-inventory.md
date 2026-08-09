@@ -4,10 +4,9 @@ This inventory summarizes the inspected KUJO ecosystem for the agent chain. It i
 
 ## Existing Agents
 
-- `archivist/`: universal source-bound project researcher and dossier builder.
-- `kujo-archivist/`: KUJO-specific source-bound ecosystem researcher and dossier builder.
-
-Existing agents use package directories with `AGENT.md`, `SKILL.md`, and optional `references/`.
+The public agent roster lives entirely under `chain-of-command/`. Each role uses
+a package directory containing `AGENT.md` and `SKILL.md`; supporting maps and
+templates remain in the same chain package.
 
 ## Existing Skills
 
@@ -37,7 +36,7 @@ The 2026-07-25 audit window added or refreshed these agent-facing relationships:
 
 - `benchmarks-capsule-v3`: Kujo-native Capsule CLI that writes deterministic, offline project handoff packages (`capsule.json`, `capsule.md`, `manifest.json`) with command detection, checksums, shallow secret exclusions, and validation. Treat as a directly verified context-packaging and benchmark-evidence capability for Context Packager, Research Analyst, QA Lead, and Receipt Collector. Do not treat its filename/keyword redaction as a complete secret scanner.
 - `benchmarks-system`: provider-neutral benchmark execution and review prompt kits that currently drive saved AI Chat pane profiles and produce quality, token/cost, time, dream-team, and PDF review outputs. Treat as a documentation/prompt-kit reference for QA Lead, Product Strategist, General Commander, and Documentation Writer, not as a supported standalone CLI until repository-backed executable contracts exist.
-- `kujo-hyperframes`: static public campaign and video composition repository backed by the Archivist handoff dossier and claim map. Treat as a frontend/documentation/product surface for Frontend Developer, Visual QA Agent, Documentation Writer, and Product Strategist when assigned. Do not let campaign copy bypass source-grounded claim constraints.
+- `kujo-hyperframes`: static public campaign and video composition repository backed by a source-grounded handoff dossier and claim map. Treat as a frontend/documentation/product surface for Frontend Developer, Visual QA Agent, Documentation Writer, and Product Strategist when assigned. Do not let campaign copy bypass source-grounded claim constraints.
 - `watchdog`: recent changes strengthened dashboard, backup/archive views, long-running trace display, session token visibility, and telemetry preservation. Existing Integration Engineer and Receipt Collector ownership remains current; use Watchdog evidence for visible local proxy telemetry only.
 - `ai-chat`: recent changes hardened streaming durability, tool continuation timeout handling, local runtime tool errors, public tunnel probe endpoints, usage accounting, sidebar/archive UI state, and token-budget behavior. Existing Integration Engineer, Backend Developer, Frontend Developer, Visual QA Agent, and QA Lead routing remains current.
 - `eval`, `fence`, `patchbrief`, `shipcheck`, and `changebucket`: recent CLI parsing and policy-gate fixes strengthen existing verification relationships but do not change agent ownership.
@@ -65,7 +64,7 @@ The 2026-08-08 audit window added or refreshed these agent-facing relationships:
 - `agents-sdk`, `eval`, `lens`, `mcp`, `muzzle`, `packwrite`, `patchbrief`, `rag`, `runledger`, `scent`, `scout`, `shipcheck`, and `watchdog`: v1.0.0 release prep refreshed repository maturity without changing existing role ownership. Watchdog also refreshed pricing catalogs for the August audit; treat pricing knowledge as retrieval-date sensitive.
 - `kujo-skills`: refreshed Kujo v1 release skill guidance plus Howl and Kennel workflow routing. Existing skill-reference relationships remain current.
 - `kujo-workflows`: weekly workflow audit refreshed catalog validation and preserves contract-gated workflow relationships. Existing Dispatch, Workcell, Relay, Tribunal, Howl, RAG, CaseFile, MCP, and DocsGen workflow boundaries remain current.
-- `totalrecall`: local-first ingestion and recall pipeline for Fathom, chat exports, Slack threads, and GitHub activity into Strata, markdown, HTML, or local indexes with dry-run/plan/report JSON, state, retry, and deduplication surfaces. Defer chain integration until a dedicated skill/workflow contract exists and live-provider credential boundaries are reviewed; existing Research Analyst, Context Packager, Archivist, SITREP Agent, and Receipt Collector can inspect its artifacts when explicitly assigned.
+- `totalrecall`: local-first ingestion and recall pipeline for Fathom, chat exports, Slack threads, and GitHub activity into Strata, markdown, HTML, or local indexes with dry-run/plan/report JSON, state, retry, and deduplication surfaces. Defer chain integration until a dedicated skill/workflow contract exists and live-provider credential boundaries are reviewed; existing Research Analyst, Context Packager, SITREP Agent, and Receipt Collector can inspect its artifacts when explicitly assigned.
 - `ward`: local Dependabot security command center with read-only default collection/planning/report/dashboard and explicit `--apply` for fix preparation. Defer active chain routing until a dedicated skill/workflow exists and GitHub token/process-list exposure boundaries are accepted; existing Dependency Scanner, Security Reviewer, Issue Hygiene Worker, Risk Officer, and Release Verifier can review Ward outputs when explicitly assigned.
 - `leash`: local-first mobile control plane for supervising AI coding agents through policy, adapters, JWT auth, audit trail, and Android/mobile approval flows. Defer active chain integration until a dedicated skill/workflow and device/runtime validation exist; existing Integration Engineer, Security Reviewer, Risk Officer, Dispatch-oriented agents, and Receipt Collector can review Leash artifacts when explicitly assigned.
 - `diff-viewer-inline-review-fresh`: small inline-review fixture repository with finite-score validation. Treat as unsupported for active Kujo agent capability routing outside review UI fixture testing.
@@ -113,8 +112,6 @@ New agents in this chain use:
 chain-of-command/<agent-name>/AGENT.md
 chain-of-command/<agent-name>/SKILL.md
 ```
-
-The existing root Archivist packages are preserved and referenced rather than moved.
 
 Non-agent chain support material lives under `00-docs/` so the remaining folders are visually reserved for agent packages:
 

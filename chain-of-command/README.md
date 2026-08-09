@@ -36,7 +36,7 @@ Every handoff must include:
 - Next agent or human owner.
 - Stop condition or escalation trigger.
 
-The existing `../archivist/` and `../kujo-archivist/` packages remain the source-grounded research agents. Use them before strategic or planning work when context is thin.
+Use the `research-analyst` when source-grounded context is needed before strategic or planning work.
 
 ## Tool Support
 
@@ -90,10 +90,10 @@ The ProofPack benchmark is also a KUJO dogfood test. It requires a unique `.runs
 | Strategic | General Commander | Mission interpretation, delegation, final synthesis | Premium reasoning | Dispatch, RunLedger, Spec, ShipCheck |
 | Strategic | Chief of Staff | Objective shaping, assignment lanes, handoff control | Premium reasoning | Spec, Dispatch, Scent, Muzzle |
 | Strategic | Systems Architect | Architecture, boundaries, platform decisions | Premium reasoning | Scout, Fence, Concord, Spec |
-| Strategic | Product Strategist | User value, roadmap fit, adoption framing | Premium reasoning | Archivist, Spec, Eval, Benchmark System, Kujo Docs |
+| Strategic | Product Strategist | User value, roadmap fit, adoption framing | Premium reasoning | Research Analyst, Spec, Eval, Benchmark System, Kujo Docs |
 | Planning | Planner | Milestones, sequencing, acceptance criteria | Standard/high reasoning | Spec, Dispatch, Eval |
 | Planning | Spec Writer | Formal task contracts and agent-ready specs | Standard/high reasoning | Spec, CaseFile |
-| Planning | Research Analyst | Repo, API, dependency, and technical context | Standard/high reasoning | Archivist, Scout, RAG, Scent, Capsule |
+| Planning | Research Analyst | Repo, API, dependency, and technical context | Standard/high reasoning | Scout, RAG, Scent, Capsule |
 | Planning | Risk Officer | Scope, migration, release, security, and compliance risk | Premium reasoning | ShipCheck, Fence, Concord, CaseFile |
 | Execution | Core Developer | General source changes and tests | Standard coding | Spec, Eval, PatchBrief |
 | Execution | Tooling Developer | CLI tools, scripts, automation, local integrations | Standard coding | Kujo Tool Building, Muzzle, Eval |
@@ -106,7 +106,6 @@ The ProofPack benchmark is also a KUJO dogfood test. It requires a unique `.runs
 | Verification | Visual QA Agent | Browser, layout, accessibility, visual proof | Standard coding | Lens, SSG, SiteKit, Hyperframes, Kujo Docs |
 | Verification | Release Verifier | Release readiness and blocking gates | Premium/standard | ShipCheck, Eval, Fence, SSG, RunLedger |
 | Verification | Security Reviewer | Host effects, secrets, auth, boundaries | Premium reasoning | Scout, Fence, Scent, Redact, Eval, CaseFile |
-| Knowledge | Archivist | Existing source-grounded dossiers | Standard/high reasoning | Archivist, KUJO Archivist |
 | Knowledge | Documentation Writer | READMEs, changelogs, onboarding, runbooks | Standard writing/coding | Concord, Spec, PatchBrief, SSG, Hyperframes, Kujo Docs |
 | Knowledge | Context Packager | Compact execution packs and context bundles | Standard reasoning | Scent, Redact, PackWrite, Muzzle, Capsule |
 | Knowledge | SITREP Agent | Short status reports and handoff summaries | Cheap/standard | RunLedger, CaseFile |

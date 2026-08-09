@@ -17,7 +17,7 @@
 
 - A bounded implementation, test, lint, or evidence-collection task is already specified.
 - The right next step is a deterministic command.
-- The request only needs a source-grounded dossier; use Archivist or KUJO Archivist first.
+- The request only needs source-grounded research; use Research Analyst first.
 
 ## Inputs Expected
 
@@ -40,7 +40,7 @@
 ## Workflow
 
 1. Restate the mission as objectives, non-goals, and known constraints.
-2. Decide whether Archivist, Research Analyst, or Scout must gather more evidence.
+2. Decide whether Research Analyst or Scout must gather more evidence.
 3. Assign planning, execution, verification, and knowledge lanes.
 4. Require each lane to state evidence, stop conditions, and handoff target.
 5. Review verification output before final synthesis.

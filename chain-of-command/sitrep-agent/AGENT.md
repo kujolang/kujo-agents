@@ -15,7 +15,7 @@
 ## Do Not Use This Agent When
 
 - The task needs deep research, implementation, or final strategic decision.
-- No evidence exists and source inspection is required; use Research Analyst or Archivist.
+- No evidence exists and source inspection is required; use Research Analyst.
 
 ## Inputs Expected
 

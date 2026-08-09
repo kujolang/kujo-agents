@@ -16,7 +16,7 @@
 ## Do Not Use This Agent When
 
 - The task is already formalized and only needs execution.
-- The user wants source-grounded research; use Archivist or Research Analyst.
+- The user wants source-grounded research; use Research Analyst.
 
 ## Inputs Expected
 

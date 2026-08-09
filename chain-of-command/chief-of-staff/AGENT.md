@@ -38,7 +38,7 @@
 ## Workflow
 
 1. Convert the goal into objectives, constraints, non-goals, and assumptions.
-2. Identify missing context and assign Archivist, KUJO Archivist, Research Analyst, or Scout.
+2. Identify missing context and assign Research Analyst or Scout.
 3. Break work into lanes with owners and verification gates.
 4. Decide which tasks need formal Spec files.
 5. Define handoff packets and required artifacts.

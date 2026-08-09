@@ -41,8 +41,8 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | CMS Experience | Studio/public-site application layer for the CMS backend with live contract checks and explicit auth gaps | Showcase/application layer; public production readiness remains gated by documented P1 items | Frontend Developer, Backend Developer, Integration Engineer |
 | Capsule | Offline Kujo CLI for deterministic project handoff packages, manifests, checksums, previews, command detection, and validation | Direct local CLI contract in benchmark repo; redaction is shallow filename/keyword protection | Context Packager, Research Analyst, QA Lead |
 | Benchmark System | Provider-neutral benchmark execution/review prompt kits for AI Chat pane-profile runs and factual review packets | Prompt/documentation kit; no standalone executable contract verified | QA Lead, Product Strategist, General Commander |
-| Kujo Hyperframes | Static/public campaign and video composition repo with source-grounded claim map | Showcase/content surface; claims remain tied to Archivist dossier evidence | Frontend Developer, Visual QA Agent, Documentation Writer |
-| TotalRecall | Local-first ingestion pipeline for Fathom, chat exports, Slack threads, and GitHub activity into Strata, markdown, HTML, or local indexes | CLI/repo surface verified; active chain use deferred pending skill/workflow and credential-boundary review | Deferred for Research Analyst, Context Packager, Archivist, SITREP Agent, Receipt Collector |
+| Kujo Hyperframes | Static/public campaign and video composition repo with source-grounded claim map | Showcase/content surface; claims remain tied to source-grounded dossier evidence | Frontend Developer, Visual QA Agent, Documentation Writer |
+| TotalRecall | Local-first ingestion pipeline for Fathom, chat exports, Slack threads, and GitHub activity into Strata, markdown, HTML, or local indexes | CLI/repo surface verified; active chain use deferred pending skill/workflow and credential-boundary review | Deferred for Research Analyst, Context Packager, SITREP Agent, Receipt Collector |
 | Ward | Local Dependabot security alert collection, planning, reporting, dashboard, and safe fix preparation with read-only defaults | CLI/repo surface verified; active chain use deferred pending skill/workflow and GitHub-token/process-boundary review | Deferred for Dependency Scanner, Security Reviewer, Issue Hygiene Worker, Risk Officer, Release Verifier |
 | Leash | Local/mobile AI-agent supervision control plane with policy, tmux/agent adapters, JWT auth, audit trail, and approval flows | v0.1.0 hardening; Android/runtime validation and dedicated chain contract still pending | Deferred for Integration Engineer, Security Reviewer, Risk Officer, Receipt Collector |
 | Intake | Local-first source-agnostic intake layer for manual/file/webhook/email and provider issue sources with policy-gated actions and audit logs | Local-first live-smoke ready; no dedicated chain skill/workflow verified | Deferred for Chief of Staff, Triage Agent, Issue Hygiene Worker |
@@ -56,10 +56,10 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | General Commander | Dispatch, RunLedger, Spec | ShipCheck, Concord, Relay lifecycle evidence, Tribunal advisory packets |
 | Chief of Staff | Spec, Dispatch, Scent | Muzzle, PackWrite |
 | Systems Architect | Scout, Fence, Concord | Spec, Agents SDK |
-| Product Strategist | Archivist, Spec | Eval, RunLedger, Howl campaign framing, Kujo Docs product IA |
+| Product Strategist | Research Analyst handoffs, Spec | Eval, RunLedger, Howl campaign framing, Kujo Docs product IA |
 | Planner | Spec, Dispatch, Eval | PackWrite |
 | Spec Writer | Spec | CaseFile, Eval |
-| Research Analyst | Archivist, KUJO Archivist, Scout, RAG | Scent, Capsule |
+| Research Analyst | Scout, RAG | Scent, Capsule |
 | Risk Officer | ShipCheck, Fence, Concord, ChangeBucket | CaseFile, Tribunal advisory packets, Workcell boundary evidence |
 | Core Developer | Spec, Eval | PatchBrief, CaseFile |
 | Tooling Developer | Kujo runtime, Kujo Tool Building, Muzzle | Kennel, Eval, Workcell |

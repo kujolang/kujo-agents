@@ -116,7 +116,7 @@ General Commander must:
 
 1. Restate the campaign in plain language.
 2. Classify the campaign type and risk level.
-3. Identify missing context and route source discovery to `Research Analyst`, `Archivist`, or `KUJO Archivist`.
+3. Identify missing context and route source discovery to `Research Analyst`.
 4. Route product ambiguity to `Product Strategist`.
 5. Route architecture ambiguity to `Systems Architect`.
 6. Route task decomposition to `Chief of Staff`, `Planner`, and `Spec Writer`.
