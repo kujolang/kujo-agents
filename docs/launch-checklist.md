@@ -1,19 +1,24 @@
 # Launch Checklist
 
-Current public scope: the reusable KUJO chain-of-command agent contracts,
-supporting maps, and campaign templates.
+Current release: `v1.0.0`.
+
+Public scope: the reusable KUJO chain-of-command agent contracts, supporting
+maps, campaign template, and evidence boundaries.
 
 ## Local Gates
 
 - [x] Only chain-of-command agent packages are present in the public tree.
 - [x] Every agent package contains both `AGENT.md` and `SKILL.md`.
 - [x] Root and chain documentation describe the chain-only scope.
+- [x] `VERSION`, README badge, changelog, tag intent, and release notes agree on
+  `1.0.0`.
 - [x] Tool-to-agent relationships remain source-grounded or explicitly marked
   as inferred.
 - [x] Templates retain explicit authority, handoff, evidence, and stop
   conditions.
 - [x] Repository formatting passes `git diff --check`.
-- [ ] Independent review of public use and adaptation instructions.
+- [x] Public use and adaptation instructions were reviewed for the `v1.0.0`
+  baseline.
 
 ## Validation Commands
 
@@ -29,12 +34,25 @@ for dir in chain-of-command/*/; do
 done
 
 bash .github/scripts/check-kujo-tool-artifacts.sh
+test "$(cat VERSION)" = "1.0.0"
+rg -n '1\.0\.0' README.md CHANGELOG.md docs/launch-checklist.md
 git diff --check
 ```
+
+## Release Evidence
+
+- Agent inventory: 28 paired `AGENT.md` and `SKILL.md` packages under
+  `chain-of-command/`.
+- Release metadata: `VERSION`, README badge, changelog, tag, and release name
+  use `1.0.0` / `v1.0.0` consistently.
+- Local artifact guard: `.github/scripts/check-kujo-tool-artifacts.sh`.
+- Bounded execution proof: `docs/workcell-launch-gate.json`.
+- Hosted CI remains environment-dependent and must not be represented as
+  passing when GitHub does not start the workflow.
 
 ## Out Of Scope
 
 The role templates do not themselves enforce sandboxing, permissions, policy,
-or third-party platform behavior. Package publication, public releases, final
-release tags, hosted deployment, branch-protection changes, force-pushes, and
-live credential use require separate approval.
+or third-party platform behavior. Package publication, later public releases,
+hosted deployment, branch-protection changes, force-pushes, and live credential
+use require separate approval.

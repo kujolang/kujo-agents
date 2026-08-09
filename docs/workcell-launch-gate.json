@@ -3,7 +3,7 @@
   "name": "kujo-agents-launch-gate",
   "runtime": {"backend": "docker", "image": "kujolang/workcell-base:local", "build_context": ""},
   "workspace": {"strategy": "git-worktree", "mount_path": "/workspace"},
-  "command": ["sh", "-lc", "test -f README.md && test -f docs/launch-checklist.md && test -f chain-of-command/README.md && test -f chain-of-command/general-commander/AGENT.md && printf 'kujo-agents chain-of-command source files present\\n' > kujo-agents-workcell-proof.txt"],
+  "command": ["sh", "-lc", "test -f README.md && test -f CHANGELOG.md && test -f VERSION && test \"$(cat VERSION)\" = \"1.0.0\" && test -f docs/launch-checklist.md && test -f chain-of-command/README.md && test -f chain-of-command/general-commander/AGENT.md && printf 'kujo-agents v1.0.0 chain-of-command release sources present\\n' > kujo-agents-workcell-proof.txt"],
   "environment": {"allow": [], "set": {}},
   "secrets": [],
   "resources": {"cpus": 1, "memory": "256m", "pids": 64, "timeout_ms": 60000},

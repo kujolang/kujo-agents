@@ -74,15 +74,6 @@ The runner must have access to the chain files. If Codex, Claude, or another age
 
 If the runner is outside this repository, attach or paste those files with the campaign wrapper. When the General delegates to a role, it should read that role's `AGENT.md` before defining the assignment.
 
-For repeatable testing, use:
-
-- [00-docs/benchmarks/general-chain-benchmark-mega-prompt.md](00-docs/benchmarks/general-chain-benchmark-mega-prompt.md)
-- [00-docs/benchmarks/general-chain-scorecard.md](00-docs/benchmarks/general-chain-scorecard.md)
-
-The benchmark is intentionally small but cross-functional. It should reveal whether the chain can handle product framing, planning, implementation, verification, documentation, evidence collection, and retrospective improvement.
-
-The ProofPack benchmark is also a KUJO dogfood test. It requires a unique `.runs/proofpack-YYYYMMDD-HHMMSS/` workspace, KUJO-language implementation for KUJO ecosystem tooling, KUJO tool usage or explicit skip receipts, and comparison-ready artifacts. Use the copyable review prompt inside the scorecard after each run to compare behavior across benchmark attempts.
-
 ## Agent Table
 
 | Layer | Agent | Use For | Model Tier | Key Tools |

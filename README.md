@@ -1,5 +1,9 @@
 # Kujo Agents
 
+[![Version](https://img.shields.io/badge/version-1.0.0-black)](https://github.com/kujolang/kujo-agents/releases/tag/v1.0.0)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
+[![built with Kujo](https://img.shields.io/badge/built%20with-Kujo-white.svg)](https://github.com/kujolang/kujo)
+
 Reusable role contracts for the KUJO agent chain of command.
 
 The public repository is intentionally focused on one package:
@@ -21,6 +25,8 @@ For a reusable campaign intake packet, use
 ## Repository Layout
 
 ```text
+CHANGELOG.md
+VERSION
 chain-of-command/
   README.md
   00-chain-of-command.md
@@ -36,6 +42,17 @@ Each agent package keeps its role contract and operating skill together. The
 templates are guidance and review material; they do not provide sandboxing,
 authorization, or policy enforcement by themselves.
 
+## Release Status
+
+`v1.0.0` is the stable baseline for this chain-of-command agent setup. It
+includes 28 paired agent packages plus the role map, tool ownership map,
+campaign template, and evidence boundaries needed to use the chain as a
+reusable starting point.
+
+See [`CHANGELOG.md`](CHANGELOG.md) for release history and
+[`docs/launch-checklist.md`](docs/launch-checklist.md) for the verified release
+scope.
+
 ## Validation
 
 ```bash
@@ -49,11 +66,10 @@ for dir in chain-of-command/*/; do
   test -f "${dir}AGENT.md" && test -f "${dir}SKILL.md"
 done
 
+bash .github/scripts/check-kujo-tool-artifacts.sh
+test "$(cat VERSION)" = "1.0.0"
 git diff --check
 ```
-
-See [`docs/launch-checklist.md`](docs/launch-checklist.md) for the current
-public-scope checks.
 
 ## License
 

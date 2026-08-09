@@ -26,6 +26,7 @@ for dir in chain-of-command/*/; do
 done
 
 bash .github/scripts/check-kujo-tool-artifacts.sh
+test "$(cat VERSION)" = "1.0.0"
 git diff --check
 ```
 
