@@ -5,6 +5,8 @@
 - Add the complete 28-agent WebOps peer-specialist set.
 - Add shared WebOps capabilities, permission modes, longitudinal finding/history contracts, and tool/skill/workflow maps.
 - Add a generated machine-readable catalog and deterministic cross-repository validator while preserving Chain of Command.
+- Pin the synchronized SiteProbe, SearchBridge, and ContentGraph `0.1.0`
+  artifact/effect/budget contract used by WebOps agents.
 
 All notable changes to Kujo Agents are documented here.
 

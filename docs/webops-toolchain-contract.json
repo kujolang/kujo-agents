@@ -1,0 +1,28 @@
+{
+  "schema": "kujo.webops.toolchain/v1",
+  "release": "0.1.0",
+  "tools": {
+    "ContentGraph": {
+      "artifact_contract": "contentgraph.graph/v1",
+      "effects": "read-only-source",
+      "method": "deterministic-lexical/v1",
+      "version": "0.1.0"
+    },
+    "SearchBridge": {
+      "artifact_contract": "searchbridge.result/v1",
+      "effects": "read-only-except-submit",
+      "submit_authorization": ["--capability", "index.submission", "--act", "--yes"],
+      "version": "0.1.0"
+    },
+    "SiteProbe": {
+      "artifact_contract": "siteprobe.run/v1",
+      "effects": "read-only-target",
+      "version": "0.1.0"
+    }
+  },
+  "budgets": {
+    "ContentGraph": ["--max-nodes", "--max-output-bytes", "--max-report-tokens"],
+    "SearchBridge": ["--limit", "--timeout", "--retries", "--max-output-bytes", "--max-output-tokens"],
+    "SiteProbe": ["--max-pages", "--max-depth", "--concurrency", "--timeout", "--retries", "--max-output-bytes", "--max-report-tokens"]
+  }
+}

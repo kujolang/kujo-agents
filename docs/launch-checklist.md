@@ -19,6 +19,9 @@ maps, campaign template, and evidence boundaries.
 - [x] Repository formatting passes `git diff --check`.
 - [x] Public use and adaptation instructions were reviewed for the `v1.1.0`
   baseline.
+- [x] `docs/webops-toolchain-contract.json` pins the three WebOps tools at
+  `0.1.0`, their v1 artifact schemas, read-only boundaries, budgets, and the
+  explicit SearchBridge submission authorization tuple.
 
 ## Validation Commands
 
