@@ -1,6 +1,6 @@
 # Launch Checklist
 
-Current release: `v1.0.0`.
+Current source version: `1.1.0`; the tagged `v1.0.0` Chain of Command baseline remains preserved.
 
 Public scope: the reusable KUJO chain-of-command agent contracts, supporting
 maps, campaign template, and evidence boundaries.
@@ -11,13 +11,13 @@ maps, campaign template, and evidence boundaries.
 - [x] Every agent package contains both `AGENT.md` and `SKILL.md`.
 - [x] Root and chain documentation describe the chain-only scope.
 - [x] `VERSION`, README badge, changelog, tag intent, and release notes agree on
-  `1.0.0`.
+  `1.1.0`.
 - [x] Tool-to-agent relationships remain source-grounded or explicitly marked
   as inferred.
 - [x] Templates retain explicit authority, handoff, evidence, and stop
   conditions.
 - [x] Repository formatting passes `git diff --check`.
-- [x] Public use and adaptation instructions were reviewed for the `v1.0.0`
+- [x] Public use and adaptation instructions were reviewed for the `v1.1.0`
   baseline.
 
 ## Validation Commands
@@ -34,7 +34,8 @@ for dir in chain-of-command/*/; do
 done
 
 bash .github/scripts/check-kujo-tool-artifacts.sh
-test "$(cat VERSION)" = "1.0.0"
+python3 scripts/validate_webops.py
+test "$(cat VERSION)" = "1.1.0"
 rg -n '1\.0\.0' README.md CHANGELOG.md docs/launch-checklist.md
 git diff --check
 ```
@@ -44,7 +45,7 @@ git diff --check
 - Agent inventory: 28 paired `AGENT.md` and `SKILL.md` packages under
   `chain-of-command/`.
 - Release metadata: `VERSION`, README badge, changelog, tag, and release name
-  use `1.0.0` / `v1.0.0` consistently.
+  use the current source version consistently and distinguish it from the existing `v1.0.0` tag.
 - Local artifact guard: `.github/scripts/check-kujo-tool-artifacts.sh`.
 - Bounded execution proof: `docs/workcell-launch-gate.json`.
 - Hosted CI remains environment-dependent and must not be represented as

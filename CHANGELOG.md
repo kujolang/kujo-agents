@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 - 2026-08-11
+
+- Add the complete 28-agent WebOps peer-specialist set.
+- Add shared WebOps capabilities, permission modes, longitudinal finding/history contracts, and tool/skill/workflow maps.
+- Add a generated machine-readable catalog and deterministic cross-repository validator while preserving Chain of Command.
+
 All notable changes to Kujo Agents are documented here.
 
 The format follows Keep a Changelog and Semantic Versioning.

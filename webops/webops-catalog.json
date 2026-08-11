@@ -1,0 +1,1051 @@
+{
+  "schema": "kujo.webops.catalog/v1",
+  "agent_count": 28,
+  "agents": [
+    {
+      "agent": "Trend Scout",
+      "slug": "trend-scout",
+      "category": "Discovery & Intelligence",
+      "purpose": "Discover emerging domain topics, terminology, tools, questions, standards, and shifts without deciding editorial strategy alone.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "web-search"
+      ],
+      "recommended_capabilities": [
+        "content-graph"
+      ],
+      "optional_capabilities": [
+        "keyword-data-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-rag-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-search-standards-watch",
+        "webops-keyword-opportunity"
+      ],
+      "primary_tools": [
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "ContentGraph",
+        "RAG"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-content-intelligence"
+      ],
+      "degraded_operation": "Without keyword data, report source-backed trends without search-volume estimates. Without ContentGraph, skip quantified coverage comparisons."
+    },
+    {
+      "agent": "Keyword Opportunity Analyst",
+      "slug": "keyword-opportunity-analyst",
+      "category": "Discovery & Intelligence",
+      "purpose": "Identify query opportunities from measured site data, optional third-party estimates, public research, and current site coverage.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website"
+      ],
+      "recommended_capabilities": [
+        "search-performance-provider",
+        "content-graph"
+      ],
+      "optional_capabilities": [
+        "keyword-data-provider",
+        "web-search"
+      ],
+      "existing_kujo_skills": [
+        "kujo-rag-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-keyword-opportunity",
+        "webops-capability-preflight"
+      ],
+      "primary_tools": [
+        "SearchBridge",
+        "ContentGraph"
+      ],
+      "secondary_tools": [
+        "SiteProbe"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-search-intelligence",
+        "webops-weekly-content-intelligence"
+      ],
+      "degraded_operation": "Without search performance, omit measured opportunity claims. Without keyword data, omit volume/difficulty estimates. Without ContentGraph, mark coverage review incomplete."
+    },
+    {
+      "agent": "Competitor Intelligence Analyst",
+      "slug": "competitor-intelligence-analyst",
+      "category": "Discovery & Intelligence",
+      "purpose": "Monitor selected peers for meaningful changes in topics, positioning, structure, search presence, content, and available backlink evidence.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "web-search"
+      ],
+      "recommended_capabilities": [
+        "site-crawl"
+      ],
+      "optional_capabilities": [
+        "backlink-data-provider",
+        "keyword-data-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-rag-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-competitor-intelligence",
+        "webops-longitudinal-findings"
+      ],
+      "primary_tools": [
+        "SiteProbe",
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "ContentGraph",
+        "RAG"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-content-intelligence"
+      ],
+      "degraded_operation": "Without backlink or keyword providers, limit work to public, observable peer evidence. Without prior runs, establish a baseline and make no change claim."
+    },
+    {
+      "agent": "Content Gap Analyst",
+      "slug": "content-gap-analyst",
+      "category": "Discovery & Intelligence",
+      "purpose": "Classify audience and search needs against current coverage as strong, partial, stale, weak, missing, or irrelevant.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "content-graph"
+      ],
+      "recommended_capabilities": [
+        "web-search"
+      ],
+      "optional_capabilities": [
+        "search-performance-provider",
+        "keyword-data-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-rag-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-content-gap",
+        "webops-keyword-opportunity"
+      ],
+      "primary_tools": [
+        "ContentGraph"
+      ],
+      "secondary_tools": [
+        "SearchBridge",
+        "RAG"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-content-intelligence"
+      ],
+      "degraded_operation": "Without provider data, use public research and corpus evidence while omitting measured demand. Without retrieval enrichment, restrict claims to inspected sources."
+    },
+    {
+      "agent": "Backlink & Mention Analyst",
+      "slug": "backlink-mention-analyst",
+      "category": "Discovery & Intelligence",
+      "purpose": "Analyze new and lost backlinks, relevant or unlinked mentions, and evidence-backed suspicious links.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "web-search"
+      ],
+      "recommended_capabilities": [],
+      "optional_capabilities": [
+        "backlink-data-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-runledger-workflows",
+        "kujo-casefile-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-backlink-and-mention-analysis",
+        "webops-longitudinal-findings"
+      ],
+      "primary_tools": [
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "SiteProbe"
+      ],
+      "recommended_workflows": [
+        "webops-monthly-seo-review"
+      ],
+      "degraded_operation": "Without a backlink provider, perform public-web mention analysis only and do not claim complete new/lost link coverage."
+    },
+    {
+      "agent": "SEO Auditor",
+      "slug": "seo-auditor",
+      "category": "Search Operations",
+      "purpose": "Synthesize specialist WebOps SEO evidence into a periodic prioritized assessment without reimplementing each specialty.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website"
+      ],
+      "recommended_capabilities": [
+        "site-crawl",
+        "search-performance-provider",
+        "content-graph"
+      ],
+      "optional_capabilities": [
+        "analytics-provider",
+        "backlink-data-provider",
+        "page-performance-provider",
+        "field-performance-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-lens-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-technical-seo",
+        "webops-reporting",
+        "webops-longitudinal-findings"
+      ],
+      "primary_tools": [
+        "SiteProbe",
+        "SearchBridge",
+        "ContentGraph"
+      ],
+      "secondary_tools": [
+        "Lens"
+      ],
+      "recommended_workflows": [
+        "webops-monthly-seo-review"
+      ],
+      "degraded_operation": "Name every unavailable specialist evidence family and narrow conclusions accordingly; do not replace absent measurements with estimates."
+    },
+    {
+      "agent": "Search Performance Analyst",
+      "slug": "search-performance-analyst",
+      "category": "Search Operations",
+      "purpose": "Analyze longitudinal measured impressions, clicks, CTR, position, query movement, page movement, and query/page relationships.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "search-performance-provider"
+      ],
+      "recommended_capabilities": [],
+      "optional_capabilities": [
+        "content-graph",
+        "analytics-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-search-performance",
+        "webops-longitudinal-findings"
+      ],
+      "primary_tools": [
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "ContentGraph"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-search-intelligence",
+        "webops-monthly-seo-review"
+      ],
+      "degraded_operation": "Without a search-performance provider, stop measured analysis and produce an unavailable-capability receipt; never substitute public rank checks."
+    },
+    {
+      "agent": "Indexation Analyst",
+      "slug": "indexation-analyst",
+      "category": "Search Operations",
+      "purpose": "Distinguish local crawlability and indexability from provider-confirmed search-engine index state.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "site-crawl"
+      ],
+      "recommended_capabilities": [
+        "url-inspection-provider"
+      ],
+      "optional_capabilities": [
+        "search-performance-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-indexation",
+        "webops-technical-seo"
+      ],
+      "primary_tools": [
+        "SiteProbe",
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "ContentGraph"
+      ],
+      "recommended_workflows": [
+        "webops-monthly-seo-review"
+      ],
+      "degraded_operation": "Without URL inspection, report only appears indexable/not indexable from local evidence and label confirmed index state unavailable."
+    },
+    {
+      "agent": "Technical SEO Auditor",
+      "slug": "technical-seo-auditor",
+      "category": "Search Operations",
+      "purpose": "Audit deterministic crawl, canonical, redirect, metadata, structured-data, internal-link, and indexability conditions.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "site-crawl"
+      ],
+      "recommended_capabilities": [
+        "content-graph"
+      ],
+      "optional_capabilities": [
+        "browser",
+        "url-inspection-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-lens-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-technical-seo",
+        "webops-link-health",
+        "webops-schema-and-metadata"
+      ],
+      "primary_tools": [
+        "SiteProbe"
+      ],
+      "secondary_tools": [
+        "ContentGraph",
+        "Lens",
+        "SearchBridge"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-site-health",
+        "webops-monthly-seo-review"
+      ],
+      "degraded_operation": "Without ContentGraph, omit semantic/cluster relationship analysis. Without browser evidence, delegate rendered behavior to Site QA rather than infer it."
+    },
+    {
+      "agent": "AI Search Visibility Analyst",
+      "slug": "ai-search-visibility-analyst",
+      "category": "Search Operations",
+      "purpose": "Run repeatable fixed-query visibility benchmarks across explicitly configured AI and search surfaces.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "web-search"
+      ],
+      "recommended_capabilities": [],
+      "optional_capabilities": [
+        "search-performance-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-runledger-workflows",
+        "kujo-casefile-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-ai-search-visibility",
+        "webops-longitudinal-findings"
+      ],
+      "primary_tools": [
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "RunLedger"
+      ],
+      "recommended_workflows": [
+        "webops-ai-visibility-benchmark"
+      ],
+      "degraded_operation": "Skip unavailable surfaces and preserve the exact benchmark suite, date, locale, model/surface, and response evidence; do not fill gaps."
+    },
+    {
+      "agent": "Content Decay Analyst",
+      "slug": "content-decay-analyst",
+      "category": "Content Operations",
+      "purpose": "Identify stale or deteriorating content using measured movement, optional analytics, factual age, source change, and relevance evidence.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website"
+      ],
+      "recommended_capabilities": [
+        "search-performance-provider",
+        "content-graph"
+      ],
+      "optional_capabilities": [
+        "analytics-provider",
+        "keyword-data-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-rag-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-content-decay",
+        "webops-content-accuracy"
+      ],
+      "primary_tools": [
+        "SearchBridge",
+        "ContentGraph"
+      ],
+      "secondary_tools": [
+        "SiteProbe",
+        "RAG"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-search-intelligence",
+        "webops-content-refresh",
+        "webops-monthly-seo-review"
+      ],
+      "degraded_operation": "Without search performance, assess freshness and structural signals but never claim measured search decline. Without analytics, skip behavior decay."
+    },
+    {
+      "agent": "Internal Link Specialist",
+      "slug": "internal-link-specialist",
+      "category": "Content Operations",
+      "purpose": "Find and, under explicit ACT authority, apply contextually useful internal links supported by content relationships.",
+      "permission_min": "OBSERVE",
+      "permission_max": "ACT",
+      "required_capabilities": [
+        "website",
+        "content-graph"
+      ],
+      "recommended_capabilities": [
+        "repository"
+      ],
+      "optional_capabilities": [
+        "search-performance-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-eval-workflows",
+        "kujo-lens-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-internal-linking",
+        "webops-information-architecture"
+      ],
+      "primary_tools": [
+        "ContentGraph"
+      ],
+      "secondary_tools": [
+        "SiteProbe",
+        "SearchBridge",
+        "Eval"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-content-intelligence",
+        "webops-post-publish",
+        "webops-content-refresh"
+      ],
+      "degraded_operation": "Without repository access, stop at proposals. Without provider data, use contextual relevance and graph evidence without search-impact claims."
+    },
+    {
+      "agent": "Content Accuracy Reviewer",
+      "slug": "content-accuracy-reviewer",
+      "category": "Content Operations",
+      "purpose": "Review guidance, APIs, versions, products, references, and factual claims against current authoritative sources.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "web-search"
+      ],
+      "recommended_capabilities": [],
+      "optional_capabilities": [
+        "repository",
+        "content-graph"
+      ],
+      "existing_kujo_skills": [
+        "kujo-rag-workflows",
+        "kujo-casefile-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-content-accuracy"
+      ],
+      "primary_tools": [
+        "RAG"
+      ],
+      "secondary_tools": [
+        "ContentGraph",
+        "SiteProbe"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-content-intelligence",
+        "webops-content-refresh"
+      ],
+      "degraded_operation": "Without authoritative current sources, mark claims unverified and stop short of correction. Without repository access, produce a sourced repair brief only."
+    },
+    {
+      "agent": "Cannibalization Analyst",
+      "slug": "cannibalization-analyst",
+      "category": "Content Operations",
+      "purpose": "Identify pages substantially competing for the same intent while separating normal topical overlap from likely cannibalization.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "content-graph"
+      ],
+      "recommended_capabilities": [
+        "search-performance-provider"
+      ],
+      "optional_capabilities": [
+        "keyword-data-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-cannibalization",
+        "webops-search-performance"
+      ],
+      "primary_tools": [
+        "ContentGraph",
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "SiteProbe"
+      ],
+      "recommended_workflows": [
+        "webops-monthly-seo-review"
+      ],
+      "degraded_operation": "Without measured query/page evidence, label high lexical overlap as candidates only. Without keyword estimates, omit third-party demand context."
+    },
+    {
+      "agent": "Content Portfolio Manager",
+      "slug": "content-portfolio-manager",
+      "category": "Content Operations",
+      "purpose": "Classify content longitudinally as CREATE, GROW, MAINTAIN, REFRESH, MERGE, REDIRECT, RETIRE, or IGNORE.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "content-graph"
+      ],
+      "recommended_capabilities": [
+        "search-performance-provider",
+        "analytics-provider"
+      ],
+      "optional_capabilities": [
+        "keyword-data-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-spec-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-content-portfolio",
+        "webops-longitudinal-findings"
+      ],
+      "primary_tools": [
+        "ContentGraph",
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "SiteProbe"
+      ],
+      "recommended_workflows": [
+        "webops-quarterly-content-portfolio"
+      ],
+      "degraded_operation": "Without provider measurements, classify from content state and graph evidence with lower confidence and no traffic-based claims."
+    },
+    {
+      "agent": "Content Pruning Analyst",
+      "slug": "content-pruning-analyst",
+      "category": "Content Operations",
+      "purpose": "Find obsolete, redundant, or low-value content and propose evidence-backed keep, merge, redirect, refresh, or retire decisions.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "content-graph"
+      ],
+      "recommended_capabilities": [
+        "search-performance-provider",
+        "analytics-provider"
+      ],
+      "optional_capabilities": [
+        "backlink-data-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-spec-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-content-pruning",
+        "webops-content-portfolio"
+      ],
+      "primary_tools": [
+        "ContentGraph",
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "SiteProbe"
+      ],
+      "recommended_workflows": [
+        "webops-quarterly-content-portfolio"
+      ],
+      "degraded_operation": "Without traffic, search, or backlink data, rely on accuracy, redundancy, user value, and structural evidence and explicitly mark external impact unknown."
+    },
+    {
+      "agent": "Site QA Operator",
+      "slug": "site-qa-operator",
+      "category": "Quality Operations",
+      "purpose": "Determine whether the deployed site actually loads, links, renders, and behaves sanely using crawl and browser evidence.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "browser"
+      ],
+      "recommended_capabilities": [
+        "site-crawl"
+      ],
+      "optional_capabilities": [
+        "repository"
+      ],
+      "existing_kujo_skills": [
+        "kujo-lens-workflows",
+        "kujo-casefile-workflows",
+        "kujo-eval-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-link-health",
+        "webops-accessibility-review"
+      ],
+      "primary_tools": [
+        "Lens",
+        "SiteProbe"
+      ],
+      "secondary_tools": [
+        "CaseFile",
+        "Eval"
+      ],
+      "recommended_workflows": [
+        "webops-site-bootstrap",
+        "webops-weekly-site-health",
+        "webops-post-publish"
+      ],
+      "degraded_operation": "Without Lens/browser capability, report only crawl and HTTP conditions. Without SiteProbe, report only rendered sample routes and no full crawl coverage."
+    },
+    {
+      "agent": "Performance Analyst",
+      "slug": "performance-analyst",
+      "category": "Quality Operations",
+      "purpose": "Track lab and real-user field performance as distinct evidence classes and compare them longitudinally.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website"
+      ],
+      "recommended_capabilities": [
+        "page-performance-provider"
+      ],
+      "optional_capabilities": [
+        "field-performance-provider",
+        "browser"
+      ],
+      "existing_kujo_skills": [
+        "kujo-lens-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-web-performance",
+        "webops-longitudinal-findings"
+      ],
+      "primary_tools": [
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "Lens"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-site-health",
+        "webops-monthly-seo-review"
+      ],
+      "degraded_operation": "Without PageSpeed, omit provider lab results. Without CrUX, omit real-user claims. Lens timings remain environment-relative, not field data."
+    },
+    {
+      "agent": "Accessibility Auditor",
+      "slug": "accessibility-auditor",
+      "category": "Quality Operations",
+      "purpose": "Run repeatable automated accessibility checks and produce evidence-backed repair priorities with explicit manual-review gaps.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "browser"
+      ],
+      "recommended_capabilities": [],
+      "optional_capabilities": [
+        "repository"
+      ],
+      "existing_kujo_skills": [
+        "kujo-lens-workflows",
+        "kujo-casefile-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-accessibility-review"
+      ],
+      "primary_tools": [
+        "Lens"
+      ],
+      "secondary_tools": [
+        "Eval",
+        "CaseFile"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-site-health"
+      ],
+      "degraded_operation": "Without browser automation, stop and record the unavailable capability. Automated success never removes manual keyboard, screen-reader, cognition, or content review."
+    },
+    {
+      "agent": "Schema Auditor",
+      "slug": "schema-auditor",
+      "category": "Quality Operations",
+      "purpose": "Review structured data validity, relevance, visible-content consistency, missing appropriate types, and obsolete patterns.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "site-crawl"
+      ],
+      "recommended_capabilities": [
+        "browser"
+      ],
+      "optional_capabilities": [
+        "web-search",
+        "repository"
+      ],
+      "existing_kujo_skills": [
+        "kujo-eval-workflows",
+        "kujo-lens-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-schema-and-metadata"
+      ],
+      "primary_tools": [
+        "SiteProbe"
+      ],
+      "secondary_tools": [
+        "Lens",
+        "Eval"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-site-health",
+        "webops-post-publish",
+        "webops-monthly-seo-review"
+      ],
+      "degraded_operation": "Without browser evidence, validate syntax and crawl-visible markup but mark visible-content consistency incomplete. Without authoritative current guidance, do not propose type changes."
+    },
+    {
+      "agent": "Link Health Auditor",
+      "slug": "link-health-auditor",
+      "category": "Quality Operations",
+      "purpose": "Analyze broken internal and outbound links, redirect chains, malformed destinations, and unexpected targets.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "site-crawl"
+      ],
+      "recommended_capabilities": [],
+      "optional_capabilities": [
+        "browser",
+        "repository"
+      ],
+      "existing_kujo_skills": [
+        "kujo-lens-workflows",
+        "kujo-casefile-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-link-health"
+      ],
+      "primary_tools": [
+        "SiteProbe"
+      ],
+      "secondary_tools": [
+        "Lens",
+        "CaseFile"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-site-health"
+      ],
+      "degraded_operation": "Without browser evidence, report HTTP/crawl link health but do not claim clickability in rendered interactions. External failures are time-stamped observations."
+    },
+    {
+      "agent": "Metadata Auditor",
+      "slug": "metadata-auditor",
+      "category": "Quality Operations",
+      "purpose": "Audit titles, descriptions, canonicals, robots, Open Graph, social, article metadata, duplication, and missing fields.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "site-crawl"
+      ],
+      "recommended_capabilities": [
+        "browser"
+      ],
+      "optional_capabilities": [
+        "repository"
+      ],
+      "existing_kujo_skills": [
+        "kujo-lens-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-schema-and-metadata",
+        "webops-technical-seo"
+      ],
+      "primary_tools": [
+        "SiteProbe"
+      ],
+      "secondary_tools": [
+        "Lens"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-site-health",
+        "webops-post-publish",
+        "webops-monthly-seo-review"
+      ],
+      "degraded_operation": "Without rendered browser evidence, audit crawl-visible metadata only. Without repository access, produce proposals rather than applied source changes."
+    },
+    {
+      "agent": "Search Submission Operator",
+      "slug": "search-submission-operator",
+      "category": "Operations & Management",
+      "purpose": "Submit authorized URLs or sitemaps through supported providers and preserve auditable receipts without promising indexing.",
+      "permission_min": "ACT",
+      "permission_max": "ACT",
+      "required_capabilities": [
+        "search-submission-provider"
+      ],
+      "recommended_capabilities": [
+        "website"
+      ],
+      "optional_capabilities": [],
+      "existing_kujo_skills": [
+        "kujo-runledger-workflows",
+        "kujo-dispatch-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-search-submission",
+        "webops-capability-preflight"
+      ],
+      "primary_tools": [
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "RunLedger",
+        "Dispatch"
+      ],
+      "recommended_workflows": [
+        "webops-post-publish",
+        "webops-finding-to-fix"
+      ],
+      "degraded_operation": "Without a configured provider or explicit ACT authority, perform preflight only and stop with one capability receipt; do not repeatedly request credentials."
+    },
+    {
+      "agent": "Analytics Analyst",
+      "slug": "analytics-analyst",
+      "category": "Operations & Management",
+      "purpose": "Analyze measured website behavior from a real analytics capability while preserving dimensions, metrics, identity settings, and uncertainty.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "analytics-provider"
+      ],
+      "recommended_capabilities": [],
+      "optional_capabilities": [
+        "content-graph",
+        "search-performance-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-analytics-analysis",
+        "webops-longitudinal-findings"
+      ],
+      "primary_tools": [
+        "SearchBridge"
+      ],
+      "secondary_tools": [
+        "ContentGraph"
+      ],
+      "recommended_workflows": [
+        "webops-quarterly-content-portfolio"
+      ],
+      "degraded_operation": "Without an analytics provider, stop measured behavior analysis and record unavailable capability; do not infer traffic or engagement from crawl data."
+    },
+    {
+      "agent": "Information Architecture Auditor",
+      "slug": "information-architecture-auditor",
+      "category": "Operations & Management",
+      "purpose": "Review navigation, hierarchy, categories, tags, breadcrumbs, clusters, URLs, depth, discoverability, and orphaning.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website",
+        "content-graph"
+      ],
+      "recommended_capabilities": [
+        "site-crawl"
+      ],
+      "optional_capabilities": [
+        "browser",
+        "repository"
+      ],
+      "existing_kujo_skills": [
+        "kujo-lens-workflows",
+        "kujo-spec-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-information-architecture",
+        "webops-internal-linking"
+      ],
+      "primary_tools": [
+        "ContentGraph",
+        "SiteProbe"
+      ],
+      "secondary_tools": [
+        "Lens"
+      ],
+      "recommended_workflows": [
+        "webops-quarterly-content-portfolio"
+      ],
+      "degraded_operation": "Without SiteProbe, omit crawl-depth/crawlability conclusions. Without Lens, omit rendered navigation behavior. Without repository access, propose only."
+    },
+    {
+      "agent": "Distribution Operator",
+      "slug": "distribution-operator",
+      "category": "Operations & Management",
+      "purpose": "Turn approved published content into source-grounded distribution assets and publish only with explicit ACT authority and integration.",
+      "permission_min": "PROPOSE",
+      "permission_max": "ACT",
+      "required_capabilities": [
+        "website"
+      ],
+      "recommended_capabilities": [
+        "distribution-provider"
+      ],
+      "optional_capabilities": [
+        "publishing-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-howl-workflows",
+        "kujo-cms-workflows",
+        "kujo-ssg-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-distribution"
+      ],
+      "primary_tools": [
+        "Howl"
+      ],
+      "secondary_tools": [
+        "CMS",
+        "SSG",
+        "RunLedger"
+      ],
+      "recommended_workflows": [
+        "webops-post-publish"
+      ],
+      "degraded_operation": "Without distribution integration, create reviewable local assets only. Without publishing capability, do not publish. Missing credentials produce one bounded receipt."
+    },
+    {
+      "agent": "Search & Web Standards Watch",
+      "slug": "search-web-standards-watch",
+      "category": "Operations & Management",
+      "purpose": "Monitor authoritative search, structured-data, indexing, analytics, browser, AI-search, and web-specification changes.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "web-search"
+      ],
+      "recommended_capabilities": [],
+      "optional_capabilities": [
+        "website"
+      ],
+      "existing_kujo_skills": [
+        "kujo-rag-workflows",
+        "kujo-runledger-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-search-standards-watch",
+        "webops-longitudinal-findings"
+      ],
+      "primary_tools": [
+        "RAG"
+      ],
+      "secondary_tools": [
+        "RunLedger"
+      ],
+      "recommended_workflows": [
+        "webops-weekly-content-intelligence"
+      ],
+      "degraded_operation": "If primary sources are unavailable, defer the claim. Without site context, report the change but do not assert impact on a specific site."
+    },
+    {
+      "agent": "WebOps Reporter",
+      "slug": "webops-reporter",
+      "category": "Operations & Management",
+      "purpose": "Synthesize existing WebOps evidence into quiet reports focused on improvements, regressions, changes, actions, deferrals, and unavailable checks.",
+      "permission_min": "OBSERVE",
+      "permission_max": "PROPOSE",
+      "required_capabilities": [
+        "website"
+      ],
+      "recommended_capabilities": [],
+      "optional_capabilities": [
+        "site-crawl",
+        "content-graph",
+        "search-performance-provider",
+        "analytics-provider"
+      ],
+      "existing_kujo_skills": [
+        "kujo-runledger-workflows",
+        "kujo-casefile-workflows"
+      ],
+      "webops_domain_skills": [
+        "webops-reporting",
+        "webops-longitudinal-findings"
+      ],
+      "primary_tools": [
+        "RunLedger"
+      ],
+      "secondary_tools": [
+        "CaseFile"
+      ],
+      "recommended_workflows": [
+        "webops-site-bootstrap",
+        "webops-weekly-site-health",
+        "webops-weekly-search-intelligence",
+        "webops-weekly-content-intelligence",
+        "webops-monthly-seo-review",
+        "webops-quarterly-content-portfolio"
+      ],
+      "degraded_operation": "Report unavailable evidence families explicitly and summarize only supplied validated runs. Missing specialist evidence is not recreated or inferred."
+    }
+  ]
+}

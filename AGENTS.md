@@ -1,8 +1,8 @@
 # Kujo Agents Agent Instructions
 
-This repository contains the reusable KUJO chain-of-command agent packages and
-supporting templates. Treat templates as guidance and review material, not
-sandboxing, authorization, or policy enforcement.
+This repository contains reusable KUJO Chain of Command and WebOps agent
+packages. Treat role contracts and templates as guidance and review material,
+not sandboxing, authorization, or policy enforcement.
 
 ## Required Reading
 
@@ -11,6 +11,7 @@ sandboxing, authorization, or policy enforcement.
 - `chain-of-command/README.md`
 - `chain-of-command/00-chain-of-command.md`
 - Relevant agent `AGENT.md` and `SKILL.md`
+- `webops/README.md`, `webops/00-permission-model.md`, and `webops/webops-catalog.json` for WebOps changes
 
 ## Validation
 
@@ -26,7 +27,8 @@ for dir in chain-of-command/*/; do
 done
 
 bash .github/scripts/check-kujo-tool-artifacts.sh
-test "$(cat VERSION)" = "1.0.0"
+python3 scripts/validate_webops.py
+test "$(cat VERSION)" = "1.1.0"
 git diff --check
 ```
 
