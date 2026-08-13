@@ -7,3 +7,9 @@ Recurring operators read the previous relevant run, unresolved findings, and rec
 Finding IDs are deterministic hashes of `agent/check`, normalized target, and normalized issue identity. States are `NEW`, `PERSISTENT`, `RESOLVED`, `REGRESSED`, and `REOPENED`. A finding, recommendation, action, and outcome are separate records: a recommendation is not an action, and an action does not prove causation.
 
 Human reports are quiet by default: what improved, regressed, changed, requires action, can wait, and could not be checked. Full evidence remains machine-readable. The canonical schemas live with the WebOps workflows repository so agents and workflow runs share one portable contract.
+
+The optional WebOps Dashboard in the sibling `kujo-workflows` repository may
+index these portable packets into SQLite and visualize them with SiteKit and
+Dither Kit. It is a read/report/run control surface, not an evidence source or
+permission authority: run packets remain canonical, and browser-started runs
+are bounded to `OBSERVE` or `PROPOSE`.

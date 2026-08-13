@@ -24,6 +24,16 @@ Each of the 28 directories contains a complete `AGENT.md` contract and a short r
 
 Existing Kujo tools remain authoritative for Spec, Eval, Dispatch, Scout, Scent, RAG, Lens, RunLedger, CaseFile, Workcell, Relay, Redact, Muzzle, PackWrite, PatchBrief, ChangeBucket, ShipCheck, Fence, Watchdog, SSG, CMS, Howl, MCP, Agents SDK, and AI SDK responsibilities.
 
+## Human reporting surface
+
+The sibling [`kujo-workflows` WebOps Dashboard](https://github.com/kujolang/kujo-workflows/tree/main/webops-dashboard)
+imports the ten workflow run-packet contracts and this repository's 28-role
+catalog into a local SQLite database. Its SiteKit interface and Dither Kit
+charts make runs, findings, degraded capabilities, approval gates, workflow
+coverage, and agent responsibilities visible without making the operator read
+artifact files directly. Machine-readable run evidence remains authoritative,
+and the dashboard never grants `ACT`.
+
 ## Future Publishing House extension
 
 WebOps preserves clean handoffs from trend and opportunity discovery through content specification, verification, publishing, distribution, measurement, and refresh. A future SourceLedger/ClaimLedger may track claim provenance and freshness; it is intentionally not implemented here.
