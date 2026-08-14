@@ -1,6 +1,6 @@
 # Kujo Agents
 
-[![Version](https://img.shields.io/badge/version-1.1.0-black)](VERSION)
+[![Version](https://img.shields.io/badge/version-1.1.0-black)](https://github.com/kujolang/kujo-agents/releases/tag/v1.1.0)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
 [![built with Kujo](https://img.shields.io/badge/built%20with-Kujo-white.svg)](https://github.com/kujolang/kujo)
 
@@ -86,14 +86,12 @@ authorization, or policy enforcement by themselves.
 
 ## Release Status
 
-`v1.1.0` preserves the stable Chain of Command baseline and adds the first
-WebOps agent-set contract: 28 peer packages, normalized capabilities,
-permission and history contracts, tool/skill/workflow maps, and deterministic
-cross-repository validation.
-
-The standalone Publishing House package is present under `Unreleased` for
-human review. Its blind quality corpus is implemented in calibration status;
-tool inventory, tool bindings, and composed workflows remain deliberately
+`v1.1.0` preserves the stable Chain of Command baseline and adds two standalone
+agent sets: 28 WebOps peer packages and 23 Publishing House editorial roles.
+The release includes normalized WebOps capabilities and contracts plus the
+Publishing House constitution, shared editorial contracts, and 18-case blind
+quality-calibration corpus. Publishing House remains in review/calibration
+status; tool inventory, tool bindings, and composed workflows are deliberately
 deferred.
 
 See [`CHANGELOG.md`](CHANGELOG.md) for release history and

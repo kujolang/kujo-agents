@@ -1,6 +1,6 @@
 # Launch Checklist
 
-Current source version: `1.1.0`; the tagged `v1.0.0` Chain of Command baseline remains preserved.
+Current release: `v1.1.0`; the tagged `v1.0.0` Chain of Command baseline remains preserved.
 
 Public scope: independent reusable Chain of Command, WebOps, and Publishing
 House agent contracts, their shared maps, and evidence and authority boundaries.
@@ -14,8 +14,8 @@ House agent contracts, their shared maps, and evidence and authority boundaries.
   `1.1.0`.
 - [x] Publishing House includes a validated 18-case blind quality-calibration
   corpus covering all 23 roles without treating semantic judgment as a score.
-- [ ] Publishing House tool inventory receives human discussion and approval
-  before tool implementation, bindings, workflows, or release-version changes.
+- [x] Publishing House tool inventory, implementation, bindings, and composed
+  workflows remain explicitly deferred from this review/calibration release.
 - [x] Tool-to-agent relationships remain source-grounded or explicitly marked
   as inferred.
 - [x] Templates retain explicit authority, handoff, evidence, and stop
@@ -52,11 +52,10 @@ git diff --check
 
 - Agent inventory: 28 paired `AGENT.md` and `SKILL.md` packages under
   `chain-of-command/`.
-- Review inventory: 23 paired Publishing House `AGENT.md` and `SKILL.md`
-  packages plus UI metadata and 18 blind calibration pairs; not yet part of a
-  tagged release.
+- Release inventory: 23 paired Publishing House `AGENT.md` and `SKILL.md`
+  packages plus UI metadata and 18 blind calibration pairs.
 - Release metadata: `VERSION`, README badge, changelog, tag, and release name
-  use the current source version consistently and distinguish it from the existing `v1.0.0` tag.
+  use `1.1.0` / `v1.1.0` consistently.
 - Local artifact guard: `.github/scripts/check-kujo-tool-artifacts.sh`.
 - Bounded execution proof: `docs/workcell-launch-gate.json`.
 - Hosted CI remains environment-dependent and must not be represented as

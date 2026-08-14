@@ -1,21 +1,20 @@
 # Changelog
 
-## 1.1.0 - 2026-08-11
-
-- Add the complete 28-agent WebOps peer-specialist set.
-- Add shared WebOps capabilities, permission modes, longitudinal finding/history contracts, and tool/skill/workflow maps.
-- Add a generated machine-readable catalog and deterministic cross-repository validator while preserving Chain of Command.
-- Pin the synchronized SiteProbe, SearchBridge, and ContentGraph `0.1.0`
-  artifact/effect/budget contract used by WebOps agents.
-
 All notable changes to Kujo Agents are documented here.
 
 The format follows Keep a Changelog and Semantic Versioning.
 
 ## Unreleased
 
+## 1.1.0 - 2026-08-14
+
 ### Added
 
+- Add the complete 28-agent WebOps peer-specialist set.
+- Add shared WebOps capabilities, permission modes, longitudinal finding/history contracts, and tool/skill/workflow maps.
+- Add a generated machine-readable catalog and deterministic cross-repository validator while preserving Chain of Command.
+- Pin the synchronized SiteProbe, SearchBridge, and ContentGraph `0.1.0`
+  artifact/effect/budget contract used by WebOps agents.
 - Add the standalone 23-role Publishing House agent set in review status.
 - Add its constitution, premium quality standard, permission boundary, shared
   editorial contracts, machine-readable catalog, and deterministic structural
