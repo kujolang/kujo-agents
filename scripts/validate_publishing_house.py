@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -17,6 +18,27 @@ SHARED = {
     "00-shared-contracts.md",
     "publishing-house-catalog.json",
 }
+EVALS = HOUSE / "evals"
+EVAL_REQUIRED = {
+    "README.md",
+    "eval.json",
+    "evaluation-manifest.json",
+    "judge-output.schema.json",
+    "judge-prompt.md",
+    "quality-rubric.json",
+}
+DIMENSIONS = {
+    "consequence",
+    "distinctiveness",
+    "insight",
+    "defensibility",
+    "craft",
+    "brand_integrity",
+    "format_fidelity",
+    "strategic_purpose",
+}
+RATINGS = {"EXCEPTIONAL", "STRONG", "ADEQUATE", "WEAK", "FAILED", "UNVERIFIED"}
+CLASSIFICATIONS = {"PREMIUM", "STRONG_NOT_PREMIUM", "COMPETENT_GENERIC", "FAILED"}
 HEADINGS = [
     "Agent Contract",
     "Use This Agent When",
@@ -51,11 +73,17 @@ def main() -> int:
         errors.append("catalog must contain exactly 23 agents")
     if catalog.get("independence") != "standalone":
         errors.append("catalog must declare standalone independence")
-    if catalog.get("evaluation_fixtures") != "deferred" or catalog.get("tool_inventory") != "deferred":
-        errors.append("steps 4 and 5 must remain explicitly deferred")
+    if catalog.get("evaluation_fixtures") != "calibration":
+        errors.append("catalog must mark evaluation fixtures as calibration")
+    if catalog.get("tool_inventory") != "deferred":
+        errors.append("step 5 tool inventory must remain explicitly deferred")
 
     expected = {agent["slug"] for agent in agents}
-    actual = {path.name for path in HOUSE.iterdir() if path.is_dir()}
+    actual = {
+        path.name
+        for path in HOUSE.iterdir()
+        if path.is_dir() and (path / "AGENT.md").is_file()
+    }
     if expected != actual:
         errors.append(
             f"agent directories differ from catalog: missing={sorted(expected - actual)} extra={sorted(actual - expected)}"
@@ -112,6 +140,8 @@ def main() -> int:
     if not publishing_ops or act_roles != ["publishing-operations-director"]:
         errors.append(f"Publishing Operations Director must be the only ACT-capable role; got {act_roles}")
 
+    validate_evaluations(errors, expected)
+
     secret_pattern = re.compile(
         r"(?i)(api[_-]?key|access[_-]?token|client[_-]?secret)\s*[:=]\s*['\"][A-Za-z0-9_\-]{16,}"
     )
@@ -131,13 +161,166 @@ def main() -> int:
                 "role_skills": len(skill_names),
                 "standalone": True,
                 "act_roles": act_roles,
-                "evaluation_fixtures": "deferred",
+                "evaluation_fixtures": "calibration",
+                "evaluation_cases": 18,
+                "evaluation_role_coverage": len(expected),
                 "tool_inventory": "deferred",
             },
             indent=2,
         )
     )
     return 0
+
+
+def load_json(path: Path, errors: list[str]) -> dict | None:
+    try:
+        value = json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"invalid JSON {path.relative_to(ROOT)}: {exc}")
+        return None
+    if not isinstance(value, dict):
+        errors.append(f"JSON root must be an object: {path.relative_to(ROOT)}")
+        return None
+    return value
+
+
+def validate_evaluations(errors: list[str], agent_slugs: set[str]) -> None:
+    for name in sorted(EVAL_REQUIRED):
+        if not (EVALS / name).is_file():
+            errors.append(f"missing evaluation contract: {name}")
+    cases_dir = EVALS / "cases"
+    expected_dir = EVALS / "expected"
+    if not cases_dir.is_dir() or not expected_dir.is_dir():
+        errors.append("evaluation corpus requires cases/ and expected/ directories")
+        return
+
+    rubric = load_json(EVALS / "quality-rubric.json", errors)
+    manifest = load_json(EVALS / "evaluation-manifest.json", errors)
+    schema = load_json(EVALS / "judge-output.schema.json", errors)
+    suite = load_json(EVALS / "eval.json", errors)
+    if not all((rubric, manifest, schema, suite)):
+        return
+    if rubric.get("schema_version") != "publishing-house-quality-rubric-v1":
+        errors.append("evaluation rubric schema version mismatch")
+    if set(rubric.get("dimensions", {})) != DIMENSIONS:
+        errors.append("evaluation rubric must define exactly the eight quality dimensions")
+    if set(rubric.get("ratings", [])) != RATINGS:
+        errors.append("evaluation rubric rating language mismatch")
+    if set(rubric.get("classifications", [])) != CLASSIFICATIONS:
+        errors.append("evaluation rubric classifications mismatch")
+    if "Do not average" not in rubric.get("no_average_rule", ""):
+        errors.append("evaluation rubric must preserve the no-average blocking rule")
+    if schema.get("title") != "Publishing House Blind Quality Judgment":
+        errors.append("judge output schema identity mismatch")
+    if suite.get("name") != "publishing-house-quality-calibration":
+        errors.append("Kujo Eval suite identity mismatch")
+
+    entries = manifest.get("cases", [])
+    if manifest.get("schema_version") != "publishing-house-evaluation-manifest-v1":
+        errors.append("evaluation manifest schema version mismatch")
+    if manifest.get("status") != "calibration":
+        errors.append("evaluation manifest must remain explicitly in calibration")
+    if manifest.get("blind_labels") != ["A", "B"]:
+        errors.append("evaluation manifest must use blind labels A and B")
+    if set(manifest.get("dimensions", [])) != DIMENSIONS:
+        errors.append("evaluation manifest dimension coverage mismatch")
+    if set(manifest.get("role_coverage", [])) != agent_slugs:
+        errors.append("evaluation manifest must cover all 23 Publishing House roles")
+    if manifest.get("case_count") != len(entries) or len(entries) != 18:
+        errors.append("evaluation manifest must contain exactly 18 cases")
+
+    manifest_ids: set[str] = set()
+    winners: set[str] = set()
+    fixture_names: set[str] = set()
+    expected_names: set[str] = set()
+    covered_roles: set[str] = set()
+    for entry in entries:
+        case_id = entry.get("case_id")
+        if not isinstance(case_id, str) or not case_id:
+            errors.append("evaluation entry missing case_id")
+            continue
+        if case_id in manifest_ids:
+            errors.append(f"duplicate evaluation case: {case_id}")
+        manifest_ids.add(case_id)
+        roles = set(entry.get("roles_under_test", []))
+        if not roles or not roles <= agent_slugs:
+            errors.append(f"{case_id}: invalid roles_under_test")
+        covered_roles.update(roles)
+
+        fixture_rel = entry.get("fixture")
+        expected_rel = entry.get("expected")
+        if fixture_rel != f"cases/{case_id}.json" or expected_rel != f"expected/{case_id}.json":
+            errors.append(f"{case_id}: fixture paths must be canonical")
+            continue
+        fixture_names.add(Path(fixture_rel).name)
+        expected_names.add(Path(expected_rel).name)
+        fixture_path = EVALS / fixture_rel
+        expected_path = EVALS / expected_rel
+        if not fixture_path.is_file() or not expected_path.is_file():
+            errors.append(f"{case_id}: fixture or expected judgment missing")
+            continue
+
+        digest = hashlib.sha256(fixture_path.read_bytes()).hexdigest()
+        if entry.get("fixture_sha256") != digest:
+            errors.append(f"{case_id}: manifest fixture checksum mismatch")
+        fixture = load_json(fixture_path, errors)
+        judgment = load_json(expected_path, errors)
+        if not fixture or not judgment:
+            continue
+        if fixture.get("schema_version") != "publishing-house-blind-pair-v1":
+            errors.append(f"{case_id}: fixture schema version mismatch")
+        if fixture.get("case_id") != case_id or judgment.get("case_id") != case_id:
+            errors.append(f"{case_id}: case identifier mismatch")
+        if set(fixture.get("roles_under_test", [])) != roles:
+            errors.append(f"{case_id}: fixture role coverage differs from manifest")
+        candidates = fixture.get("candidates", {})
+        if set(candidates) != {"A", "B"}:
+            errors.append(f"{case_id}: fixture must contain only blind candidates A and B")
+        else:
+            for label, candidate in candidates.items():
+                content = candidate.get("content", "") if isinstance(candidate, dict) else ""
+                if not isinstance(content, str) or len(content.strip()) < 80:
+                    errors.append(f"{case_id}: candidate {label} is too short for calibration")
+        if judgment.get("schema_version") != "publishing-house-expected-judgment-v1":
+            errors.append(f"{case_id}: expected judgment schema version mismatch")
+        if judgment.get("fixture_sha256") != digest:
+            errors.append(f"{case_id}: expected judgment checksum mismatch")
+        winner = judgment.get("expected_winner")
+        if winner not in {"A", "B"}:
+            errors.append(f"{case_id}: expected winner must be A or B")
+        else:
+            winners.add(winner)
+        classifications = judgment.get("expected_classification", {})
+        if set(classifications) != {"A", "B"} or not set(classifications.values()) <= CLASSIFICATIONS:
+            errors.append(f"{case_id}: expected classifications are incomplete or invalid")
+        decisive = set(judgment.get("decisive_dimensions", []))
+        if len(decisive) < 2 or not decisive <= DIMENSIONS:
+            errors.append(f"{case_id}: requires at least two valid decisive dimensions")
+        ratings = judgment.get("expected_ratings", {})
+        for label in ("A", "B"):
+            candidate_ratings = ratings.get(label, {})
+            if set(candidate_ratings) != DIMENSIONS or not set(candidate_ratings.values()) <= RATINGS:
+                errors.append(f"{case_id}: {label} must have all eight valid expected ratings")
+        loser = "B" if winner == "A" else "A"
+        generic_signals = judgment.get("generic_signals", {}).get(loser, [])
+        if classifications.get(loser) == "COMPETENT_GENERIC" and len(generic_signals) < 3:
+            errors.append(f"{case_id}: generic loser requires at least three concrete signals")
+        blockers = judgment.get("blocking_failures", {})
+        if set(blockers) != {"A", "B"}:
+            errors.append(f"{case_id}: blocking-failure records must cover A and B")
+        if len(judgment.get("rationale", "").strip()) < 80:
+            errors.append(f"{case_id}: expected rationale is too short")
+
+    actual_fixtures = {path.name for path in cases_dir.glob("*.json")}
+    actual_expected = {path.name for path in expected_dir.glob("*.json")}
+    if fixture_names != actual_fixtures:
+        errors.append("case files differ from evaluation manifest")
+    if expected_names != actual_expected:
+        errors.append("expected judgment files differ from evaluation manifest")
+    if covered_roles != agent_slugs:
+        errors.append("evaluation case assignments do not cover all Publishing House roles")
+    if winners != {"A", "B"}:
+        errors.append("blind corpus winner placement must include both A and B")
 
 
 if __name__ == "__main__":

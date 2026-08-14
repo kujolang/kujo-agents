@@ -1,0 +1,52 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "campaign-copy-receipts",
+  "fixture_sha256": "ac7b20151e63685ea2e0cbffe97f235310934cb4d8f9456e0892ee5a0944fa76",
+  "expected_winner": "B",
+  "expected_classification": {
+    "B": "PREMIUM",
+    "A": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "distinctiveness",
+    "brand_integrity",
+    "craft",
+    "strategic_purpose",
+    "defensibility"
+  ],
+  "generic_signals": {
+    "A": [
+      "generic future framing",
+      "generic visibility benefit",
+      "category cliché",
+      "CTA disconnected from product proof"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    },
+    "B": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    }
+  },
+  "rationale": "Candidate B turns the product boundary into a memorable contrast, names the actual proof, and uses a product-native CTA. Candidate A is serviceable campaign language but interchangeable and gives engineering managers no concrete reason to care."
+}

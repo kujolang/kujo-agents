@@ -1,0 +1,19 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "social-thread-review",
+  "title": "Platform-native social thread",
+  "roles_under_test": [
+    "social-community-editor",
+    "franchise-adaptation-editor"
+  ],
+  "format": "social thread",
+  "brief": "Adapt the approved article into a five-post text thread for technical practitioners. Preserve the bounded claim that receipts aid review but do not prove correctness. CTA: invite practitioners to share their minimum verdict vocabulary.",
+  "candidates": {
+    "A": {
+      "content": "1/ AI agents are changing how teams work. But greater capability creates a need for careful review. 2/ Transparency helps teams make informed decisions. 3/ Receipts keep useful context about agent activity in one place. 4/ Clear records can support more consistent workflows. 5/ How does your team review completed agent work? #AI #AgentOps #Engineering"
+    },
+    "B": {
+      "content": "1/ A run log tells you what happened. It often misses what the reviewer decided. 2/ That distinction matters when ‘done’ can mean accept, revise, or reject. 3/ A useful receipt keeps the input, output, cost, verdict, and follow-up together. 4/ It still does not prove the output is correct; it gives the next person something inspectable to decide from. 5/ What is the smallest verdict vocabulary your team would actually use—two states, three, or more?"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "name": "publishing-house-quality-calibration",
+  "description": "Deterministic integrity gate for the Publishing House blind premium-versus-generic calibration corpus.",
+  "version": "1.0.0",
+  "policy_profile": "local-dev",
+  "artifact_checksums": true,
+  "stop_on_failure": false,
+  "allowed_commands": ["python3"],
+  "allowed_command_patterns": ["python3 scripts/validate_publishing_house.py"],
+  "blocked_arg_patterns": ["rm -rf", "curl | sh"],
+  "tests": [
+    {
+      "name": "publishing-house-validator",
+      "check": "command_succeeds",
+      "params": { "command": "python3 scripts/validate_publishing_house.py" }
+    },
+    {
+      "name": "quality-rubric-exists",
+      "check": "file_exists",
+      "params": { "path": "publishing-house/evals/quality-rubric.json" }
+    },
+    {
+      "name": "evaluation-manifest-exists",
+      "check": "file_exists",
+      "params": { "path": "publishing-house/evals/evaluation-manifest.json" }
+    },
+    {
+      "name": "judge-prompt-exists",
+      "check": "file_exists",
+      "params": { "path": "publishing-house/evals/judge-prompt.md" }
+    },
+    {
+      "name": "judge-schema-exists",
+      "check": "file_exists",
+      "params": { "path": "publishing-house/evals/judge-output.schema.json" }
+    },
+    {
+      "name": "manifest-shape",
+      "check": "json_matches_shape",
+      "params": {
+        "path": "publishing-house/evals/evaluation-manifest.json",
+        "required_keys": ["schema_version", "status", "case_count", "blind_labels", "dimensions", "role_coverage", "cases"]
+      }
+    },
+    {
+      "name": "manifest-case-count",
+      "check": "json_value_equals",
+      "params": {
+        "path": "publishing-house/evals/evaluation-manifest.json",
+        "json_path": "case_count",
+        "expected": 18
+      }
+    },
+    {
+      "name": "rubric-has-premium-classification",
+      "check": "file_contains",
+      "params": {
+        "path": "publishing-house/evals/quality-rubric.json",
+        "expected": "COMPETENT_GENERIC"
+      }
+    },
+    {
+      "name": "judge-protocol-preserves-blindness",
+      "check": "file_contains",
+      "params": {
+        "path": "publishing-house/evals/judge-prompt.md",
+        "expected": "Do not read"
+      }
+    }
+  ]
+}

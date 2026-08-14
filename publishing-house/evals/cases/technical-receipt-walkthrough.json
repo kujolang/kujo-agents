@@ -1,0 +1,19 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "technical-receipt-walkthrough",
+  "title": "Reproducible technical walkthrough",
+  "roles_under_test": [
+    "technical-editor-writer",
+    "standards-evidence-editor"
+  ],
+  "format": "technical tutorial",
+  "brief": "Explain how to inspect a Northstar receipt from the supplied fixture `fixtures/run-014.json`. Supported fields are `input`, `output`, `cost_usd`, `verdict`, and `follow_up`. The example environment is Northstar 0.4.0 in fixture mode. Do not imply live-provider validation.",
+  "candidates": {
+    "A": {
+      "content": "This walkthrough uses Northstar 0.4.0 in fixture mode. Open `fixtures/run-014.json` and confirm the five keys before interpreting them. `input` and `output` establish the run boundary; `cost_usd` records the fixture’s captured cost rather than an invoice; `verdict` records the reviewer’s decision; `follow_up` preserves the next action. Expected fixture values are `cost_usd: 0.18` and `verdict: revise`. If a key is absent, stop and report schema drift rather than substituting a default. This proves the documented fixture contract only; it does not validate a live provider, billing accuracy, or the correctness of the output."
+    },
+    "B": {
+      "content": "Northstar makes it easy to inspect agent receipts. First, open the supplied receipt file and review the input and output. Next, check the recorded cost. Then review the verdict and follow-up fields to understand the decision and next step. This simple process puts useful run context in one place and can support a more consistent review workflow."
+    }
+  }
+}

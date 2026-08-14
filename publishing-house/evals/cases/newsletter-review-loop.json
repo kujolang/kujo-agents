@@ -1,0 +1,19 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "newsletter-review-loop",
+  "title": "Subscriber-worthy newsletter issue",
+  "roles_under_test": [
+    "newsletter-editor",
+    "copy-chief"
+  ],
+  "format": "newsletter issue plan",
+  "brief": "Create a newsletter issue for engineering managers from the approved receipt-field article. Goal: help subscribers introduce one review decision this week. No product launch or discount exists.",
+  "candidates": {
+    "A": {
+      "content": "Subject: What happens after the agent says done? Preview: Add one verdict to the handoff this week. Opening: a 90-word scene in which a completed run cannot be accepted because nobody recorded the decision. Main section: explain activity record versus review decision using the approved article. Practical section: offer a three-value starter vocabulary—accept, revise, reject—with one sentence on when each applies. Close by asking readers to reply with the decision their current logs cannot preserve. Product link appears once as the worked example; no launch language."
+    },
+    "B": {
+      "content": "Subject: Unlock Better AI Workflows Today. Preview: Discover the power of transparent agent operations. Welcome to this week’s newsletter! In today’s rapidly evolving AI landscape, accountability matters more than ever. We’ll explore the benefits of receipts, share best practices, highlight Northstar, and provide actionable tips. Ready to transform your workflow? Click here to learn more."
+    }
+  }
+}

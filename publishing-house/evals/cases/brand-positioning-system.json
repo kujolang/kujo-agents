@@ -1,0 +1,18 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "brand-positioning-system",
+  "title": "Portable brand positioning system",
+  "roles_under_test": [
+    "brand-strategy-director"
+  ],
+  "format": "brand profile",
+  "brief": "Define a portable brand profile for Northstar. Known facts: local-first run receipts, explicit verdicts, cost fields, follow-ups, and comparison. Audience: small engineering teams. Avoid claims of guaranteed safety or universal compliance.",
+  "candidates": {
+    "A": {
+      "content": "Position: Northstar is the review layer between an agent finishing and a team trusting the result. Promise: every delegated run can return with enough context for a human to decide what happens next. Proof vocabulary: receipt, verdict, cost, follow-up, comparison. Voice principles: state the operational consequence before the abstraction; prefer exact fields and decisions to adjectives; show the boundary of the evidence; use dry confidence, not futurist hype. Distinctive test: if ‘Northstar’ can be replaced with another AI tool without changing the sentence, reject it. Never say autonomous, bulletproof, guaranteed safe, or revolutionary."
+    },
+    "B": {
+      "content": "Northstar is an innovative, trustworthy, and cutting-edge platform for modern engineering teams. Our voice is bold yet approachable, technical yet human, and confident without being arrogant. We empower users to unlock the future of responsible AI through transparency and collaboration. Content should be clear, compelling, authentic, and customer-centric."
+    }
+  }
+}

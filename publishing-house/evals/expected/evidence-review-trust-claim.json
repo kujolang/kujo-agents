@@ -1,0 +1,53 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "evidence-review-trust-claim",
+  "fixture_sha256": "49df1c653d19cb6ab47478697ae8303f2d461af8a1da52d99efd4eb73824e85b",
+  "expected_winner": "B",
+  "expected_classification": {
+    "B": "PREMIUM",
+    "A": "FAILED"
+  },
+  "decisive_dimensions": [
+    "defensibility",
+    "brand_integrity",
+    "strategic_purpose"
+  ],
+  "generic_signals": {
+    "A": [
+      "citations treated as general proof",
+      "unsupported benefit normalized as reasonable",
+      "guarantee softened but preserved",
+      "no claim-by-claim result"
+    ]
+  },
+  "blocking_failures": {
+    "A": [
+      "unsupported quantitative claim",
+      "prohibited guarantee claim"
+    ],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    },
+    "B": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    }
+  },
+  "rationale": "Candidate B independently verifies each claim, enforces the supplied evidence boundary, and blocks the exact version. Candidate A rewards plausibility instead of proof and leaves two material claims unsafe."
+}

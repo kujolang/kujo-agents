@@ -1,0 +1,19 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "strategy-category-entry",
+  "title": "Category-entry editorial strategy",
+  "roles_under_test": [
+    "editorial-strategy-director",
+    "director-of-editorial-intelligence"
+  ],
+  "format": "strategy memo",
+  "brief": "Northstar makes a local receipt system for teams supervising AI agents. Evidence supplied: teams can compare run inputs, outputs, costs, verdicts, and follow-ups; no market-share or productivity claims are verified. Define a six-week editorial strategy for engineering leaders who distrust opaque automation.",
+  "candidates": {
+    "A": {
+      "content": "Campaign theme: Unlock the Power of AI Observability. Publish weekly thought-leadership articles on transparency, productivity, innovation, security, and the future of work. Support each article with LinkedIn posts and a newsletter. The goal is to establish Northstar as a leader in responsible AI and drive awareness, engagement, and conversions."
+    },
+    "B": {
+      "content": "Governing thesis: agent work becomes organizational work only when another person can inspect what happened. Build the six weeks as an argument, not a topic calendar: first expose the handoff failure, then show the anatomy of a receipt, then demonstrate comparison and cost review, then confront the objection that logs already solve this, then give teams a small adoption path, and finally ask what evidence they would require before delegating more work. Do not claim productivity gains. Measure whether readers move from ‘monitor the model’ to ‘review the run.’"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "audience-development-plan",
+  "fixture_sha256": "c9350951edd31d452747bc3f79f645af1e15676436a4f6bf5e8284e91c2e63a1",
+  "expected_winner": "B",
+  "expected_classification": {
+    "B": "PREMIUM",
+    "A": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "insight",
+    "format_fidelity",
+    "strategic_purpose",
+    "defensibility",
+    "consequence"
+  ],
+  "generic_signals": {
+    "A": [
+      "simultaneous channel blast",
+      "optimal timing claimed without data",
+      "metric collection without hypotheses",
+      "double-down rule without attribution boundary"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    },
+    "B": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    }
+  },
+  "rationale": "Candidate B assigns a distinct learning question and native behavior to each channel, sequences distribution, and handles the missing baseline honestly. Candidate A is a competent distribution checklist but provides no falsifiable audience strategy."
+}

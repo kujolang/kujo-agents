@@ -1,0 +1,18 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "publisher-portfolio-decision",
+  "title": "Editorial portfolio investment decision",
+  "roles_under_test": [
+    "publisher"
+  ],
+  "format": "portfolio decision",
+  "brief": "Choose among three proposed commissions with capacity for one flagship: (1) a sourced article on the shipped verdict field; (2) a trend piece claiming agent productivity is rising, with no supporting study; (3) a founder essay arguing that completion is not the same as review, supported by the receipt schema but explicitly opinion-led. The house objective is to establish a defensible position with engineering leaders.",
+  "candidates": {
+    "A": {
+      "content": "Approve the verdict-field article and founder essay as a coordinated campaign, and decline the unsupported productivity trend. The article provides product education while the essay builds thought leadership around review. Publish both across the month with supporting newsletter and social distribution. This balanced mix can build awareness and authority while keeping the editorial calendar consistent."
+    },
+    "B": {
+      "content": "Commission the verdict-field article as the flagship because it can carry a specific category argument with shipped proof. Pair it later with the founder essay as an explicitly labeled point of view, not a second flagship. Decline the productivity trend until evidence exists; attention does not justify spending trust. Portfolio decision: invest reporting and art capacity in the verdict article, reserve the founder essay as a response to the ‘logs already exist’ objection, and leave one slot open for reader evidence rather than filling cadence in advance."
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "feature-opening-reviewable-work",
+  "fixture_sha256": "415bc1c24efaf589ad992b7e9629ef0f28171f3893e7855ed1c3af106e44af5d",
+  "expected_winner": "B",
+  "expected_classification": {
+    "B": "PREMIUM",
+    "A": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "consequence",
+    "distinctiveness",
+    "insight",
+    "craft",
+    "defensibility"
+  ],
+  "generic_signals": {
+    "A": [
+      "padded trend opening",
+      "abstract importance claim",
+      "interchangeable category phrasing",
+      "no concrete tension"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    },
+    "B": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    }
+  },
+  "rationale": "Candidate B begins with a consequential scene, draws a precise distinction between completion and judgment, and preserves the evidence boundary. Candidate A is fluent and competent but delays the idea behind familiar AI-transformation language."
+}

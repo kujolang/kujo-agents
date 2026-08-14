@@ -1,0 +1,52 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "developmental-review-opening",
+  "fixture_sha256": "747256b535ecae99a5d57f94e64b727595bb28bbb0087e9fea867a6a99e1f15a",
+  "expected_winner": "B",
+  "expected_classification": {
+    "B": "PREMIUM",
+    "A": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "consequence",
+    "insight",
+    "craft",
+    "defensibility",
+    "strategic_purpose"
+  ],
+  "generic_signals": {
+    "A": [
+      "generic praise",
+      "surface edits before structural diagnosis",
+      "no passage-level consequence",
+      "evidence correction without argument reconstruction"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    },
+    "B": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    }
+  },
+  "rationale": "Candidate B reconstructs the missing argument, identifies the evidence overreach, prioritizes structural changes, and protects independent review. Candidate A is pleasant and competent but fails to make a consequential editorial judgment."
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "production-review-package",
+  "fixture_sha256": "e21bf643dcebff76f7925c53ffcffb3b81521853ed5d87759352bc54d2a3d68b",
+  "expected_winner": "A",
+  "expected_classification": {
+    "A": "PREMIUM",
+    "B": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "defensibility",
+    "format_fidelity",
+    "strategic_purpose",
+    "craft"
+  ],
+  "generic_signals": {
+    "B": [
+      "folder version instead of package manifest identity",
+      "partial checksums without derivative lineage",
+      "approval scope and destination omitted",
+      "review IDs and claim delta omitted"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    },
+    "B": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    }
+  },
+  "rationale": "Candidate A creates an exact, reviewable approval object with lineage, review identity, claim deltas, and drift behavior. Candidate B is a competent folder handoff but omits the manifest-level relationships needed for a premium production package."
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "publishing-house-quality-rubric-v1",
+  "ratings": [
+    "EXCEPTIONAL",
+    "STRONG",
+    "ADEQUATE",
+    "WEAK",
+    "FAILED",
+    "UNVERIFIED"
+  ],
+  "classifications": [
+    "PREMIUM",
+    "STRONG_NOT_PREMIUM",
+    "COMPETENT_GENERIC",
+    "FAILED"
+  ],
+  "dimensions": {
+    "consequence": "Matters to a defined audience and changes what they understand, believe, try, or do.",
+    "distinctiveness": "Makes choices that are recognizably specific rather than interchangeable category output.",
+    "insight": "Reveals a useful tension, connection, explanation, or implication.",
+    "defensibility": "Material claims, comparisons, quotations, and technical behavior survive evidence review.",
+    "craft": "Structure, language, examples, visuals, and transitions reward attention and remove friction.",
+    "brand_integrity": "Advances the approved position and voice without borrowed posture or generic style tokens.",
+    "format_fidelity": "Uses the native strengths and constraints of the medium and platform.",
+    "strategic_purpose": "Earns its place in the portfolio and advances a clear reader or business consequence without distorting truth."
+  },
+  "blocking_dimensions": [
+    "defensibility",
+    "rights",
+    "privacy",
+    "explicit_approval",
+    "artifact_integrity"
+  ],
+  "classification_rules": {
+    "PREMIUM": "No blocker; consequence, distinctiveness, insight, defensibility, and craft are STRONG or EXCEPTIONAL; remaining dimensions are at least ADEQUATE; no material generic signal survives.",
+    "STRONG_NOT_PREMIUM": "No blocker and materially useful, but one core premium dimension remains ADEQUATE or one consequential generic signal survives.",
+    "COMPETENT_GENERIC": "Usable and mostly correct, but distinctiveness or insight is WEAK/ADEQUATE and the work remains substantially interchangeable.",
+    "FAILED": "Any blocking dimension fails, required evidence is absent for a material claim, approval/version integrity fails, or the artifact is not safely usable."
+  },
+  "no_average_rule": "Do not average ratings into a score that can conceal a blocking failure."
+}

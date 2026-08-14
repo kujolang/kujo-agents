@@ -1,0 +1,52 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "social-thread-review",
+  "fixture_sha256": "e0f256809abc0520f7708e02a85328f6a9ce3788675edb1b81cbe3b3f5ba844c",
+  "expected_winner": "B",
+  "expected_classification": {
+    "B": "PREMIUM",
+    "A": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "distinctiveness",
+    "defensibility",
+    "format_fidelity",
+    "brand_integrity",
+    "strategic_purpose"
+  ],
+  "generic_signals": {
+    "A": [
+      "generic capability hook",
+      "abstract transparency language",
+      "hashtag filler",
+      "broad question avoids the requested verdict vocabulary"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    },
+    "B": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    }
+  },
+  "rationale": "Candidate B preserves the source distinction, fits the thread format, states the evidence boundary, and ends with the commissioned community question. Candidate A is competent and bounded but generic, abstract, and disconnected from the requested verdict-vocabulary discussion."
+}

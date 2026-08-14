@@ -1,0 +1,18 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "art-direction-receipt",
+  "title": "Concept-led art direction",
+  "roles_under_test": [
+    "art-director"
+  ],
+  "format": "visual direction",
+  "brief": "Direct a monochrome hero and three proof cards for the campaign ‘The run is finished. The review starts here.’ Avoid generic robot imagery and preserve accessibility in text-bearing assets.",
+  "candidates": {
+    "A": {
+      "content": "Use a sleek futuristic design with a black background, glowing blue gradients, abstract AI circuitry, and a friendly robot silhouette. Add bold modern typography and dynamic motion lines. The proof cards should use icons for transparency, collaboration, and innovation. Make the visuals premium, clean, and eye-catching."
+    },
+    "B": {
+      "content": "Visual idea: the receipt as a piece of evidence crossing a desk. Build the hero around one oversized monochrome receipt split by a hard rule: above it, the machine’s run fields; below it, the human verdict and follow-up written as decisive marks. The three cards isolate cost, verdict, and comparison using the same rule, numbering, and margin system. No robots or circuitry. Typography behaves like an audited form—dense labels, generous decision space, one redaction bar as a recurring device. Keep all text live where possible, maintain 4.5:1 contrast, and provide alt text that states the decision represented rather than describing decoration."
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "publisher-portfolio-decision",
+  "fixture_sha256": "1c37a9df197fad1f64c6a5a9c645777625cec3a2400a6899a1243f39d9c20b7f",
+  "expected_winner": "B",
+  "expected_classification": {
+    "B": "PREMIUM",
+    "A": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "consequence",
+    "defensibility",
+    "strategic_purpose",
+    "distinctiveness"
+  ],
+  "generic_signals": {
+    "A": [
+      "coordination substituted for portfolio hierarchy",
+      "flagship choice left ambiguous",
+      "generic awareness goals",
+      "no capacity tradeoff"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    },
+    "B": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    }
+  },
+  "rationale": "Candidate B makes an explicit investment choice, protects the evidence boundary, connects the secondary piece to a strategic objection, and preserves capacity for learning. Candidate A is defensible but avoids choosing one flagship and defaults to familiar campaign balance and cadence."
+}

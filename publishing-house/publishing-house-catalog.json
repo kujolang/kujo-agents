@@ -3,7 +3,7 @@
   "status": "review",
   "agent_count": 23,
   "independence": "standalone",
-  "evaluation_fixtures": "deferred",
+  "evaluation_fixtures": "calibration",
   "tool_inventory": "deferred",
   "agents": [
     {

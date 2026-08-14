@@ -1,0 +1,52 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "art-direction-receipt",
+  "fixture_sha256": "b9ca662118c28cadd00dcb1c0b94ee63b710382e31f37874cffb71cefc0626de",
+  "expected_winner": "B",
+  "expected_classification": {
+    "B": "PREMIUM",
+    "A": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "distinctiveness",
+    "insight",
+    "brand_integrity",
+    "format_fidelity",
+    "craft"
+  ],
+  "generic_signals": {
+    "A": [
+      "generic AI visual vocabulary",
+      "style adjectives without concept",
+      "icons substitute for meaning",
+      "no accessibility or system logic"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    },
+    "B": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    }
+  },
+  "rationale": "Candidate B translates the campaign thesis into a repeatable visual grammar with hierarchy, restraint, accessibility, and format behavior. Candidate A is technically serviceable but visually interchangeable with generic AI marketing."
+}

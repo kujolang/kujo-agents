@@ -1,0 +1,234 @@
+{
+  "schema_version": "publishing-house-evaluation-manifest-v1",
+  "status": "calibration",
+  "case_count": 18,
+  "blind_labels": [
+    "A",
+    "B"
+  ],
+  "dimensions": [
+    "consequence",
+    "distinctiveness",
+    "insight",
+    "defensibility",
+    "craft",
+    "brand_integrity",
+    "format_fidelity",
+    "strategic_purpose"
+  ],
+  "role_coverage": [
+    "art-director",
+    "audience-development-director",
+    "brand-strategy-director",
+    "campaign-copywriter",
+    "case-study-editor",
+    "commissioning-editor",
+    "copy-chief",
+    "creative-director",
+    "developmental-editor",
+    "director-of-editorial-intelligence",
+    "editor-in-chief",
+    "editorial-strategy-director",
+    "features-writer",
+    "franchise-adaptation-editor",
+    "managing-editor",
+    "newsletter-editor",
+    "production-editor",
+    "publisher",
+    "publishing-operations-director",
+    "social-community-editor",
+    "standards-evidence-editor",
+    "technical-editor-writer",
+    "video-audio-producer"
+  ],
+  "cases": [
+    {
+      "case_id": "strategy-category-entry",
+      "roles_under_test": [
+        "editorial-strategy-director",
+        "director-of-editorial-intelligence"
+      ],
+      "format": "strategy memo",
+      "fixture": "cases/strategy-category-entry.json",
+      "expected": "expected/strategy-category-entry.json",
+      "fixture_sha256": "434dd277966888a84623b77d1184687081bc2e026f2fdcf99fe6bfa0c39e47f9"
+    },
+    {
+      "case_id": "brand-positioning-system",
+      "roles_under_test": [
+        "brand-strategy-director"
+      ],
+      "format": "brand profile",
+      "fixture": "cases/brand-positioning-system.json",
+      "expected": "expected/brand-positioning-system.json",
+      "fixture_sha256": "0b66a0a7a90c95c5156b54c2faccd886d8850874d817e0a32914fa0dc313b324"
+    },
+    {
+      "case_id": "commission-receipt-field",
+      "roles_under_test": [
+        "commissioning-editor"
+      ],
+      "format": "editorial brief",
+      "fixture": "cases/commission-receipt-field.json",
+      "expected": "expected/commission-receipt-field.json",
+      "fixture_sha256": "817bdc0b521943071ada0ce0ae6f93b0d9904bcd708b900791db009c2b2c2bfc"
+    },
+    {
+      "case_id": "feature-opening-reviewable-work",
+      "roles_under_test": [
+        "features-writer"
+      ],
+      "format": "feature opening",
+      "fixture": "cases/feature-opening-reviewable-work.json",
+      "expected": "expected/feature-opening-reviewable-work.json",
+      "fixture_sha256": "415bc1c24efaf589ad992b7e9629ef0f28171f3893e7855ed1c3af106e44af5d"
+    },
+    {
+      "case_id": "technical-receipt-walkthrough",
+      "roles_under_test": [
+        "technical-editor-writer",
+        "standards-evidence-editor"
+      ],
+      "format": "technical tutorial",
+      "fixture": "cases/technical-receipt-walkthrough.json",
+      "expected": "expected/technical-receipt-walkthrough.json",
+      "fixture_sha256": "464c814dbe3b2e0726c7ffc1748d8120b25857a9cdc8183ecc0e30301f72d237"
+    },
+    {
+      "case_id": "campaign-copy-receipts",
+      "roles_under_test": [
+        "creative-director",
+        "campaign-copywriter"
+      ],
+      "format": "campaign copy deck",
+      "fixture": "cases/campaign-copy-receipts.json",
+      "expected": "expected/campaign-copy-receipts.json",
+      "fixture_sha256": "ac7b20151e63685ea2e0cbffe97f235310934cb4d8f9456e0892ee5a0944fa76"
+    },
+    {
+      "case_id": "art-direction-receipt",
+      "roles_under_test": [
+        "art-director"
+      ],
+      "format": "visual direction",
+      "fixture": "cases/art-direction-receipt.json",
+      "expected": "expected/art-direction-receipt.json",
+      "fixture_sha256": "b9ca662118c28cadd00dcb1c0b94ee63b710382e31f37874cffb71cefc0626de"
+    },
+    {
+      "case_id": "developmental-review-opening",
+      "roles_under_test": [
+        "developmental-editor",
+        "editor-in-chief"
+      ],
+      "format": "review memo",
+      "fixture": "cases/developmental-review-opening.json",
+      "expected": "expected/developmental-review-opening.json",
+      "fixture_sha256": "747256b535ecae99a5d57f94e64b727595bb28bbb0087e9fea867a6a99e1f15a"
+    },
+    {
+      "case_id": "evidence-review-trust-claim",
+      "roles_under_test": [
+        "standards-evidence-editor"
+      ],
+      "format": "evidence review",
+      "fixture": "cases/evidence-review-trust-claim.json",
+      "expected": "expected/evidence-review-trust-claim.json",
+      "fixture_sha256": "49df1c653d19cb6ab47478697ae8303f2d461af8a1da52d99efd4eb73824e85b"
+    },
+    {
+      "case_id": "newsletter-review-loop",
+      "roles_under_test": [
+        "newsletter-editor",
+        "copy-chief"
+      ],
+      "format": "newsletter issue plan",
+      "fixture": "cases/newsletter-review-loop.json",
+      "expected": "expected/newsletter-review-loop.json",
+      "fixture_sha256": "3e9d17de14c6336a81804b497eea413780a7e7a3f48a203cc15c0334cf63b1d6"
+    },
+    {
+      "case_id": "social-thread-review",
+      "roles_under_test": [
+        "social-community-editor",
+        "franchise-adaptation-editor"
+      ],
+      "format": "social thread",
+      "fixture": "cases/social-thread-review.json",
+      "expected": "expected/social-thread-review.json",
+      "fixture_sha256": "e0f256809abc0520f7708e02a85328f6a9ce3788675edb1b81cbe3b3f5ba844c"
+    },
+    {
+      "case_id": "case-study-review-time",
+      "roles_under_test": [
+        "case-study-editor",
+        "standards-evidence-editor"
+      ],
+      "format": "case study outline",
+      "fixture": "cases/case-study-review-time.json",
+      "expected": "expected/case-study-review-time.json",
+      "fixture_sha256": "7c05e0fbaf1b45a26727d1e63ea186a12accb4b59e46c43d8cde4420118ea09e"
+    },
+    {
+      "case_id": "audience-development-plan",
+      "roles_under_test": [
+        "audience-development-director"
+      ],
+      "format": "distribution plan",
+      "fixture": "cases/audience-development-plan.json",
+      "expected": "expected/audience-development-plan.json",
+      "fixture_sha256": "c9350951edd31d452747bc3f79f645af1e15676436a4f6bf5e8284e91c2e63a1"
+    },
+    {
+      "case_id": "video-treatment-review",
+      "roles_under_test": [
+        "video-audio-producer",
+        "art-director"
+      ],
+      "format": "90-second video treatment",
+      "fixture": "cases/video-treatment-review.json",
+      "expected": "expected/video-treatment-review.json",
+      "fixture_sha256": "ca3d1a11bc624d9dd501ce5c1f98d953316ca752009bf85cf1dcf634d698d79b"
+    },
+    {
+      "case_id": "production-review-package",
+      "roles_under_test": [
+        "production-editor"
+      ],
+      "format": "artifact manifest plan",
+      "fixture": "cases/production-review-package.json",
+      "expected": "expected/production-review-package.json",
+      "fixture_sha256": "e21bf643dcebff76f7925c53ffcffb3b81521853ed5d87759352bc54d2a3d68b"
+    },
+    {
+      "case_id": "publishing-preflight",
+      "roles_under_test": [
+        "publishing-operations-director"
+      ],
+      "format": "publishing execution plan",
+      "fixture": "cases/publishing-preflight.json",
+      "expected": "expected/publishing-preflight.json",
+      "fixture_sha256": "30a9e42feb8b2de8c7603ee24126ddaf6b78a8acaba0f2f4173cd024484d119f"
+    },
+    {
+      "case_id": "publisher-portfolio-decision",
+      "roles_under_test": [
+        "publisher"
+      ],
+      "format": "portfolio decision",
+      "fixture": "cases/publisher-portfolio-decision.json",
+      "expected": "expected/publisher-portfolio-decision.json",
+      "fixture_sha256": "1c37a9df197fad1f64c6a5a9c645777625cec3a2400a6899a1243f39d9c20b7f"
+    },
+    {
+      "case_id": "managing-editor-daily-routing",
+      "roles_under_test": [
+        "managing-editor"
+      ],
+      "format": "assignment and handoff plan",
+      "fixture": "cases/managing-editor-daily-routing.json",
+      "expected": "expected/managing-editor-daily-routing.json",
+      "fixture_sha256": "83bfcceca53b487d2cc9020a390279d3796958f6a4208565e761fa27c0e92bbd"
+    }
+  ]
+}

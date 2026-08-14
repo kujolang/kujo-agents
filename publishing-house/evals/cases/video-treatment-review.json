@@ -1,0 +1,19 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "video-treatment-review",
+  "title": "Evidence-led video treatment",
+  "roles_under_test": [
+    "video-audio-producer",
+    "art-director"
+  ],
+  "format": "90-second video treatment",
+  "brief": "Develop a 90-second caption-first video treatment from the approved article. Available assets: receipt fixture, terminal capture, and UI screenshot. No customer footage or voice-clone permission exists.",
+  "candidates": {
+    "A": {
+      "content": "Open on silence and the words ‘The agent said it was done’ over the terminal capture. At 0:06 freeze the screen and ask, ‘What did the reviewer decide?’ Build the middle as three visual moves: raw run output; the receipt fields sliding into one page; the verdict changing from blank to revise. Voiceover states that a receipt does not prove correctness—it preserves the context for a decision. End on a split screen: RUN FINISHED / REVIEW STARTS HERE, then show the five fields and CTA ‘Review a receipt.’ Use the real fixture and UI capture, burned-in captions plus an SRT, no synthetic spokesperson, and a description track note for the field transition."
+    },
+    "B": {
+      "content": "Create a fast-paced video about the future of AI accountability. Start with dramatic music over the supplied terminal capture, introduce the challenge of opaque agent work, then reveal Northstar through the supplied UI screenshot and animated receipt fields. Use text cards and captions to explain the benefits. End with an energetic logo animation and ‘Transform Your AI Workflow Today.’"
+    }
+  }
+}

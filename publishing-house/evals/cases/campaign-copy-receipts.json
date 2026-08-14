@@ -1,0 +1,19 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "campaign-copy-receipts",
+  "title": "Campaign concept and copy",
+  "roles_under_test": [
+    "creative-director",
+    "campaign-copywriter"
+  ],
+  "format": "campaign copy deck",
+  "brief": "Create a campaign line and supporting copy for Northstar's run receipts. Audience: engineering managers. Supported proof: inputs, outputs, costs, verdicts, follow-ups, and comparisons. Avoid fear, autonomy, and guaranteed-safety claims.",
+  "candidates": {
+    "A": {
+      "content": "Headline: Unlock the Future of AI Transparency. Body: Northstar gives modern engineering teams greater visibility into agent activity through clear receipts, collaborative review, and flexible workflow support. CTA: Transform Your AI Workflow Today."
+    },
+    "B": {
+      "content": "Campaign line: The run is finished. The review starts here. Support: Northstar puts the input, output, cost, verdict, and next action in one receipt—so an agent handoff arrives as work your team can inspect, compare, and decide on. CTA: Review a receipt."
+    }
+  }
+}

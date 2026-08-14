@@ -1,0 +1,18 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "audience-development-plan",
+  "title": "Audience development hypothesis",
+  "roles_under_test": [
+    "audience-development-director"
+  ],
+  "format": "distribution plan",
+  "brief": "Plan distribution for the approved article to engineering managers and technical leads. Available channels: newsletter, LinkedIn, X, and a practitioner forum. Historical channel data is unavailable. No paid spend is authorized.",
+  "candidates": {
+    "A": {
+      "content": "Promote the article across all available channels. Post on LinkedIn and X at optimal times, include it in the newsletter, and share it in relevant communities. Use engaging hooks, compelling visuals, and strong CTAs. Track impressions, clicks, engagement, shares, follower growth, and conversions, then double down on the best-performing channel."
+    },
+    "B": {
+      "content": "Run this as a learning sequence, not a simultaneous blast. Newsletter tests whether managers respond to the handoff problem; track article clicks and replies naming a current verdict vocabulary. Two days later, X tests the log-versus-decision distinction with the five-post thread; track qualified replies, not raw impressions. LinkedIn receives the managerial before/after diagram. The practitioner forum gets no promotional link in the opening post—ask for existing review states first, then share the article only where rules and discussion support it. With no baseline, report observations rather than ‘lift’ or channel superiority."
+    }
+  }
+}

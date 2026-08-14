@@ -1,0 +1,52 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "case-study-review-time",
+  "fixture_sha256": "7c05e0fbaf1b45a26727d1e63ea186a12accb4b59e46c43d8cde4420118ea09e",
+  "expected_winner": "A",
+  "expected_classification": {
+    "A": "PREMIUM",
+    "B": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "defensibility",
+    "consequence",
+    "craft",
+    "brand_integrity",
+    "strategic_purpose"
+  ],
+  "generic_signals": {
+    "B": [
+      "generic challenge-solution-results structure",
+      "visibility framing without a decision consequence",
+      "limitations acknowledged but not editorially used",
+      "practical takeaways not defined"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    },
+    "B": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    }
+  },
+  "rationale": "Candidate A uses the verified counts, defines the measure, preserves consent, and makes limitations editorially useful. Candidate B is safe and serviceable, but its generic case-study template leaves the mechanism and reader consequence underdeveloped."
+}

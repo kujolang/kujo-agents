@@ -1,0 +1,18 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "evidence-review-trust-claim",
+  "title": "Claim-level standards review",
+  "roles_under_test": [
+    "standards-evidence-editor"
+  ],
+  "format": "evidence review",
+  "brief": "Review three claims: (1) receipts contain verdicts in schema 0.4.0; (2) receipts reduce review time by 40%; (3) receipts guarantee accountable AI. Sources supplied: schema file confirming claim 1; no timing study; constitution says receipts support review but do not guarantee outcomes.",
+  "candidates": {
+    "A": {
+      "content": "The article is well sourced overall. The schema supports the verdict feature, and the broader claims about faster reviews and accountability are reasonable benefits of increased transparency. Keep the citations and consider softening ‘guarantee’ to ‘help guarantee.’ Standards result: pass with minor edits."
+    },
+    "B": {
+      "content": "Claim 1: VERIFIED against schema 0.4.0; retain with version scope. Claim 2: FAILED—no timing study or measured comparison was supplied; remove 40% or commission evidence. Claim 3: FAILED—the constitution explicitly rejects outcome guarantees; replace with ‘preserves context for an accountable review decision’ and cite the boundary. Standards result: BLOCKED until claims 2 and 3 are corrected. This review applies only to the frozen candidate checksum."
+    }
+  }
+}

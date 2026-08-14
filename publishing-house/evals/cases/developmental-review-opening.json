@@ -1,0 +1,19 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "developmental-review-opening",
+  "title": "Independent developmental review",
+  "roles_under_test": [
+    "developmental-editor",
+    "editor-in-chief"
+  ],
+  "format": "review memo",
+  "brief": "Review a draft whose thesis is ‘receipts make agent work reviewable.’ The draft opens with three paragraphs about rapid AI adoption, lists five receipt fields, and ends by saying receipts create trust. Evidence supports field existence but not trust outcomes.",
+  "candidates": {
+    "A": {
+      "content": "This is a clear draft with a familiar introduction and useful field list. Consider shortening the opening, adding transitions between the five fields, and making the conclusion more specific. Because the supplied evidence does not establish trust outcomes, soften that sentence to say receipts support review. After those changes, tighten repetition and make the CTA more direct."
+    },
+    "B": {
+      "content": "Return for structural revision. The draft’s stated thesis is not yet its argument: it moves from ‘AI is growing’ to a field list to ‘trust’ without showing the decision receipts enable. Cut the first three trend paragraphs and open on a failed handoff. Rebuild the middle around one distinction—activity record versus review decision—then use the five fields as evidence for that distinction, not as five benefits. The conclusion currently exceeds the proof: replace ‘creates trust’ with the bounded claim that receipts give a reviewer inspectable context. Add the strongest objection: logs already exist. Do not line-edit until this spine is repaired."
+    }
+  }
+}

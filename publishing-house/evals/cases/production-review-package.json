@@ -1,0 +1,18 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "production-review-package",
+  "title": "Immutable review package",
+  "roles_under_test": [
+    "production-editor"
+  ],
+  "format": "artifact manifest plan",
+  "brief": "Package an article, hero image, social thread, evidence record, and three completed reviews for Robert's approval. The article checksum is `sha256:article-v3`; the hero is `sha256:hero-v2`. The social thread added no new claims.",
+  "candidates": {
+    "A": {
+      "content": "Create package `northstar-verdict-2026-08-14.v3` with the exact article and hero checksums, artifact IDs, mime types, parent relationships, evidence record, and review IDs. Mark the social thread as a derivative of article v3 with claim delta `none` and its own checksum. `review.md` lists thesis, audience, destinations, blocking findings resolved, remaining non-blocking query, and approval choices. Approval must name package v3 and its manifest checksum. Any file drift changes the package version and returns it to ready-for-review."
+    },
+    "B": {
+      "content": "Create a clean review folder containing article v3 at `sha256:article-v3`, hero v2 at `sha256:hero-v2`, the social copy, supporting research, and the three editor reviews. Add a README that lists each asset and asks Robert to approve the named folder version. Keep the approved folder unchanged and make a new version if an asset is edited."
+    }
+  }
+}

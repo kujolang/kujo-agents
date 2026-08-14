@@ -1,0 +1,51 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "brand-positioning-system",
+  "fixture_sha256": "0b66a0a7a90c95c5156b54c2faccd886d8850874d817e0a32914fa0dc313b324",
+  "expected_winner": "A",
+  "expected_classification": {
+    "A": "PREMIUM",
+    "B": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "distinctiveness",
+    "brand_integrity",
+    "defensibility",
+    "craft"
+  ],
+  "generic_signals": {
+    "B": [
+      "voice reduced to adjectives",
+      "interchangeable category language",
+      "unsupported empowerment promise",
+      "no operational usage test"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    },
+    "B": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    }
+  },
+  "rationale": "Candidate A converts product facts into a position, promise, proof vocabulary, repeatable voice behaviors, and rejection test. Candidate B is polished but generic and gives downstream writers no discriminating decisions."
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "case-study-review-time",
+  "title": "Consent-aware case study",
+  "roles_under_test": [
+    "case-study-editor",
+    "standards-evidence-editor"
+  ],
+  "format": "case study outline",
+  "brief": "Prepare a case study from an approved interview with Team Cedar. Verified records: 18 agent runs before the pilot and 22 during it; missing verdicts fell from 11 to 3. No controlled timing or productivity study exists. The customer approved naming the team but quotations require separate approval.",
+  "candidates": {
+    "A": {
+      "content": "Frame the case as ‘Team Cedar made review decisions visible,’ not ‘Northstar made the team faster.’ Baseline: 11 of 18 recorded runs lacked a verdict. Pilot: 3 of 22 lacked a verdict. Show the workflow change that required accept, revise, or reject; define exactly how missing verdicts were counted. Include one interview quotation only after subject approval. Limitations: different run counts, short pilot, no control group, no timing measure, and no causal productivity claim. Close with what Cedar will test next rather than a victory statement."
+    },
+    "B": {
+      "content": "Frame the case as Team Cedar improving visibility into agent work. Explain that 11 of 18 runs before the pilot lacked verdicts, compared with 3 of 22 during the pilot. Organize the story as challenge, solution, results, and lessons learned. Describe the new review workflow, include only approved quotations, note that the pilot was short, and close with practical takeaways for teams considering run receipts."
+    }
+  }
+}

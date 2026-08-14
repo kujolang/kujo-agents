@@ -1,0 +1,51 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "commission-receipt-field",
+  "fixture_sha256": "817bdc0b521943071ada0ce0ae6f93b0d9904bcd708b900791db009c2b2c2bfc",
+  "expected_winner": "A",
+  "expected_classification": {
+    "A": "PREMIUM",
+    "B": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "consequence",
+    "distinctiveness",
+    "defensibility",
+    "strategic_purpose"
+  ],
+  "generic_signals": {
+    "B": [
+      "generic topic prompt",
+      "preset article template",
+      "benefits requested without evidence",
+      "SEO instruction replacing editorial angle"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    },
+    "B": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    }
+  },
+  "rationale": "Candidate A defines a specific managerial problem, contestable thesis, proof burden, objection, non-goals, and kill condition. Candidate B is executable but commissions generic promotional copy and invites unsupported benefits."
+}

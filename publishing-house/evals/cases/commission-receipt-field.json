@@ -1,0 +1,18 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "commission-receipt-field",
+  "title": "Sharp editorial commission",
+  "roles_under_test": [
+    "commissioning-editor"
+  ],
+  "format": "editorial brief",
+  "brief": "Commission a 1,400-word article about Northstar's verdict field for engineering managers evaluating agent work. The field is shipped; evidence includes the repository schema and a local fixture. No customer performance data exists.",
+  "candidates": {
+    "A": {
+      "content": "Assignment: ‘The field that turns an agent log into a management decision.’ Problem: most run records describe activity but do not preserve the reviewer’s disposition. Thesis: a verdict field matters because it separates what happened from what the team decided to trust, revise, or reject. Reader promise: by the end, an engineering manager can design a minimal verdict vocabulary and see where it belongs in review. Required proof: schema excerpt, one fixture, and a before/after handoff. Required objection: ‘Isn’t this just another status field?’ Non-goals: productivity, safety, and adoption claims. Kill condition: if the fixture cannot be reproduced, convert the piece into a design argument and label it observed, not shipped proof."
+    },
+    "B": {
+      "content": "Write an engaging 1,400-word article about Northstar’s exciting verdict feature. Explain what it is, why transparency matters, and how teams can use it to improve their AI workflows. Include an introduction, three benefits, best practices, a conclusion, and a CTA to try Northstar. Use an authoritative but approachable tone and optimize the article for agent observability keywords."
+    }
+  }
+}

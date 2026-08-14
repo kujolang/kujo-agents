@@ -1,0 +1,52 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "video-treatment-review",
+  "fixture_sha256": "ca3d1a11bc624d9dd501ce5c1f98d953316ca752009bf85cf1dcf634d698d79b",
+  "expected_winner": "A",
+  "expected_classification": {
+    "A": "PREMIUM",
+    "B": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "distinctiveness",
+    "format_fidelity",
+    "defensibility",
+    "brand_integrity",
+    "craft"
+  ],
+  "generic_signals": {
+    "B": [
+      "generic futuristic montage",
+      "supplied assets used as decoration rather than proof",
+      "no timed narrative or shot progression",
+      "solution reveal without evidence boundary"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    },
+    "B": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    }
+  },
+  "rationale": "Candidate A builds the approved thesis into time, image, sound, captions, real assets, and accessibility decisions. Candidate B is producible and bounded, but it is a familiar promotional treatment with no precise narrative timing, proof behavior, or accessibility package."
+}

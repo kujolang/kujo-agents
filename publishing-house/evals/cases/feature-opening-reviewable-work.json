@@ -1,0 +1,18 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "feature-opening-reviewable-work",
+  "title": "Long-form feature opening",
+  "roles_under_test": [
+    "features-writer"
+  ],
+  "format": "feature opening",
+  "brief": "Open an essay for engineering leaders about why completed agent work is not automatically reviewable. Known evidence: a receipt can preserve inputs, outputs, costs, verdicts, and follow-ups. Do not claim that receipts guarantee correctness.",
+  "candidates": {
+    "A": {
+      "content": "Artificial intelligence is rapidly transforming the modern workplace. As more organizations adopt AI agents, transparency and accountability have never been more important. Engineering leaders need robust tools and best practices to ensure their teams can use this powerful technology responsibly. That is where reviewable agent workflows come in."
+    },
+    "B": {
+      "content": "The agent said it was done. The pull request existed, the tests were green, and nobody in the review could answer the smallest question: which instructions produced this change? Completion was visible; judgment was not. A run receipt does not prove the work is correct. It does something more modest and more useful: it gives the next person inputs, outputs, cost, verdict, and follow-up in one place, so ‘done’ can become a decision instead of a declaration."
+    }
+  }
+}

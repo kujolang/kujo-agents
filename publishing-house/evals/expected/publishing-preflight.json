@@ -1,0 +1,54 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "publishing-preflight",
+  "fixture_sha256": "30a9e42feb8b2de8c7603ee24126ddaf6b78a8acaba0f2f4173cd024484d119f",
+  "expected_winner": "A",
+  "expected_classification": {
+    "A": "PREMIUM",
+    "B": "FAILED"
+  },
+  "decisive_dimensions": [
+    "defensibility",
+    "format_fidelity",
+    "strategic_purpose"
+  ],
+  "generic_signals": {
+    "B": [
+      "latest version substitutes for exact approval",
+      "unbounded retry",
+      "unauthorized replacement behavior",
+      "no idempotency or receipt contract"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": [
+      "approval-version ambiguity",
+      "unauthorized replacement",
+      "missing idempotency"
+    ]
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    },
+    "B": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    }
+  },
+  "rationale": "Candidate A binds the external effect to the exact approval, constrains authority, prevents duplicates, and defines receipts and stop conditions. Candidate B is operationally plausible but exceeds authorization and can publish or overwrite the wrong version."
+}

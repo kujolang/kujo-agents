@@ -1,0 +1,51 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "strategy-category-entry",
+  "fixture_sha256": "434dd277966888a84623b77d1184687081bc2e026f2fdcf99fe6bfa0c39e47f9",
+  "expected_winner": "B",
+  "expected_classification": {
+    "B": "PREMIUM",
+    "A": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "consequence",
+    "distinctiveness",
+    "insight",
+    "strategic_purpose"
+  ],
+  "generic_signals": {
+    "A": [
+      "generic category theme",
+      "interchangeable content pillars",
+      "unsupported leadership positioning",
+      "metrics without a decision hypothesis"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    },
+    "B": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    }
+  },
+  "rationale": "Candidate B makes a contestable category claim, sequences belief change, uses the supplied product evidence, names the central objection, and refuses an unsupported productivity promise. Candidate A is competent calendar language but could describe almost any AI observability vendor."
+}

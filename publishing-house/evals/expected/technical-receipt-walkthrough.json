@@ -1,0 +1,51 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "technical-receipt-walkthrough",
+  "fixture_sha256": "464c814dbe3b2e0726c7ffc1748d8120b25857a9cdc8183ecc0e30301f72d237",
+  "expected_winner": "A",
+  "expected_classification": {
+    "A": "PREMIUM",
+    "B": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "defensibility",
+    "format_fidelity",
+    "craft",
+    "strategic_purpose"
+  ],
+  "generic_signals": {
+    "B": [
+      "missing version and environment",
+      "no expected values or failure behavior",
+      "field descriptions remain generic",
+      "fixture boundary not stated"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    },
+    "B": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    }
+  },
+  "rationale": "Candidate A is reproducible, defines expected values and stop behavior, and states exactly what the fixture does and does not prove. Candidate B is a reasonable overview but lacks the exact environment, expected values, failure behavior, and evidence boundary required for a premium tutorial."
+}

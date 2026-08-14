@@ -1,0 +1,51 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "managing-editor-daily-routing",
+  "fixture_sha256": "83bfcceca53b487d2cc9020a390279d3796958f6a4208565e761fa27c0e92bbd",
+  "expected_winner": "A",
+  "expected_classification": {
+    "A": "PREMIUM",
+    "B": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "defensibility",
+    "format_fidelity",
+    "strategic_purpose",
+    "craft"
+  ],
+  "generic_signals": {
+    "B": [
+      "parallelism ignores dependencies",
+      "reasonable assumptions bypass blockers",
+      "review sequence is undefined",
+      "no version or status identity"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    },
+    "B": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    }
+  },
+  "rationale": "Candidate A routes the minimum valid work, preserves dependencies and version lineage, and produces a truthful review queue. Candidate B appears efficient but creates speculative work from unapproved parents and unresolved audience inputs."
+}

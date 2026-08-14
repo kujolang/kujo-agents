@@ -1,0 +1,18 @@
+{
+  "schema_version": "publishing-house-blind-pair-v1",
+  "case_id": "managing-editor-daily-routing",
+  "title": "Bounded daily production routing",
+  "roles_under_test": [
+    "managing-editor"
+  ],
+  "format": "assignment and handoff plan",
+  "brief": "Route today's packet: one commissioned technical article with verified sources, one social derivative whose parent article is still in standards review, and one newsletter blocked on subscriber-profile approval. The article needs draft, developmental, standards, copy, production, and human review. No external publishing is authorized.",
+  "candidates": {
+    "A": {
+      "content": "Open one tracked run with three entry IDs. Start only the technical article: assign Technical Editor & Writer, then Developmental Editor, Standards & Evidence Editor, Copy Chief, and Production Editor in that order, preserving the same artifact lineage and returning failed gates to the prior owner. Hold the social derivative because its parent is not approved; record the dependency rather than drafting around it. Keep the newsletter blocked and name subscriber-profile approval as the owner decision. The review queue should expose the article package version, completed reviews, blockers for the other two entries, and zero publishing actions."
+    },
+    "B": {
+      "content": "Assign all three pieces in parallel to maximize efficiency. Have the technical writer draft the article, the social editor create posts from the current version, and the newsletter editor begin a flexible draft while waiting for audience details. Ask the editors to collaborate as needed, consolidate their feedback, and package everything for review by end of day. Any missing information can be filled in with reasonable assumptions and refined later."
+    }
+  }
+}

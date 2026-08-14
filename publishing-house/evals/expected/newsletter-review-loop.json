@@ -1,0 +1,52 @@
+{
+  "schema_version": "publishing-house-expected-judgment-v1",
+  "case_id": "newsletter-review-loop",
+  "fixture_sha256": "3e9d17de14c6336a81804b497eea413780a7e7a3f48a203cc15c0334cf63b1d6",
+  "expected_winner": "A",
+  "expected_classification": {
+    "A": "PREMIUM",
+    "B": "COMPETENT_GENERIC"
+  },
+  "decisive_dimensions": [
+    "consequence",
+    "distinctiveness",
+    "format_fidelity",
+    "brand_integrity",
+    "strategic_purpose"
+  ],
+  "generic_signals": {
+    "B": [
+      "deceptive launch energy without a launch",
+      "generic newsletter throat-clearing",
+      "benefit summary instead of issue arc",
+      "CTA without subscriber-specific value"
+    ]
+  },
+  "blocking_failures": {
+    "A": [],
+    "B": []
+  },
+  "expected_ratings": {
+    "A": {
+      "consequence": "STRONG",
+      "distinctiveness": "STRONG",
+      "insight": "STRONG",
+      "defensibility": "STRONG",
+      "craft": "STRONG",
+      "brand_integrity": "STRONG",
+      "format_fidelity": "STRONG",
+      "strategic_purpose": "STRONG"
+    },
+    "B": {
+      "consequence": "ADEQUATE",
+      "distinctiveness": "WEAK",
+      "insight": "WEAK",
+      "defensibility": "ADEQUATE",
+      "craft": "ADEQUATE",
+      "brand_integrity": "ADEQUATE",
+      "format_fidelity": "ADEQUATE",
+      "strategic_purpose": "ADEQUATE"
+    }
+  },
+  "rationale": "Candidate A creates a complete issue movement, one practical behavior, restrained product placement, and a meaningful reply loop. Candidate B is recognizable newsletter copy but generic and disconnected from the stated weekly decision."
+}
