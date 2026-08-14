@@ -1,0 +1,4 @@
+interface:
+  display_name: "Managing Editor"
+  short_description: "Run assignments, handoffs, gates, and review queues"
+  default_prompt: "Use $publishing-house-managing-editor to perform this bounded Publishing House assignment."

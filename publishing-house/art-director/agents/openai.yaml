@@ -1,0 +1,4 @@
+interface:
+  display_name: "Art Director"
+  short_description: "Direct visual concepts and campaign systems"
+  default_prompt: "Use $publishing-house-art-director to perform this bounded Publishing House assignment."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commissioning Editor"
+  short_description: "Turn strategy into sharp, accountable commissions"
+  default_prompt: "Use $publishing-house-commissioning-editor to perform this bounded Publishing House assignment."

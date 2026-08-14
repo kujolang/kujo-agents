@@ -1,0 +1,4 @@
+interface:
+  display_name: "Newsletter Editor"
+  short_description: "Shape coherent, subscriber-worthy newsletter issues"
+  default_prompt: "Use $publishing-house-newsletter-editor to perform this bounded Publishing House assignment."

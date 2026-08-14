@@ -1,0 +1,4 @@
+interface:
+  display_name: "Developmental Editor"
+  short_description: "Challenge structure, argument, and audience value"
+  default_prompt: "Use $publishing-house-developmental-editor to perform this bounded Publishing House assignment."

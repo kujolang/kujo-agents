@@ -1,0 +1,4 @@
+interface:
+  display_name: "Production Editor"
+  short_description: "Build immutable, reviewable content packages"
+  default_prompt: "Use $publishing-house-production-editor to perform this bounded Publishing House assignment."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Social & Community Editor"
+  short_description: "Create source-grounded social and community work"
+  default_prompt: "Use $publishing-house-social-community-editor to perform this bounded Publishing House assignment."

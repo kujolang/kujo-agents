@@ -1,0 +1,4 @@
+interface:
+  display_name: "Editor-in-Chief"
+  short_description: "Render the house's final editorial recommendation"
+  default_prompt: "Use $publishing-house-editor-in-chief to perform this bounded Publishing House assignment."

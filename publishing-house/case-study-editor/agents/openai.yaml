@@ -1,0 +1,4 @@
+interface:
+  display_name: "Case Study Editor"
+  short_description: "Build credible, consent-aware case studies"
+  default_prompt: "Use $publishing-house-case-study-editor to perform this bounded Publishing House assignment."

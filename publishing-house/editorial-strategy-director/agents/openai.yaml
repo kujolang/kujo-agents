@@ -1,0 +1,4 @@
+interface:
+  display_name: "Editorial Strategy Director"
+  short_description: "Design editorial theses, campaigns, and portfolios"
+  default_prompt: "Use $publishing-house-editorial-strategy-director to perform this bounded Publishing House assignment."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publishing Operations Director"
+  short_description: "Publish only exact, human-approved artifact versions"
+  default_prompt: "Use $publishing-house-publishing-operations-director to perform this bounded Publishing House assignment."

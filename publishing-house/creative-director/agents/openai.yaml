@@ -1,0 +1,4 @@
+interface:
+  display_name: "Creative Director"
+  short_description: "Develop and direct the governing creative idea"
+  default_prompt: "Use $publishing-house-creative-director to perform this bounded Publishing House assignment."

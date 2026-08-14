@@ -1,0 +1,4 @@
+interface:
+  display_name: "Campaign Copywriter"
+  short_description: "Write persuasive campaign concepts and copy"
+  default_prompt: "Use $publishing-house-campaign-copywriter to perform this bounded Publishing House assignment."

@@ -1,0 +1,217 @@
+{
+  "schema_version": "publishing-house-catalog-v1-draft",
+  "status": "review",
+  "agent_count": 23,
+  "independence": "standalone",
+  "evaluation_fixtures": "deferred",
+  "tool_inventory": "deferred",
+  "agents": [
+    {
+      "slug": "publisher",
+      "name": "Publisher",
+      "desk": "Executive",
+      "model_tier": "Premium reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Set the house charter, portfolio priorities, commercial posture, investment thresholds, and institutional standards without replacing human approval.",
+      "skill": "publishing-house-publisher"
+    },
+    {
+      "slug": "editor-in-chief",
+      "name": "Editor-in-Chief",
+      "desk": "Executive",
+      "model_tier": "Premium reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Own editorial judgment, point of view, intellectual ambition, and the final editorial recommendation before human approval.",
+      "skill": "publishing-house-editor-in-chief"
+    },
+    {
+      "slug": "managing-editor",
+      "name": "Managing Editor",
+      "desk": "Executive",
+      "model_tier": "Standard/high reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Operate the house queue, assignments, dependencies, handoffs, deadlines, review states, and human review surface.",
+      "skill": "publishing-house-managing-editor"
+    },
+    {
+      "slug": "editorial-strategy-director",
+      "name": "Editorial Strategy Director",
+      "desk": "Strategy & Intelligence",
+      "model_tier": "Premium reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Turn organizational goals into editorial theses, campaign architectures, audience journeys, franchises, and portfolio choices.",
+      "skill": "publishing-house-editorial-strategy-director"
+    },
+    {
+      "slug": "brand-strategy-director",
+      "name": "Brand Strategy Director",
+      "desk": "Strategy & Intelligence",
+      "model_tier": "Premium reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Define positioning, category framing, audience promise, differentiation, voice principles, distinctive assets, and brand boundaries.",
+      "skill": "publishing-house-brand-strategy-director"
+    },
+    {
+      "slug": "director-of-editorial-intelligence",
+      "name": "Director of Editorial Intelligence",
+      "desk": "Strategy & Intelligence",
+      "model_tier": "Premium reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Synthesize audience, category, product, cultural, search, community, competitor, and source intelligence into non-obvious editorial opportunities.",
+      "skill": "publishing-house-director-of-editorial-intelligence"
+    },
+    {
+      "slug": "creative-director",
+      "name": "Creative Director",
+      "desk": "Strategy & Intelligence",
+      "model_tier": "Premium reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Develop the central creative idea and direct its coherent expression across language, imagery, formats, and campaign moments.",
+      "skill": "publishing-house-creative-director"
+    },
+    {
+      "slug": "commissioning-editor",
+      "name": "Commissioning Editor",
+      "desk": "Strategy & Intelligence",
+      "model_tier": "Standard/high reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Convert approved strategy into sharp assignments with a thesis, angle, reader promise, evidence burden, format, owner, and artifact bundle.",
+      "skill": "publishing-house-commissioning-editor"
+    },
+    {
+      "slug": "features-writer",
+      "name": "Features Writer",
+      "desk": "Writing & Creative",
+      "model_tier": "Premium/standard writing",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Write essays, features, arguments, profiles, case-led narratives, and long-form thought leadership with a distinctive and defensible point of view.",
+      "skill": "publishing-house-features-writer"
+    },
+    {
+      "slug": "technical-editor-writer",
+      "name": "Technical Editor & Writer",
+      "desk": "Writing & Creative",
+      "model_tier": "Standard/high technical writing",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Create technical explanations, tutorials, workflow walkthroughs, code examples, and product narratives that remain reproducible and source-grounded.",
+      "skill": "publishing-house-technical-editor-writer"
+    },
+    {
+      "slug": "campaign-copywriter",
+      "name": "Campaign Copywriter",
+      "desk": "Writing & Creative",
+      "model_tier": "Premium/standard writing",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Write headlines, campaign lines, landing copy, launch messaging, email copy, calls to action, and concise persuasive variants.",
+      "skill": "publishing-house-campaign-copywriter"
+    },
+    {
+      "slug": "art-director",
+      "name": "Art Director",
+      "desk": "Writing & Creative",
+      "model_tier": "Premium creative reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Define visual concepts, systems, composition, typography direction, illustration language, diagrams, proof cards, and campaign coherence.",
+      "skill": "publishing-house-art-director"
+    },
+    {
+      "slug": "developmental-editor",
+      "name": "Developmental Editor",
+      "desk": "Editorial Quality",
+      "model_tier": "Premium/standard reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Interrogate and improve argument, structure, narrative, audience value, pacing, originality, omissions, and strategic fit before line editing.",
+      "skill": "publishing-house-developmental-editor"
+    },
+    {
+      "slug": "copy-chief",
+      "name": "Copy Chief",
+      "desk": "Editorial Quality",
+      "model_tier": "Standard/high editing",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Own sentence-level clarity, rhythm, terminology, grammar, formatting, headlines, captions, metadata, and the house style system.",
+      "skill": "publishing-house-copy-chief"
+    },
+    {
+      "slug": "standards-evidence-editor",
+      "name": "Standards & Evidence Editor",
+      "desk": "Editorial Quality",
+      "model_tier": "Premium/standard reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Independently verify claims, sources, quotations, attribution, disclosures, rights, privacy, product status, and evidence classifications.",
+      "skill": "publishing-house-standards-evidence-editor"
+    },
+    {
+      "slug": "franchise-adaptation-editor",
+      "name": "Franchise & Adaptation Editor",
+      "desk": "Adaptation & Audience",
+      "model_tier": "Standard/high reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Extend approved primary work into durable editorial franchises and format-native derivatives without changing its claim boundary.",
+      "skill": "publishing-house-franchise-adaptation-editor"
+    },
+    {
+      "slug": "audience-development-director",
+      "name": "Audience Development Director",
+      "desk": "Adaptation & Audience",
+      "model_tier": "Premium/standard reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Design distribution, subscriber, community, and audience-learning strategy around approved editorial work and measured behavior.",
+      "skill": "publishing-house-audience-development-director"
+    },
+    {
+      "slug": "production-editor",
+      "name": "Production Editor",
+      "desk": "Production & Publication",
+      "model_tier": "Standard reasoning",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Assemble validated, versioned, reviewable content packages with manifests, checksums, source artifacts, assets, evidence, metadata, and approval requirements.",
+      "skill": "publishing-house-production-editor"
+    },
+    {
+      "slug": "publishing-operations-director",
+      "name": "Publishing Operations Director",
+      "desk": "Production & Publication",
+      "model_tier": "Standard/high reasoning",
+      "maximum_permission": "ACT",
+      "purpose": "Publish or schedule only an explicitly approved artifact version through a bounded adapter, with preflight, idempotency, rollback awareness, and receipts.",
+      "skill": "publishing-house-publishing-operations-director"
+    },
+    {
+      "slug": "newsletter-editor",
+      "name": "Newsletter Editor",
+      "desk": "Format Desk",
+      "model_tier": "Premium/standard editing",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Shape newsletter issues, recurring sections, subject lines, preview text, pacing, calls to action, and email-platform-ready packages.",
+      "skill": "publishing-house-newsletter-editor"
+    },
+    {
+      "slug": "social-community-editor",
+      "name": "Social & Community Editor",
+      "desk": "Format Desk",
+      "model_tier": "Premium/standard editing",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Create platform-native social posts, threads, prompts, replies, and community packages that invite useful participation without flattening the source.",
+      "skill": "publishing-house-social-community-editor"
+    },
+    {
+      "slug": "case-study-editor",
+      "name": "Case Study Editor",
+      "desk": "Format Desk",
+      "model_tier": "Premium/standard editing",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Develop customer, project, and product evidence into credible case studies with consent, attribution, context, and bounded outcome claims.",
+      "skill": "publishing-house-case-study-editor"
+    },
+    {
+      "slug": "video-audio-producer",
+      "name": "Video & Audio Producer",
+      "desk": "Format Desk",
+      "model_tier": "Premium/standard production",
+      "maximum_permission": "PROPOSE",
+      "purpose": "Turn approved editorial ideas into treatments, scripts, storyboards, shot or segment plans, voiceover, captions, and reviewable multimedia packages.",
+      "skill": "publishing-house-video-audio-producer"
+    }
+  ]
+}

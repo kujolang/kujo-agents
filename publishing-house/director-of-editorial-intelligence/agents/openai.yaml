@@ -1,0 +1,4 @@
+interface:
+  display_name: "Director of Editorial Intelligence"
+  short_description: "Synthesize evidence into editorial opportunity"
+  default_prompt: "Use $publishing-house-director-of-editorial-intelligence to perform this bounded Publishing House assignment."

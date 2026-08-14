@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publisher"
+  short_description: "Set portfolio mandate and institutional standards"
+  default_prompt: "Use $publishing-house-publisher to perform this bounded Publishing House assignment."

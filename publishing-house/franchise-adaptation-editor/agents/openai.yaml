@@ -1,0 +1,4 @@
+interface:
+  display_name: "Franchise & Adaptation Editor"
+  short_description: "Build source-faithful franchises and adaptations"
+  default_prompt: "Use $publishing-house-franchise-adaptation-editor to perform this bounded Publishing House assignment."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brand Strategy Director"
+  short_description: "Define portable positioning and brand systems"
+  default_prompt: "Use $publishing-house-brand-strategy-director to perform this bounded Publishing House assignment."

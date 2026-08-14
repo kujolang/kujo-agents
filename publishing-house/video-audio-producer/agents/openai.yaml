@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video & Audio Producer"
+  short_description: "Produce reviewable video and audio packages"
+  default_prompt: "Use $publishing-house-video-audio-producer to perform this bounded Publishing House assignment."

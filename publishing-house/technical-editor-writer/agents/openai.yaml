@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technical Editor & Writer"
+  short_description: "Create reproducible technical editorial work"
+  default_prompt: "Use $publishing-house-technical-editor-writer to perform this bounded Publishing House assignment."

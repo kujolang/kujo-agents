@@ -1,0 +1,4 @@
+interface:
+  display_name: "Standards & Evidence Editor"
+  short_description: "Independently verify claims, rights, and evidence"
+  default_prompt: "Use $publishing-house-standards-evidence-editor to perform this bounded Publishing House assignment."

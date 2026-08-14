@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audience Development Director"
+  short_description: "Design audience growth and editorial learning"
+  default_prompt: "Use $publishing-house-audience-development-director to perform this bounded Publishing House assignment."

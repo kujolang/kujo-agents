@@ -1,0 +1,4 @@
+interface:
+  display_name: "Features Writer"
+  short_description: "Write distinctive, defensible long-form features"
+  default_prompt: "Use $publishing-house-features-writer to perform this bounded Publishing House assignment."

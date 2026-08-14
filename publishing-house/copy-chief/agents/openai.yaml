@@ -1,0 +1,4 @@
+interface:
+  display_name: "Copy Chief"
+  short_description: "Own line quality, terminology, and house style"
+  default_prompt: "Use $publishing-house-copy-chief to perform this bounded Publishing House assignment."
