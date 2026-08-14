@@ -6,10 +6,11 @@
 
 Reusable role contracts for KUJO agent sets.
 
-The public repository contains two independent first-class packages:
+The public repository contains three independent first-class packages:
 
 - [`chain-of-command/`](chain-of-command/) — coordinated roles for strategy, planning, execution, verification, knowledge, and bounded worker tasks.
 - [`webops/`](webops/) — 28 peer website operators for research, measurement, audit, maintenance, optimization, and improvement.
+- [`publishing-house/`](publishing-house/) — 23 editorial roles for strategy, creative development, writing, independent review, production, approval packaging, and bounded publishing operations.
 
 ## Start Here
 
@@ -21,6 +22,10 @@ Read these files before running or adapting an agent set:
 4. [`chain-of-command/general-commander/AGENT.md`](chain-of-command/general-commander/AGENT.md) — top-level mission routing contract.
 5. [`webops/README.md`](webops/README.md) — direct specialist selection, capabilities, permissions, history, and workflow composition.
 6. [`webops/00-agent-map.md`](webops/00-agent-map.md) — the complete WebOps roster.
+7. [`publishing-house/README.md`](publishing-house/README.md) — standalone operation, desks, review boundary, and current implementation scope.
+8. [`publishing-house/00-publishing-house.md`](publishing-house/00-publishing-house.md) — constitution, authority layers, productive tension, and interoperability rules.
+9. [`publishing-house/00-quality-standard.md`](publishing-house/00-quality-standard.md) — the premium editorial bar and generic-work warning signals.
+10. [`publishing-house/00-shared-contracts.md`](publishing-house/00-shared-contracts.md) — briefs, evidence, artifacts, reviews, approvals, receipts, and handoffs.
 
 For a reusable campaign intake packet, use
 [`chain-of-command/00-docs/templates/general-campaign-wrapper.md`](chain-of-command/00-docs/templates/general-campaign-wrapper.md).
@@ -51,6 +56,18 @@ webops/
   agent-name/
     AGENT.md
     SKILL.md
+publishing-house/
+  README.md
+  00-publishing-house.md
+  00-quality-standard.md
+  00-shared-contracts.md
+  00-permission-model.md
+  00-agent-map.md
+  publishing-house-catalog.json
+  agent-name/
+    AGENT.md
+    SKILL.md
+    agents/openai.yaml
 ```
 
 Each agent package keeps its role contract and operating skill together. The
@@ -63,6 +80,10 @@ authorization, or policy enforcement by themselves.
 WebOps agent-set contract: 28 peer packages, normalized capabilities,
 permission and history contracts, tool/skill/workflow maps, and deterministic
 cross-repository validation.
+
+The standalone Publishing House package is present under `Unreleased` for
+human review. Its evaluation fixtures, tool inventory, tool bindings, and
+composed workflows remain deliberately deferred.
 
 See [`CHANGELOG.md`](CHANGELOG.md) for release history and
 [`docs/launch-checklist.md`](docs/launch-checklist.md) for the verified release
@@ -83,6 +104,7 @@ done
 
 bash .github/scripts/check-kujo-tool-artifacts.sh
 python3 scripts/validate_webops.py
+python3 scripts/validate_publishing_house.py
 test "$(cat VERSION)" = "1.1.0"
 git diff --check
 ```

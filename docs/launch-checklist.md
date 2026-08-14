@@ -2,16 +2,18 @@
 
 Current source version: `1.1.0`; the tagged `v1.0.0` Chain of Command baseline remains preserved.
 
-Public scope: the reusable KUJO chain-of-command agent contracts, supporting
-maps, campaign template, and evidence boundaries.
+Public scope: independent reusable Chain of Command, WebOps, and Publishing
+House agent contracts, their shared maps, and evidence and authority boundaries.
 
 ## Local Gates
 
-- [x] Only chain-of-command agent packages are present in the public tree.
-- [x] Every agent package contains both `AGENT.md` and `SKILL.md`.
-- [x] Root and chain documentation describe the chain-only scope.
+- [x] Each first-class agent set remains independently installable and usable.
+- [x] Every role package contains both `AGENT.md` and `SKILL.md`.
+- [x] Root and package documentation describe separate authority boundaries.
 - [x] `VERSION`, README badge, changelog, tag intent, and release notes agree on
   `1.1.0`.
+- [ ] Publishing House role contracts and shared standards receive human review
+  before evaluation fixtures, tool inventory, or release-version changes.
 - [x] Tool-to-agent relationships remain source-grounded or explicitly marked
   as inferred.
 - [x] Templates retain explicit authority, handoff, evidence, and stop
@@ -38,6 +40,7 @@ done
 
 bash .github/scripts/check-kujo-tool-artifacts.sh
 python3 scripts/validate_webops.py
+python3 scripts/validate_publishing_house.py
 test "$(cat VERSION)" = "1.1.0"
 rg -n '1\.0\.0' README.md CHANGELOG.md docs/launch-checklist.md
 git diff --check
@@ -47,6 +50,8 @@ git diff --check
 
 - Agent inventory: 28 paired `AGENT.md` and `SKILL.md` packages under
   `chain-of-command/`.
+- Review inventory: 23 paired Publishing House `AGENT.md` and `SKILL.md`
+  packages plus UI metadata; not yet part of a tagged release.
 - Release metadata: `VERSION`, README badge, changelog, tag, and release name
   use the current source version consistently and distinguish it from the existing `v1.0.0` tag.
 - Local artifact guard: `.github/scripts/check-kujo-tool-artifacts.sh`.

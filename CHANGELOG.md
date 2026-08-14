@@ -14,6 +14,15 @@ The format follows Keep a Changelog and Semantic Versioning.
 
 ## Unreleased
 
+### Added
+
+- Add the standalone 23-role Publishing House agent set in review status.
+- Add its constitution, premium quality standard, permission boundary, shared
+  editorial contracts, machine-readable catalog, and deterministic structural
+  validator.
+- Keep evaluation fixtures, tool inventory, tool implementation, and composed
+  workflows explicitly deferred until the role contracts receive human review.
+
 ## 1.0.0 - 2026-08-09
 
 ### Added

@@ -1,7 +1,7 @@
 # Kujo Agents Agent Instructions
 
-This repository contains reusable KUJO Chain of Command and WebOps agent
-packages. Treat role contracts and templates as guidance and review material,
+This repository contains reusable Chain of Command, WebOps, and Publishing
+House agent packages. Treat role contracts and templates as guidance and review material,
 not sandboxing, authorization, or policy enforcement.
 
 ## Required Reading
@@ -12,6 +12,10 @@ not sandboxing, authorization, or policy enforcement.
 - `chain-of-command/00-chain-of-command.md`
 - Relevant agent `AGENT.md` and `SKILL.md`
 - `webops/README.md`, `webops/00-permission-model.md`, and `webops/webops-catalog.json` for WebOps changes
+- `publishing-house/README.md`, `publishing-house/00-publishing-house.md`,
+  `publishing-house/00-quality-standard.md`,
+  `publishing-house/00-shared-contracts.md`, and
+  `publishing-house/publishing-house-catalog.json` for Publishing House changes
 
 ## Validation
 
@@ -28,6 +32,7 @@ done
 
 bash .github/scripts/check-kujo-tool-artifacts.sh
 python3 scripts/validate_webops.py
+python3 scripts/validate_publishing_house.py
 test "$(cat VERSION)" = "1.1.0"
 git diff --check
 ```
