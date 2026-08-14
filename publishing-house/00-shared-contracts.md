@@ -1,6 +1,6 @@
 # Publishing House Shared Contracts
 
-These are semantic contracts for agent packages. Machine-readable schemas and evaluation fixtures will be added only after this review stage. Every record requires a stable ID, version, created time, actor, provenance, and status.
+These are semantic contracts for agent packages. Machine-readable runtime schemas remain a later implementation step; the machine-readable files in [evals/](evals/) cover quality calibration only. Every record requires a stable ID, version, created time, actor, provenance, and status.
 
 ## House Profile
 

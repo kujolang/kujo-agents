@@ -14,7 +14,8 @@ Publishing House tools should be owned by Publishing House and remain portable. 
 2. Read [00-quality-standard.md](00-quality-standard.md) for the premium editorial bar.
 3. Read [00-shared-contracts.md](00-shared-contracts.md) for briefs, evidence, artifacts, reviews, approvals, receipts, and handoffs.
 4. Read [00-permission-model.md](00-permission-model.md) and select `OBSERVE`, `PROPOSE`, or explicitly bounded `ACT`.
-5. Select the narrowest role from [00-agent-map.md](00-agent-map.md), then read that role's `AGENT.md` and `SKILL.md`.
+5. Read [evals/README.md](evals/README.md) before calibrating reviewers against the premium quality bar.
+6. Select the narrowest role from [00-agent-map.md](00-agent-map.md), then read that role's `AGENT.md` and `SKILL.md`.
 
 ## Desks
 
@@ -28,4 +29,4 @@ Publishing House tools should be owned by Publishing House and remain portable. 
 
 ## Current Boundary
 
-This version defines steps 1–3 of the Publishing House build: roster, constitution and shared standards, plus paired agent and skill contracts. Premium-versus-generic evaluation fixtures, tool inventory, tool implementation, skill-to-tool bindings, and content-format workflows are intentionally deferred for review.
+This version defines steps 1–4 of the Publishing House build: roster, constitution and shared standards, paired agent and skill contracts, and a blind premium-versus-generic calibration corpus. The corpus distinguishes semantic judgment from deterministic integrity checks and remains in calibration rather than claiming that editorial taste has been automated. Tool inventory, tool implementation, skill-to-tool bindings, and content-format workflows are intentionally deferred for review.

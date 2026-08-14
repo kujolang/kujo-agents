@@ -12,8 +12,10 @@ House agent contracts, their shared maps, and evidence and authority boundaries.
 - [x] Root and package documentation describe separate authority boundaries.
 - [x] `VERSION`, README badge, changelog, tag intent, and release notes agree on
   `1.1.0`.
-- [ ] Publishing House role contracts and shared standards receive human review
-  before evaluation fixtures, tool inventory, or release-version changes.
+- [x] Publishing House includes a validated 18-case blind quality-calibration
+  corpus covering all 23 roles without treating semantic judgment as a score.
+- [ ] Publishing House tool inventory receives human discussion and approval
+  before tool implementation, bindings, workflows, or release-version changes.
 - [x] Tool-to-agent relationships remain source-grounded or explicitly marked
   as inferred.
 - [x] Templates retain explicit authority, handoff, evidence, and stop
@@ -51,7 +53,8 @@ git diff --check
 - Agent inventory: 28 paired `AGENT.md` and `SKILL.md` packages under
   `chain-of-command/`.
 - Review inventory: 23 paired Publishing House `AGENT.md` and `SKILL.md`
-  packages plus UI metadata; not yet part of a tagged release.
+  packages plus UI metadata and 18 blind calibration pairs; not yet part of a
+  tagged release.
 - Release metadata: `VERSION`, README badge, changelog, tag, and release name
   use the current source version consistently and distinguish it from the existing `v1.0.0` tag.
 - Local artifact guard: `.github/scripts/check-kujo-tool-artifacts.sh`.

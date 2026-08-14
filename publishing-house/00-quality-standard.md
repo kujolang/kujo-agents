@@ -29,4 +29,4 @@ Use `EXCEPTIONAL`, `STRONG`, `ADEQUATE`, `WEAK`, `FAILED`, or `UNVERIFIED` for e
 
 ## Review Packet
 
-Every premium-quality claim must point to the assignment, exact artifact version, evidence record, and reviewer rationale. Evaluation fixtures and benchmark examples are deliberately deferred until the roster and contracts receive human review.
+Every premium-quality claim must point to the assignment, exact artifact version, evidence record, and reviewer rationale. The blind comparisons, fixed judging protocol, and reference judgments in [evals/](evals/) calibrate this standard across all 23 roles. They are reviewed examples, not an objective scoring substitute or permission to average away blocking failures.

@@ -26,6 +26,7 @@ Read these files before running or adapting an agent set:
 8. [`publishing-house/00-publishing-house.md`](publishing-house/00-publishing-house.md) — constitution, authority layers, productive tension, and interoperability rules.
 9. [`publishing-house/00-quality-standard.md`](publishing-house/00-quality-standard.md) — the premium editorial bar and generic-work warning signals.
 10. [`publishing-house/00-shared-contracts.md`](publishing-house/00-shared-contracts.md) — briefs, evidence, artifacts, reviews, approvals, receipts, and handoffs.
+11. [`publishing-house/evals/README.md`](publishing-house/evals/README.md) — blind quality calibration, deterministic integrity checks, and semantic judging protocol.
 
 For a reusable campaign intake packet, use
 [`chain-of-command/00-docs/templates/general-campaign-wrapper.md`](chain-of-command/00-docs/templates/general-campaign-wrapper.md).
@@ -64,6 +65,15 @@ publishing-house/
   00-permission-model.md
   00-agent-map.md
   publishing-house-catalog.json
+  evals/
+    README.md
+    quality-rubric.json
+    evaluation-manifest.json
+    judge-prompt.md
+    judge-output.schema.json
+    eval.json
+    cases/
+    expected/
   agent-name/
     AGENT.md
     SKILL.md
@@ -82,8 +92,9 @@ permission and history contracts, tool/skill/workflow maps, and deterministic
 cross-repository validation.
 
 The standalone Publishing House package is present under `Unreleased` for
-human review. Its evaluation fixtures, tool inventory, tool bindings, and
-composed workflows remain deliberately deferred.
+human review. Its blind quality corpus is implemented in calibration status;
+tool inventory, tool bindings, and composed workflows remain deliberately
+deferred.
 
 See [`CHANGELOG.md`](CHANGELOG.md) for release history and
 [`docs/launch-checklist.md`](docs/launch-checklist.md) for the verified release

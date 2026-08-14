@@ -20,8 +20,11 @@ The format follows Keep a Changelog and Semantic Versioning.
 - Add its constitution, premium quality standard, permission boundary, shared
   editorial contracts, machine-readable catalog, and deterministic structural
   validator.
-- Keep evaluation fixtures, tool inventory, tool implementation, and composed
-  workflows explicitly deferred until the role contracts receive human review.
+- Add an 18-case blind premium-versus-generic calibration corpus covering all
+  23 roles, with a fixed rubric, judging protocol, output schema, reference
+  judgments, checksums, and Kujo Eval integrity gate.
+- Keep tool inventory, tool implementation, bindings, and composed workflows
+  explicitly deferred for human review.
 
 ## 1.0.0 - 2026-08-09
 
