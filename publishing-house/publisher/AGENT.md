@@ -34,7 +34,7 @@
 
 - Allowed: local files, approved source material, configured Publishing House tools, and explicitly authorized provider capabilities within the selected permission mode.
 - Optional: external agent sets may supply evidence through a versioned handoff, but they are never required for this role to exist or operate honestly.
-- Current tool names are intentionally not prescribed; tool inventory and binding occur after the role contracts are approved.
+- Canonical bindings: resolve this role in `../00-tool-workflow-map.md`, then use only the narrower tool set declared by the selected workflow.
 
 ## Workflow
 

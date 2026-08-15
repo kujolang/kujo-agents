@@ -15,6 +15,7 @@ not sandboxing, authorization, or policy enforcement.
 - `publishing-house/README.md`, `publishing-house/00-publishing-house.md`,
   `publishing-house/00-quality-standard.md`,
   `publishing-house/00-shared-contracts.md`, and
+  `publishing-house/00-tool-workflow-map.md`, and
   `publishing-house/publishing-house-catalog.json` for Publishing House changes
 - `publishing-house/evals/README.md` and
   `publishing-house/evals/evaluation-manifest.json` for quality-calibration changes

@@ -1,6 +1,6 @@
 # Launch Checklist
 
-Current release: `v1.1.0`; the tagged `v1.0.0` Chain of Command baseline remains preserved.
+Current release: `v1.2.0`; the tagged `v1.0.0` Chain of Command baseline remains preserved.
 
 Public scope: independent reusable Chain of Command, WebOps, and Publishing
 House agent contracts, their shared maps, and evidence and authority boundaries.
@@ -11,17 +11,17 @@ House agent contracts, their shared maps, and evidence and authority boundaries.
 - [x] Every role package contains both `AGENT.md` and `SKILL.md`.
 - [x] Root and package documentation describe separate authority boundaries.
 - [x] `VERSION`, README badge, changelog, tag intent, and release notes agree on
-  `1.1.0`.
+  `1.2.0`.
 - [x] Publishing House includes a validated 18-case blind quality-calibration
   corpus covering all 23 roles without treating semantic judgment as a score.
-- [x] Publishing House tool inventory, implementation, bindings, and composed
-  workflows remain explicitly deferred from this review/calibration release.
+- [x] Publishing House declares the eight implemented tools, eleven lifecycle
+  workflows, tool ownership boundaries, and all 23 role bindings.
 - [x] Tool-to-agent relationships remain source-grounded or explicitly marked
   as inferred.
 - [x] Templates retain explicit authority, handoff, evidence, and stop
   conditions.
 - [x] Repository formatting passes `git diff --check`.
-- [x] Public use and adaptation instructions were reviewed for the `v1.1.0`
+- [x] Public use and adaptation instructions were reviewed for the `v1.2.0`
   baseline.
 - [x] `docs/webops-toolchain-contract.json` pins the three WebOps tools at
   `0.1.0`, their v1 artifact schemas, read-only boundaries, budgets, and the
@@ -43,7 +43,7 @@ done
 bash .github/scripts/check-kujo-tool-artifacts.sh
 python3 scripts/validate_webops.py
 python3 scripts/validate_publishing_house.py
-test "$(cat VERSION)" = "1.1.0"
+test "$(cat VERSION)" = "1.2.0"
 rg -n '1\.0\.0' README.md CHANGELOG.md docs/launch-checklist.md
 git diff --check
 ```
@@ -55,7 +55,7 @@ git diff --check
 - Release inventory: 23 paired Publishing House `AGENT.md` and `SKILL.md`
   packages plus UI metadata and 18 blind calibration pairs.
 - Release metadata: `VERSION`, README badge, changelog, tag, and release name
-  use `1.1.0` / `v1.1.0` consistently.
+  use `1.2.0` / `v1.2.0` consistently.
 - Local artifact guard: `.github/scripts/check-kujo-tool-artifacts.sh`.
 - Bounded execution proof: `docs/workcell-launch-gate.json`.
 - Hosted CI remains environment-dependent and must not be represented as

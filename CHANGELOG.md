@@ -6,6 +6,20 @@ The format follows Keep a Changelog and Semantic Versioning.
 
 ## Unreleased
 
+## 1.2.0 - 2026-08-14
+
+### Added
+
+- Add the canonical eight-tool ownership map and eleven-workflow lifecycle map
+  for Publishing House.
+- Bind all 23 role contracts to the shared map while preserving per-workflow
+  least privilege and explicit approval boundaries.
+
+### Changed
+
+- Advance Publishing House from deferred tool planning to an integrated
+  preview backed by the implemented tool and workflow repositories.
+
 ## 1.1.0 - 2026-08-14
 
 ### Added

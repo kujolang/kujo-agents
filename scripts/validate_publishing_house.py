@@ -16,6 +16,7 @@ SHARED = {
     "00-publishing-house.md",
     "00-quality-standard.md",
     "00-shared-contracts.md",
+    "00-tool-workflow-map.md",
     "publishing-house-catalog.json",
 }
 EVALS = HOUSE / "evals"
@@ -75,8 +76,12 @@ def main() -> int:
         errors.append("catalog must declare standalone independence")
     if catalog.get("evaluation_fixtures") != "calibration":
         errors.append("catalog must mark evaluation fixtures as calibration")
-    if catalog.get("tool_inventory") != "deferred":
-        errors.append("step 5 tool inventory must remain explicitly deferred")
+    expected_tools = {"storydesk", "dossier", "galleypack", "bluepencil", "versionseal", "presswire", "readersignal", "assetworks"}
+    if set(catalog.get("tool_inventory", [])) != expected_tools:
+        errors.append("Publishing House tool inventory must contain the eight canonical tools")
+    expected_workflows = {"house-governance", "daily-desk", "commissioning", "evidence-dossier", "primary-piece", "asset-production", "editorial-review", "adaptation", "format-production", "approval-publication", "post-publication"}
+    if set(catalog.get("workflow_inventory", [])) != expected_workflows:
+        errors.append("Publishing House workflow inventory must contain the eleven lifecycle workflows")
 
     expected = {agent["slug"] for agent in agents}
     actual = {
@@ -111,6 +116,7 @@ def main() -> int:
             "Maximum permission mode",
             "Independence: Operates inside Publishing House",
             "External team handoffs are optional",
+            "Canonical bindings: resolve this role in `../00-tool-workflow-map.md`",
         ):
             if phrase not in body:
                 errors.append(f"{slug}: missing contract phrase {phrase}")
@@ -164,7 +170,8 @@ def main() -> int:
                 "evaluation_fixtures": "calibration",
                 "evaluation_cases": 18,
                 "evaluation_role_coverage": len(expected),
-                "tool_inventory": "deferred",
+                "tool_inventory": sorted(expected_tools),
+                "workflow_inventory": sorted(expected_workflows),
             },
             indent=2,
         )

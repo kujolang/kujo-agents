@@ -1,10 +1,11 @@
 {
-  "schema_version": "publishing-house-catalog-v1-draft",
-  "status": "review",
+  "schema_version": "publishing-house-catalog-v1",
+  "status": "integrated-preview",
   "agent_count": 23,
   "independence": "standalone",
   "evaluation_fixtures": "calibration",
-  "tool_inventory": "deferred",
+  "tool_inventory": ["storydesk", "dossier", "galleypack", "bluepencil", "versionseal", "presswire", "readersignal", "assetworks"],
+  "workflow_inventory": ["house-governance", "daily-desk", "commissioning", "evidence-dossier", "primary-piece", "asset-production", "editorial-review", "adaptation", "format-production", "approval-publication", "post-publication"],
   "agents": [
     {
       "slug": "publisher",

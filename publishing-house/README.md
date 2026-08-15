@@ -6,7 +6,7 @@ Publishing House is a standalone agent team for high-end editorial strategy, cre
 
 Publishing House does not require Chain of Command, WebOps, or another agent set. An operator can install and run only this directory. Future workflows may exchange versioned handoffs with other teams, but no role assumes those teams, their tools, their credentials, or their authority exist.
 
-Publishing House tools should be owned by Publishing House and remain portable. Kujo-native implementations are preferred when a missing capability can reasonably be built and maintained in Kujo, but this package does not claim tools that have not yet been inventoried or implemented.
+Publishing House tools are portable, local-first Kujo repositories with explicit record ownership. The canonical role-to-tool and role-to-workflow bindings are in [00-tool-workflow-map.md](00-tool-workflow-map.md); runnable composed workflows live in the sibling `kujo-workflows` repository.
 
 ## Start Here
 
@@ -15,7 +15,7 @@ Publishing House tools should be owned by Publishing House and remain portable. 
 3. Read [00-shared-contracts.md](00-shared-contracts.md) for briefs, evidence, artifacts, reviews, approvals, receipts, and handoffs.
 4. Read [00-permission-model.md](00-permission-model.md) and select `OBSERVE`, `PROPOSE`, or explicitly bounded `ACT`.
 5. Read [evals/README.md](evals/README.md) before calibrating reviewers against the premium quality bar.
-6. Select the narrowest role from [00-agent-map.md](00-agent-map.md), then read that role's `AGENT.md` and `SKILL.md`.
+6. Select the narrowest role from [00-agent-map.md](00-agent-map.md), resolve its allowed tools and workflows in [00-tool-workflow-map.md](00-tool-workflow-map.md), then read that role's `AGENT.md` and `SKILL.md`.
 
 ## Desks
 
@@ -29,4 +29,4 @@ Publishing House tools should be owned by Publishing House and remain portable. 
 
 ## Current Boundary
 
-This version defines steps 1–4 of the Publishing House build: roster, constitution and shared standards, paired agent and skill contracts, and a blind premium-versus-generic calibration corpus. The corpus distinguishes semantic judgment from deterministic integrity checks and remains in calibration rather than claiming that editorial taste has been automated. Tool inventory, tool implementation, skill-to-tool bindings, and content-format workflows are intentionally deferred for review.
+This version defines the roster, constitution and shared standards, paired role skills, blind premium-versus-generic calibration, eight production tools, and composed workflow bindings. Tool and workflow packages provide deterministic contracts and fixtures; they do not make role templates self-enforcing, replace human publication approval, or make operator-specific live adapters available by implication.
