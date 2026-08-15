@@ -19,7 +19,7 @@ The local `kujo-skills/skills/` folder contains workflow skills for Agents SDK, 
 
 ## Existing Tools
 
-Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Redact, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, Relay, Workcell, Tribunal, StegoCipher Kujo, CMS Experience, Capsule benchmark tooling, Benchmark System prompt kits, Kujo Hyperframes, TotalRecall, Ward, Leash, Kujo Docs, and other benchmark/showcase repos.
+Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Redact, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, Relay, Workcell, Tribunal, StegoCipher Kujo, CMS Experience, Capsule benchmark tooling, Benchmark System prompt kits, Kujo Hyperframes, TotalRecall, Ward, Leash, Kujo Docs, SiteProbe, SearchBridge, ContentGraph, StoryDesk, Dossier, GalleyPack, BluePencil, AssetWorks, VersionSeal, PressWire, ReaderSignal, Commerce, TruthLens, the `agents.kujolang.ai` static agent library, and other benchmark/showcase repos.
 
 ## Recently Verified Agent-Facing Capabilities
 
@@ -69,6 +69,15 @@ The 2026-08-08 audit window added or refreshed these agent-facing relationships:
 - `leash`: local-first mobile control plane for supervising AI coding agents through policy, adapters, JWT auth, audit trail, and Android/mobile approval flows. Defer active chain integration until a dedicated skill/workflow and device/runtime validation exist; existing Integration Engineer, Security Reviewer, Risk Officer, Dispatch-oriented agents, and Receipt Collector can review Leash artifacts when explicitly assigned.
 - `diff-viewer-inline-review-fresh`: small inline-review fixture repository with finite-score validation. Treat as unsupported for active Kujo agent capability routing outside review UI fixture testing.
 
+The 2026-08-15 audit window added or refreshed these agent-facing relationships:
+
+- `storydesk`, `dossier`, `galleypack`, `bluepencil`, `assetworks`, `versionseal`, `presswire`, and `readersignal`: these eight local-first Publishing House tools now back the standalone Publishing House roster and eleven lifecycle workflow kits. Treat their role bindings as directly verified through `publishing-house/00-tool-workflow-map.md`, `publishing-house/publishing-house-catalog.json`, and sibling README contracts. They do not grant publication approval, rights/consent decisions, hosted identity, distributed coordination, or live adapter access by implication.
+- `agents.kujolang.ai`: static public library for Chain of Command, WebOps, and Publishing House agent contracts. Treat as a documentation/frontend/release surface owned by Documentation Writer, Frontend Developer, Visual QA Agent, Release Verifier, and Product Strategist when assigned. Canonical content remains `kujo-agents`; do not hand-maintain divergent generated pages.
+- `siteprobe`, `searchbridge`, and `contentgraph`: WebOps toolchain contracts remain current. SiteProbe owns read-only crawl artifacts, SearchBridge owns capability-scoped provider evidence with fail-closed submission authorization, and ContentGraph owns deterministic content relationships. Existing WebOps agents may use them through the WebOps maps; Chain of Command roles should treat them as task-specific website-intelligence tools rather than generic Scout, Lens, RAG, or SEO judgment replacements.
+- `commerce`: provider-agnostic static-site commerce layer for Kujo SSG with versioned catalog, cart, and event contracts. Treat as a deferred task-specific capability for Frontend Developer, Backend Developer, Integration Engineer, Security Reviewer, QA Lead, and Release Verifier when a site explicitly needs commerce. Do not fold it into SSG, infer payment/order storage, or grant live checkout/provider authority without an explicit contract and credentials boundary.
+- `truthlens`: privacy-first MV3 Chrome extension for local AI-image confidence labeling with deterministic Node/Chrome validation and an explicit probabilistic limitation statement. Treat as a product/security/browser QA target when assigned, not as a general WebOps, editorial fact-checking, or evidence-verification tool.
+- `kujo`, `agents-sdk`, `ai-sdk`, `eval`, `fence`, `mcp`, `patchbrief`, `rag`, `runledger`, `scout`, `scent`, `shipcheck`, `ssg`, `watchdog`, `dispatch`, `kennel`, `lens`, `muzzle`, `site-kit`, `tribunal`, `workcell`, and `relay`: recent hardening commits refresh existing ownership and verification relevance without broadening authority or changing role boundaries.
+
 ## Repeated Operational Patterns
 
 - Read README and AGENTS files first.
@@ -93,7 +102,8 @@ Repo docs support routine local use for Spec, Eval, Scout, Dispatch offline fixt
 - MCP is launch-honest as a local foundation but production deployment needs target validation.
 - Public Kennel registry behavior, public discovery, moderation, malware scanning, and trust scoring are deferred.
 - SITREP appears as a useful role name but not as a confirmed standalone KUJO tool.
-- Intake, Cinch, TotalRecall, Ward, and Leash are deferred as broad chain capabilities until stable chain-specific skills or workflow contracts exist and their approval/credential/runtime boundaries are reviewed.
+- Intake, Cinch, TotalRecall, Ward, Leash, and Commerce are deferred as broad chain capabilities until stable chain-specific skills or workflow contracts exist and their approval/credential/runtime boundaries are reviewed.
+- TruthLens is a product/browser-extension target, not a chain capability. Use existing frontend, security, QA, and release roles for assigned work instead of adding routing or evidence authority.
 - Diff Viewer demo repositories are fixtures, not tool capabilities.
 
 ## Missing Docs For Agent Onboarding

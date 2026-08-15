@@ -2,6 +2,40 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-08-15 Audit
+
+### Static Commerce Operator
+
+- Proposed role: Static Commerce Operator.
+- Problem or gap: `commerce` adds catalog validation, browser cart state, normalized commerce events, SSG integration, and optional provider checkout runtime for static Kujo sites.
+- Repository-backed evidence: `../../commerce/README.md`, `../../commerce/AGENTS.md`, `../../commerce/package.json`, `../../commerce/schemas/catalog.schema.json`, `../../commerce/schemas/cart.schema.json`, `../../commerce/schemas/event.schema.json`.
+- Relevant tools/skills/repositories: Commerce, SSG, Frontend Developer, Backend Developer, Integration Engineer, Security Reviewer, QA Lead, Release Verifier.
+- Expected inputs: site path, `kujo-commerce.yml`, product metadata, provider policy, checkout runtime boundary, credential policy, and verification commands.
+- Expected outputs: validated catalog, generated static assets, cart/runtime contract evidence, provider preflight status, security notes, and release blockers.
+- Overlap: Frontend Developer, Backend Developer, Integration Engineer, Security Reviewer, QA Lead, Release Verifier.
+- Why not add now: Existing roles can cover Commerce work when explicitly assigned, and no dedicated chain skill/workflow exists for payment-provider authority, checkout effects, or order-data boundaries.
+- Required authority boundaries: no provider credentials, checkout mutation, payment setup, order/customer data handling, deployment, or production release without explicit approval and least-privilege runtime configuration.
+- Verification requirements: `npm run validate`, schema checks, SSG integration build, browser cart smoke, provider fixture/runtime tests, secret review, and release gate.
+- Risks/costs/token impact: a standalone commerce operator could duplicate frontend, backend, integration, security, and release responsibilities while increasing credential and money-movement risk.
+- Recommendation: defer.
+- Evidence still required: stable Kujo skill or workflow contract, repeated commerce workload, provider credential model, and independent security/release review requirements.
+
+### Image Authenticity Analyst
+
+- Proposed role: Image Authenticity Analyst.
+- Problem or gap: `truthlens` labels visible web images with local AI-confidence scores inside a Chrome extension.
+- Repository-backed evidence: `../../truthlens/README.md`, `../../truthlens/package.json`, `../../truthlens/eval.json`.
+- Relevant tools/skills/repositories: TruthLens, Chrome extension QA, Frontend Developer, Security Reviewer, Visual QA Agent, QA Lead, Release Verifier.
+- Expected inputs: extension build, model artifact, benchmark fixture, target browser, calibration policy, and privacy/security review scope.
+- Expected outputs: validation report, browser smoke evidence, model digest proof, limitation notes, and security/privacy findings.
+- Overlap: Frontend Developer, Visual QA Agent, Security Reviewer, QA Lead, Release Verifier, Content Accuracy Reviewer where media claims are in scope.
+- Why not add now: TruthLens is a product/browser-extension target, not a general evidence authority. Existing roles can review and maintain it without granting editorial fact-checking or WebOps verification authority.
+- Required authority boundaries: no authorship claims, deception claims, moderation action, evidence certification, network upload, or publication decision based only on a probabilistic score.
+- Verification requirements: `npm run check`, `npm run package`, Chrome extension smoke, model digest verification, benchmark evidence, and privacy review.
+- Risks/costs/token impact: a dedicated role would likely overstate model authority and duplicate existing frontend, security, QA, and release lanes.
+- Recommendation: reject.
+- Evidence still required: none unless the project becomes a broader maintained media-forensics workflow with stable contracts and explicit human-review boundaries.
+
 ## 2026-08-08 Audit
 
 ### Context Ingestion Steward

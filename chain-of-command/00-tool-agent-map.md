@@ -47,6 +47,8 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | Leash | Local/mobile AI-agent supervision control plane with policy, tmux/agent adapters, JWT auth, audit trail, and approval flows | v0.1.0 hardening; Android/runtime validation and dedicated chain contract still pending | Deferred for Integration Engineer, Security Reviewer, Risk Officer, Receipt Collector |
 | Intake | Local-first source-agnostic intake layer for manual/file/webhook/email and provider issue sources with policy-gated actions and audit logs | Local-first live-smoke ready; no dedicated chain skill/workflow verified | Deferred for Chief of Staff, Triage Agent, Issue Hygiene Worker |
 | Cinch | macOS-first local AI development harness for workspaces, files, git, commands, tools, MCP, proof artifacts, and Trail export | Hardened alpha/release candidate; not broadly production distributed | Deferred product/tool surface; task-specific Frontend, Integration, Tooling, QA review only |
+| Commerce | Provider-agnostic static-site commerce layer for Kujo SSG with versioned catalog, cart, and event contracts plus optional checkout runtime | Validated product/tool surface; no dedicated chain skill/workflow or payment-provider authority verified | Deferred for Frontend Developer, Backend Developer, Integration Engineer, Security Reviewer, QA Lead, Release Verifier |
+| TruthLens | Privacy-first MV3 Chrome extension for local AI-image confidence labeling with offline inference after model setup | Product/browser-extension target with probabilistic limits; not an agent evidence or editorial verification tool | Unsupported as active chain capability; task-specific Frontend, Security, QA, Release review only |
 | Diff Viewer demos | Small fixture repositories for testing workspace diff review and inline review behavior, including inline review finite-score fixtures | Fixture/demo repos only | Unsupported as active agent capability |
 
 ## Agent Ownership
@@ -98,6 +100,8 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 - `Howl` now covers branded social cards, but this only broadens deterministic artifact output. Product Strategist may frame source-backed campaign usage, while Documentation Writer remains the primary owner.
 - `TotalRecall`, `Ward`, and `Leash` are credible future workflow surfaces, but they are deferred in the agent chain because no narrow `kujo-skills` chain skill or `kujo-workflows` contract was verified for routine delegation this week and each has credential, approval, or runtime boundaries.
 - `Intake` and `Cinch` are credible future workflow surfaces, but they remain deferred in the agent chain because no narrow `kujo-skills` chain skill or `kujo-workflows` contract was verified for routine delegation.
+- `Commerce` is credible for static-site commerce work, but broad chain routing remains deferred until a narrow skill/workflow contract exists and payment-provider, credential, checkout, and order-data boundaries are explicitly reviewed.
+- `TruthLens` should not become a chain tool or new agent by default. It is a browser-extension/product repo with deterministic validation and probabilistic model limits; existing frontend, security, QA, and release roles are sufficient when assigned to it.
 - `diff-viewer-demo`, `diff-viewer-demo-fresh`, `diff-viewer-verified`, and `diff-viewer-inline-review-fresh` are fixture repositories for diff-review testing. They should not be treated as Kujo ecosystem tools.
 
 ## Evidence Sources
@@ -113,5 +117,6 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 - `../../relay/README.md`, `../../workcell/README.md`, `../../tribunal/README.md`, `../../site-kit/README.md`, `../../stego-cipher-kujo/README.md`, `../../cms-experience/README.md`
 - `../../benchmarks-capsule-v3/README.md`, `../../benchmarks-system/README.md`, `../../kujo-hyperframes/README.md`
 - `../../kujo-docs/README.md`, `../../totalrecall/README.md`, `../../ward/README.md`, `../../leash/README.md`, `../../howl/README.md`, `../../kennel/README.md`
+- `../../commerce/README.md`, `../../commerce/AGENTS.md`, `../../truthlens/README.md`, `../../agents.kujolang.ai/README.md`, `../../agents.kujolang.ai/AGENTS.md`
 - `../../kujo-workflows/README.md`
 - `../../kujo-skills/skills/*/SKILL.md`
