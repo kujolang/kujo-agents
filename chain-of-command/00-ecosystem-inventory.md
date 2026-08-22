@@ -19,7 +19,7 @@ The local `kujo-skills/skills/` folder contains workflow skills for Agents SDK, 
 
 ## Existing Tools
 
-Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Redact, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, Relay, Workcell, Tribunal, StegoCipher Kujo, CMS Experience, Capsule benchmark tooling, Benchmark System prompt kits, Kujo Hyperframes, TotalRecall, Ward, Leash, Kujo Docs, SiteProbe, SearchBridge, ContentGraph, StoryDesk, Dossier, GalleyPack, BluePencil, AssetWorks, VersionSeal, PressWire, ReaderSignal, Commerce, TruthLens, the `agents.kujolang.ai` static agent library, and other benchmark/showcase repos.
+Confirmed tool repos include Kujo runtime, Kujo Doctor, Agents SDK, AI SDK, Spec, Eval, Scout, Dispatch, MCP, RAG, Watchdog, Scent, Redact, Fence, PatchBrief, ShipCheck, Concord, RunLedger, Muzzle, Howl, ChangeBucket, PackWrite, CaseFile, Lens, Kennel, CMS, CRUD API, SSG, AI Chat, Intake, Cinch, Site Kit, Relay, Workcell, Tribunal, Source, StegoCipher Kujo, CMS Experience, Capsule benchmark tooling, Benchmark System prompt kits, Kujo Hyperframes, TotalRecall, Ward, Leash, Kujo Docs, SiteProbe, SearchBridge, ContentGraph, StoryDesk, Dossier, GalleyPack, BluePencil, AssetWorks, VersionSeal, PressWire, ReaderSignal, Commerce, TruthLens, the `agents.kujolang.ai` static agent library, and other benchmark/showcase repos.
 
 ## Recently Verified Agent-Facing Capabilities
 
@@ -78,6 +78,16 @@ The 2026-08-15 audit window added or refreshed these agent-facing relationships:
 - `truthlens`: privacy-first MV3 Chrome extension for local AI-image confidence labeling with deterministic Node/Chrome validation and an explicit probabilistic limitation statement. Treat as a product/security/browser QA target when assigned, not as a general WebOps, editorial fact-checking, or evidence-verification tool.
 - `kujo`, `agents-sdk`, `ai-sdk`, `eval`, `fence`, `mcp`, `patchbrief`, `rag`, `runledger`, `scout`, `scent`, `shipcheck`, `ssg`, `watchdog`, `dispatch`, `kennel`, `lens`, `muzzle`, `site-kit`, `tribunal`, `workcell`, and `relay`: recent hardening commits refresh existing ownership and verification relevance without broadening authority or changing role boundaries.
 
+The 2026-08-22 audit window added or refreshed these agent-facing relationships:
+
+- `source`: agent-first Git collaboration platform covering the `Project -> Work -> Session -> Change -> Evidence -> Decision -> Canonical Git State` lifecycle, capability-gated HTTP/Git transport, `source submit`, SQLite/JSON stores, tenant-scoped org/project routes, rate limiting, credential scanning, and 101-test local evidence. Treat as a deferred platform/review target for Systems Architect, Integration Engineer, Tooling Developer, Security Reviewer, Code Reviewer, QA Lead, Risk Officer, Release Verifier, and Receipt Collector when explicitly assigned. Do not grant active chain routing, remote mutation, Git-transport authority, organization policy control, acceptance authority, or credential use until a dedicated skill/workflow contract and governance boundary exist.
+- `kujo`: the current stable public runtime is now `v1.0.1`; ecosystem installer and noexec temporary-directory fixes strengthen Tooling Developer, Core Developer, Release Verifier, Security Reviewer, and Documentation Writer guidance. Do not infer that the source tree version string is the published stable release; use release tags, `docs/V1_SCOPE.md`, and release artifact evidence for compatibility claims.
+- `workcell`: Git patch secret handling now redacts declared secrets and common base64 encodings from persisted run patches and can reject runs whose generated patch contained declared secrets. Existing Workcell ownership remains current; still treat Docker/Podman and host isolation as operator-owned boundaries.
+- `ai-chat`: recent stream handling and tool-path fixes refresh existing Integration Engineer, Backend Developer, Frontend Developer, Visual QA Agent, and QA Lead routing. Existing app boundaries remain current: local showcase app, provider-gated chat workflows, offline fixtures, SQLite state, and no blanket model-quality or production certification claims.
+- `kujo-skills`: the catalog now includes 95 focused skills, a release-to-site `kujo-ecosystem-launch` coordinator, refreshed SearchBridge and Workcell evidence, and Publishing House skill hardening notes. Treat these as skill-routing refreshes only; they do not expand agent authority beyond the owning repository and workflow contracts.
+- `kujo-workflows`: weekly workflow audit refresh preserves cross-repository validation for agents, skills, website-intelligence tools, workflows, and public-site source content. Existing Dispatch, Workcell, Relay, Tribunal, WebOps, and Publishing House workflow boundaries remain current.
+- `watchdog`: pricing catalog refresh is retrieval-date sensitive evidence for telemetry cost estimates only. Do not treat pricing snapshots as stable financial guidance.
+
 ## Repeated Operational Patterns
 
 - Read README and AGENTS files first.
@@ -102,7 +112,7 @@ Repo docs support routine local use for Spec, Eval, Scout, Dispatch offline fixt
 - MCP is launch-honest as a local foundation but production deployment needs target validation.
 - Public Kennel registry behavior, public discovery, moderation, malware scanning, and trust scoring are deferred.
 - SITREP appears as a useful role name but not as a confirmed standalone KUJO tool.
-- Intake, Cinch, TotalRecall, Ward, Leash, and Commerce are deferred as broad chain capabilities until stable chain-specific skills or workflow contracts exist and their approval/credential/runtime boundaries are reviewed.
+- Intake, Cinch, TotalRecall, Ward, Leash, Commerce, and Source are deferred as broad chain capabilities until stable chain-specific skills or workflow contracts exist and their approval/credential/runtime boundaries are reviewed.
 - TruthLens is a product/browser-extension target, not a chain capability. Use existing frontend, security, QA, and release roles for assigned work instead of adding routing or evidence authority.
 - Diff Viewer demo repositories are fixtures, not tool capabilities.
 

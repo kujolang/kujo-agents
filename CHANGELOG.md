@@ -6,6 +6,17 @@ The format follows Keep a Changelog and Semantic Versioning.
 
 ## Unreleased
 
+### Changed
+
+- Record the 2026-08-22 weekly agent capability audit, including deferred
+  Source routing, refreshed Kujo `v1.0.1`, Workcell secret-patch handling,
+  AI Chat stream/path fixes, and current skills/workflows evidence.
+
+### Added
+
+- Add the deferred Source Work Coordinator opportunity without activating a new
+  agent or granting Source authority.
+
 ## 1.2.0 - 2026-08-14
 
 ### Added

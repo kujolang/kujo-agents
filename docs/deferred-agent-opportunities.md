@@ -2,6 +2,24 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-08-22 Audit
+
+### Source Work Coordinator
+
+- Proposed role: Source Work Coordinator.
+- Problem or gap: `source` provides an agent-first Git collaboration lifecycle for work items, sessions, changes, evidence, decisions, canonical Git state, capability-gated API/Git transport, `source submit`, tenant-scoped org/project routes, rate limiting, and credential scanning.
+- Repository-backed evidence: `../../source/README.md`, `../../source/package.json`, `../../source/docs/source/`.
+- Relevant tools/skills/repositories: Source, Git, Eval/Spec/ShipCheck evidence ingestion, Systems Architect, Integration Engineer, Tooling Developer, Security Reviewer, Code Reviewer, QA Lead, Risk Officer, Release Verifier, Receipt Collector.
+- Expected inputs: Source org/project/repository identity, work/change IDs, capability grant boundary, Git transport policy, required evidence policy, credential policy, store backend, and verification commands.
+- Expected outputs: normalized work/change/evidence records, submitted change packet, capability audit notes, Git transport result, credential-scan result, decision boundary, and unresolved approval or policy blockers.
+- Overlap: Systems Architect, Integration Engineer, Tooling Developer, Security Reviewer, Code Reviewer, QA Lead, Risk Officer, Release Verifier, Receipt Collector, and existing GitHub/GitLab workflows.
+- Why not add now: Existing roles can inspect or modify Source when explicitly assigned, and no dedicated `kujo-skills` chain skill or `kujo-workflows` contract exists for routine Source delegation, accept authority, policy mutation, or credential use.
+- Required authority boundaries: no live Source server mutation, capability issuance, Git push, change acceptance, policy modification, org/project administration, credential use, or canonical-state decision without explicit human approval and least-privilege credentials.
+- Verification requirements: `npm test`, CLI/API contract smoke, auth and Git-transport tests, credential-scan tests, store-backend tests, tenant-isolation tests, and independent security/release review.
+- Risks/costs/token impact: a standalone coordinator could duplicate issue hygiene, integration, code review, QA, and release roles while creating unclear authority over Git canonical state and human approval.
+- Recommendation: defer.
+- Evidence still required: stable chain skill or workflow contract, repeated Source operating workload, governance decision on Source versus existing GitHub/GitLab/Paperclip workflows, and explicit credential/capability policy.
+
 ## 2026-08-15 Audit
 
 ### Static Commerce Operator
