@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.creative-director/output.schema.json",
+  "title": "Creative Director Output",
+  "type": "object",
+  "properties": {
+    "creative_concept_and_rationale": {
+      "type": "string",
+      "description": "Creative concept and rationale."
+    },
+    "concept_routes_with_selection_criteria": {
+      "type": "string",
+      "description": "Concept routes with selection criteria."
+    },
+    "creative_brief_for_writing_art_and_format_desks": {
+      "type": "string",
+      "description": "Creative brief for writing, art, and format desks."
+    }
+  },
+  "additionalProperties": true
+}

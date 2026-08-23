@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.qa-lead/input.schema.json",
+  "title": "QA Lead Input",
+  "type": "object",
+  "properties": {
+    "spec_acceptance_criteria_diff_or_planned_change_risk_profile_existing_tests_and_available_commands": {
+      "type": "string",
+      "description": "Spec, acceptance criteria, diff or planned change, risk profile, existing tests, and available commands."
+    }
+  },
+  "additionalProperties": true
+}

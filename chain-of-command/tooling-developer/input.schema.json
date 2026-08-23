@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.tooling-developer/input.schema.json",
+  "title": "Tooling Developer Input",
+  "type": "object",
+  "properties": {
+    "tool_goal_command_contract_input_output_shape_exit_codes_repo_conventions_and_validation_commands": {
+      "type": "string",
+      "description": "Tool goal, command contract, input/output shape, exit codes, repo conventions, and validation commands."
+    }
+  },
+  "additionalProperties": true
+}

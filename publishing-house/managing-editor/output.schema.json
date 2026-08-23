@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.managing-editor/output.schema.json",
+  "title": "Managing Editor Output",
+  "type": "object",
+  "properties": {
+    "assignment_and_handoff_plan": {
+      "type": "string",
+      "description": "Assignment and handoff plan."
+    },
+    "status_blocker_and_review_queue": {
+      "type": "string",
+      "description": "Status, blocker, and review queue."
+    },
+    "complete_daily_or_campaign_production_receipt": {
+      "type": "string",
+      "description": "Complete daily or campaign production receipt."
+    }
+  },
+  "additionalProperties": true
+}

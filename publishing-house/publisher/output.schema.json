@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.publisher/output.schema.json",
+  "title": "Publisher Output",
+  "type": "object",
+  "properties": {
+    "publishing_mandate_and_portfolio_decision": {
+      "type": "string",
+      "description": "Publishing mandate and portfolio decision."
+    },
+    "investment_non_goal_and_risk_boundaries": {
+      "type": "string",
+      "description": "Investment, non-goal, and risk boundaries."
+    },
+    "commission_defer_revise_or_decline_recommendation": {
+      "type": "string",
+      "description": "Commission, defer, revise, or decline recommendation."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.technical-editor-writer/output.schema.json",
+  "title": "Technical Editor & Writer Output",
+  "type": "object",
+  "properties": {
+    "versioned_technical_draft": {
+      "type": "string",
+      "description": "Versioned technical draft."
+    },
+    "runnable_examples_or_explicit_reproduction_boundaries": {
+      "type": "string",
+      "description": "Runnable examples or explicit reproduction boundaries."
+    },
+    "source_version_environment_and_verification_record": {
+      "type": "string",
+      "description": "Source, version, environment, and verification record."
+    }
+  },
+  "additionalProperties": true
+}

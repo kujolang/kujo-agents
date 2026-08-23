@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.social-community-editor/output.schema.json",
+  "title": "Social & Community Editor Output",
+  "type": "object",
+  "properties": {
+    "platform_specific_post_or_thread_package": {
+      "type": "string",
+      "description": "Platform-specific post or thread package."
+    },
+    "reply_and_community_prompt_guidance": {
+      "type": "string",
+      "description": "Reply and community-prompt guidance."
+    },
+    "claim_link_asset_cta_and_moderation_notes": {
+      "type": "string",
+      "description": "Claim, link, asset, CTA, and moderation notes."
+    }
+  },
+  "additionalProperties": true
+}

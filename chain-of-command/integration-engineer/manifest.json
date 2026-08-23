@@ -1,0 +1,87 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.integration-engineer",
+  "name": "Integration Engineer",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "execution",
+    "model_tier": "Standard coding."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Dispatch",
+      "Relay",
+      "CaseFile",
+      "Eval",
+      "MCP",
+      "Watchdog",
+      "Agents SDK",
+      "AI SDK"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "integration_contract_endpoints_or_tool_surfaces_auth_constraints_environment_variables_target_repos_and_verification_plan",
+      "description": "Integration contract, endpoints or tool surfaces, auth constraints, environment variables, target repos, and verification plan."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "implemented_or_configured_integration",
+      "description": "Implemented or configured integration."
+    },
+    {
+      "name": "safe_defaults_and_documented_env_requirements",
+      "description": "Safe defaults and documented env requirements."
+    },
+    {
+      "name": "verification_evidence",
+      "description": "Verification evidence."
+    },
+    {
+      "name": "security_and_rollback_notes",
+      "description": "Security and rollback notes."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after verified local integration or when external authorization is required."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

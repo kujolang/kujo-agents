@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.editor-in-chief/output.schema.json",
+  "title": "Editor-in-Chief Output",
+  "type": "object",
+  "properties": {
+    "editorial_verdict_with_rationale": {
+      "type": "string",
+      "description": "Editorial verdict with rationale."
+    },
+    "required_revisions_or_ready_for_review_recommendation": {
+      "type": "string",
+      "description": "Required revisions or ready-for-review recommendation."
+    },
+    "recorded_dissent_uncertainty_and_unresolved_owner_decisions": {
+      "type": "string",
+      "description": "Recorded dissent, uncertainty, and unresolved owner decisions."
+    }
+  },
+  "additionalProperties": true
+}

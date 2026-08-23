@@ -1,0 +1,87 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.routine-worker",
+  "name": "Routine Worker",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "routine worker",
+    "model_tier": "Cheap worker."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "CaseFile",
+      "Muzzle",
+      "Workcell",
+      "Kujo Doctor"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "exact_command_working_directory_expected_timeout_artifacts_to_capture_and_whether_failure_should_stop_the_chain",
+      "description": "Exact command, working directory, expected timeout, artifacts to capture, and whether failure should stop the chain."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "command_run",
+      "description": "Command run."
+    },
+    {
+      "name": "exit_code",
+      "description": "Exit code."
+    },
+    {
+      "name": "short_stdout_stderr_summary",
+      "description": "Short stdout/stderr summary."
+    },
+    {
+      "name": "artifact_paths",
+      "description": "Artifact paths."
+    },
+    {
+      "name": "no_redesign_recommendations",
+      "description": "No redesign recommendations."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop immediately after command result or on ambiguity."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

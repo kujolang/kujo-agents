@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.spec-writer/input.schema.json",
+  "title": "Spec Writer Input",
+  "type": "object",
+  "properties": {
+    "goal_background_scope_non_goals_acceptance_criteria_ideas_dependencies_risks_and_review_expectations": {
+      "type": "string",
+      "description": "Goal, background, scope, non-goals, acceptance criteria ideas, dependencies, risks, and review expectations."
+    }
+  },
+  "additionalProperties": true
+}

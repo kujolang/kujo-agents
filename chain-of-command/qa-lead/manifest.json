@@ -1,0 +1,90 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.qa-lead",
+  "name": "QA Lead",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "verification",
+    "model_tier": "Standard/high reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "RunLedger",
+      "ShipCheck",
+      "CaseFile",
+      "Eval",
+      "Lens",
+      "Capsule",
+      "Workcell"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "spec_acceptance_criteria_diff_or_planned_change_risk_profile_existing_tests_and_available_commands",
+      "description": "Spec, acceptance criteria, diff or planned change, risk profile, existing tests, and available commands."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "test_plan",
+      "description": "Test plan."
+    },
+    {
+      "name": "evidence_checklist",
+      "description": "Evidence checklist."
+    },
+    {
+      "name": "commands_for_workers",
+      "description": "Commands for workers."
+    },
+    {
+      "name": "pass_fail_summary",
+      "description": "Pass/fail summary."
+    },
+    {
+      "name": "residual_risk",
+      "description": "Residual risk."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when test status is clear or when evidence is insufficient."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

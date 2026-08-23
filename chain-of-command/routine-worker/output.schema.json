@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.routine-worker/output.schema.json",
+  "title": "Routine Worker Output",
+  "type": "object",
+  "properties": {
+    "command_run": {
+      "type": "string",
+      "description": "Command run."
+    },
+    "exit_code": {
+      "type": "string",
+      "description": "Exit code."
+    },
+    "short_stdout_stderr_summary": {
+      "type": "string",
+      "description": "Short stdout/stderr summary."
+    },
+    "artifact_paths": {
+      "type": "string",
+      "description": "Artifact paths."
+    },
+    "no_redesign_recommendations": {
+      "type": "string",
+      "description": "No redesign recommendations."
+    }
+  },
+  "additionalProperties": true
+}

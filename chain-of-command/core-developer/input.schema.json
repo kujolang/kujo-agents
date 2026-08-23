@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.core-developer/input.schema.json",
+  "title": "Core Developer Input",
+  "type": "object",
+  "properties": {
+    "scope_target_repo_files_acceptance_criteria_constraints_relevant_source_context_and_verification_commands": {
+      "type": "string",
+      "description": "Scope, target repo/files, acceptance criteria, constraints, relevant source context, and verification commands."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.integration-engineer/output.schema.json",
+  "title": "Integration Engineer Output",
+  "type": "object",
+  "properties": {
+    "implemented_or_configured_integration": {
+      "type": "string",
+      "description": "Implemented or configured integration."
+    },
+    "safe_defaults_and_documented_env_requirements": {
+      "type": "string",
+      "description": "Safe defaults and documented env requirements."
+    },
+    "verification_evidence": {
+      "type": "string",
+      "description": "Verification evidence."
+    },
+    "security_and_rollback_notes": {
+      "type": "string",
+      "description": "Security and rollback notes."
+    }
+  },
+  "additionalProperties": true
+}

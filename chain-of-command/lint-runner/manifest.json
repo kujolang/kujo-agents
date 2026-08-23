@@ -1,0 +1,80 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.lint-runner",
+  "name": "Lint Runner",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "routine worker",
+    "model_tier": "Cheap worker."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Muzzle"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "exact_command_working_directory_env_vars_timeout_and_whether_auto_fix_flags_are_allowed",
+      "description": "Exact command, working directory, env vars, timeout, and whether auto-fix flags are allowed."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "command_run",
+      "description": "Command run."
+    },
+    {
+      "name": "exit_code",
+      "description": "Exit code."
+    },
+    {
+      "name": "key_diagnostics",
+      "description": "Key diagnostics."
+    },
+    {
+      "name": "artifact_log_paths",
+      "description": "Artifact/log paths."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after command result."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

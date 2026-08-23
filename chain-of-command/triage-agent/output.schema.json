@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.triage-agent/output.schema.json",
+  "title": "Triage Agent Output",
+  "type": "object",
+  "properties": {
+    "triage_verdict": {
+      "type": "string",
+      "description": "false alarm, needs fix, needs more evidence, needs human decision, or stop remains active."
+    },
+    "severity_and_affected_surface": {
+      "type": "string",
+      "description": "Severity and affected surface."
+    },
+    "evidence_summary_with_artifact_paths": {
+      "type": "string",
+      "description": "Evidence summary with artifact paths."
+    },
+    "reproduction_or_verification_commands_when_available": {
+      "type": "string",
+      "description": "Reproduction or verification commands when available."
+    },
+    "next_owner_and_resume_conditions": {
+      "type": "string",
+      "description": "Next owner and resume conditions."
+    },
+    "human_review_packet_when_human_authority_is_required": {
+      "type": "string",
+      "description": "Human review packet when human authority is required."
+    },
+    "immediate_response_owner_cadence_and_closure_condition_when_short_coordination_is_needed": {
+      "type": "string",
+      "description": "Immediate response owner, cadence, and closure condition when short coordination is needed."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.product-strategist/input.schema.json",
+  "title": "Product Strategist Input",
+  "type": "object",
+  "properties": {
+    "user_goal_audience_assumptions_repo_docs_product_docs_existing_workflows_support_signals_and_constraints": {
+      "type": "string",
+      "description": "User goal, audience assumptions, repo docs, product docs, existing workflows, support signals, and constraints."
+    }
+  },
+  "additionalProperties": true
+}

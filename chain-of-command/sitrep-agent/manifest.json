@@ -1,0 +1,87 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.sitrep-agent",
+  "name": "SITREP Agent",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "knowledge",
+    "model_tier": "Cheap/standard."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "RunLedger",
+      "CaseFile",
+      "Muzzle",
+      "PatchBrief"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "goal_current_status_run_receipts_case_bundles_diffs_command_outputs_blockers_and_next_owner",
+      "description": "Goal, current status, run receipts, case bundles, diffs, command outputs, blockers, and next owner."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "short_status_report",
+      "description": "Short status report."
+    },
+    {
+      "name": "completed_work",
+      "description": "Completed work."
+    },
+    {
+      "name": "current_blockers",
+      "description": "Current blockers."
+    },
+    {
+      "name": "evidence_artifact_paths",
+      "description": "Evidence/artifact paths."
+    },
+    {
+      "name": "next_recommended_action",
+      "description": "Next recommended action."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after a concise status report or when evidence is insufficient."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

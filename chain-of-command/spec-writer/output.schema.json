@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.spec-writer/output.schema.json",
+  "title": "Spec Writer Output",
+  "type": "object",
+  "properties": {
+    "valid_spec_content_or_spec_update": {
+      "type": "string",
+      "description": "Valid spec content or spec update."
+    },
+    "rationale_for_key_scope_decisions": {
+      "type": "string",
+      "description": "Rationale for key scope decisions."
+    },
+    "eval_requirement_suggestions": {
+      "type": "string",
+      "description": "Eval requirement suggestions."
+    },
+    "open_questions": {
+      "type": "string",
+      "description": "Open questions."
+    }
+  },
+  "additionalProperties": true
+}

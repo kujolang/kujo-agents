@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.tooling-developer/output.schema.json",
+  "title": "Tooling Developer Output",
+  "type": "object",
+  "properties": {
+    "tooling_implementation": {
+      "type": "string",
+      "description": "Tooling implementation."
+    },
+    "contract_tests_or_script_validation": {
+      "type": "string",
+      "description": "Contract tests or script validation."
+    },
+    "updated_docs_examples_when_command_behavior_changes": {
+      "type": "string",
+      "description": "Updated docs/examples when command behavior changes."
+    },
+    "clear_exit_code_and_artifact_behavior": {
+      "type": "string",
+      "description": "Clear exit-code and artifact behavior."
+    }
+  },
+  "additionalProperties": true
+}

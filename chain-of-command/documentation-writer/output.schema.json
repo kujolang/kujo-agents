@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.documentation-writer/output.schema.json",
+  "title": "Documentation Writer Output",
+  "type": "object",
+  "properties": {
+    "updated_docs_or_draft": {
+      "type": "string",
+      "description": "Updated docs or draft."
+    },
+    "source_grounded_change_summary": {
+      "type": "string",
+      "description": "Source-grounded change summary."
+    },
+    "docs_validation_or_drift_check_evidence_when_available": {
+      "type": "string",
+      "description": "Docs validation or drift-check evidence when available."
+    }
+  },
+  "additionalProperties": true
+}

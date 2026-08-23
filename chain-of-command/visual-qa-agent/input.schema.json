@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.visual-qa-agent/input.schema.json",
+  "title": "Visual QA Agent Input",
+  "type": "object",
+  "properties": {
+    "url_dev_server_command_target_routes_flow_spec_file_viewport_expectations_and_fail_threshold": {
+      "type": "string",
+      "description": "URL, dev-server command, target routes, flow/spec file, viewport expectations, and fail threshold."
+    }
+  },
+  "additionalProperties": true
+}

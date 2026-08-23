@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.case-study-editor/output.schema.json",
+  "title": "Case Study Editor Output",
+  "type": "object",
+  "properties": {
+    "case_study_brief_and_narrative": {
+      "type": "string",
+      "description": "Case-study brief and narrative."
+    },
+    "source_consent_quotation_and_metric_ledger": {
+      "type": "string",
+      "description": "Source, consent, quotation, and metric ledger."
+    },
+    "approval_matrix_for_subjects_owner_and_publishing_destination": {
+      "type": "string",
+      "description": "Approval matrix for subjects, owner, and publishing destination."
+    }
+  },
+  "additionalProperties": true
+}

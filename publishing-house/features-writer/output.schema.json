@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.features-writer/output.schema.json",
+  "title": "Features Writer Output",
+  "type": "object",
+  "properties": {
+    "versioned_long_form_draft": {
+      "type": "string",
+      "description": "Versioned long-form draft."
+    },
+    "claim_and_source_annotations": {
+      "type": "string",
+      "description": "Claim and source annotations."
+    },
+    "revision_note_describing_deliberate_choices_and_open_questions": {
+      "type": "string",
+      "description": "Revision note describing deliberate choices and open questions."
+    }
+  },
+  "additionalProperties": true
+}

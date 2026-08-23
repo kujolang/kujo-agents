@@ -1,0 +1,84 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.backend-developer",
+  "name": "Backend Developer",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "execution",
+    "model_tier": "Standard coding."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "CaseFile",
+      "Scout",
+      "Eval",
+      "Watchdog",
+      "RAG"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "api_contract_data_model_auth_requirements_target_services_files_acceptance_criteria_and_verification_commands",
+      "description": "API contract, data model, auth requirements, target services/files, acceptance criteria, and verification commands."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "implemented_backend_change",
+      "description": "Implemented backend change."
+    },
+    {
+      "name": "tests_or_contract_checks",
+      "description": "Tests or contract checks."
+    },
+    {
+      "name": "migration_or_data_impact_notes",
+      "description": "Migration or data-impact notes."
+    },
+    {
+      "name": "verification_evidence",
+      "description": "Verification evidence."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when backend acceptance criteria are met and verified, or when contract/security ambiguity blocks progress."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/artifact.schema.json",
+  "title": "Kujo Artifact Reference",
+  "type": "object",
+  "required": ["id", "version", "kind", "path", "status", "provenance"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "kind": { "type": "string" },
+    "path": { "type": "string" },
+    "checksum": { "type": "string" },
+    "status": { "type": "string" },
+    "provenance": { "type": "array", "items": { "type": "object" } }
+  },
+  "additionalProperties": false
+}

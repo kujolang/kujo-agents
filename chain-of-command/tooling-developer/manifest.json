@@ -1,0 +1,85 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.tooling-developer",
+  "name": "Tooling Developer",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "execution",
+    "model_tier": "Standard coding."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "RunLedger",
+      "CaseFile",
+      "Muzzle",
+      "Eval",
+      "Workcell",
+      "Kennel"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "tool_goal_command_contract_input_output_shape_exit_codes_repo_conventions_and_validation_commands",
+      "description": "Tool goal, command contract, input/output shape, exit codes, repo conventions, and validation commands."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "tooling_implementation",
+      "description": "Tooling implementation."
+    },
+    {
+      "name": "contract_tests_or_script_validation",
+      "description": "Contract tests or script validation."
+    },
+    {
+      "name": "updated_docs_examples_when_command_behavior_changes",
+      "description": "Updated docs/examples when command behavior changes."
+    },
+    {
+      "name": "clear_exit_code_and_artifact_behavior",
+      "description": "Clear exit-code and artifact behavior."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when tooling behavior is implemented and validated or when contract ambiguity blocks safe changes."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

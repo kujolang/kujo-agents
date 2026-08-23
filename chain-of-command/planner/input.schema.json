@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.planner/input.schema.json",
+  "title": "Planner Input",
+  "type": "object",
+  "properties": {
+    "goal_constraints_scope_repo_context_existing_specs_target_files_risks_and_requested_timeline": {
+      "type": "string",
+      "description": "Goal, constraints, scope, repo context, existing specs, target files, risks, and requested timeline."
+    }
+  },
+  "additionalProperties": true
+}

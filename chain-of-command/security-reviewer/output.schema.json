@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.security-reviewer/output.schema.json",
+  "title": "Security Reviewer Output",
+  "type": "object",
+  "properties": {
+    "security_findings": {
+      "type": "string",
+      "description": "Security findings."
+    },
+    "severity_and_exploitability_notes": {
+      "type": "string",
+      "description": "Severity and exploitability notes."
+    },
+    "required_fixes_or_mitigations": {
+      "type": "string",
+      "description": "Required fixes or mitigations."
+    },
+    "evidence_and_residual_risk": {
+      "type": "string",
+      "description": "Evidence and residual risk."
+    }
+  },
+  "additionalProperties": true
+}

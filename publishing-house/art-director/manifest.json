@@ -1,0 +1,87 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "publishing-house.art-director",
+  "name": "Art Director",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "publishing-house",
+    "layer": "Writing & Creative",
+    "model_tier": "Premium creative reasoning",
+    "desk": "Writing & Creative"
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "AssetWorks",
+      "Dossier",
+      "GalleyPack"
+    ]
+  },
+  "workflows": [
+    "asset-production",
+    "adaptation",
+    "format-production"
+  ],
+  "inputs": [
+    {
+      "name": "house_profile_assignment_or_decision_request_permission_mode_target_audience_relevant_source_artifacts_prior_decisions_and_applicable_version_ids",
+      "description": "House profile, assignment or decision request, permission mode, target audience, relevant source artifacts, prior decisions, and applicable version IDs."
+    },
+    {
+      "name": "only_the_minimum_context_required_for_this_role_missing_required_inputs_must_become_a_blocker_or_explicit_degraded_result",
+      "description": "Only the minimum context required for this role; missing required inputs must become a blocker or explicit degraded result."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "visual_direction_and_asset_brief",
+      "description": "Visual direction and asset brief."
+    },
+    {
+      "name": "composition_typography_palette_imagery_and_accessibility_specifications",
+      "description": "Composition, typography, palette, imagery, and accessibility specifications."
+    },
+    {
+      "name": "review_notes_for_produced_visual_artifacts",
+      "description": "Review notes for produced visual artifacts."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when the required output is complete and versioned, the next approval boundary is reached, evidence cannot support the work, or further action exceeds `PROPOSE`."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

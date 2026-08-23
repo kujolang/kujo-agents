@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.lint-runner/input.schema.json",
+  "title": "Lint Runner Input",
+  "type": "object",
+  "properties": {
+    "exact_command_working_directory_env_vars_timeout_and_whether_auto_fix_flags_are_allowed": {
+      "type": "string",
+      "description": "Exact command, working directory, env vars, timeout, and whether auto-fix flags are allowed."
+    }
+  },
+  "additionalProperties": true
+}

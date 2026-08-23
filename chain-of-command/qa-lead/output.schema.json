@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.qa-lead/output.schema.json",
+  "title": "QA Lead Output",
+  "type": "object",
+  "properties": {
+    "test_plan": {
+      "type": "string",
+      "description": "Test plan."
+    },
+    "evidence_checklist": {
+      "type": "string",
+      "description": "Evidence checklist."
+    },
+    "commands_for_workers": {
+      "type": "string",
+      "description": "Commands for workers."
+    },
+    "pass_fail_summary": {
+      "type": "string",
+      "description": "Pass/fail summary."
+    },
+    "residual_risk": {
+      "type": "string",
+      "description": "Residual risk."
+    }
+  },
+  "additionalProperties": true
+}

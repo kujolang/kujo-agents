@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.systems-architect/input.schema.json",
+  "title": "Systems Architect Input",
+  "type": "object",
+  "properties": {
+    "target_repos_current_architecture_docs_constraints_existing_interfaces_related_specs_recent_diffs_and_known_risks": {
+      "type": "string",
+      "description": "Target repos, current architecture docs, constraints, existing interfaces, related specs, recent diffs, and known risks."
+    }
+  },
+  "additionalProperties": true
+}

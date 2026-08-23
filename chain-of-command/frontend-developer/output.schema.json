@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.frontend-developer/output.schema.json",
+  "title": "Frontend Developer Output",
+  "type": "object",
+  "properties": {
+    "implemented_ui_change": {
+      "type": "string",
+      "description": "Implemented UI change."
+    },
+    "responsive_and_interaction_states": {
+      "type": "string",
+      "description": "Responsive and interaction states."
+    },
+    "relevant_tests_or_visual_qa_evidence": {
+      "type": "string",
+      "description": "Relevant tests or visual QA evidence."
+    },
+    "notes_on_browser_accessibility_risks": {
+      "type": "string",
+      "description": "Notes on browser/accessibility risks."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.research-analyst/input.schema.json",
+  "title": "Research Analyst Input",
+  "type": "object",
+  "properties": {
+    "research_question_target_repos_sources_exclusions_time_budget_and_desired_output_format": {
+      "type": "string",
+      "description": "Research question, target repos/sources, exclusions, time budget, and desired output format."
+    }
+  },
+  "additionalProperties": true
+}

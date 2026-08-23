@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.franchise-adaptation-editor/output.schema.json",
+  "title": "Franchise & Adaptation Editor Output",
+  "type": "object",
+  "properties": {
+    "franchise_map_or_adaptation_plan": {
+      "type": "string",
+      "description": "Franchise map or adaptation plan."
+    },
+    "source_linked_derivative_briefs_and_artifacts": {
+      "type": "string",
+      "description": "Source-linked derivative briefs and artifacts."
+    },
+    "claim_delta_and_approval_requirements_for_each_derivative": {
+      "type": "string",
+      "description": "Claim-delta and approval requirements for each derivative."
+    }
+  },
+  "additionalProperties": true
+}

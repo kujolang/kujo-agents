@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.visual-qa-agent/output.schema.json",
+  "title": "Visual QA Agent Output",
+  "type": "object",
+  "properties": {
+    "lens_command_s_run": {
+      "type": "string",
+      "description": "Lens command(s) run."
+    },
+    "report_artifact_paths": {
+      "type": "string",
+      "description": "Report/artifact paths."
+    },
+    "findings_summary": {
+      "type": "string",
+      "description": "Findings summary."
+    },
+    "repair_brief_for_execution_agents": {
+      "type": "string",
+      "description": "Repair brief for execution agents."
+    }
+  },
+  "additionalProperties": true
+}

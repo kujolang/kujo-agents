@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.planner/output.schema.json",
+  "title": "Planner Output",
+  "type": "object",
+  "properties": {
+    "milestones": {
+      "type": "string",
+      "description": "Milestones."
+    },
+    "ordered_tasks": {
+      "type": "string",
+      "description": "Ordered tasks."
+    },
+    "acceptance_criteria": {
+      "type": "string",
+      "description": "Acceptance criteria."
+    },
+    "suggested_agents": {
+      "type": "string",
+      "description": "Suggested agents."
+    },
+    "verification_commands_or_tools": {
+      "type": "string",
+      "description": "Verification commands or tools."
+    }
+  },
+  "additionalProperties": true
+}

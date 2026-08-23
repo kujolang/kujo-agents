@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.developmental-editor/output.schema.json",
+  "title": "Developmental Editor Output",
+  "type": "object",
+  "properties": {
+    "developmental_review_memo": {
+      "type": "string",
+      "description": "Developmental review memo."
+    },
+    "prioritized_revision_plan_with_passage_references": {
+      "type": "string",
+      "description": "Prioritized revision plan with passage references."
+    },
+    "advance_revise_re_commission_or_reject_recommendation": {
+      "type": "string",
+      "description": "Advance, revise, re-commission, or reject recommendation."
+    }
+  },
+  "additionalProperties": true
+}

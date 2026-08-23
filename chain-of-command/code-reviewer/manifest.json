@@ -1,0 +1,84 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.code-reviewer",
+  "name": "Code Reviewer",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "verification",
+    "model_tier": "Standard/high reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Concord",
+      "Fence",
+      "Eval",
+      "PatchBrief",
+      "ChangeBucket"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "diff_changed_files_spec_plan_test_results_risk_context_and_relevant_docs",
+      "description": "Diff, changed files, spec/plan, test results, risk context, and relevant docs."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "findings_first_ordered_by_severity",
+      "description": "Findings first, ordered by severity."
+    },
+    {
+      "name": "file_line_references_where_possible",
+      "description": "File/line references where possible."
+    },
+    {
+      "name": "missing_tests_and_contract_risks",
+      "description": "Missing tests and contract risks."
+    },
+    {
+      "name": "brief_summary_and_open_questions",
+      "description": "Brief summary and open questions."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when review findings are delivered or when required artifacts are missing."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

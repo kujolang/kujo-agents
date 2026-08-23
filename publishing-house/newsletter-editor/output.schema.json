@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.newsletter-editor/output.schema.json",
+  "title": "Newsletter Editor Output",
+  "type": "object",
+  "properties": {
+    "versioned_newsletter_issue_or_section": {
+      "type": "string",
+      "description": "Versioned newsletter issue or section."
+    },
+    "subject_and_preview_text_routes": {
+      "type": "string",
+      "description": "Subject and preview-text routes."
+    },
+    "email_metadata_link_consent_and_rendering_checklist": {
+      "type": "string",
+      "description": "Email metadata, link, consent, and rendering checklist."
+    }
+  },
+  "additionalProperties": true
+}

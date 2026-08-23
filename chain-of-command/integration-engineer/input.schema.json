@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.integration-engineer/input.schema.json",
+  "title": "Integration Engineer Input",
+  "type": "object",
+  "properties": {
+    "integration_contract_endpoints_or_tool_surfaces_auth_constraints_environment_variables_target_repos_and_verification_plan": {
+      "type": "string",
+      "description": "Integration contract, endpoints or tool surfaces, auth constraints, environment variables, target repos, and verification plan."
+    }
+  },
+  "additionalProperties": true
+}

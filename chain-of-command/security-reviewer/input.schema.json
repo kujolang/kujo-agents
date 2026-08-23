@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.security-reviewer/input.schema.json",
+  "title": "Security Reviewer Input",
+  "type": "object",
+  "properties": {
+    "diff_or_spec_threat_model_if_available_target_surfaces_tool_outputs_dependency_list_and_environment_constraints": {
+      "type": "string",
+      "description": "Diff or spec, threat model if available, target surfaces, tool outputs, dependency list, and environment constraints."
+    }
+  },
+  "additionalProperties": true
+}

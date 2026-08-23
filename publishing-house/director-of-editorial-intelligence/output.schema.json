@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.director-of-editorial-intelligence/output.schema.json",
+  "title": "Director of Editorial Intelligence Output",
+  "type": "object",
+  "properties": {
+    "editorial_intelligence_dossier": {
+      "type": "string",
+      "description": "Editorial intelligence dossier."
+    },
+    "signal_map_with_confidence_and_freshness": {
+      "type": "string",
+      "description": "Signal map with confidence and freshness."
+    },
+    "opportunity_tension_and_unanswered_question_recommendations": {
+      "type": "string",
+      "description": "Opportunity, tension, and unanswered-question recommendations."
+    }
+  },
+  "additionalProperties": true
+}

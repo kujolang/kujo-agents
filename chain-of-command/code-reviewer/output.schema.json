@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.code-reviewer/output.schema.json",
+  "title": "Code Reviewer Output",
+  "type": "object",
+  "properties": {
+    "findings_first_ordered_by_severity": {
+      "type": "string",
+      "description": "Findings first, ordered by severity."
+    },
+    "file_line_references_where_possible": {
+      "type": "string",
+      "description": "File/line references where possible."
+    },
+    "missing_tests_and_contract_risks": {
+      "type": "string",
+      "description": "Missing tests and contract risks."
+    },
+    "brief_summary_and_open_questions": {
+      "type": "string",
+      "description": "Brief summary and open questions."
+    }
+  },
+  "additionalProperties": true
+}

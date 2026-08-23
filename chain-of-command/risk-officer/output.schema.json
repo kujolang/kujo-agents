@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.risk-officer/output.schema.json",
+  "title": "Risk Officer Output",
+  "type": "object",
+  "properties": {
+    "risk_register": {
+      "type": "string",
+      "description": "Risk register."
+    },
+    "blockers_and_warnings": {
+      "type": "string",
+      "description": "Blockers and warnings."
+    },
+    "evidence_gaps": {
+      "type": "string",
+      "description": "Evidence gaps."
+    },
+    "required_mitigations": {
+      "type": "string",
+      "description": "Required mitigations."
+    },
+    "suggested_verification_tools": {
+      "type": "string",
+      "description": "Suggested verification tools."
+    }
+  },
+  "additionalProperties": true
+}

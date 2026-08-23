@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.systems-architect/output.schema.json",
+  "title": "Systems Architect Output",
+  "type": "object",
+  "properties": {
+    "architecture_recommendation": {
+      "type": "string",
+      "description": "Architecture recommendation."
+    },
+    "boundary_map": {
+      "type": "string",
+      "description": "Boundary map."
+    },
+    "tradeoff_analysis": {
+      "type": "string",
+      "description": "Tradeoff analysis."
+    },
+    "required_tests_and_review_gates": {
+      "type": "string",
+      "description": "Required tests and review gates."
+    },
+    "escalation_notes_for_unresolved_risks": {
+      "type": "string",
+      "description": "Escalation notes for unresolved risks."
+    }
+  },
+  "additionalProperties": true
+}

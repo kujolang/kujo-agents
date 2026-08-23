@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.audience-development-director/output.schema.json",
+  "title": "Audience Development Director Output",
+  "type": "object",
+  "properties": {
+    "audience_development_plan": {
+      "type": "string",
+      "description": "Audience development plan."
+    },
+    "channel_timing_hypothesis_and_measurement_design": {
+      "type": "string",
+      "description": "Channel, timing, hypothesis, and measurement design."
+    },
+    "learning_memo_that_separates_signal_from_causation": {
+      "type": "string",
+      "description": "Learning memo that separates signal from causation."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.test-runner/input.schema.json",
+  "title": "Test Runner Input",
+  "type": "object",
+  "properties": {
+    "exact_command_s_working_directory_environment_variables_timeout_and_expected_artifacts": {
+      "type": "string",
+      "description": "Exact command(s), working directory, environment variables, timeout, and expected artifacts."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.managing-editor/input.schema.json",
+  "title": "Managing Editor Input",
+  "type": "object",
+  "properties": {
+    "house_profile_assignment_or_decision_request_permission_mode_target_audience_relevant_source_artifacts_prior_decisions_and_applicable_version_ids": {
+      "type": "string",
+      "description": "House profile, assignment or decision request, permission mode, target audience, relevant source artifacts, prior decisions, and applicable version IDs."
+    },
+    "only_the_minimum_context_required_for_this_role_missing_required_inputs_must_become_a_blocker_or_explicit_degraded_result": {
+      "type": "string",
+      "description": "Only the minimum context required for this role; missing required inputs must become a blocker or explicit degraded result."
+    }
+  },
+  "additionalProperties": true
+}

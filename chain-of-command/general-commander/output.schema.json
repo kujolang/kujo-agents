@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.general-commander/output.schema.json",
+  "title": "General Commander Output",
+  "type": "object",
+  "properties": {
+    "mission_interpretation": {
+      "type": "string",
+      "description": "Mission interpretation."
+    },
+    "delegation_plan_with_agent_lanes": {
+      "type": "string",
+      "description": "Delegation plan with agent lanes."
+    },
+    "decision_log_and_unresolved_questions": {
+      "type": "string",
+      "description": "Decision log and unresolved questions."
+    },
+    "final_synthesis_only_after_verification_evidence_is_available": {
+      "type": "string",
+      "description": "Final synthesis only after verification evidence is available."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,85 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.chief-of-staff",
+  "name": "Chief of Staff",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "strategic",
+    "model_tier": "Premium reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Spec",
+      "Dispatch",
+      "RunLedger",
+      "Scent",
+      "Muzzle",
+      "PackWrite"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "user_goal_constraints_target_repo_relevant_docs_current_status_deadline_and_preferred_verification_level",
+      "description": "User goal, constraints, target repo, relevant docs, current status, deadline, and preferred verification level."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "objective_breakdown",
+      "description": "Objective breakdown."
+    },
+    {
+      "name": "agent_assignment_map",
+      "description": "Agent assignment map."
+    },
+    {
+      "name": "handoff_queue",
+      "description": "Handoff queue."
+    },
+    {
+      "name": "acceptance_evidence_checklist",
+      "description": "Acceptance evidence checklist."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after producing a usable work routing plan or when missing information blocks assignment."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.dependency-scanner",
+  "name": "Dependency Scanner",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "routine worker",
+    "model_tier": "Cheap worker."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "ShipCheck",
+      "Scout",
+      "Kennel"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "working_directory_exact_command_target_manifests_lockfiles_expected_output_and_whether_network_is_allowed",
+      "description": "Working directory, exact command, target manifests/lockfiles, expected output, and whether network is allowed."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "commands_run",
+      "description": "Commands run."
+    },
+    {
+      "name": "exit_code",
+      "description": "Exit code."
+    },
+    {
+      "name": "dependency_findings",
+      "description": "Dependency findings."
+    },
+    {
+      "name": "manifest_lockfile_touched_status_if_checked",
+      "description": "Manifest/lockfile touched status if checked."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after assigned scan completes."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

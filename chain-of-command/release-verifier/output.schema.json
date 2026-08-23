@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.release-verifier/output.schema.json",
+  "title": "Release Verifier Output",
+  "type": "object",
+  "properties": {
+    "gate_results": {
+      "type": "string",
+      "description": "Gate results."
+    },
+    "blockers_and_warnings": {
+      "type": "string",
+      "description": "Blockers and warnings."
+    },
+    "artifact_paths": {
+      "type": "string",
+      "description": "Artifact paths."
+    },
+    "release_verdict_recommendation": {
+      "type": "string",
+      "description": "Release verdict recommendation."
+    },
+    "next_commands_or_owners": {
+      "type": "string",
+      "description": "Next commands or owners."
+    }
+  },
+  "additionalProperties": true
+}

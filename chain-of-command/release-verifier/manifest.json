@@ -1,0 +1,94 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.release-verifier",
+  "name": "Release Verifier",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "verification",
+    "model_tier": "Premium/standard depending on release risk."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "RunLedger",
+      "ShipCheck",
+      "Concord",
+      "Relay",
+      "Tribunal",
+      "CaseFile",
+      "Fence",
+      "Eval",
+      "ChangeBucket",
+      "SSG",
+      "Workcell"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "target_repo_branch_version_intent_release_scope_required_gates_changelog_docs_status_and_publishing_authority",
+      "description": "Target repo, branch/version intent, release scope, required gates, changelog/docs status, and publishing authority."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "gate_results",
+      "description": "Gate results."
+    },
+    {
+      "name": "blockers_and_warnings",
+      "description": "Blockers and warnings."
+    },
+    {
+      "name": "artifact_paths",
+      "description": "Artifact paths."
+    },
+    {
+      "name": "release_verdict_recommendation",
+      "description": "Release verdict recommendation."
+    },
+    {
+      "name": "next_commands_or_owners",
+      "description": "Next commands or owners."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after a gate report or when release authority/environment is missing."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.publishing-operations-director/output.schema.json",
+  "title": "Publishing Operations Director Output",
+  "type": "object",
+  "properties": {
+    "preflight_and_authorization_receipt": {
+      "type": "string",
+      "description": "Preflight and authorization receipt."
+    },
+    "scheduled_or_published_destination_record": {
+      "type": "string",
+      "description": "Scheduled or published destination record."
+    },
+    "failure_rollback_correction_and_idempotency_evidence": {
+      "type": "string",
+      "description": "Failure, rollback, correction, and idempotency evidence."
+    }
+  },
+  "additionalProperties": true
+}

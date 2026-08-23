@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.product-strategist/output.schema.json",
+  "title": "Product Strategist Output",
+  "type": "object",
+  "properties": {
+    "product_framing": {
+      "type": "string",
+      "description": "Product framing."
+    },
+    "prioritized_user_outcomes": {
+      "type": "string",
+      "description": "Prioritized user outcomes."
+    },
+    "scope_and_non_goals": {
+      "type": "string",
+      "description": "Scope and non-goals."
+    },
+    "acceptance_signals": {
+      "type": "string",
+      "description": "Acceptance signals."
+    },
+    "unknowns_and_research_questions": {
+      "type": "string",
+      "description": "Unknowns and research questions."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/webops.webops-reporter/input.schema.json",
+  "title": "WebOps Reporter Input",
+  "type": "object",
+  "properties": {
+    "validated_webops_site_profile_target_scope_permission_mode_time_window_and_historical_run_references": {
+      "type": "string",
+      "description": "Validated WebOps site profile, target scope, permission mode, time window, and historical run references."
+    },
+    "required_capability_artifacts_plus_explicitly_identified_optional_provider_evidence": {
+      "type": "string",
+      "description": "Required capability artifacts plus explicitly identified optional provider evidence."
+    }
+  },
+  "additionalProperties": true
+}

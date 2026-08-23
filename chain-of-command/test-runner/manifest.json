@@ -1,0 +1,87 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.test-runner",
+  "name": "Test Runner",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "routine worker",
+    "model_tier": "Cheap worker."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "CaseFile",
+      "Muzzle",
+      "Eval",
+      "Workcell"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "exact_command_s_working_directory_environment_variables_timeout_and_expected_artifacts",
+      "description": "Exact command(s), working directory, environment variables, timeout, and expected artifacts."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "commands_run",
+      "description": "Commands run."
+    },
+    {
+      "name": "exit_codes",
+      "description": "Exit codes."
+    },
+    {
+      "name": "pass_fail_status",
+      "description": "Pass/fail status."
+    },
+    {
+      "name": "key_failure_lines",
+      "description": "Key failure lines."
+    },
+    {
+      "name": "artifact_paths",
+      "description": "Artifact paths."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after assigned commands complete or fail."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

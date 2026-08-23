@@ -1,0 +1,88 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.security-reviewer",
+  "name": "Security Reviewer",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "verification",
+    "model_tier": "Premium reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "CaseFile",
+      "Scent",
+      "Scout",
+      "Fence",
+      "Eval",
+      "Watchdog",
+      "Redact",
+      "Workcell",
+      "Kennel"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "diff_or_spec_threat_model_if_available_target_surfaces_tool_outputs_dependency_list_and_environment_constraints",
+      "description": "Diff or spec, threat model if available, target surfaces, tool outputs, dependency list, and environment constraints."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "security_findings",
+      "description": "Security findings."
+    },
+    {
+      "name": "severity_and_exploitability_notes",
+      "description": "Severity and exploitability notes."
+    },
+    {
+      "name": "required_fixes_or_mitigations",
+      "description": "Required fixes or mitigations."
+    },
+    {
+      "name": "evidence_and_residual_risk",
+      "description": "Evidence and residual risk."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when security posture is clear or when missing context prevents review."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

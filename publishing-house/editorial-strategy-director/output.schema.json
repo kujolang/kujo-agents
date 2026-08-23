@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.editorial-strategy-director/output.schema.json",
+  "title": "Editorial Strategy Director Output",
+  "type": "object",
+  "properties": {
+    "editorial_strategy_and_governing_thesis": {
+      "type": "string",
+      "description": "Editorial strategy and governing thesis."
+    },
+    "campaign_sequence_lanes_doors_and_audience_movement": {
+      "type": "string",
+      "description": "Campaign sequence, lanes, doors, and audience movement."
+    },
+    "portfolio_tradeoffs_non_goals_and_learning_agenda": {
+      "type": "string",
+      "description": "Portfolio tradeoffs, non-goals, and learning agenda."
+    }
+  },
+  "additionalProperties": true
+}

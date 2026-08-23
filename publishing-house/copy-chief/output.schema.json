@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.copy-chief/output.schema.json",
+  "title": "Copy Chief Output",
+  "type": "object",
+  "properties": {
+    "tracked_or_clearly_enumerated_copy_edits": {
+      "type": "string",
+      "description": "Tracked or clearly enumerated copy edits."
+    },
+    "style_and_terminology_decisions": {
+      "type": "string",
+      "description": "Style and terminology decisions."
+    },
+    "clean_candidate_version_with_unresolved_queries": {
+      "type": "string",
+      "description": "Clean candidate version with unresolved queries."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,85 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.visual-qa-agent",
+  "name": "Visual QA Agent",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "verification",
+    "model_tier": "Standard coding."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "CaseFile",
+      "Eval",
+      "Lens",
+      "SSG",
+      "SiteKit",
+      "Kujo Docs"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "url_dev_server_command_target_routes_flow_spec_file_viewport_expectations_and_fail_threshold",
+      "description": "URL, dev-server command, target routes, flow/spec file, viewport expectations, and fail threshold."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "lens_command_s_run",
+      "description": "Lens command(s) run."
+    },
+    {
+      "name": "report_artifact_paths",
+      "description": "Report/artifact paths."
+    },
+    {
+      "name": "findings_summary",
+      "description": "Findings summary."
+    },
+    {
+      "name": "repair_brief_for_execution_agents",
+      "description": "Repair brief for execution agents."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after browser evidence is collected or when no safe runnable target exists."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

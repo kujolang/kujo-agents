@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.frontend-developer/input.schema.json",
+  "title": "Frontend Developer Input",
+  "type": "object",
+  "properties": {
+    "feature_scope_target_screens_routes_design_constraints_data_contracts_acceptance_criteria_and_run_commands": {
+      "type": "string",
+      "description": "Feature scope, target screens/routes, design constraints, data contracts, acceptance criteria, and run commands."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.context-packager/input.schema.json",
+  "title": "Context Packager Input",
+  "type": "object",
+  "properties": {
+    "task_target_repo_context_budget_include_exclude_paths_downstream_agent_target_and_sensitivity_constraints": {
+      "type": "string",
+      "description": "Task, target repo, context budget, include/exclude paths, downstream agent target, and sensitivity constraints."
+    }
+  },
+  "additionalProperties": true
+}

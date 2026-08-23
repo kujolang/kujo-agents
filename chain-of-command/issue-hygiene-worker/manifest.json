@@ -1,0 +1,80 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.issue-hygiene-worker",
+  "name": "Issue Hygiene Worker",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "routine worker",
+    "model_tier": "Cheap worker."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Concord"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "tracker_issue_ids_or_query_exact_hygiene_criteria_allowed_fields_to_read_and_output_format",
+      "description": "Tracker, issue IDs or query, exact hygiene criteria, allowed fields to read, and output format."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "issue_ids_checked",
+      "description": "Issue IDs checked."
+    },
+    {
+      "name": "criteria_result",
+      "description": "Criteria result."
+    },
+    {
+      "name": "missing_information",
+      "description": "Missing information."
+    },
+    {
+      "name": "no_priority_product_decisions",
+      "description": "No priority/product decisions."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after assigned issues are checked."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

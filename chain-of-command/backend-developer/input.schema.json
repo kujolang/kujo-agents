@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.backend-developer/input.schema.json",
+  "title": "Backend Developer Input",
+  "type": "object",
+  "properties": {
+    "api_contract_data_model_auth_requirements_target_services_files_acceptance_criteria_and_verification_commands": {
+      "type": "string",
+      "description": "API contract, data model, auth requirements, target services/files, acceptance criteria, and verification commands."
+    }
+  },
+  "additionalProperties": true
+}

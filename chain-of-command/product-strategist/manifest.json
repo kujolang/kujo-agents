@@ -1,0 +1,87 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.product-strategist",
+  "name": "Product Strategist",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "strategic",
+    "model_tier": "Premium reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Spec",
+      "RunLedger",
+      "Eval",
+      "Kujo Docs"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "user_goal_audience_assumptions_repo_docs_product_docs_existing_workflows_support_signals_and_constraints",
+      "description": "User goal, audience assumptions, repo docs, product docs, existing workflows, support signals, and constraints."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "product_framing",
+      "description": "Product framing."
+    },
+    {
+      "name": "prioritized_user_outcomes",
+      "description": "Prioritized user outcomes."
+    },
+    {
+      "name": "scope_and_non_goals",
+      "description": "Scope and non-goals."
+    },
+    {
+      "name": "acceptance_signals",
+      "description": "Acceptance signals."
+    },
+    {
+      "name": "unknowns_and_research_questions",
+      "description": "Unknowns and research questions."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when feature framing is clear enough for Planner or when current research is required."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

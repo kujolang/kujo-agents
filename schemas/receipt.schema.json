@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/receipt.schema.json",
+  "title": "Kujo Action Receipt",
+  "type": "object",
+  "required": ["id", "adapter", "target", "preflight", "action", "timestamp"],
+  "properties": {
+    "id": { "type": "string" },
+    "approval_id": { "type": "string" },
+    "artifact_version": { "type": "string" },
+    "adapter": { "type": "string" },
+    "target": { "type": "string" },
+    "idempotency_key": { "type": "string" },
+    "preflight": { "type": "object" },
+    "action": { "type": "string" },
+    "provider_reference": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "rollback_state": { "type": "string" }
+  },
+  "additionalProperties": false
+}

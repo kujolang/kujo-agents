@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/approval.schema.json",
+  "title": "Kujo Approval",
+  "type": "object",
+  "required": ["id", "actor", "artifact_version", "scope", "decision", "timestamp"],
+  "properties": {
+    "id": { "type": "string" },
+    "actor": { "type": "string" },
+    "artifact_version": { "type": "string" },
+    "scope": { "type": "string" },
+    "destination": { "type": "string" },
+    "decision": { "enum": ["approved", "rejected", "conditional", "expired"] },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "conditions": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "publishing-house.editorial-strategy-director",
+  "name": "Editorial Strategy Director",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "publishing-house",
+    "layer": "Strategy & Intelligence",
+    "model_tier": "Premium reasoning",
+    "desk": "Strategy & Intelligence"
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "StoryDesk",
+      "Dossier",
+      "ReaderSignal"
+    ]
+  },
+  "workflows": [
+    "commissioning",
+    "post-publication-learning"
+  ],
+  "inputs": [
+    {
+      "name": "house_profile_assignment_or_decision_request_permission_mode_target_audience_relevant_source_artifacts_prior_decisions_and_applicable_version_ids",
+      "description": "House profile, assignment or decision request, permission mode, target audience, relevant source artifacts, prior decisions, and applicable version IDs."
+    },
+    {
+      "name": "only_the_minimum_context_required_for_this_role_missing_required_inputs_must_become_a_blocker_or_explicit_degraded_result",
+      "description": "Only the minimum context required for this role; missing required inputs must become a blocker or explicit degraded result."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "editorial_strategy_and_governing_thesis",
+      "description": "Editorial strategy and governing thesis."
+    },
+    {
+      "name": "campaign_sequence_lanes_doors_and_audience_movement",
+      "description": "Campaign sequence, lanes, doors, and audience movement."
+    },
+    {
+      "name": "portfolio_tradeoffs_non_goals_and_learning_agenda",
+      "description": "Portfolio tradeoffs, non-goals, and learning agenda."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when the required output is complete and versioned, the next approval boundary is reached, evidence cannot support the work, or further action exceeds `PROPOSE`."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

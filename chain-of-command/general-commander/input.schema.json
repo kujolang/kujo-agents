@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.general-commander/input.schema.json",
+  "title": "General Commander Input",
+  "type": "object",
+  "properties": {
+    "user_mission_constraints_target_repos_deadlines_success_criteria_risk_tolerance_and_known_blockers": {
+      "type": "string",
+      "description": "User mission, constraints, target repos, deadlines, success criteria, risk tolerance, and known blockers."
+    },
+    "current_context_packs_specs_tickets_run_receipts_or_prior_handoffs_when_available": {
+      "type": "string",
+      "description": "Current context packs, specs, tickets, run receipts, or prior handoffs when available."
+    }
+  },
+  "additionalProperties": true
+}

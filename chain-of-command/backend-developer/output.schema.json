@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.backend-developer/output.schema.json",
+  "title": "Backend Developer Output",
+  "type": "object",
+  "properties": {
+    "implemented_backend_change": {
+      "type": "string",
+      "description": "Implemented backend change."
+    },
+    "tests_or_contract_checks": {
+      "type": "string",
+      "description": "Tests or contract checks."
+    },
+    "migration_or_data_impact_notes": {
+      "type": "string",
+      "description": "Migration or data-impact notes."
+    },
+    "verification_evidence": {
+      "type": "string",
+      "description": "Verification evidence."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.test-runner/output.schema.json",
+  "title": "Test Runner Output",
+  "type": "object",
+  "properties": {
+    "commands_run": {
+      "type": "string",
+      "description": "Commands run."
+    },
+    "exit_codes": {
+      "type": "string",
+      "description": "Exit codes."
+    },
+    "pass_fail_status": {
+      "type": "string",
+      "description": "Pass/fail status."
+    },
+    "key_failure_lines": {
+      "type": "string",
+      "description": "Key failure lines."
+    },
+    "artifact_paths": {
+      "type": "string",
+      "description": "Artifact paths."
+    }
+  },
+  "additionalProperties": true
+}

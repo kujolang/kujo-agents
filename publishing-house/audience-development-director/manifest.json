@@ -1,0 +1,86 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "publishing-house.audience-development-director",
+  "name": "Audience Development Director",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "publishing-house",
+    "layer": "Adaptation & Audience",
+    "model_tier": "Premium/standard reasoning",
+    "desk": "Adaptation & Audience"
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "StoryDesk",
+      "ReaderSignal",
+      "PressWire"
+    ]
+  },
+  "workflows": [
+    "post-publication-learning",
+    "adaptation"
+  ],
+  "inputs": [
+    {
+      "name": "house_profile_assignment_or_decision_request_permission_mode_target_audience_relevant_source_artifacts_prior_decisions_and_applicable_version_ids",
+      "description": "House profile, assignment or decision request, permission mode, target audience, relevant source artifacts, prior decisions, and applicable version IDs."
+    },
+    {
+      "name": "only_the_minimum_context_required_for_this_role_missing_required_inputs_must_become_a_blocker_or_explicit_degraded_result",
+      "description": "Only the minimum context required for this role; missing required inputs must become a blocker or explicit degraded result."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "audience_development_plan",
+      "description": "Audience development plan."
+    },
+    {
+      "name": "channel_timing_hypothesis_and_measurement_design",
+      "description": "Channel, timing, hypothesis, and measurement design."
+    },
+    {
+      "name": "learning_memo_that_separates_signal_from_causation",
+      "description": "Learning memo that separates signal from causation."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when the required output is complete and versioned, the next approval boundary is reached, evidence cannot support the work, or further action exceeds `PROPOSE`."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

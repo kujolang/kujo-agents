@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.video-audio-producer/output.schema.json",
+  "title": "Video & Audio Producer Output",
+  "type": "object",
+  "properties": {
+    "treatment_and_production_brief": {
+      "type": "string",
+      "description": "Treatment and production brief."
+    },
+    "versioned_script_storyboard_shot_or_segment_plan_and_caption_package": {
+      "type": "string",
+      "description": "Versioned script, storyboard, shot or segment plan, and caption package."
+    },
+    "asset_rights_accessibility_and_production_manifest": {
+      "type": "string",
+      "description": "Asset, rights, accessibility, and production manifest."
+    }
+  },
+  "additionalProperties": true
+}

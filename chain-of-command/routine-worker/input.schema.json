@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.routine-worker/input.schema.json",
+  "title": "Routine Worker Input",
+  "type": "object",
+  "properties": {
+    "exact_command_working_directory_expected_timeout_artifacts_to_capture_and_whether_failure_should_stop_the_chain": {
+      "type": "string",
+      "description": "Exact command, working directory, expected timeout, artifacts to capture, and whether failure should stop the chain."
+    }
+  },
+  "additionalProperties": true
+}

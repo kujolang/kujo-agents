@@ -1,0 +1,90 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.receipt-collector",
+  "name": "Receipt Collector",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "routine worker",
+    "model_tier": "Cheap worker."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "RunLedger",
+      "Relay",
+      "CaseFile",
+      "Muzzle",
+      "Watchdog",
+      "Capsule",
+      "Redact"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "run_id_or_task_name_commands_artifacts_to_capture_target_repo_output_location_and_redaction_requirements",
+      "description": "Run ID or task name, commands/artifacts to capture, target repo, output location, and redaction requirements."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "receipt_ids",
+      "description": "Receipt IDs."
+    },
+    {
+      "name": "artifact_paths",
+      "description": "Artifact paths."
+    },
+    {
+      "name": "command_log_references",
+      "description": "Command/log references."
+    },
+    {
+      "name": "redaction_notes",
+      "description": "Redaction notes."
+    },
+    {
+      "name": "missing_evidence_list",
+      "description": "Missing evidence list."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after evidence index is produced or safe collection is blocked."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

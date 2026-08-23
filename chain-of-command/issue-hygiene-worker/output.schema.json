@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.issue-hygiene-worker/output.schema.json",
+  "title": "Issue Hygiene Worker Output",
+  "type": "object",
+  "properties": {
+    "issue_ids_checked": {
+      "type": "string",
+      "description": "Issue IDs checked."
+    },
+    "criteria_result": {
+      "type": "string",
+      "description": "Criteria result."
+    },
+    "missing_information": {
+      "type": "string",
+      "description": "Missing information."
+    },
+    "no_priority_product_decisions": {
+      "type": "string",
+      "description": "No priority/product decisions."
+    }
+  },
+  "additionalProperties": true
+}

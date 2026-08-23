@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.issue-hygiene-worker/input.schema.json",
+  "title": "Issue Hygiene Worker Input",
+  "type": "object",
+  "properties": {
+    "tracker_issue_ids_or_query_exact_hygiene_criteria_allowed_fields_to_read_and_output_format": {
+      "type": "string",
+      "description": "Tracker, issue IDs or query, exact hygiene criteria, allowed fields to read, and output format."
+    }
+  },
+  "additionalProperties": true
+}

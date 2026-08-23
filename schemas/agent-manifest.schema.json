@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/agent-manifest.schema.json",
+  "title": "Kujo Agent Manifest",
+  "type": "object",
+  "required": ["schema", "id", "name", "version", "contract", "classification", "permissions", "capabilities", "inputs", "outputs", "handoff", "stop_conditions"],
+  "properties": {
+    "schema": { "const": "kujo.agent.manifest/v1" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)+$" },
+    "name": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "contract": {
+      "type": "object",
+      "required": ["agent", "skill"],
+      "properties": { "agent": { "type": "string" }, "skill": { "type": "string" } },
+      "additionalProperties": false
+    },
+    "classification": {
+      "type": "object",
+      "required": ["package", "layer", "model_tier"],
+      "properties": {
+        "package": { "enum": ["chain-of-command", "webops", "publishing-house"] },
+        "layer": { "type": "string" },
+        "category": { "type": "string" },
+        "desk": { "type": "string" },
+        "model_tier": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "permissions": {
+      "type": "object",
+      "required": ["minimum", "maximum", "enforcement"],
+      "properties": {
+        "minimum": { "enum": ["OBSERVE", "PROPOSE", "ACT"] },
+        "maximum": { "enum": ["OBSERVE", "PROPOSE", "ACT"] },
+        "enforcement": { "const": "runtime-adapter" }
+      },
+      "additionalProperties": false
+    },
+    "capabilities": {
+      "type": "object",
+      "required": ["required", "recommended", "optional"],
+      "properties": {
+        "required": { "type": "array", "items": { "type": "string" } },
+        "recommended": { "type": "array", "items": { "type": "string" } },
+        "optional": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "tools": { "type": "object" },
+    "workflows": { "type": "array", "items": { "type": "string" } },
+    "inputs": { "type": "array", "items": { "$ref": "#/$defs/contractField" } },
+    "outputs": { "type": "array", "items": { "$ref": "#/$defs/contractField" } },
+    "handoff": { "type": "object", "required": ["schema", "required_fields"], "properties": { "schema": { "const": "kujo.handoff/v1" }, "required_fields": { "type": "array", "items": { "type": "string" } } }, "additionalProperties": false },
+    "stop_conditions": { "type": "array", "items": { "type": "string" } },
+    "adapters": { "type": "array", "items": { "enum": ["hermes", "paperclip", "openai", "mcp", "generic"] } }
+  },
+  "$defs": {
+    "contractField": {
+      "type": "object",
+      "required": ["name", "description"],
+      "properties": { "name": { "type": "string" }, "description": { "type": "string" } },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

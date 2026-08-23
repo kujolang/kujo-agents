@@ -1,0 +1,89 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.planner",
+  "name": "Planner",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "planning",
+    "model_tier": "Standard/high reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Spec",
+      "Dispatch",
+      "CaseFile",
+      "Scent",
+      "Eval",
+      "PackWrite"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "goal_constraints_scope_repo_context_existing_specs_target_files_risks_and_requested_timeline",
+      "description": "Goal, constraints, scope, repo context, existing specs, target files, risks, and requested timeline."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "milestones",
+      "description": "Milestones."
+    },
+    {
+      "name": "ordered_tasks",
+      "description": "Ordered tasks."
+    },
+    {
+      "name": "acceptance_criteria",
+      "description": "Acceptance criteria."
+    },
+    {
+      "name": "suggested_agents",
+      "description": "Suggested agents."
+    },
+    {
+      "name": "verification_commands_or_tools",
+      "description": "Verification commands or tools."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after producing a work plan or after identifying missing prerequisites."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

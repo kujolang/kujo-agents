@@ -1,0 +1,93 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.risk-officer",
+  "name": "Risk Officer",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "planning",
+    "model_tier": "Premium reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "ShipCheck",
+      "Concord",
+      "Tribunal",
+      "CaseFile",
+      "Scent",
+      "Scout",
+      "Fence",
+      "Eval",
+      "ChangeBucket",
+      "Workcell"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "goal_spec_diff_or_planned_change_target_repos_release_intent_risk_tolerance_and_existing_evidence",
+      "description": "Goal, spec, diff or planned change, target repos, release intent, risk tolerance, and existing evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "risk_register",
+      "description": "Risk register."
+    },
+    {
+      "name": "blockers_and_warnings",
+      "description": "Blockers and warnings."
+    },
+    {
+      "name": "evidence_gaps",
+      "description": "Evidence gaps."
+    },
+    {
+      "name": "required_mitigations",
+      "description": "Required mitigations."
+    },
+    {
+      "name": "suggested_verification_tools",
+      "description": "Suggested verification tools."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after issuing risk posture or when unavailable evidence prevents a responsible call."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/handoff.schema.json",
+  "title": "Kujo Handoff",
+  "type": "object",
+  "required": ["schema", "assignment", "current_owner", "next_owner", "goal", "scope", "evidence", "decisions", "unresolved_questions", "allowed_next_actions", "stop_condition"],
+  "properties": {
+    "schema": { "const": "kujo.handoff/v1" },
+    "assignment": { "type": "string" },
+    "current_owner": { "type": "string" },
+    "next_owner": { "type": "string" },
+    "permission_mode": { "enum": ["OBSERVE", "PROPOSE", "ACT"] },
+    "goal": { "type": "string" },
+    "scope": { "type": "string" },
+    "artifacts": { "type": "array", "items": { "type": "object" } },
+    "evidence": { "type": "array", "items": { "type": "object" } },
+    "decisions": { "type": "array", "items": { "type": "string" } },
+    "unresolved_questions": { "type": "array", "items": { "type": "string" } },
+    "blockers": { "type": "array", "items": { "type": "string" } },
+    "allowed_next_actions": { "type": "array", "items": { "type": "string" } },
+    "stop_condition": { "type": "string" },
+    "expected_return_artifact": { "type": "string" }
+  },
+  "additionalProperties": false
+}

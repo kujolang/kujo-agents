@@ -1,0 +1,83 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.documentation-writer",
+  "name": "Documentation Writer",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "knowledge",
+    "model_tier": "Standard writing/coding."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Spec",
+      "Concord",
+      "Scout",
+      "PatchBrief",
+      "SSG",
+      "SiteKit",
+      "Kujo Docs",
+      "Howl"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "target_docs_source_behavior_diff_spec_command_output_intended_audience_and_docs_style_constraints",
+      "description": "Target docs, source behavior, diff/spec, command output, intended audience, and docs style constraints."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "updated_docs_or_draft",
+      "description": "Updated docs or draft."
+    },
+    {
+      "name": "source_grounded_change_summary",
+      "description": "Source-grounded change summary."
+    },
+    {
+      "name": "docs_validation_or_drift_check_evidence_when_available",
+      "description": "Docs validation or drift-check evidence when available."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when docs are updated and validated or when source truth is unavailable."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

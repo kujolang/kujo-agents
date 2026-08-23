@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.release-verifier/input.schema.json",
+  "title": "Release Verifier Input",
+  "type": "object",
+  "properties": {
+    "target_repo_branch_version_intent_release_scope_required_gates_changelog_docs_status_and_publishing_authority": {
+      "type": "string",
+      "description": "Target repo, branch/version intent, release scope, required gates, changelog/docs status, and publishing authority."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.receipt-collector/input.schema.json",
+  "title": "Receipt Collector Input",
+  "type": "object",
+  "properties": {
+    "run_id_or_task_name_commands_artifacts_to_capture_target_repo_output_location_and_redaction_requirements": {
+      "type": "string",
+      "description": "Run ID or task name, commands/artifacts to capture, target repo, output location, and redaction requirements."
+    }
+  },
+  "additionalProperties": true
+}

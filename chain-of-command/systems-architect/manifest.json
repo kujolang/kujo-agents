@@ -1,0 +1,91 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.systems-architect",
+  "name": "Systems Architect",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "strategic",
+    "model_tier": "Premium reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Spec",
+      "Concord",
+      "Scout",
+      "Fence",
+      "Eval",
+      "PatchBrief",
+      "ChangeBucket",
+      "Agents SDK"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "target_repos_current_architecture_docs_constraints_existing_interfaces_related_specs_recent_diffs_and_known_risks",
+      "description": "Target repos, current architecture docs, constraints, existing interfaces, related specs, recent diffs, and known risks."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "architecture_recommendation",
+      "description": "Architecture recommendation."
+    },
+    {
+      "name": "boundary_map",
+      "description": "Boundary map."
+    },
+    {
+      "name": "tradeoff_analysis",
+      "description": "Tradeoff analysis."
+    },
+    {
+      "name": "required_tests_and_review_gates",
+      "description": "Required tests and review gates."
+    },
+    {
+      "name": "escalation_notes_for_unresolved_risks",
+      "description": "Escalation notes for unresolved risks."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when an architecture decision is documented or when evidence is insufficient to choose safely."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

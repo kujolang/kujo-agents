@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.dependency-scanner/input.schema.json",
+  "title": "Dependency Scanner Input",
+  "type": "object",
+  "properties": {
+    "working_directory_exact_command_target_manifests_lockfiles_expected_output_and_whether_network_is_allowed": {
+      "type": "string",
+      "description": "Working directory, exact command, target manifests/lockfiles, expected output, and whether network is allowed."
+    }
+  },
+  "additionalProperties": true
+}

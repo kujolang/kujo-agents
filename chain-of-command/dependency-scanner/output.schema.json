@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.dependency-scanner/output.schema.json",
+  "title": "Dependency Scanner Output",
+  "type": "object",
+  "properties": {
+    "commands_run": {
+      "type": "string",
+      "description": "Commands run."
+    },
+    "exit_code": {
+      "type": "string",
+      "description": "Exit code."
+    },
+    "dependency_findings": {
+      "type": "string",
+      "description": "Dependency findings."
+    },
+    "manifest_lockfile_touched_status_if_checked": {
+      "type": "string",
+      "description": "Manifest/lockfile touched status if checked."
+    }
+  },
+  "additionalProperties": true
+}

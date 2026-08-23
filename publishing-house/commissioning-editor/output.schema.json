@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.commissioning-editor/output.schema.json",
+  "title": "Commissioning Editor Output",
+  "type": "object",
+  "properties": {
+    "versioned_editorial_brief": {
+      "type": "string",
+      "description": "Versioned editorial brief."
+    },
+    "commission_decision_and_assigned_desk": {
+      "type": "string",
+      "description": "Commission decision and assigned desk."
+    },
+    "acceptance_criteria_evidence_burden_and_kill_conditions": {
+      "type": "string",
+      "description": "Acceptance criteria, evidence burden, and kill conditions."
+    }
+  },
+  "additionalProperties": true
+}

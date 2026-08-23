@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/webops.accessibility-auditor/output.schema.json",
+  "title": "Accessibility Auditor Output",
+  "type": "object",
+  "properties": {
+    "versioned_evidence_references_time_stamped_findings_with_stable_identities_and_confidence_availability_labels": {
+      "type": "string",
+      "description": "Versioned evidence references, time-stamped findings with stable identities, and confidence/availability labels."
+    },
+    "separate_findings_recommendations_recorded_actions_and_measured_outcomes_never_collapse_those_states": {
+      "type": "string",
+      "description": "Separate findings, recommendations, recorded actions, and measured outcomes; never collapse those states."
+    },
+    "a_quiet_human_summary_of_what_changed_improved_regressed_persists_resolved_or_could_not_be_checked": {
+      "type": "string",
+      "description": "A quiet human summary of what changed, improved, regressed, persists, resolved, or could not be checked."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.context-packager",
+  "name": "Context Packager",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "knowledge",
+    "model_tier": "Standard reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "RunLedger",
+      "Scent",
+      "Muzzle",
+      "Scout",
+      "Capsule",
+      "PackWrite",
+      "Redact"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "task_target_repo_context_budget_include_exclude_paths_downstream_agent_target_and_sensitivity_constraints",
+      "description": "Task, target repo, context budget, include/exclude paths, downstream agent target, and sensitivity constraints."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "context_pack_or_execution_pack",
+      "description": "Context pack or execution pack."
+    },
+    {
+      "name": "included_excluded_source_list",
+      "description": "Included/excluded source list."
+    },
+    {
+      "name": "redaction_and_token_budget_notes",
+      "description": "Redaction and token/budget notes."
+    },
+    {
+      "name": "handoff_instructions",
+      "description": "Handoff instructions."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when a usable context packet exists or when safe packaging is impossible."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

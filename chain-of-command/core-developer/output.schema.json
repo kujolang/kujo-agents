@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.core-developer/output.schema.json",
+  "title": "Core Developer Output",
+  "type": "object",
+  "properties": {
+    "implemented_change": {
+      "type": "string",
+      "description": "Implemented change."
+    },
+    "focused_tests_or_justification_for_no_tests": {
+      "type": "string",
+      "description": "Focused tests or justification for no tests."
+    },
+    "summary_of_touched_files": {
+      "type": "string",
+      "description": "Summary of touched files."
+    },
+    "verification_results_and_remaining_risks": {
+      "type": "string",
+      "description": "Verification results and remaining risks."
+    }
+  },
+  "additionalProperties": true
+}

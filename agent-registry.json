@@ -1,0 +1,481 @@
+{
+  "schema": "kujo.agent.registry/v1",
+  "version": "1.0.0",
+  "agent_count": 79,
+  "agents": [
+    {
+      "id": "chain.backend-developer",
+      "name": "Backend Developer",
+      "package": "chain-of-command",
+      "path": "chain-of-command/backend-developer"
+    },
+    {
+      "id": "chain.chief-of-staff",
+      "name": "Chief of Staff",
+      "package": "chain-of-command",
+      "path": "chain-of-command/chief-of-staff"
+    },
+    {
+      "id": "chain.code-reviewer",
+      "name": "Code Reviewer",
+      "package": "chain-of-command",
+      "path": "chain-of-command/code-reviewer"
+    },
+    {
+      "id": "chain.context-packager",
+      "name": "Context Packager",
+      "package": "chain-of-command",
+      "path": "chain-of-command/context-packager"
+    },
+    {
+      "id": "chain.core-developer",
+      "name": "Core Developer",
+      "package": "chain-of-command",
+      "path": "chain-of-command/core-developer"
+    },
+    {
+      "id": "chain.dependency-scanner",
+      "name": "Dependency Scanner",
+      "package": "chain-of-command",
+      "path": "chain-of-command/dependency-scanner"
+    },
+    {
+      "id": "chain.documentation-writer",
+      "name": "Documentation Writer",
+      "package": "chain-of-command",
+      "path": "chain-of-command/documentation-writer"
+    },
+    {
+      "id": "chain.frontend-developer",
+      "name": "Frontend Developer",
+      "package": "chain-of-command",
+      "path": "chain-of-command/frontend-developer"
+    },
+    {
+      "id": "chain.general-commander",
+      "name": "General Commander",
+      "package": "chain-of-command",
+      "path": "chain-of-command/general-commander"
+    },
+    {
+      "id": "chain.integration-engineer",
+      "name": "Integration Engineer",
+      "package": "chain-of-command",
+      "path": "chain-of-command/integration-engineer"
+    },
+    {
+      "id": "chain.issue-hygiene-worker",
+      "name": "Issue Hygiene Worker",
+      "package": "chain-of-command",
+      "path": "chain-of-command/issue-hygiene-worker"
+    },
+    {
+      "id": "chain.lint-runner",
+      "name": "Lint Runner",
+      "package": "chain-of-command",
+      "path": "chain-of-command/lint-runner"
+    },
+    {
+      "id": "chain.planner",
+      "name": "Planner",
+      "package": "chain-of-command",
+      "path": "chain-of-command/planner"
+    },
+    {
+      "id": "chain.product-strategist",
+      "name": "Product Strategist",
+      "package": "chain-of-command",
+      "path": "chain-of-command/product-strategist"
+    },
+    {
+      "id": "chain.qa-lead",
+      "name": "QA Lead",
+      "package": "chain-of-command",
+      "path": "chain-of-command/qa-lead"
+    },
+    {
+      "id": "chain.receipt-collector",
+      "name": "Receipt Collector",
+      "package": "chain-of-command",
+      "path": "chain-of-command/receipt-collector"
+    },
+    {
+      "id": "chain.release-verifier",
+      "name": "Release Verifier",
+      "package": "chain-of-command",
+      "path": "chain-of-command/release-verifier"
+    },
+    {
+      "id": "chain.research-analyst",
+      "name": "Research Analyst",
+      "package": "chain-of-command",
+      "path": "chain-of-command/research-analyst"
+    },
+    {
+      "id": "chain.risk-officer",
+      "name": "Risk Officer",
+      "package": "chain-of-command",
+      "path": "chain-of-command/risk-officer"
+    },
+    {
+      "id": "chain.routine-worker",
+      "name": "Routine Worker",
+      "package": "chain-of-command",
+      "path": "chain-of-command/routine-worker"
+    },
+    {
+      "id": "chain.security-reviewer",
+      "name": "Security Reviewer",
+      "package": "chain-of-command",
+      "path": "chain-of-command/security-reviewer"
+    },
+    {
+      "id": "chain.sitrep-agent",
+      "name": "SITREP Agent",
+      "package": "chain-of-command",
+      "path": "chain-of-command/sitrep-agent"
+    },
+    {
+      "id": "chain.spec-writer",
+      "name": "Spec Writer",
+      "package": "chain-of-command",
+      "path": "chain-of-command/spec-writer"
+    },
+    {
+      "id": "chain.systems-architect",
+      "name": "Systems Architect",
+      "package": "chain-of-command",
+      "path": "chain-of-command/systems-architect"
+    },
+    {
+      "id": "chain.test-runner",
+      "name": "Test Runner",
+      "package": "chain-of-command",
+      "path": "chain-of-command/test-runner"
+    },
+    {
+      "id": "chain.tooling-developer",
+      "name": "Tooling Developer",
+      "package": "chain-of-command",
+      "path": "chain-of-command/tooling-developer"
+    },
+    {
+      "id": "chain.triage-agent",
+      "name": "Triage Agent",
+      "package": "chain-of-command",
+      "path": "chain-of-command/triage-agent"
+    },
+    {
+      "id": "chain.visual-qa-agent",
+      "name": "Visual QA Agent",
+      "package": "chain-of-command",
+      "path": "chain-of-command/visual-qa-agent"
+    },
+    {
+      "id": "webops.trend-scout",
+      "name": "Trend Scout",
+      "package": "webops",
+      "path": "webops/trend-scout"
+    },
+    {
+      "id": "webops.keyword-opportunity-analyst",
+      "name": "Keyword Opportunity Analyst",
+      "package": "webops",
+      "path": "webops/keyword-opportunity-analyst"
+    },
+    {
+      "id": "webops.competitor-intelligence-analyst",
+      "name": "Competitor Intelligence Analyst",
+      "package": "webops",
+      "path": "webops/competitor-intelligence-analyst"
+    },
+    {
+      "id": "webops.content-gap-analyst",
+      "name": "Content Gap Analyst",
+      "package": "webops",
+      "path": "webops/content-gap-analyst"
+    },
+    {
+      "id": "webops.backlink-mention-analyst",
+      "name": "Backlink & Mention Analyst",
+      "package": "webops",
+      "path": "webops/backlink-mention-analyst"
+    },
+    {
+      "id": "webops.seo-auditor",
+      "name": "SEO Auditor",
+      "package": "webops",
+      "path": "webops/seo-auditor"
+    },
+    {
+      "id": "webops.search-performance-analyst",
+      "name": "Search Performance Analyst",
+      "package": "webops",
+      "path": "webops/search-performance-analyst"
+    },
+    {
+      "id": "webops.indexation-analyst",
+      "name": "Indexation Analyst",
+      "package": "webops",
+      "path": "webops/indexation-analyst"
+    },
+    {
+      "id": "webops.technical-seo-auditor",
+      "name": "Technical SEO Auditor",
+      "package": "webops",
+      "path": "webops/technical-seo-auditor"
+    },
+    {
+      "id": "webops.ai-search-visibility-analyst",
+      "name": "AI Search Visibility Analyst",
+      "package": "webops",
+      "path": "webops/ai-search-visibility-analyst"
+    },
+    {
+      "id": "webops.content-decay-analyst",
+      "name": "Content Decay Analyst",
+      "package": "webops",
+      "path": "webops/content-decay-analyst"
+    },
+    {
+      "id": "webops.internal-link-specialist",
+      "name": "Internal Link Specialist",
+      "package": "webops",
+      "path": "webops/internal-link-specialist"
+    },
+    {
+      "id": "webops.content-accuracy-reviewer",
+      "name": "Content Accuracy Reviewer",
+      "package": "webops",
+      "path": "webops/content-accuracy-reviewer"
+    },
+    {
+      "id": "webops.cannibalization-analyst",
+      "name": "Cannibalization Analyst",
+      "package": "webops",
+      "path": "webops/cannibalization-analyst"
+    },
+    {
+      "id": "webops.content-portfolio-manager",
+      "name": "Content Portfolio Manager",
+      "package": "webops",
+      "path": "webops/content-portfolio-manager"
+    },
+    {
+      "id": "webops.content-pruning-analyst",
+      "name": "Content Pruning Analyst",
+      "package": "webops",
+      "path": "webops/content-pruning-analyst"
+    },
+    {
+      "id": "webops.site-qa-operator",
+      "name": "Site QA Operator",
+      "package": "webops",
+      "path": "webops/site-qa-operator"
+    },
+    {
+      "id": "webops.performance-analyst",
+      "name": "Performance Analyst",
+      "package": "webops",
+      "path": "webops/performance-analyst"
+    },
+    {
+      "id": "webops.accessibility-auditor",
+      "name": "Accessibility Auditor",
+      "package": "webops",
+      "path": "webops/accessibility-auditor"
+    },
+    {
+      "id": "webops.schema-auditor",
+      "name": "Schema Auditor",
+      "package": "webops",
+      "path": "webops/schema-auditor"
+    },
+    {
+      "id": "webops.link-health-auditor",
+      "name": "Link Health Auditor",
+      "package": "webops",
+      "path": "webops/link-health-auditor"
+    },
+    {
+      "id": "webops.metadata-auditor",
+      "name": "Metadata Auditor",
+      "package": "webops",
+      "path": "webops/metadata-auditor"
+    },
+    {
+      "id": "webops.search-submission-operator",
+      "name": "Search Submission Operator",
+      "package": "webops",
+      "path": "webops/search-submission-operator"
+    },
+    {
+      "id": "webops.analytics-analyst",
+      "name": "Analytics Analyst",
+      "package": "webops",
+      "path": "webops/analytics-analyst"
+    },
+    {
+      "id": "webops.information-architecture-auditor",
+      "name": "Information Architecture Auditor",
+      "package": "webops",
+      "path": "webops/information-architecture-auditor"
+    },
+    {
+      "id": "webops.distribution-operator",
+      "name": "Distribution Operator",
+      "package": "webops",
+      "path": "webops/distribution-operator"
+    },
+    {
+      "id": "webops.search-web-standards-watch",
+      "name": "Search & Web Standards Watch",
+      "package": "webops",
+      "path": "webops/search-web-standards-watch"
+    },
+    {
+      "id": "webops.webops-reporter",
+      "name": "WebOps Reporter",
+      "package": "webops",
+      "path": "webops/webops-reporter"
+    },
+    {
+      "id": "publishing-house.publisher",
+      "name": "Publisher",
+      "package": "publishing-house",
+      "path": "publishing-house/publisher"
+    },
+    {
+      "id": "publishing-house.editor-in-chief",
+      "name": "Editor-in-Chief",
+      "package": "publishing-house",
+      "path": "publishing-house/editor-in-chief"
+    },
+    {
+      "id": "publishing-house.managing-editor",
+      "name": "Managing Editor",
+      "package": "publishing-house",
+      "path": "publishing-house/managing-editor"
+    },
+    {
+      "id": "publishing-house.editorial-strategy-director",
+      "name": "Editorial Strategy Director",
+      "package": "publishing-house",
+      "path": "publishing-house/editorial-strategy-director"
+    },
+    {
+      "id": "publishing-house.brand-strategy-director",
+      "name": "Brand Strategy Director",
+      "package": "publishing-house",
+      "path": "publishing-house/brand-strategy-director"
+    },
+    {
+      "id": "publishing-house.director-of-editorial-intelligence",
+      "name": "Director of Editorial Intelligence",
+      "package": "publishing-house",
+      "path": "publishing-house/director-of-editorial-intelligence"
+    },
+    {
+      "id": "publishing-house.creative-director",
+      "name": "Creative Director",
+      "package": "publishing-house",
+      "path": "publishing-house/creative-director"
+    },
+    {
+      "id": "publishing-house.commissioning-editor",
+      "name": "Commissioning Editor",
+      "package": "publishing-house",
+      "path": "publishing-house/commissioning-editor"
+    },
+    {
+      "id": "publishing-house.features-writer",
+      "name": "Features Writer",
+      "package": "publishing-house",
+      "path": "publishing-house/features-writer"
+    },
+    {
+      "id": "publishing-house.technical-editor-writer",
+      "name": "Technical Editor & Writer",
+      "package": "publishing-house",
+      "path": "publishing-house/technical-editor-writer"
+    },
+    {
+      "id": "publishing-house.campaign-copywriter",
+      "name": "Campaign Copywriter",
+      "package": "publishing-house",
+      "path": "publishing-house/campaign-copywriter"
+    },
+    {
+      "id": "publishing-house.art-director",
+      "name": "Art Director",
+      "package": "publishing-house",
+      "path": "publishing-house/art-director"
+    },
+    {
+      "id": "publishing-house.developmental-editor",
+      "name": "Developmental Editor",
+      "package": "publishing-house",
+      "path": "publishing-house/developmental-editor"
+    },
+    {
+      "id": "publishing-house.copy-chief",
+      "name": "Copy Chief",
+      "package": "publishing-house",
+      "path": "publishing-house/copy-chief"
+    },
+    {
+      "id": "publishing-house.standards-evidence-editor",
+      "name": "Standards & Evidence Editor",
+      "package": "publishing-house",
+      "path": "publishing-house/standards-evidence-editor"
+    },
+    {
+      "id": "publishing-house.franchise-adaptation-editor",
+      "name": "Franchise & Adaptation Editor",
+      "package": "publishing-house",
+      "path": "publishing-house/franchise-adaptation-editor"
+    },
+    {
+      "id": "publishing-house.audience-development-director",
+      "name": "Audience Development Director",
+      "package": "publishing-house",
+      "path": "publishing-house/audience-development-director"
+    },
+    {
+      "id": "publishing-house.production-editor",
+      "name": "Production Editor",
+      "package": "publishing-house",
+      "path": "publishing-house/production-editor"
+    },
+    {
+      "id": "publishing-house.publishing-operations-director",
+      "name": "Publishing Operations Director",
+      "package": "publishing-house",
+      "path": "publishing-house/publishing-operations-director"
+    },
+    {
+      "id": "publishing-house.newsletter-editor",
+      "name": "Newsletter Editor",
+      "package": "publishing-house",
+      "path": "publishing-house/newsletter-editor"
+    },
+    {
+      "id": "publishing-house.social-community-editor",
+      "name": "Social & Community Editor",
+      "package": "publishing-house",
+      "path": "publishing-house/social-community-editor"
+    },
+    {
+      "id": "publishing-house.case-study-editor",
+      "name": "Case Study Editor",
+      "package": "publishing-house",
+      "path": "publishing-house/case-study-editor"
+    },
+    {
+      "id": "publishing-house.video-audio-producer",
+      "name": "Video & Audio Producer",
+      "package": "publishing-house",
+      "path": "publishing-house/video-audio-producer"
+    }
+  ]
+}

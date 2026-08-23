@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.risk-officer/input.schema.json",
+  "title": "Risk Officer Input",
+  "type": "object",
+  "properties": {
+    "goal_spec_diff_or_planned_change_target_repos_release_intent_risk_tolerance_and_existing_evidence": {
+      "type": "string",
+      "description": "Goal, spec, diff or planned change, target repos, release intent, risk tolerance, and existing evidence."
+    }
+  },
+  "additionalProperties": true
+}

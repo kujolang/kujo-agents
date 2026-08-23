@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.triage-agent/input.schema.json",
+  "title": "Triage Agent Input",
+  "type": "object",
+  "properties": {
+    "flag_reason_stopped_workflow_or_handoff_target_repo_artifact_expected_behavior_actual_behavior_relevant_diffs_command_output_logs_receipts_and_prior_agent_claims": {
+      "type": "string",
+      "description": "Flag reason, stopped workflow or handoff, target repo/artifact, expected behavior, actual behavior, relevant diffs, command output, logs, receipts, and prior agent claims."
+    }
+  },
+  "additionalProperties": true
+}

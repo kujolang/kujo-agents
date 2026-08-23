@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.production-editor/output.schema.json",
+  "title": "Production Editor Output",
+  "type": "object",
+  "properties": {
+    "artifact_manifest_and_immutable_version_identifiers": {
+      "type": "string",
+      "description": "Artifact manifest and immutable version identifiers."
+    },
+    "human_review_index_and_completeness_report": {
+      "type": "string",
+      "description": "Human review index and completeness report."
+    },
+    "publishing_handoff_for_the_exact_approved_package": {
+      "type": "string",
+      "description": "Publishing handoff for the exact approved package."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.standards-evidence-editor/output.schema.json",
+  "title": "Standards & Evidence Editor Output",
+  "type": "object",
+  "properties": {
+    "claim_ledger_and_verification_result": {
+      "type": "string",
+      "description": "Claim ledger and verification result."
+    },
+    "blockers_corrections_caveats_and_unavailable_checks": {
+      "type": "string",
+      "description": "Blockers, corrections, caveats, and unavailable checks."
+    },
+    "pass_conditional_pass_or_block_recommendation": {
+      "type": "string",
+      "description": "Pass, conditional pass, or block recommendation."
+    }
+  },
+  "additionalProperties": true
+}

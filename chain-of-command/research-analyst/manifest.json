@@ -1,0 +1,87 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.research-analyst",
+  "name": "Research Analyst",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "planning",
+    "model_tier": "Standard/high reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Scent",
+      "Scout",
+      "RAG",
+      "Capsule"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "research_question_target_repos_sources_exclusions_time_budget_and_desired_output_format",
+      "description": "Research question, target repos/sources, exclusions, time budget, and desired output format."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "source_map",
+      "description": "Source map."
+    },
+    {
+      "name": "confirmed_facts",
+      "description": "Confirmed facts."
+    },
+    {
+      "name": "inferences",
+      "description": "Inferences."
+    },
+    {
+      "name": "unknowns",
+      "description": "Unknowns."
+    },
+    {
+      "name": "recommended_next_steps",
+      "description": "Recommended next steps."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when the research question is answered enough for the next agent or when source evidence is insufficient."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

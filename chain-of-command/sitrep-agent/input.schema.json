@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.sitrep-agent/input.schema.json",
+  "title": "SITREP Agent Input",
+  "type": "object",
+  "properties": {
+    "goal_current_status_run_receipts_case_bundles_diffs_command_outputs_blockers_and_next_owner": {
+      "type": "string",
+      "description": "Goal, current status, run receipts, case bundles, diffs, command outputs, blockers, and next owner."
+    }
+  },
+  "additionalProperties": true
+}

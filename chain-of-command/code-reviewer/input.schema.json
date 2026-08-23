@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.code-reviewer/input.schema.json",
+  "title": "Code Reviewer Input",
+  "type": "object",
+  "properties": {
+    "diff_changed_files_spec_plan_test_results_risk_context_and_relevant_docs": {
+      "type": "string",
+      "description": "Diff, changed files, spec/plan, test results, risk context, and relevant docs."
+    }
+  },
+  "additionalProperties": true
+}

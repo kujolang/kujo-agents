@@ -1,0 +1,98 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "webops.content-decay-analyst",
+  "name": "Content Decay Analyst",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "webops",
+    "layer": "Content Operations",
+    "model_tier": "standard",
+    "category": "Content Operations"
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [
+      "website"
+    ],
+    "recommended": [
+      "search-performance-provider",
+      "content-graph"
+    ],
+    "optional": [
+      "analytics-provider",
+      "keyword-data-provider"
+    ]
+  },
+  "tools": {
+    "primary": [
+      "SearchBridge",
+      "ContentGraph"
+    ],
+    "secondary": [
+      "SiteProbe",
+      "RAG"
+    ]
+  },
+  "workflows": [
+    "webops-weekly-search-intelligence",
+    "webops-content-refresh",
+    "webops-monthly-seo-review"
+  ],
+  "inputs": [
+    {
+      "name": "validated_webops_site_profile_target_scope_permission_mode_time_window_and_historical_run_references",
+      "description": "Validated WebOps site profile, target scope, permission mode, time window, and historical run references."
+    },
+    {
+      "name": "required_capability_artifacts_plus_explicitly_identified_optional_provider_evidence",
+      "description": "Required capability artifacts plus explicitly identified optional provider evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "versioned_evidence_references_time_stamped_findings_with_stable_identities_and_confidence_availability_labels",
+      "description": "Versioned evidence references, time-stamped findings with stable identities, and confidence/availability labels."
+    },
+    {
+      "name": "separate_findings_recommendations_recorded_actions_and_measured_outcomes_never_collapse_those_states",
+      "description": "Separate findings, recommendations, recorded actions, and measured outcomes; never collapse those states."
+    },
+    {
+      "name": "a_quiet_human_summary_of_what_changed_improved_regressed_persists_resolved_or_could_not_be_checked",
+      "description": "A quiet human summary of what changed, improved, regressed, persists, resolved, or could not be checked."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when the scoped evidence is exhausted, required capability is unavailable, output validates, an approval boundary is reached, or additional work would duplicate another specialist."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

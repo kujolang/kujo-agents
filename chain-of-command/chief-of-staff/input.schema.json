@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.chief-of-staff/input.schema.json",
+  "title": "Chief of Staff Input",
+  "type": "object",
+  "properties": {
+    "user_goal_constraints_target_repo_relevant_docs_current_status_deadline_and_preferred_verification_level": {
+      "type": "string",
+      "description": "User goal, constraints, target repo, relevant docs, current status, deadline, and preferred verification level."
+    }
+  },
+  "additionalProperties": true
+}

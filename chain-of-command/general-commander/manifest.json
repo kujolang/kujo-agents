@@ -1,0 +1,93 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.general-commander",
+  "name": "General Commander",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "strategic",
+    "model_tier": "Premium reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Spec",
+      "Dispatch",
+      "RunLedger",
+      "ShipCheck",
+      "Concord",
+      "Relay",
+      "Tribunal",
+      "CaseFile",
+      "Scent",
+      "Muzzle"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "user_mission_constraints_target_repos_deadlines_success_criteria_risk_tolerance_and_known_blockers",
+      "description": "User mission, constraints, target repos, deadlines, success criteria, risk tolerance, and known blockers."
+    },
+    {
+      "name": "current_context_packs_specs_tickets_run_receipts_or_prior_handoffs_when_available",
+      "description": "Current context packs, specs, tickets, run receipts, or prior handoffs when available."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "mission_interpretation",
+      "description": "Mission interpretation."
+    },
+    {
+      "name": "delegation_plan_with_agent_lanes",
+      "description": "Delegation plan with agent lanes."
+    },
+    {
+      "name": "decision_log_and_unresolved_questions",
+      "description": "Decision log and unresolved questions."
+    },
+    {
+      "name": "final_synthesis_only_after_verification_evidence_is_available",
+      "description": "Final synthesis only after verification evidence is available."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop after assigning bounded work, delivering final synthesis, or identifying a blocker that needs user or human owner input."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

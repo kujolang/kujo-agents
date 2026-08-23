@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.documentation-writer/input.schema.json",
+  "title": "Documentation Writer Input",
+  "type": "object",
+  "properties": {
+    "target_docs_source_behavior_diff_spec_command_output_intended_audience_and_docs_style_constraints": {
+      "type": "string",
+      "description": "Target docs, source behavior, diff/spec, command output, intended audience, and docs style constraints."
+    }
+  },
+  "additionalProperties": true
+}

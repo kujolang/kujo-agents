@@ -1,0 +1,104 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.triage-agent",
+  "name": "Triage Agent",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "verification",
+    "model_tier": "Standard/high reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Dispatch",
+      "RunLedger",
+      "ShipCheck",
+      "Concord",
+      "Relay",
+      "CaseFile",
+      "Scent",
+      "Scout",
+      "Fence",
+      "Eval",
+      "PatchBrief",
+      "ChangeBucket"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "flag_reason_stopped_workflow_or_handoff_target_repo_artifact_expected_behavior_actual_behavior_relevant_diffs_command_output_logs_receipts_and_prior_agent_claims",
+      "description": "Flag reason, stopped workflow or handoff, target repo/artifact, expected behavior, actual behavior, relevant diffs, command output, logs, receipts, and prior agent claims."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "triage_verdict",
+      "description": "false alarm, needs fix, needs more evidence, needs human decision, or stop remains active."
+    },
+    {
+      "name": "severity_and_affected_surface",
+      "description": "Severity and affected surface."
+    },
+    {
+      "name": "evidence_summary_with_artifact_paths",
+      "description": "Evidence summary with artifact paths."
+    },
+    {
+      "name": "reproduction_or_verification_commands_when_available",
+      "description": "Reproduction or verification commands when available."
+    },
+    {
+      "name": "next_owner_and_resume_conditions",
+      "description": "Next owner and resume conditions."
+    },
+    {
+      "name": "human_review_packet_when_human_authority_is_required",
+      "description": "Human review packet when human authority is required."
+    },
+    {
+      "name": "immediate_response_owner_cadence_and_closure_condition_when_short_coordination_is_needed",
+      "description": "Immediate response owner, cadence, and closure condition when short coordination is needed."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when a triage verdict and next owner are clear.",
+    "Stop without resuming the workflow when evidence is insufficient or human authority is required."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

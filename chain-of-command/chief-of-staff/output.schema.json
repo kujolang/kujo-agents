@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.chief-of-staff/output.schema.json",
+  "title": "Chief of Staff Output",
+  "type": "object",
+  "properties": {
+    "objective_breakdown": {
+      "type": "string",
+      "description": "Objective breakdown."
+    },
+    "agent_assignment_map": {
+      "type": "string",
+      "description": "Agent assignment map."
+    },
+    "handoff_queue": {
+      "type": "string",
+      "description": "Handoff queue."
+    },
+    "acceptance_evidence_checklist": {
+      "type": "string",
+      "description": "Acceptance evidence checklist."
+    }
+  },
+  "additionalProperties": true
+}

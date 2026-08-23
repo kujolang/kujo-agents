@@ -1,0 +1,85 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.frontend-developer",
+  "name": "Frontend Developer",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "execution",
+    "model_tier": "Standard coding."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "CaseFile",
+      "Eval",
+      "Lens",
+      "SSG",
+      "SiteKit",
+      "Kujo Docs"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "feature_scope_target_screens_routes_design_constraints_data_contracts_acceptance_criteria_and_run_commands",
+      "description": "Feature scope, target screens/routes, design constraints, data contracts, acceptance criteria, and run commands."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "implemented_ui_change",
+      "description": "Implemented UI change."
+    },
+    {
+      "name": "responsive_and_interaction_states",
+      "description": "Responsive and interaction states."
+    },
+    {
+      "name": "relevant_tests_or_visual_qa_evidence",
+      "description": "Relevant tests or visual QA evidence."
+    },
+    {
+      "name": "notes_on_browser_accessibility_risks",
+      "description": "Notes on browser/accessibility risks."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when UI meets acceptance criteria and evidence is collected, or when app cannot run."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

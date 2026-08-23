@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.receipt-collector/output.schema.json",
+  "title": "Receipt Collector Output",
+  "type": "object",
+  "properties": {
+    "receipt_ids": {
+      "type": "string",
+      "description": "Receipt IDs."
+    },
+    "artifact_paths": {
+      "type": "string",
+      "description": "Artifact paths."
+    },
+    "command_log_references": {
+      "type": "string",
+      "description": "Command/log references."
+    },
+    "redaction_notes": {
+      "type": "string",
+      "description": "Redaction notes."
+    },
+    "missing_evidence_list": {
+      "type": "string",
+      "description": "Missing evidence list."
+    }
+  },
+  "additionalProperties": true
+}

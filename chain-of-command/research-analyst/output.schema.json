@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.research-analyst/output.schema.json",
+  "title": "Research Analyst Output",
+  "type": "object",
+  "properties": {
+    "source_map": {
+      "type": "string",
+      "description": "Source map."
+    },
+    "confirmed_facts": {
+      "type": "string",
+      "description": "Confirmed facts."
+    },
+    "inferences": {
+      "type": "string",
+      "description": "Inferences."
+    },
+    "unknowns": {
+      "type": "string",
+      "description": "Unknowns."
+    },
+    "recommended_next_steps": {
+      "type": "string",
+      "description": "Recommended next steps."
+    }
+  },
+  "additionalProperties": true
+}

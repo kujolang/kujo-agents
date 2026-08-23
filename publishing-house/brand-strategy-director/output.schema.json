@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.brand-strategy-director/output.schema.json",
+  "title": "Brand Strategy Director Output",
+  "type": "object",
+  "properties": {
+    "versioned_brand_profile": {
+      "type": "string",
+      "description": "Versioned brand profile."
+    },
+    "positioning_and_message_architecture": {
+      "type": "string",
+      "description": "Positioning and message architecture."
+    },
+    "distinctiveness_tests_and_prohibited_shortcuts": {
+      "type": "string",
+      "description": "Distinctiveness tests and prohibited shortcuts."
+    }
+  },
+  "additionalProperties": true
+}

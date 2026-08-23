@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.context-packager/output.schema.json",
+  "title": "Context Packager Output",
+  "type": "object",
+  "properties": {
+    "context_pack_or_execution_pack": {
+      "type": "string",
+      "description": "Context pack or execution pack."
+    },
+    "included_excluded_source_list": {
+      "type": "string",
+      "description": "Included/excluded source list."
+    },
+    "redaction_and_token_budget_notes": {
+      "type": "string",
+      "description": "Redaction and token/budget notes."
+    },
+    "handoff_instructions": {
+      "type": "string",
+      "description": "Handoff instructions."
+    }
+  },
+  "additionalProperties": true
+}

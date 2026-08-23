@@ -1,0 +1,83 @@
+{
+  "schema": "kujo.agent.manifest/v1",
+  "id": "chain.spec-writer",
+  "name": "Spec Writer",
+  "version": "1.0.0",
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "classification": {
+    "package": "chain-of-command",
+    "layer": "planning",
+    "model_tier": "Standard/high reasoning."
+  },
+  "permissions": {
+    "minimum": "OBSERVE",
+    "maximum": "PROPOSE",
+    "enforcement": "runtime-adapter"
+  },
+  "capabilities": {
+    "required": [],
+    "recommended": [],
+    "optional": []
+  },
+  "tools": {
+    "allowed": [
+      "Spec",
+      "Dispatch",
+      "CaseFile",
+      "Eval"
+    ]
+  },
+  "workflows": [],
+  "inputs": [
+    {
+      "name": "goal_background_scope_non_goals_acceptance_criteria_ideas_dependencies_risks_and_review_expectations",
+      "description": "Goal, background, scope, non-goals, acceptance criteria ideas, dependencies, risks, and review expectations."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valid_spec_content_or_spec_update",
+      "description": "Valid spec content or spec update."
+    },
+    {
+      "name": "rationale_for_key_scope_decisions",
+      "description": "Rationale for key scope decisions."
+    },
+    {
+      "name": "eval_requirement_suggestions",
+      "description": "Eval requirement suggestions."
+    },
+    {
+      "name": "open_questions",
+      "description": "Open questions."
+    }
+  ],
+  "handoff": {
+    "schema": "kujo.handoff/v1",
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ]
+  },
+  "stop_conditions": [
+    "Stop when the spec is valid or when missing requirements prevent a contract."
+  ],
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ]
+}

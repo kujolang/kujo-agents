@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.lint-runner/output.schema.json",
+  "title": "Lint Runner Output",
+  "type": "object",
+  "properties": {
+    "command_run": {
+      "type": "string",
+      "description": "Command run."
+    },
+    "exit_code": {
+      "type": "string",
+      "description": "Exit code."
+    },
+    "key_diagnostics": {
+      "type": "string",
+      "description": "Key diagnostics."
+    },
+    "artifact_log_paths": {
+      "type": "string",
+      "description": "Artifact/log paths."
+    }
+  },
+  "additionalProperties": true
+}

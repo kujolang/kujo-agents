@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/chain.sitrep-agent/output.schema.json",
+  "title": "SITREP Agent Output",
+  "type": "object",
+  "properties": {
+    "short_status_report": {
+      "type": "string",
+      "description": "Short status report."
+    },
+    "completed_work": {
+      "type": "string",
+      "description": "Completed work."
+    },
+    "current_blockers": {
+      "type": "string",
+      "description": "Current blockers."
+    },
+    "evidence_artifact_paths": {
+      "type": "string",
+      "description": "Evidence/artifact paths."
+    },
+    "next_recommended_action": {
+      "type": "string",
+      "description": "Next recommended action."
+    }
+  },
+  "additionalProperties": true
+}

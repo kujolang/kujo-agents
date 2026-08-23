@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.art-director/output.schema.json",
+  "title": "Art Director Output",
+  "type": "object",
+  "properties": {
+    "visual_direction_and_asset_brief": {
+      "type": "string",
+      "description": "Visual direction and asset brief."
+    },
+    "composition_typography_palette_imagery_and_accessibility_specifications": {
+      "type": "string",
+      "description": "Composition, typography, palette, imagery, and accessibility specifications."
+    },
+    "review_notes_for_produced_visual_artifacts": {
+      "type": "string",
+      "description": "Review notes for produced visual artifacts."
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.dev/schemas/publishing-house.campaign-copywriter/output.schema.json",
+  "title": "Campaign Copywriter Output",
+  "type": "object",
+  "properties": {
+    "versioned_copy_deck_with_labeled_routes": {
+      "type": "string",
+      "description": "Versioned copy deck with labeled routes."
+    },
+    "headline_body_cta_and_placement_variants": {
+      "type": "string",
+      "description": "Headline, body, CTA, and placement variants."
+    },
+    "rationale_tied_to_audience_strategy_and_evidence": {
+      "type": "string",
+      "description": "Rationale tied to audience, strategy, and evidence."
+    }
+  },
+  "additionalProperties": true
+}
