@@ -20,13 +20,25 @@ def main():
     role_skills=set()
     for agent in agents:
         slug=agent["slug"]; folder=WEBOPS/slug; contract=folder/"AGENT.md"; skill=folder/"SKILL.md"
+        manifest=folder/"manifest.json"
+        input_schema=folder/"input.schema.json"
+        output_schema=folder/"output.schema.json"
         if not contract.is_file() or not skill.is_file(): errors.append(f"{slug}: missing AGENT.md or SKILL.md"); continue
+        pmin=agent["permission_min"]; pmax=agent["permission_max"]
+        for path in (manifest,input_schema,output_schema):
+            if not path.is_file(): errors.append(f"{slug}: missing {path.name}")
+        if manifest.is_file():
+            try:
+                manifest_data=json.loads(manifest.read_text())
+                if manifest_data.get("id") != f"webops.{slug}": errors.append(f"{slug}: manifest id mismatch")
+                if manifest_data.get("classification",{}).get("package") != "webops": errors.append(f"{slug}: manifest package mismatch")
+                if manifest_data.get("permissions",{}).get("maximum") != pmax: errors.append(f"{slug}: manifest permission mismatch")
+            except json.JSONDecodeError as exc: errors.append(f"{slug}: invalid manifest JSON: {exc}")
         body=contract.read_text(); skill_body=skill.read_text()
         for heading in HEADINGS:
             if f"## {heading}" not in body: errors.append(f"{slug}: missing heading {heading}")
         for label in ("Minimum Permission Mode","Maximum Permission Mode","Required Capabilities","Recommended Capabilities","Optional Capabilities","Historical Inputs"):
             if f"- {label}:" not in body: errors.append(f"{slug}: missing {label}")
-        pmin=agent["permission_min"]; pmax=agent["permission_max"]
         if pmin not in PERMS or pmax not in PERMS or PERMS.get(pmin,99)>PERMS.get(pmax,-1): errors.append(f"{slug}: invalid permission range")
         for cap in agent["required_capabilities"]+agent["recommended_capabilities"]+agent["optional_capabilities"]:
             if cap not in CAPS: errors.append(f"{slug}: unknown capability {cap}")

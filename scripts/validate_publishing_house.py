@@ -101,11 +101,23 @@ def main() -> int:
         contract = folder / "AGENT.md"
         skill = folder / "SKILL.md"
         interface = folder / "agents" / "openai.yaml"
-        for path in (contract, skill, interface):
+        manifest = folder / "manifest.json"
+        input_schema = folder / "input.schema.json"
+        output_schema = folder / "output.schema.json"
+        for path in (contract, skill, interface, manifest, input_schema, output_schema):
             if not path.is_file():
                 errors.append(f"{slug}: missing {path.relative_to(folder)}")
         if not contract.is_file() or not skill.is_file():
             continue
+        permission = agent.get("maximum_permission")
+        if manifest.is_file():
+            try:
+                manifest_data = json.loads(manifest.read_text())
+                if manifest_data.get("id") != f"publishing-house.{slug}": errors.append(f"{slug}: manifest id mismatch")
+                if manifest_data.get("classification", {}).get("package") != "publishing-house": errors.append(f"{slug}: manifest package mismatch")
+                if manifest_data.get("permissions", {}).get("maximum") != permission: errors.append(f"{slug}: manifest permission mismatch")
+            except json.JSONDecodeError as exc:
+                errors.append(f"{slug}: invalid manifest JSON: {exc}")
 
         body = contract.read_text()
         skill_body = skill.read_text()
@@ -120,7 +132,6 @@ def main() -> int:
         ):
             if phrase not in body:
                 errors.append(f"{slug}: missing contract phrase {phrase}")
-        permission = agent.get("maximum_permission")
         if permission not in PERMISSIONS or f"- Maximum permission mode: {permission}." not in body:
             errors.append(f"{slug}: invalid or mismatched maximum permission")
 

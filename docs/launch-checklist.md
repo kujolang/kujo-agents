@@ -18,6 +18,8 @@ House agent contracts, their shared maps, and evidence and authority boundaries.
   workflows, tool ownership boundaries, and all 23 role bindings.
 - [x] Tool-to-agent relationships remain source-grounded or explicitly marked
   as inferred.
+- [x] All 79 roles expose provider-neutral manifests and I/O schemas, with a
+  checked-in registry and credential-free Hermes/Paperclip renderers.
 - [x] Templates retain explicit authority, handoff, evidence, and stop
   conditions.
 - [x] Repository formatting passes `git diff --check`.

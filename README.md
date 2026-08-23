@@ -86,6 +86,16 @@ Each agent package keeps its role contract and operating skill together. The
 templates are guidance and review material; they do not provide sandboxing,
 authorization, or policy enforcement by themselves.
 
+Every role also includes a provider-neutral `manifest.json`,
+`input.schema.json`, and `output.schema.json`. The complete package format and
+credential-free Hermes/Paperclip renderers are documented in
+[`docs/agent-package-format.md`](docs/agent-package-format.md).
+
+The checked-in [`agent-registry.json`](agent-registry.json) indexes all 79
+roles. Rebuild it and the role package files with
+`python3 scripts/generate_agent_manifests.py`, then validate them with
+`python3 scripts/validate_agent_packages.py`.
+
 ## Release Status
 
 `v1.2.0` preserves the stable Chain of Command and WebOps baselines while

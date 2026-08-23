@@ -36,6 +36,7 @@ done
 bash .github/scripts/check-kujo-tool-artifacts.sh
 python3 scripts/validate_webops.py
 python3 scripts/validate_publishing_house.py
+python3 scripts/validate_agent_packages.py
 test "$(cat VERSION)" = "1.2.0"
 git diff --check
 ```
