@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 VERSION = "1.0.0"
 HANDOFF_FIELDS = ["assignment", "current_owner", "next_owner", "goal", "scope", "evidence", "decisions", "unresolved_questions", "allowed_next_actions", "stop_condition"]
-CHAIN_TOOLS = ["Spec", "Dispatch", "RunLedger", "ShipCheck", "Concord", "Relay", "Tribunal", "CaseFile", "Scent", "Muzzle", "Scout", "Fence", "Eval", "PatchBrief", "ChangeBucket", "Lens", "SSG", "SiteKit", "Kujo Docs", "MCP", "Watchdog", "Agents SDK", "AI SDK", "RAG", "Capsule", "PackWrite", "Redact", "Workcell", "Kennel", "Howl", "Kujo Doctor"]
+CHAIN_TOOLS = ["Spec", "Dispatch", "RunLedger", "ShipCheck", "Concord", "Relay", "Tribunal", "CaseFile", "Scent", "Muzzle", "Scout", "Fence", "Eval", "PatchBrief", "ChangeBucket", "Lens", "SSG", "SiteKit", "Kujo Docs", "Kujolang MCP", "Kujo Pi", "MCP", "Watchdog", "Agents SDK", "AI SDK", "Kujo AI provider packages", "RAG", "Capsule", "PackWrite", "Redact", "Workcell", "Workcell Studio", "Hermes Discord profiles", "Kennel", "Howl", "Kujo Doctor"]
 
 
 def bullets(body: str, heading: str) -> list[dict[str, str]]:

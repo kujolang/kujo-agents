@@ -2,6 +2,40 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-08-29 Audit
+
+### Provider Adapter Maintainer
+
+- Proposed role: Provider Adapter Maintainer.
+- Problem or gap: the sibling ecosystem now includes provider-specific Kujo packages for Anthropic, OpenAI, Gemini, OpenRouter, xAI, Groq, Together, Fireworks, Mistral, Cerebras, DeepInfra, DeepSeek, Cloudflare AI, Hugging Face, Replicate, Cohere, Bedrock, Azure AI, Vertex AI, NVIDIA NIM, Perplexity, Z.ai, fal.ai, Baseten, and Ollama.
+- Repository-backed evidence: `../../anthropic/README.md`, `../../openai/README.md`, `../../gemini/README.md`, `../../ollama/README.md`, and matching sibling provider package READMEs document native clients, AI SDK driver surfaces where applicable, offline release gates, opt-in live smoke commands, and credential boundaries.
+- Relevant tools/skills/repositories: Kujo AI provider packages, AI SDK, Kennel, Eval, Integration Engineer, Backend Developer, Security Reviewer, QA Lead, Release Verifier, Documentation Writer.
+- Expected inputs: provider package path, target model/API feature, AI SDK/native boundary, fixture/live mode, credentials policy, model/version evidence, cost/quota limit, and verification commands.
+- Expected outputs: adapter implementation or review, offline gate evidence, live-smoke boundary if authorized, security notes, documentation updates, and release blockers.
+- Overlap: Integration Engineer, Backend Developer, Security Reviewer, QA Lead, Release Verifier, Documentation Writer, and the existing AI SDK workflow skill.
+- Why not add now: provider adapter work naturally fits existing integration/backend/security/QA/release lanes, and a standalone role would risk encouraging live provider calls, quota use, pricing claims, or model-capability assumptions without explicit task authority.
+- Required authority boundaries: no live model calls, provider credentials, quota spend, current pricing/model claims, data-retention acceptance, provider account mutation, package publishing, or release approval without explicit human authorization and current provider documentation.
+- Verification requirements: package `scripts/release_quality_gate.sh`, `scripts/verify_installed_package.sh` where present, AI SDK fixture/driver tests, secret-redaction tests, documentation checks, and opt-in live smoke only when credentials and cost boundaries are approved.
+- Risks/costs/token impact: separate role would duplicate existing agents and may increase token and provider spend by retesting many adapters when only one package or API contract changed.
+- Recommendation: reject for now; keep provider packages as explicit-task surfaces under existing agents.
+- Evidence still required: repeated workload showing existing integration/backend/security/release agents cannot safely handle provider package maintenance, plus a stable chain-specific skill or workflow contract that preserves live-call boundaries.
+
+### Workcell Studio Operator
+
+- Proposed role: Workcell Studio Operator.
+- Problem or gap: `workcell-studio` exposes a WebMCP-native UI and 16 tools for small project creation, file edits, real Workcell execution, Kujo Eval checks, evidence inspection, patches, manifests, and export.
+- Repository-backed evidence: `../../workcell-studio/README.md`, `../../workcell-studio/package.json`, `../../workcell-studio/docs/ARCHITECTURE.md`, and `../../workcell-studio/docs/SECURITY.md`.
+- Relevant tools/skills/repositories: Workcell Studio, Workcell, Eval, WebMCP, Frontend Developer, Integration Engineer, QA Lead, Visual QA Agent, Security Reviewer, Release Verifier.
+- Expected inputs: Studio target, project template, policy, WebMCP/browser environment, Workcell/Eval paths, access-code boundary, and verification commands.
+- Expected outputs: UI/tool workflow evidence, Workcell receipt, Eval report, patch/manifest verification, browser/WebMCP smoke notes, and security/release blockers.
+- Overlap: Frontend Developer, Integration Engineer, QA Lead, Visual QA Agent, Security Reviewer, Release Verifier.
+- Why not add now: Workcell Studio is a product and review surface. Existing frontend, integration, QA, visual QA, security, and release roles can own its tasks without creating an operator that appears to bypass Workcell or Eval authority.
+- Required authority boundaries: no production deployment, access-code configuration, WebMCP tool exposure, Workcell host policy change, Eval acceptance decision, or browser-origin claim without explicit approval and verification.
+- Verification requirements: `npm test`, `npm run smoke`, `npm run eval`, `npm run shipcheck`, `npm run webmcp:smoke` where Chrome/WebMCP support is available, plus independent security/release review.
+- Risks/costs/token impact: a dedicated operator would duplicate multiple existing roles and could blur product UI operation with independent verification.
+- Recommendation: defer.
+- Evidence still required: recurring Studio-only operational workload and a stable chain workflow showing a single operator improves handoffs without weakening independent QA/security/release checks.
+
 ## 2026-08-22 Audit
 
 ### Source Work Coordinator

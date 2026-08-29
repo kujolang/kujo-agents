@@ -28,10 +28,16 @@
       "Relay",
       "CaseFile",
       "Eval",
+      "Kujolang MCP",
+      "Kujo Pi",
       "MCP",
       "Watchdog",
       "Agents SDK",
-      "AI SDK"
+      "AI SDK",
+      "Kujo AI provider packages",
+      "Workcell",
+      "Workcell Studio",
+      "Hermes Discord profiles"
     ]
   },
   "workflows": [],
