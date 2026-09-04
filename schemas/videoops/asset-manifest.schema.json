@@ -48,6 +48,10 @@
               "null"
             ]
           },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
           "source_url": {
             "type": [
               "string",
