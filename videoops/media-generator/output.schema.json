@@ -4,10 +4,10 @@
   "additionalProperties": false,
   "properties": {
     "artifacts": {
-      "additionalProperties": {
+      "items": {
         "type": "string"
       },
-      "type": "object"
+      "type": "array"
     },
     "attempt": {
       "minimum": 1,
@@ -19,8 +19,16 @@
       },
       "type": "array"
     },
+    "external_calls": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "fixture": {
+      "type": "boolean"
+    },
     "handoff": {
-      "$ref": "../../schemas/videoops/handoff.schema.json"
+      "minLength": 1,
+      "type": "string"
     },
     "model_profile": {
       "type": "string"
@@ -36,17 +44,25 @@
       "minLength": 1,
       "type": "string"
     },
+    "schema": {
+      "const": "videoops.stage-receipt/v1"
+    },
     "stage": {
       "const": "media-generator"
     }
   },
   "required": [
+    "schema",
     "run_id",
     "stage",
     "outcome",
     "artifacts",
     "evidence",
-    "handoff"
+    "model_profile",
+    "attempt",
+    "handoff",
+    "fixture",
+    "external_calls"
   ],
   "title": "Video Media Generator Output",
   "type": "object"

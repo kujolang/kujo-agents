@@ -118,12 +118,12 @@ func role_schema(role, kind) {
     }
     return {
         "$schema":"https://json-schema.org/draft/2020-12/schema", "$id":"https://kujolang.dev/schemas/videoops." + role["slug"] + "/output.schema.json",
-        "title":role["name"] + " Output", "type":"object", "required":["run_id","stage","outcome","artifacts","evidence","handoff"],
+        "title":role["name"] + " Output", "type":"object", "required":["schema","run_id","stage","outcome","artifacts","evidence","model_profile","attempt","handoff","fixture","external_calls"],
         "properties":{
-            "run_id":{"type":"string","minLength":1}, "stage":{"const":role["slug"]},
-            "outcome":{"enum":["completed","blocked","revision_required"]}, "artifacts":{"type":"object","additionalProperties":{"type":"string"}},
+            "schema":{"const":"videoops.stage-receipt/v1"}, "run_id":{"type":"string","minLength":1}, "stage":{"const":role["slug"]},
+            "outcome":{"enum":["completed","blocked","revision_required"]}, "artifacts":{"type":"array","items":{"type":"string"}},
             "evidence":{"type":"array","items":{"type":"string"}}, "model_profile":{"type":"string"}, "attempt":{"type":"integer","minimum":1},
-            "handoff":{"$ref":"../../schemas/videoops/handoff.schema.json"}
+            "handoff":{"type":"string","minLength":1}, "fixture":{"type":"boolean"}, "external_calls":{"type":"integer","minimum":0}
         }, "additionalProperties":false
     }
 }
