@@ -1,0 +1,101 @@
+{
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ],
+  "capabilities": {
+    "optional": [
+      "browser-capture"
+    ],
+    "recommended": [
+      "multimodal",
+      "video-understanding"
+    ],
+    "required": [
+      "filesystem",
+      "structured-output",
+      "media-inspection"
+    ]
+  },
+  "classification": {
+    "layer": "Review",
+    "model_tier": "economical-first",
+    "package": "videoops"
+  },
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "handoff": {
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "artifacts",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ],
+    "schema": "kujo.handoff/v1"
+  },
+  "id": "videoops.video-critic",
+  "inputs": [
+    "planning/creative-brief.md",
+    "planning/transcript.md",
+    "planning/shot-list.json",
+    "planning/style-plan.md",
+    "production/render-log.md",
+    "output/draft.mp4"
+  ],
+  "model_policy": {
+    "default_profile": "economical-multimodal",
+    "max_economical_attempts": 2,
+    "observable": true,
+    "provider_binding": null,
+    "stage_local_escalation": true
+  },
+  "name": "Video Critic",
+  "outputs": [
+    "review/critique.md",
+    "review/approval.json",
+    "review/fix-list.json"
+  ],
+  "permissions": {
+    "enforcement": "runtime-adapter",
+    "maximum": "PROPOSE",
+    "minimum": "OBSERVE"
+  },
+  "schema": "kujo.agent.manifest/v1",
+  "skills": [
+    "videoops-video-spec-comparison",
+    "videoops-pacing-analysis",
+    "videoops-visual-hierarchy-review",
+    "videoops-motion-quality-review",
+    "videoops-audio-visual-review",
+    "videoops-technical-render-review",
+    "videoops-actionable-fix-writing",
+    "videoops-approval-decision"
+  ],
+  "stop_conditions": [
+    "Stop after explicit PASS, actionable FAIL, or three failed revision cycles with unresolved issues recorded."
+  ],
+  "tools": {
+    "allowed": [
+      "FFmpeg",
+      "Lens",
+      "Eval",
+      "RunLedger"
+    ]
+  },
+  "version": "1.0.0",
+  "workflows": [
+    "videoops-quality-review"
+  ]
+}

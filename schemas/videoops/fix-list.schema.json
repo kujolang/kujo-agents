@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "issues": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "acceptance_criteria": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "frame_range": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "implementation_status": {
+            "enum": [
+              "PENDING",
+              "APPLIED",
+              "PARTIAL",
+              "REJECTED",
+              "BLOCKED"
+            ]
+          },
+          "problem": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "required_change": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "BLOCKER",
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ]
+          },
+          "timestamp": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "why_it_matters": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "severity",
+          "problem",
+          "why_it_matters",
+          "required_change",
+          "acceptance_criteria",
+          "implementation_status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "issues"
+  ],
+  "title": "VideoOps Fix List",
+  "type": "object"
+}

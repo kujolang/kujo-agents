@@ -1,7 +1,7 @@
 {
   "schema": "kujo.agent.registry/v1",
   "version": "1.0.0",
-  "agent_count": 79,
+  "agent_count": 84,
   "agents": [
     {
       "id": "chain.backend-developer",
@@ -476,6 +476,36 @@
       "name": "Video & Audio Producer",
       "package": "publishing-house",
       "path": "publishing-house/video-audio-producer"
+    },
+    {
+      "id": "videoops.creative-director",
+      "name": "Video Creative Director",
+      "package": "videoops",
+      "path": "videoops/creative-director"
+    },
+    {
+      "id": "videoops.asset-scout",
+      "name": "Video Asset Scout",
+      "package": "videoops",
+      "path": "videoops/asset-scout"
+    },
+    {
+      "id": "videoops.media-generator",
+      "name": "Video Media Generator",
+      "package": "videoops",
+      "path": "videoops/media-generator"
+    },
+    {
+      "id": "videoops.hyperframes-editor",
+      "name": "Video HyperFrames Editor",
+      "package": "videoops",
+      "path": "videoops/hyperframes-editor"
+    },
+    {
+      "id": "videoops.video-critic",
+      "name": "Video Critic",
+      "package": "videoops",
+      "path": "videoops/video-critic"
     }
   ]
 }

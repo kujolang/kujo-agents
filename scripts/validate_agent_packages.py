@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = {"chain-of-command": 28, "webops": 28, "publishing-house": 23}
+PACKAGES = {"chain-of-command": 28, "webops": 28, "publishing-house": 23, "videoops": 5}
 PERMS = {"OBSERVE": 0, "PROPOSE": 1, "ACT": 2}
 
 
@@ -21,7 +21,7 @@ def main() -> int:
     else:
         registry = json.loads(registry_path.read_text())
     if registry.get("agent_count") != sum(PACKAGES.values()):
-        errors.append("registry agent_count does not equal 79")
+        errors.append(f"registry agent_count does not equal {sum(PACKAGES.values())}")
     ids: set[str] = set()
     for package, expected in PACKAGES.items():
         folders = [path for path in (ROOT / package).iterdir() if path.is_dir() and (path / "AGENT.md").is_file()]
@@ -49,7 +49,7 @@ def main() -> int:
             for schema_name in ("input.schema.json", "output.schema.json"):
                 try: json.loads((folder / schema_name).read_text())
                 except (OSError, json.JSONDecodeError) as exc: errors.append(f"{folder.name}: invalid {schema_name}: {exc}")
-    if len(ids) != sum(PACKAGES.values()): errors.append(f"expected 79 unique agent ids, found {len(ids)}")
+    if len(ids) != sum(PACKAGES.values()): errors.append(f"expected {sum(PACKAGES.values())} unique agent ids, found {len(ids)}")
     if errors:
         print(json.dumps({"valid": False, "errors": errors}, indent=2)); return 1
     print(json.dumps({"valid": True, "agents": len(ids), "packages": PACKAGES}, indent=2)); return 0

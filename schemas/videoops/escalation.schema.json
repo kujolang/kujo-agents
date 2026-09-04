@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attempts": {
+      "minimum": 2,
+      "type": "integer"
+    },
+    "cost": {
+      "minimum": 0,
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "from_profile": {
+      "type": "string"
+    },
+    "input_tokens": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "latency_ms": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "output_tokens": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "previous_gate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provider": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "to_profile": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "stage",
+    "from_profile",
+    "to_profile",
+    "reason",
+    "attempts",
+    "timestamp"
+  ],
+  "title": "VideoOps Escalation Event",
+  "type": "object"
+}

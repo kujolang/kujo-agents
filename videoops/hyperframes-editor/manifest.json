@@ -1,0 +1,107 @@
+{
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ],
+  "capabilities": {
+    "optional": [
+      "browser-capture"
+    ],
+    "recommended": [
+      "repository",
+      "media-inspection"
+    ],
+    "required": [
+      "filesystem",
+      "coding",
+      "structured-output",
+      "hyperframes",
+      "ffmpeg"
+    ]
+  },
+  "classification": {
+    "layer": "Production",
+    "model_tier": "economical-first",
+    "package": "videoops"
+  },
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "handoff": {
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "artifacts",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ],
+    "schema": "kujo.handoff/v1"
+  },
+  "id": "videoops.hyperframes-editor",
+  "inputs": [
+    "planning/creative-brief.md",
+    "planning/transcript.md",
+    "planning/shot-list.json",
+    "planning/style-plan.md",
+    "assets/asset-manifest.json",
+    "review/fix-list.json"
+  ],
+  "model_policy": {
+    "default_profile": "economical-code",
+    "max_economical_attempts": 2,
+    "observable": true,
+    "provider_binding": null,
+    "stage_local_escalation": true
+  },
+  "name": "Video HyperFrames Editor",
+  "outputs": [
+    "production/hyperframes/",
+    "production/render-log.md",
+    "production/production-notes.md",
+    "output/draft.mp4",
+    "output/final.mp4",
+    "output/metadata.json"
+  ],
+  "permissions": {
+    "enforcement": "runtime-adapter",
+    "maximum": "ACT",
+    "minimum": "PROPOSE"
+  },
+  "schema": "kujo.agent.manifest/v1",
+  "skills": [
+    "videoops-hyperframes-project-bootstrap",
+    "videoops-shot-list-to-timeline",
+    "videoops-kinetic-typography",
+    "videoops-media-compositing",
+    "videoops-shader-and-transition-selection",
+    "videoops-audio-sync",
+    "videoops-render-validation",
+    "videoops-fix-list-application"
+  ],
+  "stop_conditions": [
+    "Stop when draft technical gates pass, every fix has a terminal implementation status, or a required asset/runtime capability blocks progress."
+  ],
+  "tools": {
+    "allowed": [
+      "HyperFrames",
+      "FFmpeg",
+      "Eval",
+      "Lens",
+      "RunLedger"
+    ]
+  },
+  "version": "1.0.0",
+  "workflows": [
+    "videoops-hyperframes-edit"
+  ]
+}

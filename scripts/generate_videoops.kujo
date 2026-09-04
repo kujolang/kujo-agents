@@ -1,0 +1,183 @@
+func ensure_dir(path) {
+    if !path_is_dir(path) {
+        result := spawn_process(["mkdir", "-p", path], {"timeout_ms": 5000})
+        if result.exitcode != 0 { panic("cannot create directory: " + path) }
+    }
+}
+
+func write_text(path, value) { write_file_atomic(path, value, true) }
+func write_json(path, value) { write_text(path, to_json_pretty(value) + "\n") }
+
+func role_rows() {
+    return [
+        {
+            "slug":"creative-director", "name":"Video Creative Director", "layer":"Planning", "profile":"economical-general",
+            "purpose":"Transform validated PackWrite intake into a complete timed production plan without acquiring assets or rendering media.",
+            "minimum":"PROPOSE", "maximum":"PROPOSE",
+            "required":["filesystem","structured-output","long-context"], "recommended":["repository"], "optional":["web-research"],
+            "tools":["PackWrite","Spec","Eval","RunLedger"],
+            "skills":["videoops-video-brief-synthesis","videoops-transcript-and-onscreen-copy","videoops-shot-planning","videoops-visual-reference-decomposition","videoops-asset-requirement-specification","videoops-platform-duration-planning"],
+            "workflows":["videoops-creative-planning"],
+            "inputs":["intake/project-brief.md","intake/messaging.md","intake/audience.md","intake/constraints.md","intake/references.md","intake/platform.json"],
+            "outputs":["planning/creative-brief.md","planning/transcript.md","planning/shot-list.json","planning/style-plan.md","planning/asset-requirements.json"],
+            "boundary":"Do not acquire media, generate production assets, edit HyperFrames, render video, or silently extend duration.",
+            "degraded":"Without reference research, plan from supplied references and mark external validation unavailable. Missing required intake blocks the stage.",
+            "evidence":"Account for the full timeline, map every significant shot to asset requirements, record factual-source references, and attach creative-plan Eval results.",
+            "escalation":"Retry one targeted economical revision after a failed gate. Escalate only this stage to premium-creative after two failed economical attempts, low originality, or unresolved narrative incoherence.",
+            "stop":"Stop when all five planning artifacts validate, the planning gate passes, or required intake/evidence is unavailable."
+        },
+        {
+            "slug":"asset-scout", "name":"Video Asset Scout", "layer":"Asseting", "profile":"economical-general",
+            "purpose":"Resolve approved asset requirements from first-party, captured, licensed, or explicit generation sources while preserving provenance.",
+            "minimum":"OBSERVE", "maximum":"PROPOSE",
+            "required":["filesystem","repository","media-inspection"], "recommended":["browser-capture","web-research"], "optional":["media-download"],
+            "tools":["Lens","FFmpeg","RunLedger"],
+            "skills":["videoops-first-party-asset-discovery","videoops-lens-product-capture","videoops-licensed-media-research","videoops-asset-rights-triage","videoops-media-normalization","videoops-asset-manifest-maintenance","videoops-generation-handoff"],
+            "workflows":["videoops-asset-resolution"],
+            "inputs":["planning/creative-brief.md","planning/shot-list.json","planning/asset-requirements.json"],
+            "outputs":["assets/asset-manifest.json","assets/licenses.md","assets/source-log.md"],
+            "boundary":"Do not rewrite narrative or timing, build scenes, render video, falsify rights, or use public availability as permission.",
+            "degraded":"Without browser capture or web research, search first-party files only and mark unmet requirements GENERATE or BLOCKED; never invent provenance.",
+            "evidence":"Every requirement must terminate as FOUND, CAPTURED, GENERATE, NOT_REQUIRED, or BLOCKED with source, rights, usage status, path, and shot mappings where applicable.",
+            "escalation":"Tool or rights ambiguity blocks the specific asset. Premium reasoning is not a substitute for missing source or licensing evidence.",
+            "stop":"Stop when every requested asset has a terminal status and all approved production paths and provenance records validate."
+        },
+        {
+            "slug":"media-generator", "name":"Video Media Generator", "layer":"Asseting", "profile":"economical-general",
+            "purpose":"Create only the smallest set of custom media explicitly marked GENERATE and register each result in the asset manifest.",
+            "minimum":"PROPOSE", "maximum":"ACT",
+            "required":["filesystem","media-generation","media-inspection"], "recommended":["image-understanding"], "optional":["video-generation","ffmpeg"],
+            "tools":["Image Generation","Video Generation","FFmpeg","RunLedger"],
+            "skills":["videoops-generated-still-production","videoops-generated-motion-production","videoops-brand-style-translation","videoops-shot-context-generation","videoops-generation-variant-selection","videoops-generated-asset-manifesting"],
+            "workflows":["videoops-media-generation"],
+            "inputs":["planning/shot-list.json","planning/style-plan.md","assets/asset-manifest.json"],
+            "outputs":["assets/generated/","assets/asset-manifest.json"],
+            "boundary":"Do not generate for non-GENERATE requirements, alter the thesis or timing, acquire external footage, or perform the final edit.",
+            "degraded":"Without an approved generation provider, emit exact generation requests and BLOCKED records. The local fixture generator proves contracts only, not provider quality.",
+            "evidence":"Record generation purpose, provider/tool class, related shots, crop/duration intent, local path, inspection metadata, and selected variant.",
+            "escalation":"Escalate art direction only after a targeted retry fails. Paid or account-backed generation always pauses for explicit operator approval.",
+            "stop":"Stop when every GENERATE item is resolved to an inspected approved path or explicitly BLOCKED."
+        },
+        {
+            "slug":"hyperframes-editor", "name":"Video HyperFrames Editor", "layer":"Production", "profile":"economical-code",
+            "purpose":"Translate approved planning and asset contracts into a deterministic HyperFrames composition, render, and bounded fix-list revisions.",
+            "minimum":"PROPOSE", "maximum":"ACT",
+            "required":["filesystem","coding","structured-output","hyperframes","ffmpeg"], "recommended":["repository","media-inspection"], "optional":["browser-capture"],
+            "tools":["HyperFrames","FFmpeg","Eval","Lens","RunLedger"],
+            "skills":["videoops-hyperframes-project-bootstrap","videoops-shot-list-to-timeline","videoops-kinetic-typography","videoops-media-compositing","videoops-shader-and-transition-selection","videoops-audio-sync","videoops-render-validation","videoops-fix-list-application"],
+            "workflows":["videoops-hyperframes-edit"],
+            "inputs":["planning/creative-brief.md","planning/transcript.md","planning/shot-list.json","planning/style-plan.md","assets/asset-manifest.json","review/fix-list.json"],
+            "outputs":["production/hyperframes/","production/render-log.md","production/production-notes.md","output/draft.mp4","output/final.mp4","output/metadata.json"],
+            "boundary":"Do not invent creative direction, use undocumented assets, silently change copy or timing, or approve your own render.",
+            "degraded":"Unresolved required assets block editing. Missing HyperFrames, Node, Chrome, FFmpeg, or ffprobe produces a capability receipt and no fake render.",
+            "evidence":"Record exact HyperFrames version and commands, checks, dimensions, FPS, duration, audio streams, file checksum, substitutions, and per-fix outcomes.",
+            "escalation":"Retry targeted build or schema repairs once. Escalate only this stage to a stronger coding profile after two failed economical attempts or an unsupported complex effect.",
+            "stop":"Stop when draft technical gates pass, every fix has a terminal implementation status, or a required asset/runtime capability blocks progress."
+        },
+        {
+            "slug":"video-critic", "name":"Video Critic", "layer":"Review", "profile":"economical-multimodal",
+            "purpose":"Independently compare the rendered artifact with approved intent and return deterministic PASS or actionable FAIL evidence.",
+            "minimum":"OBSERVE", "maximum":"PROPOSE",
+            "required":["filesystem","structured-output","media-inspection"], "recommended":["multimodal","video-understanding"], "optional":["browser-capture"],
+            "tools":["FFmpeg","Lens","Eval","RunLedger"],
+            "skills":["videoops-video-spec-comparison","videoops-pacing-analysis","videoops-visual-hierarchy-review","videoops-motion-quality-review","videoops-audio-visual-review","videoops-technical-render-review","videoops-actionable-fix-writing","videoops-approval-decision"],
+            "workflows":["videoops-quality-review"],
+            "inputs":["planning/creative-brief.md","planning/transcript.md","planning/shot-list.json","planning/style-plan.md","production/render-log.md","output/draft.mp4"],
+            "outputs":["review/critique.md","review/approval.json","review/fix-list.json"],
+            "boundary":"Do not edit the composition, source replacement assets, rewrite the concept, invent requirements, or fail solely on personal taste.",
+            "degraded":"Run deterministic technical QA first. Without multimodal inspection, do not claim creative PASS; return a bounded review-incomplete blocker after technical findings.",
+            "evidence":"Evaluate narrative, hook, pacing, hierarchy, motion, brand, audio, transcript fidelity, render quality, and CTA. Each mandatory issue needs severity, timestamp/frame range, problem, impact, change, and acceptance criteria.",
+            "escalation":"Escalate only review to premium-multimodal when confidence is low, gates conflict, or repeated defects remain. After three failed editor/critic cycles, stop and escalate to a human.",
+            "stop":"Stop after explicit PASS, actionable FAIL, or three failed revision cycles with unresolved issues recorded."
+        }
+    ]
+}
+
+func markdown_list(values) {
+    mut out := ""
+    for value in values { out = out + "- `" + value + "`\n" }
+    return out
+}
+
+func render_agent(role) {
+    return "# " + role["name"] + "\n\n## Agent Contract\n\n- Agent name: " + role["name"] + "\n- Package: VideoOps\n- Stage: " + role["layer"] + "\n- Purpose: " + role["purpose"] + "\n- Minimum Permission Mode: " + role["minimum"] + "\n- Maximum Permission Mode: " + role["maximum"] + "\n- Default Model Profile: `" + role["profile"] + "`\n- Provider Binding: none; resolve capabilities at runtime\n\n## Use This Agent When\n\n- The bounded `" + role["layer"] + "` stage matches the assignment.\n- Required inputs exist and validate before stage work begins.\n\n## Do Not Use This Agent When\n\n- Another VideoOps role owns the decision or mutation.\n- The requested action exceeds `" + role["maximum"] + "` or requires unapproved external cost/account access.\n\n## Inputs Expected\n\n" + markdown_list(role["inputs"]) + "\n## Outputs Required\n\n" + markdown_list(role["outputs"]) + "\n## Allowed Tools And Workflows\n\nTools: " + join(role["tools"], ", ") + ".\n\nSkills:\n" + markdown_list(role["skills"]) + "\nWorkflow: `" + role["workflows"][0] + "`. Tool availability never broadens permission.\n\n## Workflow\n\n1. Validate the bounded workspace, inputs, permission, and capability receipt.\n2. Load shared VideoOps standards as read-only context.\n3. Perform only the role-owned stage and write explicit file contracts.\n4. Run deterministic checks before model judgment.\n5. Record attempts, model profile, evidence, gate outcome, and any stage-local escalation.\n6. Emit a `kujo.handoff/v1` artifact and stop.\n\n## Evidence Requirements\n\n" + role["evidence"] + "\n\n## Degraded Operation\n\n" + role["degraded"] + "\n\n## Handoff Rules\n\nHandoffs require assignment, current owner, next owner, goal, scope, artifact paths, evidence, decisions, unresolved questions, allowed next actions, and stop condition. Downstream roles must not need conversational memory.\n\n## Model Routing And Cost\n\nUse `" + role["profile"] + "` by default. Validate, make at most two economical attempts, and escalate only the failing stage. Never accept lower quality because a budget threshold was reached. Every escalation must record from/to profiles, reason, attempts, prior gate result, and time.\n\n## Escalation Rules\n\n" + role["escalation"] + "\n\n## Stop Conditions\n\n- " + role["stop"] + "\n\n## Anti-Scope\n\n- " + role["boundary"] + "\n- Do not store credentials, claim runtime enforcement from this contract, or conceal missing evidence.\n"
+}
+
+func role_schema(role, kind) {
+    if kind == "input" {
+        return {
+            "$schema":"https://json-schema.org/draft/2020-12/schema", "$id":"https://kujolang.dev/schemas/videoops." + role["slug"] + "/input.schema.json",
+            "title":role["name"] + " Input", "type":"object", "required":["run_id","workspace_root","permission_mode","artifacts"],
+            "properties":{
+                "run_id":{"type":"string","minLength":1}, "workspace_root":{"type":"string","minLength":1},
+                "permission_mode":{"enum":["OBSERVE","PROPOSE","ACT"]}, "quality_mode":{"enum":["economy","standard","flagship"]},
+                "attempt":{"type":"integer","minimum":1,"maximum":3}, "artifacts":{"type":"object","additionalProperties":{"type":"string"}},
+                "capabilities":{"type":"object","additionalProperties":{"type":"boolean"}}
+            }, "additionalProperties":false
+        }
+    }
+    return {
+        "$schema":"https://json-schema.org/draft/2020-12/schema", "$id":"https://kujolang.dev/schemas/videoops." + role["slug"] + "/output.schema.json",
+        "title":role["name"] + " Output", "type":"object", "required":["run_id","stage","outcome","artifacts","evidence","handoff"],
+        "properties":{
+            "run_id":{"type":"string","minLength":1}, "stage":{"const":role["slug"]},
+            "outcome":{"enum":["completed","blocked","revision_required"]}, "artifacts":{"type":"object","additionalProperties":{"type":"string"}},
+            "evidence":{"type":"array","items":{"type":"string"}}, "model_profile":{"type":"string"}, "attempt":{"type":"integer","minimum":1},
+            "handoff":{"$ref":"../../schemas/videoops/handoff.schema.json"}
+        }, "additionalProperties":false
+    }
+}
+
+func write_shared_schemas(root) {
+    folder := path_join(root, "schemas/videoops")
+    ensure_dir(folder)
+    write_json(path_join(folder, "shot-list.schema.json"), {"$schema":"https://json-schema.org/draft/2020-12/schema","title":"VideoOps Shot List","type":"object","required":["shots"],"properties":{"shots":{"type":"array","minItems":1,"items":{"type":"object","required":["id","start","end","duration","purpose","visual","priority"],"properties":{"id":{"type":"string","minLength":1},"start":{"type":"number","minimum":0},"end":{"type":"number","exclusiveMinimum":0},"duration":{"type":"number","exclusiveMinimum":0},"purpose":{"type":"string","minLength":1},"visual":{"type":"string","minLength":1},"audio":{"type":["string","null"]},"voiceover":{"type":["string","null"]},"onscreen_text":{"type":["string","null"]},"asset_ids":{"type":"array","items":{"type":"string"}},"asset_requirement_ids":{"type":"array","items":{"type":"string"}},"transition_in":{"type":["string","null"]},"transition_out":{"type":["string","null"]},"motion":{"type":["string","null"]},"priority":{"enum":["required","preferred","optional"]}},"additionalProperties":false}}},"additionalProperties":false})
+    write_json(path_join(folder, "asset-manifest.schema.json"), {"$schema":"https://json-schema.org/draft/2020-12/schema","title":"VideoOps Asset Manifest","type":"object","required":["assets"],"properties":{"assets":{"type":"array","items":{"type":"object","required":["id","requirement_id","type","origin","status","usage_status","used_by"],"properties":{"id":{"type":"string","minLength":1},"requirement_id":{"type":"string","minLength":1},"type":{"type":"string","minLength":1},"origin":{"type":"string","minLength":1},"status":{"enum":["FOUND","CAPTURED","GENERATE","NOT_REQUIRED","BLOCKED"]},"path":{"type":["string","null"]},"source_url":{"type":["string","null"]},"license":{"type":["string","null"]},"creator":{"type":["string","null"]},"retrieved_at":{"type":["string","null"]},"usage_status":{"enum":["approved","reference-only","blocked","pending"]},"used_by":{"type":"array","items":{"type":"string"}},"generation_purpose":{"type":["string","null"]}},"additionalProperties":false}}},"additionalProperties":false})
+    write_json(path_join(folder, "approval.schema.json"), {"$schema":"https://json-schema.org/draft/2020-12/schema","title":"VideoOps Approval","type":"object","required":["status","revision_count","dimensions"],"properties":{"status":{"enum":["PASS","FAIL"]},"reviewed_at":{"type":["string","null"]},"revision_count":{"type":"integer","minimum":0,"maximum":3},"confidence":{"type":"number","minimum":0,"maximum":1},"dimensions":{"type":"object","additionalProperties":{"type":"number","minimum":0,"maximum":100}}},"additionalProperties":false})
+    write_json(path_join(folder, "fix-list.schema.json"), {"$schema":"https://json-schema.org/draft/2020-12/schema","title":"VideoOps Fix List","type":"object","required":["issues"],"properties":{"issues":{"type":"array","items":{"type":"object","required":["id","severity","problem","why_it_matters","required_change","acceptance_criteria","implementation_status"],"properties":{"id":{"type":"string","minLength":1},"severity":{"enum":["BLOCKER","HIGH","MEDIUM","LOW"]},"timestamp":{"type":["string","null"]},"frame_range":{"type":["string","null"]},"problem":{"type":"string","minLength":1},"why_it_matters":{"type":"string","minLength":1},"required_change":{"type":"string","minLength":1},"acceptance_criteria":{"type":"string","minLength":1},"implementation_status":{"enum":["PENDING","APPLIED","PARTIAL","REJECTED","BLOCKED"]}},"additionalProperties":false}}},"additionalProperties":false})
+    write_json(path_join(folder, "project-state.schema.json"), {"$schema":"https://json-schema.org/draft/2020-12/schema","title":"VideoOps Project State","type":"object","required":["state","run_id","revision_count"],"properties":{"state":{"enum":["INTAKE_READY","PLANNING","PLANNING_READY","ASSETING","ASSETS_READY","GENERATING","PRODUCTION_READY","EDITING","DRAFT_READY","REVIEWING","REVISION_REQUIRED","APPROVED","FINAL_RENDERING","COMPLETE","BLOCKED"]},"run_id":{"type":"string","minLength":1},"updated_at":{"type":["string","null"]},"revision_count":{"type":"integer","minimum":0,"maximum":3},"notes":{"type":["string","null"]}},"additionalProperties":false})
+    write_json(path_join(folder, "handoff.schema.json"), {"$schema":"https://json-schema.org/draft/2020-12/schema","title":"VideoOps Handoff","type":"object","required":["schema","assignment","current_owner","next_owner","goal","scope","artifacts","evidence","decisions","unresolved_questions","allowed_next_actions","stop_condition"],"properties":{"schema":{"const":"kujo.handoff/v1"},"assignment":{"type":"string"},"current_owner":{"type":"string"},"next_owner":{"type":"string"},"goal":{"type":"string"},"scope":{"type":"string"},"artifacts":{"type":"array","items":{"type":"string"}},"evidence":{"type":"array","items":{"type":"string"}},"decisions":{"type":"array","items":{"type":"string"}},"unresolved_questions":{"type":"array","items":{"type":"string"}},"allowed_next_actions":{"type":"array","items":{"type":"string"}},"stop_condition":{"type":"string"}},"additionalProperties":false})
+    write_json(path_join(folder, "escalation.schema.json"), {"$schema":"https://json-schema.org/draft/2020-12/schema","title":"VideoOps Escalation Event","type":"object","required":["stage","from_profile","to_profile","reason","attempts","timestamp"],"properties":{"stage":{"type":"string"},"from_profile":{"type":"string"},"to_profile":{"type":"string"},"reason":{"type":"string"},"attempts":{"type":"integer","minimum":2},"previous_gate":{"type":["string","null"]},"timestamp":{"type":"string"},"provider":{"type":["string","null"]},"model":{"type":["string","null"]},"input_tokens":{"type":["integer","null"],"minimum":0},"output_tokens":{"type":["integer","null"],"minimum":0},"latency_ms":{"type":["integer","null"],"minimum":0},"cost":{"type":["number","null"],"minimum":0}},"additionalProperties":false})
+}
+
+func manifest(role) {
+    return {
+        "schema":"kujo.agent.manifest/v1", "id":"videoops." + role["slug"], "name":role["name"], "version":"1.0.0",
+        "contract":{"agent":"AGENT.md","skill":"SKILL.md"},
+        "classification":{"package":"videoops","layer":role["layer"],"model_tier":"economical-first"},
+        "permissions":{"minimum":role["minimum"],"maximum":role["maximum"],"enforcement":"runtime-adapter"},
+        "capabilities":{"required":role["required"],"recommended":role["recommended"],"optional":role["optional"]},
+        "model_policy":{"default_profile":role["profile"],"provider_binding":null,"max_economical_attempts":2,"stage_local_escalation":true,"observable":true},
+        "tools":{"allowed":role["tools"]}, "skills":role["skills"], "workflows":role["workflows"],
+        "inputs":role["inputs"], "outputs":role["outputs"],
+        "handoff":{"schema":"kujo.handoff/v1","required_fields":["assignment","current_owner","next_owner","goal","scope","artifacts","evidence","decisions","unresolved_questions","allowed_next_actions","stop_condition"]},
+        "stop_conditions":[role["stop"]], "adapters":["hermes","paperclip","openai","mcp","generic"]
+    }
+}
+
+func render_role_skill(role) {
+    return "---\nname: kujo-videoops-" + role["slug"] + "\ndescription: \"Use when Kujo VideoOps should select the " + role["name"] + " for its bounded " + role["layer"] + " stage.\"\n---\n\n# " + role["name"] + " Role Skill\n\nRead `AGENT.md` completely before acting. Validate required inputs and capabilities, honor read-only shared standards and role boundaries, use provider-neutral economical-first routing, run deterministic gates before model judgment, record stage-local escalation, emit explicit artifact handoffs, and stop at the role contract boundary.\n"
+}
+
+func main() {
+    root := path_absolute(".")
+    package_root := path_join(root, "videoops")
+    ensure_dir(package_root)
+    rows := role_rows()
+    write_shared_schemas(root)
+    catalog_agents := []
+    for role in rows {
+        folder := path_join(package_root, role["slug"])
+        ensure_dir(folder)
+        write_text(path_join(folder, "AGENT.md"), render_agent(role))
+        write_text(path_join(folder, "SKILL.md"), render_role_skill(role))
+        write_json(path_join(folder, "manifest.json"), manifest(role))
+        write_json(path_join(folder, "input.schema.json"), role_schema(role, "input"))
+        write_json(path_join(folder, "output.schema.json"), role_schema(role, "output"))
+        catalog_agents = push(catalog_agents, role)
+    }
+    write_json(path_join(package_root, "videoops-catalog.json"), {"schema":"kujo.videoops.catalog/v1","version":"1.0.0","agent_count":len(rows),"agents":catalog_agents})
+    print("generated " + to_string(len(rows)) + " VideoOps agent packages")
+}
+
+main()

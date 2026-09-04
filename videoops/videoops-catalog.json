@@ -1,0 +1,291 @@
+{
+  "agent_count": 5,
+  "agents": [
+    {
+      "boundary": "Do not acquire media, generate production assets, edit HyperFrames, render video, or silently extend duration.",
+      "degraded": "Without reference research, plan from supplied references and mark external validation unavailable. Missing required intake blocks the stage.",
+      "escalation": "Retry one targeted economical revision after a failed gate. Escalate only this stage to premium-creative after two failed economical attempts, low originality, or unresolved narrative incoherence.",
+      "evidence": "Account for the full timeline, map every significant shot to asset requirements, record factual-source references, and attach creative-plan Eval results.",
+      "inputs": [
+        "intake/project-brief.md",
+        "intake/messaging.md",
+        "intake/audience.md",
+        "intake/constraints.md",
+        "intake/references.md",
+        "intake/platform.json"
+      ],
+      "layer": "Planning",
+      "maximum": "PROPOSE",
+      "minimum": "PROPOSE",
+      "name": "Video Creative Director",
+      "optional": [
+        "web-research"
+      ],
+      "outputs": [
+        "planning/creative-brief.md",
+        "planning/transcript.md",
+        "planning/shot-list.json",
+        "planning/style-plan.md",
+        "planning/asset-requirements.json"
+      ],
+      "profile": "economical-general",
+      "purpose": "Transform validated PackWrite intake into a complete timed production plan without acquiring assets or rendering media.",
+      "recommended": [
+        "repository"
+      ],
+      "required": [
+        "filesystem",
+        "structured-output",
+        "long-context"
+      ],
+      "skills": [
+        "videoops-video-brief-synthesis",
+        "videoops-transcript-and-onscreen-copy",
+        "videoops-shot-planning",
+        "videoops-visual-reference-decomposition",
+        "videoops-asset-requirement-specification",
+        "videoops-platform-duration-planning"
+      ],
+      "slug": "creative-director",
+      "stop": "Stop when all five planning artifacts validate, the planning gate passes, or required intake/evidence is unavailable.",
+      "tools": [
+        "PackWrite",
+        "Spec",
+        "Eval",
+        "RunLedger"
+      ],
+      "workflows": [
+        "videoops-creative-planning"
+      ]
+    },
+    {
+      "boundary": "Do not rewrite narrative or timing, build scenes, render video, falsify rights, or use public availability as permission.",
+      "degraded": "Without browser capture or web research, search first-party files only and mark unmet requirements GENERATE or BLOCKED; never invent provenance.",
+      "escalation": "Tool or rights ambiguity blocks the specific asset. Premium reasoning is not a substitute for missing source or licensing evidence.",
+      "evidence": "Every requirement must terminate as FOUND, CAPTURED, GENERATE, NOT_REQUIRED, or BLOCKED with source, rights, usage status, path, and shot mappings where applicable.",
+      "inputs": [
+        "planning/creative-brief.md",
+        "planning/shot-list.json",
+        "planning/asset-requirements.json"
+      ],
+      "layer": "Asseting",
+      "maximum": "PROPOSE",
+      "minimum": "OBSERVE",
+      "name": "Video Asset Scout",
+      "optional": [
+        "media-download"
+      ],
+      "outputs": [
+        "assets/asset-manifest.json",
+        "assets/licenses.md",
+        "assets/source-log.md"
+      ],
+      "profile": "economical-general",
+      "purpose": "Resolve approved asset requirements from first-party, captured, licensed, or explicit generation sources while preserving provenance.",
+      "recommended": [
+        "browser-capture",
+        "web-research"
+      ],
+      "required": [
+        "filesystem",
+        "repository",
+        "media-inspection"
+      ],
+      "skills": [
+        "videoops-first-party-asset-discovery",
+        "videoops-lens-product-capture",
+        "videoops-licensed-media-research",
+        "videoops-asset-rights-triage",
+        "videoops-media-normalization",
+        "videoops-asset-manifest-maintenance",
+        "videoops-generation-handoff"
+      ],
+      "slug": "asset-scout",
+      "stop": "Stop when every requested asset has a terminal status and all approved production paths and provenance records validate.",
+      "tools": [
+        "Lens",
+        "FFmpeg",
+        "RunLedger"
+      ],
+      "workflows": [
+        "videoops-asset-resolution"
+      ]
+    },
+    {
+      "boundary": "Do not generate for non-GENERATE requirements, alter the thesis or timing, acquire external footage, or perform the final edit.",
+      "degraded": "Without an approved generation provider, emit exact generation requests and BLOCKED records. The local fixture generator proves contracts only, not provider quality.",
+      "escalation": "Escalate art direction only after a targeted retry fails. Paid or account-backed generation always pauses for explicit operator approval.",
+      "evidence": "Record generation purpose, provider/tool class, related shots, crop/duration intent, local path, inspection metadata, and selected variant.",
+      "inputs": [
+        "planning/shot-list.json",
+        "planning/style-plan.md",
+        "assets/asset-manifest.json"
+      ],
+      "layer": "Asseting",
+      "maximum": "ACT",
+      "minimum": "PROPOSE",
+      "name": "Video Media Generator",
+      "optional": [
+        "video-generation",
+        "ffmpeg"
+      ],
+      "outputs": [
+        "assets/generated/",
+        "assets/asset-manifest.json"
+      ],
+      "profile": "economical-general",
+      "purpose": "Create only the smallest set of custom media explicitly marked GENERATE and register each result in the asset manifest.",
+      "recommended": [
+        "image-understanding"
+      ],
+      "required": [
+        "filesystem",
+        "media-generation",
+        "media-inspection"
+      ],
+      "skills": [
+        "videoops-generated-still-production",
+        "videoops-generated-motion-production",
+        "videoops-brand-style-translation",
+        "videoops-shot-context-generation",
+        "videoops-generation-variant-selection",
+        "videoops-generated-asset-manifesting"
+      ],
+      "slug": "media-generator",
+      "stop": "Stop when every GENERATE item is resolved to an inspected approved path or explicitly BLOCKED.",
+      "tools": [
+        "Image Generation",
+        "Video Generation",
+        "FFmpeg",
+        "RunLedger"
+      ],
+      "workflows": [
+        "videoops-media-generation"
+      ]
+    },
+    {
+      "boundary": "Do not invent creative direction, use undocumented assets, silently change copy or timing, or approve your own render.",
+      "degraded": "Unresolved required assets block editing. Missing HyperFrames, Node, Chrome, FFmpeg, or ffprobe produces a capability receipt and no fake render.",
+      "escalation": "Retry targeted build or schema repairs once. Escalate only this stage to a stronger coding profile after two failed economical attempts or an unsupported complex effect.",
+      "evidence": "Record exact HyperFrames version and commands, checks, dimensions, FPS, duration, audio streams, file checksum, substitutions, and per-fix outcomes.",
+      "inputs": [
+        "planning/creative-brief.md",
+        "planning/transcript.md",
+        "planning/shot-list.json",
+        "planning/style-plan.md",
+        "assets/asset-manifest.json",
+        "review/fix-list.json"
+      ],
+      "layer": "Production",
+      "maximum": "ACT",
+      "minimum": "PROPOSE",
+      "name": "Video HyperFrames Editor",
+      "optional": [
+        "browser-capture"
+      ],
+      "outputs": [
+        "production/hyperframes/",
+        "production/render-log.md",
+        "production/production-notes.md",
+        "output/draft.mp4",
+        "output/final.mp4",
+        "output/metadata.json"
+      ],
+      "profile": "economical-code",
+      "purpose": "Translate approved planning and asset contracts into a deterministic HyperFrames composition, render, and bounded fix-list revisions.",
+      "recommended": [
+        "repository",
+        "media-inspection"
+      ],
+      "required": [
+        "filesystem",
+        "coding",
+        "structured-output",
+        "hyperframes",
+        "ffmpeg"
+      ],
+      "skills": [
+        "videoops-hyperframes-project-bootstrap",
+        "videoops-shot-list-to-timeline",
+        "videoops-kinetic-typography",
+        "videoops-media-compositing",
+        "videoops-shader-and-transition-selection",
+        "videoops-audio-sync",
+        "videoops-render-validation",
+        "videoops-fix-list-application"
+      ],
+      "slug": "hyperframes-editor",
+      "stop": "Stop when draft technical gates pass, every fix has a terminal implementation status, or a required asset/runtime capability blocks progress.",
+      "tools": [
+        "HyperFrames",
+        "FFmpeg",
+        "Eval",
+        "Lens",
+        "RunLedger"
+      ],
+      "workflows": [
+        "videoops-hyperframes-edit"
+      ]
+    },
+    {
+      "boundary": "Do not edit the composition, source replacement assets, rewrite the concept, invent requirements, or fail solely on personal taste.",
+      "degraded": "Run deterministic technical QA first. Without multimodal inspection, do not claim creative PASS; return a bounded review-incomplete blocker after technical findings.",
+      "escalation": "Escalate only review to premium-multimodal when confidence is low, gates conflict, or repeated defects remain. After three failed editor/critic cycles, stop and escalate to a human.",
+      "evidence": "Evaluate narrative, hook, pacing, hierarchy, motion, brand, audio, transcript fidelity, render quality, and CTA. Each mandatory issue needs severity, timestamp/frame range, problem, impact, change, and acceptance criteria.",
+      "inputs": [
+        "planning/creative-brief.md",
+        "planning/transcript.md",
+        "planning/shot-list.json",
+        "planning/style-plan.md",
+        "production/render-log.md",
+        "output/draft.mp4"
+      ],
+      "layer": "Review",
+      "maximum": "PROPOSE",
+      "minimum": "OBSERVE",
+      "name": "Video Critic",
+      "optional": [
+        "browser-capture"
+      ],
+      "outputs": [
+        "review/critique.md",
+        "review/approval.json",
+        "review/fix-list.json"
+      ],
+      "profile": "economical-multimodal",
+      "purpose": "Independently compare the rendered artifact with approved intent and return deterministic PASS or actionable FAIL evidence.",
+      "recommended": [
+        "multimodal",
+        "video-understanding"
+      ],
+      "required": [
+        "filesystem",
+        "structured-output",
+        "media-inspection"
+      ],
+      "skills": [
+        "videoops-video-spec-comparison",
+        "videoops-pacing-analysis",
+        "videoops-visual-hierarchy-review",
+        "videoops-motion-quality-review",
+        "videoops-audio-visual-review",
+        "videoops-technical-render-review",
+        "videoops-actionable-fix-writing",
+        "videoops-approval-decision"
+      ],
+      "slug": "video-critic",
+      "stop": "Stop after explicit PASS, actionable FAIL, or three failed revision cycles with unresolved issues recorded.",
+      "tools": [
+        "FFmpeg",
+        "Lens",
+        "Eval",
+        "RunLedger"
+      ],
+      "workflows": [
+        "videoops-quality-review"
+      ]
+    }
+  ],
+  "schema": "kujo.videoops.catalog/v1",
+  "version": "1.0.0"
+}

@@ -124,6 +124,7 @@ def write_role(item: dict) -> None:
 
 def main() -> None:
     items = chain_agents() + catalog_agents("webops", "webops-catalog.json") + catalog_agents("publishing-house", "publishing-house-catalog.json")
+    videoops_items = catalog_agents("videoops", "videoops-catalog.json")
     house_tools = publishing_tools()
     for item in items:
         if item["package"] == "publishing-house":
@@ -132,9 +133,10 @@ def main() -> None:
             item["workflows"] = binding["workflows"]
     for item in items:
         write_role(item)
-    index = {"schema": "kujo.agent.registry/v1", "version": VERSION, "agent_count": len(items), "agents": [{"id": x["id"], "name": x["name"], "package": x["package"], "path": f"{x['package']}/{x['slug']}"} for x in items]}
+    registry_items = items + videoops_items
+    index = {"schema": "kujo.agent.registry/v1", "version": VERSION, "agent_count": len(registry_items), "agents": [{"id": x["id"], "name": x["name"], "package": x["package"], "path": f"{x['package']}/{x['slug']}"} for x in registry_items]}
     (ROOT / "agent-registry.json").write_text(json.dumps(index, indent=2) + "\n")
-    print(f"generated {len(items)} agent packages")
+    print(f"generated {len(items)} legacy package files and indexed {len(registry_items)} agents")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "shots": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "asset_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "asset_requirement_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "audio": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "duration": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "end": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "motion": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "onscreen_text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "priority": {
+            "enum": [
+              "required",
+              "preferred",
+              "optional"
+            ]
+          },
+          "purpose": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "start": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "transition_in": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "transition_out": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "visual": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "voiceover": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "start",
+          "end",
+          "duration",
+          "purpose",
+          "visual",
+          "priority"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "shots"
+  ],
+  "title": "VideoOps Shot List",
+  "type": "object"
+}

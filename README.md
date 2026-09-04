@@ -1,16 +1,17 @@
 # Kujo Agents
 
-[![Version](https://img.shields.io/badge/version-1.2.0-black)](https://github.com/kujolang/kujo-agents)
+[![Version](https://img.shields.io/badge/version-1.3.0-black)](https://github.com/kujolang/kujo-agents)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
 [![built with Kujo](https://img.shields.io/badge/built%20with-Kujo-white.svg)](https://github.com/kujolang/kujo)
 
 Reusable role contracts for KUJO agent sets.
 
-The public repository contains three independent first-class packages:
+The public repository contains four independent first-class packages:
 
 - [`chain-of-command/`](chain-of-command/) — coordinated roles for strategy, planning, execution, verification, knowledge, and bounded worker tasks.
 - [`webops/`](webops/) — 28 peer website operators for research, measurement, audit, maintenance, optimization, and improvement.
 - [`publishing-house/`](publishing-house/) — 23 editorial roles for strategy, creative development, writing, independent review, production, approval packaging, and bounded publishing operations.
+- [`videoops/`](videoops/) — five bounded video-production roles for planning, asset resolution, media generation, deterministic HyperFrames editing, and independent critique.
 
 ## Start Here
 
@@ -28,6 +29,7 @@ Read these files before running or adapting an agent set:
 10. [`publishing-house/00-shared-contracts.md`](publishing-house/00-shared-contracts.md) — briefs, evidence, artifacts, reviews, approvals, receipts, and handoffs.
 11. [`publishing-house/00-tool-workflow-map.md`](publishing-house/00-tool-workflow-map.md) — canonical tool ownership, role bindings, and lifecycle workflow routing.
 12. [`publishing-house/evals/README.md`](publishing-house/evals/README.md) — blind quality calibration, deterministic integrity checks, and semantic judging protocol.
+13. [`videoops/README.md`](videoops/README.md) — the file-handoff production line, model routing, permissions, stage gates, and offline proof boundary.
 
 For a reusable campaign intake packet, use
 [`chain-of-command/00-docs/templates/general-campaign-wrapper.md`](chain-of-command/00-docs/templates/general-campaign-wrapper.md).
@@ -80,6 +82,18 @@ publishing-house/
     AGENT.md
     SKILL.md
     agents/openai.yaml
+videoops/
+  README.md
+  00-agent-map.md
+  00-production-standard.md
+  00-hyperframes-standard.md
+  00-permission-model.md
+  00-model-routing.md
+  00-handoff-and-state.md
+  videoops-catalog.json
+  agent-name/
+    AGENT.md
+    SKILL.md
 ```
 
 Each agent package keeps its role contract and operating skill together. The
@@ -91,19 +105,19 @@ Every role also includes a provider-neutral `manifest.json`,
 credential-free Hermes/Paperclip renderers are documented in
 [`docs/agent-package-format.md`](docs/agent-package-format.md).
 
-The checked-in [`agent-registry.json`](agent-registry.json) indexes all 79
+The checked-in [`agent-registry.json`](agent-registry.json) indexes all 84
 roles. Rebuild it and the role package files with
 `python3 scripts/generate_agent_manifests.py`, then validate them with
 `python3 scripts/validate_agent_packages.py`.
 
 ## Release Status
 
-`v1.2.0` preserves the stable Chain of Command and WebOps baselines while
-integrating the 23 Publishing House roles with eight local-first tools and an
-eleven-workflow lifecycle map. The 18-case blind quality corpus remains a
-calibration surface rather than an automated editorial-taste claim. Runtime
-packages and operator-configured adapters remain responsible for enforcement
-and external effects.
+`v1.3.0` preserves the stable Chain of Command, WebOps, and Publishing House
+baselines while adding the five-role VideoOps production line, Kujo-native
+package generation, strict schemas, economical logical model routing, and
+credential-free runtime adapter metadata. Runtime packages and
+operator-configured adapters remain responsible for enforcement and external
+effects.
 
 See [`CHANGELOG.md`](CHANGELOG.md) for release history and
 [`docs/launch-checklist.md`](docs/launch-checklist.md) for the verified release
@@ -125,7 +139,9 @@ done
 bash .github/scripts/check-kujo-tool-artifacts.sh
 python3 scripts/validate_webops.py
 python3 scripts/validate_publishing_house.py
-test "$(cat VERSION)" = "1.2.0"
+kujo run scripts/validate_videoops.kujo
+python3 scripts/validate_agent_packages.py
+test "$(cat VERSION)" = "1.3.0"
 git diff --check
 ```
 

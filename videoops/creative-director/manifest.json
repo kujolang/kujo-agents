@@ -1,0 +1,100 @@
+{
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ],
+  "capabilities": {
+    "optional": [
+      "web-research"
+    ],
+    "recommended": [
+      "repository"
+    ],
+    "required": [
+      "filesystem",
+      "structured-output",
+      "long-context"
+    ]
+  },
+  "classification": {
+    "layer": "Planning",
+    "model_tier": "economical-first",
+    "package": "videoops"
+  },
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "handoff": {
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "artifacts",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ],
+    "schema": "kujo.handoff/v1"
+  },
+  "id": "videoops.creative-director",
+  "inputs": [
+    "intake/project-brief.md",
+    "intake/messaging.md",
+    "intake/audience.md",
+    "intake/constraints.md",
+    "intake/references.md",
+    "intake/platform.json"
+  ],
+  "model_policy": {
+    "default_profile": "economical-general",
+    "max_economical_attempts": 2,
+    "observable": true,
+    "provider_binding": null,
+    "stage_local_escalation": true
+  },
+  "name": "Video Creative Director",
+  "outputs": [
+    "planning/creative-brief.md",
+    "planning/transcript.md",
+    "planning/shot-list.json",
+    "planning/style-plan.md",
+    "planning/asset-requirements.json"
+  ],
+  "permissions": {
+    "enforcement": "runtime-adapter",
+    "maximum": "PROPOSE",
+    "minimum": "PROPOSE"
+  },
+  "schema": "kujo.agent.manifest/v1",
+  "skills": [
+    "videoops-video-brief-synthesis",
+    "videoops-transcript-and-onscreen-copy",
+    "videoops-shot-planning",
+    "videoops-visual-reference-decomposition",
+    "videoops-asset-requirement-specification",
+    "videoops-platform-duration-planning"
+  ],
+  "stop_conditions": [
+    "Stop when all five planning artifacts validate, the planning gate passes, or required intake/evidence is unavailable."
+  ],
+  "tools": {
+    "allowed": [
+      "PackWrite",
+      "Spec",
+      "Eval",
+      "RunLedger"
+    ]
+  },
+  "version": "1.0.0",
+  "workflows": [
+    "videoops-creative-planning"
+  ]
+}

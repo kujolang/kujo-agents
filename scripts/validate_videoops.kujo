@@ -1,0 +1,70 @@
+func get(value, key, fallback) {
+    if type(value) == "dict" && has_key(value, key) == 1 { return value[key] }
+    return fallback
+}
+
+func load_object(path) {
+    if !path_is_file(path) { return {"ok":false,"error":"missing file: " + path} }
+    try {
+        value := parse_json(read_file(path))
+        if type(value) != "dict" { return {"ok":false,"error":"expected JSON object: " + path} }
+        return {"ok":true,"value":value}
+    } except error { return {"ok":false,"error":"invalid JSON: " + path} }
+}
+
+func add_error(errors, message) { return push(errors, message) }
+
+func main() {
+    root := path_absolute(".")
+    repos := dirname(root)
+    catalog_path := path_join(root, "videoops/videoops-catalog.json")
+    loaded := load_object(catalog_path)
+    if !loaded["ok"] { print(to_json_pretty({"valid":false,"errors":[loaded["error"]]})); exit(1) }
+    catalog := loaded["value"]
+    mut errors := []
+    agents := get(catalog, "agents", [])
+    if get(catalog, "schema", "") != "kujo.videoops.catalog/v1" { errors = add_error(errors, "catalog schema mismatch") }
+    if get(catalog, "agent_count", 0) != 5 || len(agents) != 5 { errors = add_error(errors, "catalog must contain exactly five agents") }
+    mut seen := []
+    mut skill_count := 0
+    for role in agents {
+        slug := get(role, "slug", "")
+        if slug == "" || contains(join(seen, ","), slug) == 1 { errors = add_error(errors, "missing or duplicate role slug: " + slug) }
+        seen = push(seen, slug)
+        folder := path_join(root, "videoops/" + slug)
+        for name in ["AGENT.md","SKILL.md","manifest.json","input.schema.json","output.schema.json"] {
+            if !path_is_file(path_join(folder, name)) { errors = add_error(errors, slug + ": missing " + name) }
+        }
+        body := ""
+        if path_is_file(path_join(folder, "AGENT.md")) { body = read_file(path_join(folder, "AGENT.md")) }
+        for heading in ["Agent Contract","Inputs Expected","Outputs Required","Allowed Tools And Workflows","Evidence Requirements","Degraded Operation","Handoff Rules","Model Routing And Cost","Escalation Rules","Stop Conditions","Anti-Scope"] {
+            if contains(body, "## " + heading) == 0 { errors = add_error(errors, slug + ": missing heading " + heading) }
+        }
+        manifest_loaded := load_object(path_join(folder, "manifest.json"))
+        if manifest_loaded["ok"] {
+            manifest := manifest_loaded["value"]
+            if get(manifest, "schema", "") != "kujo.agent.manifest/v1" || get(manifest, "id", "") != "videoops." + slug { errors = add_error(errors, slug + ": manifest identity mismatch") }
+            policy := get(manifest, "model_policy", {})
+            if get(policy, "provider_binding", "missing") != null || get(policy, "max_economical_attempts", 0) != 2 || get(policy, "stage_local_escalation", false) != true { errors = add_error(errors, slug + ": invalid model policy") }
+            if get(get(manifest, "permissions", {}), "enforcement", "") != "runtime-adapter" { errors = add_error(errors, slug + ": missing runtime-adapter enforcement boundary") }
+        } else { errors = add_error(errors, manifest_loaded["error"]) }
+        for skill in get(role, "skills", []) {
+            skill_count = skill_count + 1
+            if !path_is_file(path_join(repos, "kujo-skills/skills/" + skill + "/SKILL.md")) { errors = add_error(errors, slug + ": unresolved skill " + skill) }
+        }
+        for workflow in get(role, "workflows", []) {
+            if !path_is_file(path_join(repos, "kujo-workflows/" + workflow + "/workflow.kujo")) { errors = add_error(errors, slug + ": unresolved workflow " + workflow) }
+        }
+    }
+    for name in ["shot-list","asset-manifest","approval","fix-list","project-state","handoff","escalation"] {
+        schema_path := path_join(root, "schemas/videoops/" + name + ".schema.json")
+        schema_loaded := load_object(schema_path)
+        if !schema_loaded["ok"] { errors = add_error(errors, schema_loaded["error"]) }
+        else if get(schema_loaded["value"], "$schema", "") != "https://json-schema.org/draft/2020-12/schema" { errors = add_error(errors, name + ": schema dialect mismatch") }
+    }
+    result := {"valid":len(errors)==0,"videoops_agents":len(agents),"skill_references":skill_count,"schemas":7,"errors":errors}
+    print(to_json_pretty(result))
+    if len(errors) > 0 { exit(1) }
+}
+
+main()

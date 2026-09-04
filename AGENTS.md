@@ -1,7 +1,7 @@
 # Kujo Agents Agent Instructions
 
-This repository contains reusable Chain of Command, WebOps, and Publishing
-House agent packages. Treat role contracts and templates as guidance and review material,
+This repository contains reusable Chain of Command, WebOps, Publishing House,
+and VideoOps agent packages. Treat role contracts and templates as guidance and review material,
 not sandboxing, authorization, or policy enforcement.
 
 ## Required Reading
@@ -19,6 +19,9 @@ not sandboxing, authorization, or policy enforcement.
   `publishing-house/publishing-house-catalog.json` for Publishing House changes
 - `publishing-house/evals/README.md` and
   `publishing-house/evals/evaluation-manifest.json` for quality-calibration changes
+- `videoops/README.md`, `videoops/00-production-standard.md`,
+  `videoops/00-model-routing.md`, and `videoops/videoops-catalog.json` for
+  VideoOps changes
 
 ## Validation
 
@@ -37,7 +40,8 @@ bash .github/scripts/check-kujo-tool-artifacts.sh
 python3 scripts/validate_webops.py
 python3 scripts/validate_publishing_house.py
 python3 scripts/validate_agent_packages.py
-test "$(cat VERSION)" = "1.2.0"
+kujo run scripts/validate_videoops.kujo
+test "$(cat VERSION)" = "1.3.0"
 git diff --check
 ```
 

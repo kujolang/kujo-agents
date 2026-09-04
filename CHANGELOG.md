@@ -6,6 +6,19 @@ The format follows Keep a Changelog and Semantic Versioning.
 
 ## Unreleased
 
+## 1.3.0 - 2026-09-04
+
+### Added
+
+- Add the five-agent VideoOps production line with Kujo-native generation,
+  provider-neutral package contracts, strict I/O schemas, and shared handoff,
+  state, approval, escalation, and production standards.
+- Add economical logical model routing, stage-local retry and escalation
+  limits, explicit permission ceilings, and HyperFrames-specific evidence
+  requirements.
+- Add VideoOps to the root registry and credential-free Hermes/Paperclip
+  adapter generation surface.
+
 ### Changed
 
 - Record the 2026-08-22 weekly agent capability audit, including deferred

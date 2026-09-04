@@ -1,0 +1,54 @@
+{
+  "$id": "https://kujolang.dev/schemas/videoops.hyperframes-editor/input.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "attempt": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "capabilities": {
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "type": "object"
+    },
+    "permission_mode": {
+      "enum": [
+        "OBSERVE",
+        "PROPOSE",
+        "ACT"
+      ]
+    },
+    "quality_mode": {
+      "enum": [
+        "economy",
+        "standard",
+        "flagship"
+      ]
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "workspace_root": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "workspace_root",
+    "permission_mode",
+    "artifacts"
+  ],
+  "title": "Video HyperFrames Editor Input",
+  "type": "object"
+}

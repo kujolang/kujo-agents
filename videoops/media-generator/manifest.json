@@ -1,0 +1,95 @@
+{
+  "adapters": [
+    "hermes",
+    "paperclip",
+    "openai",
+    "mcp",
+    "generic"
+  ],
+  "capabilities": {
+    "optional": [
+      "video-generation",
+      "ffmpeg"
+    ],
+    "recommended": [
+      "image-understanding"
+    ],
+    "required": [
+      "filesystem",
+      "media-generation",
+      "media-inspection"
+    ]
+  },
+  "classification": {
+    "layer": "Asseting",
+    "model_tier": "economical-first",
+    "package": "videoops"
+  },
+  "contract": {
+    "agent": "AGENT.md",
+    "skill": "SKILL.md"
+  },
+  "handoff": {
+    "required_fields": [
+      "assignment",
+      "current_owner",
+      "next_owner",
+      "goal",
+      "scope",
+      "artifacts",
+      "evidence",
+      "decisions",
+      "unresolved_questions",
+      "allowed_next_actions",
+      "stop_condition"
+    ],
+    "schema": "kujo.handoff/v1"
+  },
+  "id": "videoops.media-generator",
+  "inputs": [
+    "planning/shot-list.json",
+    "planning/style-plan.md",
+    "assets/asset-manifest.json"
+  ],
+  "model_policy": {
+    "default_profile": "economical-general",
+    "max_economical_attempts": 2,
+    "observable": true,
+    "provider_binding": null,
+    "stage_local_escalation": true
+  },
+  "name": "Video Media Generator",
+  "outputs": [
+    "assets/generated/",
+    "assets/asset-manifest.json"
+  ],
+  "permissions": {
+    "enforcement": "runtime-adapter",
+    "maximum": "ACT",
+    "minimum": "PROPOSE"
+  },
+  "schema": "kujo.agent.manifest/v1",
+  "skills": [
+    "videoops-generated-still-production",
+    "videoops-generated-motion-production",
+    "videoops-brand-style-translation",
+    "videoops-shot-context-generation",
+    "videoops-generation-variant-selection",
+    "videoops-generated-asset-manifesting"
+  ],
+  "stop_conditions": [
+    "Stop when every GENERATE item is resolved to an inspected approved path or explicitly BLOCKED."
+  ],
+  "tools": {
+    "allowed": [
+      "Image Generation",
+      "Video Generation",
+      "FFmpeg",
+      "RunLedger"
+    ]
+  },
+  "version": "1.0.0",
+  "workflows": [
+    "videoops-media-generation"
+  ]
+}

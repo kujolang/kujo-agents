@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_next_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "artifacts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "assignment": {
+      "type": "string"
+    },
+    "current_owner": {
+      "type": "string"
+    },
+    "decisions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "goal": {
+      "type": "string"
+    },
+    "next_owner": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "kujo.handoff/v1"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "stop_condition": {
+      "type": "string"
+    },
+    "unresolved_questions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema",
+    "assignment",
+    "current_owner",
+    "next_owner",
+    "goal",
+    "scope",
+    "artifacts",
+    "evidence",
+    "decisions",
+    "unresolved_questions",
+    "allowed_next_actions",
+    "stop_condition"
+  ],
+  "title": "VideoOps Handoff",
+  "type": "object"
+}

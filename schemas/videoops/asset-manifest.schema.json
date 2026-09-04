@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assets": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "creator": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "generation_purpose": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "license": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "origin": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "requirement_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "retrieved_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "FOUND",
+              "CAPTURED",
+              "GENERATE",
+              "NOT_REQUIRED",
+              "BLOCKED"
+            ]
+          },
+          "type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "usage_status": {
+            "enum": [
+              "approved",
+              "reference-only",
+              "blocked",
+              "pending"
+            ]
+          },
+          "used_by": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "requirement_id",
+          "type",
+          "origin",
+          "status",
+          "usage_status",
+          "used_by"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "assets"
+  ],
+  "title": "VideoOps Asset Manifest",
+  "type": "object"
+}
