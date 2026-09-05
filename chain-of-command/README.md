@@ -47,6 +47,7 @@ KUJO workflows support the chain by turning work into artifacts:
 - `Scout`, `Scent`, `PackWrite`, and `Muzzle` prepare and compress context.
 - `Capsule` can produce deterministic offline project handoff packages when a task needs checksums, command detection, and repeatable context artifacts.
 - `Redact` can produce deterministic local text/Markdown anonymization artifacts before context is shared or retained.
+- `Ability` defines portable operation contracts, digests, effects, approval/idempotency semantics, and receipts. Treat it as semantics and conformance evidence, not as authorization, credentials, handlers, or transport by itself.
 - `SSG` can generate static sites and reusable docs starters when documentation output needs deterministic local build and validation gates.
 - `Eval`, `Lens`, `Fence`, `ShipCheck`, `Concord`, and `ChangeBucket` verify outcomes from different angles.
 - `CaseFile`, `RunLedger`, and PatchBrief-style reports preserve evidence.
@@ -56,6 +57,7 @@ KUJO workflows support the chain by turning work into artifacts:
 - `Relay`, `Workcell`, and `Tribunal` are now recognized as optional, bounded capabilities for lifecycle handoffs, local execution gates, and advisory decision review. They do not grant broad orchestration, sandbox, or approval authority by default.
 - `Benchmark System` and `Kujo Hyperframes` are recognized as prompt-kit and campaign/video-surface repositories respectively; they remain under existing QA, product, frontend, visual QA, and documentation roles.
 - `TotalRecall`, `Ward`, `Leash`, `Intake`, and `Cinch` are recognized as sibling product/tool repositories with agent-facing surfaces, but no active chain ownership is granted until a stable skill/workflow contract is added or a task explicitly targets those repos.
+- `Ability Gateway`, `Paperclip Plugin`, and `Email` are recognized as sibling integration/product surfaces for task-specific review. Keep their credential, approval, live-service, and production-readiness boundaries explicit.
 
 See `00-tool-agent-map.md` for supported-versus-inferred behavior.
 

@@ -20,6 +20,8 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | RAG | Local RAG pipeline with ingest/query/API, auth options, namespace isolation, release gates | Production-oriented starter kit, not managed service | Research Analyst, Backend Developer |
 | Watchdog | Local AI telemetry/proxy layer with SQLite, dashboard, JSON APIs, redaction/auth/rate limits | Strong local-first reference; production behind controls | Integration Engineer, Receipt Collector |
 | Kujo Pi | Opt-in Pi package that exposes trusted-project Kujo checks, Scout/Scent/PatchBrief/ChangeBucket/ShipCheck/MCP/Dispatch/Agents SDK/RAG/RunLedger/Watchdog/Leash bridges with approval and path-containment gates | Client integration layer; unpublished npm package, host trust and configured entrypoints remain operator-owned | Integration Engineer, Security Reviewer, Tooling Developer |
+| Ability | Portable `kujo.ability/v1` operation contracts, canonical digest, registry, runtime policy/approval/idempotency/audit pipeline, JSON Schema, SDK previews, offline pack verifier, and local fixture devkit | Stable package/library boundary; applications own handlers, credentials, authorization, persistence, transports, registries, and production isolation | Integration Engineer, Systems Architect, Backend Developer, Security Reviewer, QA Lead, Release Verifier |
+| Ability Gateway | Cloudflare Workers remote MCP/control plane for controlled-beta Ability discovery/execution with GitHub OAuth, tenant checks, approval separation, idempotency, quotas, audit history, and D1/KV state | Controlled beta; broader launch still requires live refresh/revocation, tenant-isolation, approval, operations, privacy, and recovery evidence | Integration Engineer, Security Reviewer, Risk Officer, Release Verifier, QA Lead |
 | Scent | Task-specific context packs with provenance and redaction metadata | v1.0.0; pattern redaction must be reviewed | Context Packager, Research Analyst |
 | Redact | Deterministic local text/Markdown anonymization with scan, sanitize, verify, pack, and audit artifacts | Locally verified technical preview; not complete PII/compliance assurance | Security Reviewer, Context Packager, Receipt Collector |
 | Fence | Deterministic architecture-boundary enforcement with JSON/SARIF/Markdown outputs | Local-first guardrail suitable for CI gating | Systems Architect, Security Reviewer, Release Verifier |
@@ -48,6 +50,8 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | Benchmark System | Provider-neutral benchmark execution/review prompt kits for AI Chat pane-profile runs and factual review packets | Prompt/documentation kit; no standalone executable contract verified | QA Lead, Product Strategist, General Commander |
 | Kujo Hyperframes | Static/public campaign and video composition repo with source-grounded claim map | Showcase/content surface; claims remain tied to source-grounded dossier evidence | Frontend Developer, Visual QA Agent, Documentation Writer |
 | Hermes Kujo Discord Agents | Eight Hermes profiles for source-grounded Kujo community support with read-only knowledge MCP, role contracts, safe defaults, bot-loop limits, and Discord deployment runbooks | Deployment package for Discord agents; credentials, channel policy, and public bot operation remain operator-owned | Documentation Writer, Product Strategist, Integration Engineer, Security Reviewer |
+| Paperclip Plugin | Paperclip plugin that exposes Scent context packs, ChangeBucket/PatchBrief review packs, and CaseFile failure evidence inside Paperclip with pinned component snapshots and bounded child-process limits | Host plugin/integration surface; does not run arbitrary project commands for failure capture or replace component tools, review, or Paperclip host policy | Integration Engineer, Tooling Developer, Security Reviewer, QA Lead, Code Reviewer, Context Packager |
+| Email | Kujo-native email foundation with deterministic CLI/API/MCP contracts, DNS planning, queue/reputation/suppression, SMTP/HTTPS services, credentials, receipts, and provider-feedback ingestion | Not ready for production or Internet exposure; live DNS/public listener/provider enrollment/load/multi-node evidence and operator credentials remain required | Backend Developer, Integration Engineer, Security Reviewer, Risk Officer, QA Lead, Release Verifier |
 | TotalRecall | Local-first ingestion pipeline for Fathom, chat exports, Slack threads, and GitHub activity into Strata, markdown, HTML, or local indexes | CLI/repo surface verified; active chain use deferred pending skill/workflow and credential-boundary review | Deferred for Research Analyst, Context Packager, SITREP Agent, Receipt Collector |
 | Ward | Local Dependabot security alert collection, planning, reporting, dashboard, and safe fix preparation with read-only defaults | CLI/repo surface verified; active chain use deferred pending skill/workflow and GitHub-token/process-boundary review | Deferred for Dependency Scanner, Security Reviewer, Issue Hygiene Worker, Risk Officer, Release Verifier |
 | Leash | Local/mobile AI-agent supervision control plane with policy, tmux/agent adapters, JWT auth, audit trail, and approval flows | v0.1.0 hardening; Android/runtime validation and dedicated chain contract still pending | Deferred for Integration Engineer, Security Reviewer, Risk Officer, Receipt Collector |
@@ -73,13 +77,13 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | Tooling Developer | Kujo runtime, Kujo Tool Building, Muzzle | Kennel, Eval, Workcell |
 | Frontend Developer | Lens, Eval | CaseFile, SSG, SiteKit, CMS Experience, Kujo Docs |
 | Backend Developer | Eval, Scout | RAG, Watchdog |
-| Integration Engineer | MCP, Dispatch, Watchdog | AI SDK, AI provider packages, Agents SDK, Relay, CMS Experience, Kujolang MCP, Kujo Pi, Workcell Studio, Hermes Discord profiles |
+| Integration Engineer | MCP, Dispatch, Watchdog | AI SDK, AI provider packages, Agents SDK, Ability, Ability Gateway, Relay, CMS Experience, Kujolang MCP, Kujo Pi, Workcell Studio, Hermes Discord profiles, Paperclip Plugin, Email |
 | Code Reviewer | PatchBrief, ChangeBucket, Concord | Fence |
 | Triage Agent | CaseFile, RunLedger, Dispatch | PatchBrief, ChangeBucket, Eval, Relay run evidence |
 | QA Lead | Eval, CaseFile | RunLedger, Workcell receipts, Capsule benchmark evidence |
 | Visual QA Agent | Lens | Eval, SSG output, SiteKit snapshots, Kujo Docs public/static pages |
 | Release Verifier | ShipCheck, Eval, Fence, RunLedger | Concord, SSG release/output gates, Relay handoff evidence, Workcell execution evidence, Tribunal advisory packets |
-| Security Reviewer | Scout, Fence, Scent, Redact, Eval | CaseFile, Workcell boundary evidence, StegoCipher review subject |
+| Security Reviewer | Scout, Fence, Scent, Redact, Eval | CaseFile, Workcell boundary evidence, Ability approval/effect boundaries, Ability Gateway controlled-beta evidence, Paperclip Plugin host boundary, Email production-readiness evidence, StegoCipher review subject |
 | Documentation Writer | Concord, PatchBrief, Howl, SSG | Spec, SiteKit docs/components evidence, Kujo Docs |
 | Context Packager | Scent, Redact, PackWrite, Muzzle, Capsule | Scout |
 | SITREP Agent | RunLedger, CaseFile | PatchBrief |
@@ -111,6 +115,10 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 - `Commerce` is credible for static-site commerce work, but broad chain routing remains deferred until a narrow skill/workflow contract exists and payment-provider, credential, checkout, and order-data boundaries are explicitly reviewed.
 - `TruthLens` should not become a chain tool or new agent by default. It is a browser-extension/product repo with deterministic validation and probabilistic model limits; existing frontend, security, QA, and release roles are sufficient when assigned to it.
 - `Kujo Pi`, `Kujolang MCP`, `Workcell Studio`, and `Hermes Kujo Discord Agents` are concrete integration or product surfaces. Existing agents may work on them when explicitly assigned, but they do not grant new chain authority, unattended approvals, public bot operation, or remote deployment authority by implication.
+- `Ability` is the canonical semantic operation contract layer now consumed by CMS, Agents SDK, MCP, SSG, Kujo Pi, Codex, Cursor, and VS Code bridges. It can support agent integration work, but it does not grant handler execution, credential access, approval authority, or a registry service by itself.
+- `Ability Gateway` is a controlled-beta Cloudflare deployment surface for remote MCP Ability access. Treat its current evidence as integration/security/release review material, not a blanket managed-service or public-beta readiness claim.
+- `Paperclip Plugin` is an integration host for existing Kujo context, review, and failure-evidence components. Keep ownership with Integration, Tooling, Security, QA, Code Review, and Context Packager roles instead of routing all Paperclip work through a new agent.
+- `Email` is a large, actively developed communication infrastructure repository with local deterministic contracts and an MCP adapter. Do not grant delivery, DNS mutation, provider-enrollment, public-listener, credential, or production-mail authority without explicit approval and current environment evidence.
 - `diff-viewer-demo`, `diff-viewer-demo-fresh`, `diff-viewer-verified`, and `diff-viewer-inline-review-fresh` are fixture repositories for diff-review testing. They should not be treated as Kujo ecosystem tools.
 
 ## Evidence Sources
@@ -126,6 +134,9 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 - `../../redact/README.md`, `../../ssg/README.md`, `../../intake/README.md`, `../../cinch/README.md`
 - `../../relay/README.md`, `../../workcell/README.md`, `../../tribunal/README.md`, `../../site-kit/README.md`, `../../stego-cipher-kujo/README.md`, `../../cms-experience/README.md`
 - `../../kujo-pi/README.md`, `../../kujolang-mcp/README.md`, `../../workcell-studio/README.md`, `../../hermes-kujo-discord-agents/README.md`, `../../docs.kujolang.ai/README.md`
+- `../../ability/README.md`, `../../ability/docs/CONFORMANCE.md`, `../../ability/docs/PRODUCTION_READINESS.md`
+- `../../ability-gateway/README.md`, `../../ability-gateway/docs/RELEASE_CHECKLIST.md`, `../../ability-gateway/docs/THREAT_MODEL.md`
+- `../../paperclip/README.md`, `../../paperclip/AGENTS.md`, `../../email/README.md`, `../../email/AGENTS.md`, `../../email/docs/MCP.md`, `../../email/docs/PRODUCTION_READINESS.md`
 - `../../source/README.md`, `../../source/package.json`
 - `../../benchmarks-capsule-v3/README.md`, `../../benchmarks-system/README.md`, `../../kujo-hyperframes/README.md`
 - `../../kujo-docs/README.md`, `../../totalrecall/README.md`, `../../ward/README.md`, `../../leash/README.md`, `../../howl/README.md`, `../../kennel/README.md`

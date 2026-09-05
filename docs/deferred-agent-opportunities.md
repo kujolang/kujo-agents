@@ -2,6 +2,56 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-09-05 Audit
+
+### Ability Gateway Operator
+
+- Proposed role: Ability Gateway Operator.
+- Problem or gap: `ability-gateway` exposes a Cloudflare Workers remote MCP/control-plane surface for controlled-beta Ability discovery, execution requests, approvals, quotas, receipts, and audit history.
+- Repository-backed evidence: `../../ability-gateway/README.md`, `../../ability-gateway/docs/RELEASE_CHECKLIST.md`, `../../ability-gateway/docs/THREAT_MODEL.md`, and `../../ability/README.md`.
+- Relevant tools/skills/repositories: Ability, Ability Gateway, Cloudflare Workers, D1, KV, GitHub OAuth, MCP, Integration Engineer, Security Reviewer, Risk Officer, QA Lead, Release Verifier.
+- Expected inputs: gateway deployment target, tenant and GitHub org policy, Ability catalog, approval and idempotency policy, Cloudflare/GitHub credential boundary, live-certification scope, and rollback/runbook evidence.
+- Expected outputs: deployment or review packet, live-certification evidence, tenant-isolation and approval-boundary results, audit/export/recovery findings, release blockers, and unresolved operator decisions.
+- Overlap: Integration Engineer, Security Reviewer, Risk Officer, QA Lead, Release Verifier, and existing MCP/Ability review responsibilities.
+- Why not add now: the gateway is a controlled-beta deployment surface with meaningful live credential, tenant, approval, and recovery boundaries. Existing integration/security/risk/QA/release roles can inspect or maintain it when explicitly assigned without creating an agent that appears to own managed-service authority.
+- Required authority boundaries: no Cloudflare mutation, GitHub OAuth configuration, tenant onboarding, secret access, public-beta enablement, approval bypass, production release, paid-plan upgrade, or data export/deletion without explicit human authorization.
+- Verification requirements: `npm run check`, `npm audit --audit-level=low`, `npx wrangler deploy --dry-run`, local D1 migration, `npm run smoke`, `npm run certify:live` where authorized, tenant-isolation tests, approval replay/substitution tests, audit-export review, operations drill, and independent security/release review.
+- Risks/costs/token impact: a standalone operator could blur infrastructure operation, security review, approval authority, and release signoff while increasing live-cloud and credential risk.
+- Recommendation: defer.
+- Evidence still required: stable chain-specific skill or workflow contract, completed live negative-token/tenant/approval/recovery gates, and a governance decision on who may operate the controlled beta.
+
+### Email Operations Agent
+
+- Proposed role: Email Operations Agent.
+- Problem or gap: `email` is a large Kujo-native email infrastructure foundation with CLI/API/MCP contracts, DNS planning, SMTP/HTTPS services, credentials, queue execution, reputation, suppression, receipts, and provider-feedback ingestion.
+- Repository-backed evidence: `../../email/README.md`, `../../email/AGENTS.md`, `../../email/docs/MCP.md`, and `../../email/docs/PRODUCTION_READINESS.md`.
+- Relevant tools/skills/repositories: Email, Kujo runtime, MCP, Doctor, Workcell, Eval, Muzzle, Backend Developer, Integration Engineer, Security Reviewer, Risk Officer, QA Lead, Release Verifier, Receipt Collector.
+- Expected inputs: tenant/domain, delivery mode, DNS/provider policy, credential files, production-readiness target, live versus fixture scope, queue/reputation policy, and verification commands.
+- Expected outputs: local verification evidence, readiness report, DNS/delivery/feedback plan, MCP boundary notes, security findings, release blockers, and explicit live-evidence gaps.
+- Overlap: Backend Developer, Integration Engineer, Security Reviewer, Risk Officer, QA Lead, Release Verifier, and Receipt Collector.
+- Why not add now: email work naturally crosses backend implementation, integration boundaries, security review, risk, QA, release verification, and receipts. The repository explicitly remains not ready for production or Internet exposure, so a named operator could imply delivery authority before live evidence exists.
+- Required authority boundaries: no Internet mail delivery, DNS mutation, provider enrollment, public listener, credential use, production readiness claim, live load test, ClamAV deployment, paid infrastructure change, or release approval without explicit human authorization and environment evidence.
+- Verification requirements: `make check`, `make test`, `make eval`, `make verify`, `make cluster`, `kujo doctor email --deep --json`, MCP fixture tests, DNS/live gates only when explicitly authorized, and independent security/release review.
+- Risks/costs/token impact: a dedicated agent could be expensive, duplicate existing roles, and create pressure to operate live infrastructure or credentials during routine audits.
+- Recommendation: defer.
+- Evidence still required: stable chain-specific skill/workflow contract, repeated email-specific workload that existing roles cannot cover safely, and completed live public-listener/DNS/provider/load/multi-node evidence.
+
+### Paperclip Plugin Maintainer
+
+- Proposed role: Paperclip Plugin Maintainer.
+- Problem or gap: `paperclip` packages Kujo context, review, and failure-evidence workflows for the Paperclip host through plugin tools and UI surfaces.
+- Repository-backed evidence: `../../paperclip/README.md`, `../../paperclip/AGENTS.md`, `../../paperclip/docs/USAGE.md`, and `../../paperclip/docs/THREAT_MODEL.md`.
+- Relevant tools/skills/repositories: Paperclip plugin, Scent, ChangeBucket, PatchBrief, CaseFile, Integration Engineer, Tooling Developer, Security Reviewer, QA Lead, Code Reviewer, Context Packager.
+- Expected inputs: Paperclip host version, workspace path, plugin settings, component versions/checksums, task context depth, review range, failure evidence payload, and verification commands.
+- Expected outputs: plugin implementation/review, context pack, review pack, failure-evidence record, UI/contract/supply-chain evidence, and unresolved host-policy blockers.
+- Overlap: Integration Engineer, Tooling Developer, Security Reviewer, QA Lead, Code Reviewer, Context Packager, and existing component-specific workflow skills.
+- Why not add now: the plugin is a host adapter for existing Kujo tools rather than a separate agent responsibility. Existing roles can maintain the adapter while component ownership remains with Scent, ChangeBucket, PatchBrief, and CaseFile.
+- Required authority boundaries: no Paperclip workspace mutation, command execution beyond documented read-only component calls, plugin publication, host policy change, or component-version substitution without explicit approval and verification.
+- Verification requirements: `npm run verify`, `npm run test:ui` where browser support exists, component checksum validation, contract tests, supply-chain checks, and security review of path/content guards.
+- Risks/costs/token impact: a standalone role would likely duplicate integration/tooling/security/review responsibilities and obscure which underlying Kujo component owns the behavior.
+- Recommendation: reject for now; keep Paperclip as an explicit host-integration surface under existing agents.
+- Evidence still required: repeated Paperclip-only maintenance load and a stable workflow contract that cannot be handled by existing integration/tooling/review roles.
+
 ## 2026-08-29 Audit
 
 ### Provider Adapter Maintainer
