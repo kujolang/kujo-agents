@@ -18,7 +18,7 @@ and VideoOps agent contracts, their shared maps, and evidence and authority boun
   workflows, tool ownership boundaries, and all 23 role bindings.
 - [x] Tool-to-agent relationships remain source-grounded or explicitly marked
   as inferred.
-- [x] All 84 roles expose provider-neutral manifests and I/O schemas, with a
+- [x] All 85 roles expose provider-neutral manifests and I/O schemas, with a
   checked-in registry and credential-free Hermes/Paperclip renderers.
 - [x] Templates retain explicit authority, handoff, evidence, and stop
   conditions.

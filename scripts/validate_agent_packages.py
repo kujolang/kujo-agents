@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = {"chain-of-command": 28, "webops": 28, "publishing-house": 23, "videoops": 5}
+PACKAGES = {"chain-of-command": 28, "webops": 28, "publishing-house": 23, "videoops": 6}
 PERMS = {"OBSERVE": 0, "PROPOSE": 1, "ACT": 2}
 
 

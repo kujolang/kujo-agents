@@ -24,7 +24,7 @@ func main() {
     mut errors := []
     agents := get(catalog, "agents", [])
     if get(catalog, "schema", "") != "kujo.videoops.catalog/v1" { errors = add_error(errors, "catalog schema mismatch") }
-    if get(catalog, "agent_count", 0) != 5 || len(agents) != 5 { errors = add_error(errors, "catalog must contain exactly five agents") }
+    if get(catalog, "agent_count", 0) != 6 || len(agents) != 6 { errors = add_error(errors, "catalog must contain the producer and five specialist agents") }
     mut seen := []
     mut skill_count := 0
     for role in agents {

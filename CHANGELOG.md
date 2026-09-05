@@ -6,6 +6,12 @@ The format follows Keep a Changelog and Semantic Versioning.
 
 ## Unreleased
 
+### Added
+
+- Add the harness-neutral VideoOps Producer, portable mega-prompt template, and
+  direct invocation contract for running arbitrary productions through the five
+  specialist roles without treating the offline fixture as the product.
+
 ## 1.3.0 - 2026-09-04
 
 ### Added

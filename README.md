@@ -11,7 +11,7 @@ The public repository contains four independent first-class packages:
 - [`chain-of-command/`](chain-of-command/) — coordinated roles for strategy, planning, execution, verification, knowledge, and bounded worker tasks.
 - [`webops/`](webops/) — 28 peer website operators for research, measurement, audit, maintenance, optimization, and improvement.
 - [`publishing-house/`](publishing-house/) — 23 editorial roles for strategy, creative development, writing, independent review, production, approval packaging, and bounded publishing operations.
-- [`videoops/`](videoops/) — five bounded video-production roles for planning, asset resolution, media generation, deterministic HyperFrames editing, and independent critique.
+- [`videoops/`](videoops/) — one production coordinator and five bounded video-production specialists for planning, asset resolution, media generation, HyperFrames editing, and independent critique.
 
 ## Start Here
 
@@ -105,7 +105,7 @@ Every role also includes a provider-neutral `manifest.json`,
 credential-free Hermes/Paperclip renderers are documented in
 [`docs/agent-package-format.md`](docs/agent-package-format.md).
 
-The checked-in [`agent-registry.json`](agent-registry.json) indexes all 84
+The checked-in [`agent-registry.json`](agent-registry.json) indexes all 85
 roles. Rebuild it and the role package files with
 `python3 scripts/generate_agent_manifests.py`, then validate them with
 `python3 scripts/validate_agent_packages.py`.
@@ -113,7 +113,7 @@ roles. Rebuild it and the role package files with
 ## Release Status
 
 `v1.3.0` preserves the stable Chain of Command, WebOps, and Publishing House
-baselines while adding the five-role VideoOps production line, Kujo-native
+baselines while adding the VideoOps Producer and five-role production line, Kujo-native
 package generation, strict schemas, economical logical model routing, and
 credential-free runtime adapter metadata. Runtime packages and
 operator-configured adapters remain responsible for enforcement and external

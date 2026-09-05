@@ -53,7 +53,9 @@ Skills:
 - `videoops-render-validation`
 - `videoops-fix-list-application`
 
-Workflow: `videoops-hyperframes-edit`. Tool availability never broadens permission.
+Workflows:
+- `videoops-hyperframes-edit`
+Tool availability never broadens permission.
 
 ## Workflow
 

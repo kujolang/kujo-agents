@@ -50,7 +50,9 @@ Skills:
 - `videoops-actionable-fix-writing`
 - `videoops-approval-decision`
 
-Workflow: `videoops-quality-review`. Tool availability never broadens permission.
+Workflows:
+- `videoops-quality-review`
+Tool availability never broadens permission.
 
 ## Workflow
 

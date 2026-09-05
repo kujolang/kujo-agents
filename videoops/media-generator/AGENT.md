@@ -44,7 +44,9 @@ Skills:
 - `videoops-generation-variant-selection`
 - `videoops-generated-asset-manifesting`
 
-Workflow: `videoops-media-generation`. Tool availability never broadens permission.
+Workflows:
+- `videoops-media-generation`
+Tool availability never broadens permission.
 
 ## Workflow
 

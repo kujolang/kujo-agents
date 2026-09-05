@@ -1,6 +1,71 @@
 {
-  "agent_count": 5,
+  "agent_count": 6,
   "agents": [
+    {
+      "boundary": "Do not perform specialist work under the producer identity, bypass stage gates, approve the editor's own work, incur paid generation cost, publish, or claim unavailable capabilities.",
+      "degraded": "If the harness cannot delegate, execute one role at a time in isolated role context by reading that role's AGENT.md and SKILL.md, then clear the role context at each file handoff. Missing required media or tooling blocks only the affected stage.",
+      "escalation": "Escalate only the failing specialist stage after two bounded economical attempts. Ask the operator before paid generation, authenticated capture, publication, or a material creative-scope change. Stop after three failed editor/critic cycles.",
+      "evidence": "Preserve the original request, stage receipts, handoffs, approval state, exact render metadata, revision history, external effects, and final artifact checksum. Distinguish harness-native execution from fixture proof.",
+      "inputs": [
+        "user production request or validated PackWrite intake",
+        "target workspace",
+        "source materials and references",
+        "approval, publication, and cost constraints"
+      ],
+      "layer": "Orchestration",
+      "maximum": "ACT",
+      "minimum": "PROPOSE",
+      "name": "VideoOps Producer",
+      "optional": [
+        "browser-capture",
+        "web-research",
+        "media-generation"
+      ],
+      "outputs": [
+        "intake/",
+        "planning/",
+        "assets/",
+        "production/",
+        "review/",
+        "output/final.mp4",
+        "output/metadata.json",
+        "review/production-summary.md"
+      ],
+      "profile": "standard-reasoning",
+      "purpose": "Accept an arbitrary video-production mission and coordinate the five bounded VideoOps specialists through a verified final deliverable.",
+      "recommended": [
+        "repository",
+        "media-inspection",
+        "multimodal"
+      ],
+      "required": [
+        "filesystem",
+        "structured-output",
+        "long-context"
+      ],
+      "skills": [
+        "kujo-videoops-workflows"
+      ],
+      "slug": "producer",
+      "stop": "Stop only when the independent Critic passes the exact final candidate and final render evidence is complete, or when a recorded blocker requires operator action.",
+      "tools": [
+        "PackWrite",
+        "Dispatch",
+        "RunLedger",
+        "HyperFrames",
+        "FFmpeg",
+        "Eval",
+        "Lens"
+      ],
+      "workflows": [
+        "videoops-production",
+        "videoops-creative-planning",
+        "videoops-asset-resolution",
+        "videoops-media-generation",
+        "videoops-hyperframes-edit",
+        "videoops-quality-review"
+      ]
+    },
     {
       "boundary": "Do not acquire media, generate production assets, edit HyperFrames, render video, or silently extend duration.",
       "degraded": "Without reference research, plan from supplied references and mark external validation unavailable. Missing required intake blocks the stage.",

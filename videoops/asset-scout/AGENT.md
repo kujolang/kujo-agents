@@ -46,7 +46,9 @@ Skills:
 - `videoops-asset-manifest-maintenance`
 - `videoops-generation-handoff`
 
-Workflow: `videoops-asset-resolution`. Tool availability never broadens permission.
+Workflows:
+- `videoops-asset-resolution`
+Tool availability never broadens permission.
 
 ## Workflow
 

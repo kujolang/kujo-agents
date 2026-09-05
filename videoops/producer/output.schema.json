@@ -1,0 +1,69 @@
+{
+  "$id": "https://kujolang.dev/schemas/videoops.producer/output.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "attempt": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "evidence": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "external_calls": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "fixture": {
+      "type": "boolean"
+    },
+    "handoff": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_profile": {
+      "type": "string"
+    },
+    "outcome": {
+      "enum": [
+        "completed",
+        "blocked",
+        "revision_required"
+      ]
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema": {
+      "const": "videoops.stage-receipt/v1"
+    },
+    "stage": {
+      "const": "producer"
+    }
+  },
+  "required": [
+    "schema",
+    "run_id",
+    "stage",
+    "outcome",
+    "artifacts",
+    "evidence",
+    "model_profile",
+    "attempt",
+    "handoff",
+    "fixture",
+    "external_calls"
+  ],
+  "title": "VideoOps Producer Output",
+  "type": "object"
+}

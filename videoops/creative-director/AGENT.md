@@ -50,7 +50,9 @@ Skills:
 - `videoops-asset-requirement-specification`
 - `videoops-platform-duration-planning`
 
-Workflow: `videoops-creative-planning`. Tool availability never broadens permission.
+Workflows:
+- `videoops-creative-planning`
+Tool availability never broadens permission.
 
 ## Workflow
 
