@@ -1,0 +1,40 @@
+// Canonical executable contracts belong to kujo-videoops, never to this copy.
+func fail(message) { eprint(message); exit(1) }
+
+func main() {
+    root := path_absolute(".")
+    source := path_join(dirname(root), "kujo-videoops/contracts")
+    check := false
+    argv := args()
+    mut i := 0
+    while i < len(argv) {
+        if argv[i] == "--check" { check = true }
+        else if argv[i] == "--source" && i + 1 < len(argv) { i = i + 1; source = path_absolute(argv[i]) }
+        i = i + 1
+    }
+    target := path_join(root, "schemas/videoops/runtime")
+    names := ["media-request.schema.json","media-result.schema.json","media-authorization.schema.json","review-decision.schema.json"]
+    if !check {
+        made := spawn_process(["mkdir","-p",target], {"timeout_ms":5000})
+        if made.exitcode != 0 { fail("cannot create schema output") }
+    }
+    hashes := {}
+    for name in names {
+        input := path_join(source, name)
+        output := path_join(target, name)
+        if !path_is_file(input) { fail("canonical contract missing: " + name) }
+        body := read_file(input)
+        parse_json(body)
+        if check {
+            if !path_is_file(output) || read_file(output) != body { fail("schema drift: " + name) }
+        } else { write_file_atomic(output, body, true) }
+        hashes[name] = sha256_file(input)
+    }
+    manifest := to_json_pretty({"schema":"kujo.videoops.contract-sync/v1","owner":"kujo-videoops/contracts","generator":"scripts/sync_videoops_media_contracts.kujo","sha256":hashes}) + "\n"
+    manifest_path := path_join(target, "sync-manifest.json")
+    if check {
+        if !path_is_file(manifest_path) || read_file(manifest_path) != manifest { fail("contract sync manifest drift") }
+    } else { write_file_atomic(manifest_path, manifest, true) }
+    print("VideoOps runtime contracts synchronized and byte-verified")
+}
+main()

@@ -62,6 +62,12 @@ func main() {
         if !schema_loaded["ok"] { errors = add_error(errors, schema_loaded["error"]) }
         else if get(schema_loaded["value"], "$schema", "") != "https://json-schema.org/draft/2020-12/schema" { errors = add_error(errors, name + ": schema dialect mismatch") }
     }
+    for name in ["media-request","media-result","media-authorization","review-decision"] {
+        source := path_join(repos, "kujo-videoops/contracts/" + name + ".schema.json")
+        copy := path_join(root, "schemas/videoops/runtime/" + name + ".schema.json")
+        if !path_is_file(source) || !path_is_file(copy) { errors = add_error(errors, "missing runtime contract: " + name) }
+        else if sha256_file(source) != sha256_file(copy) { errors = add_error(errors, "runtime contract drift: " + name) }
+    }
     result := {"valid":len(errors)==0,"videoops_agents":len(agents),"skill_references":skill_count,"schemas":7,"errors":errors}
     print(to_json_pretty(result))
     if len(errors) > 0 { exit(1) }

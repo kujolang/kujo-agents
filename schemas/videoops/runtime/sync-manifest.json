@@ -1,0 +1,11 @@
+{
+  "generator": "scripts/sync_videoops_media_contracts.kujo",
+  "owner": "kujo-videoops/contracts",
+  "schema": "kujo.videoops.contract-sync/v1",
+  "sha256": {
+    "media-authorization.schema.json": "5ec5f3c909d34df4b7fcd8c0c5301899830cfec2206901802e1d29a0f19f6ec6",
+    "media-request.schema.json": "a3ecc3e7f27394c3b84b3692bbd4db0a9266d291a94889267d9375705d0a591e",
+    "media-result.schema.json": "38cab015a2acbc8cb20249145543d06fff15563cf2ed83615bcc7434bf4e58a2",
+    "review-decision.schema.json": "a126ddba10309f6f613bf013a52530ad41c4ac4c133745fbeed759e0ae2d7442"
+  }
+}

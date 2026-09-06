@@ -6,6 +6,14 @@
       "items": {
         "additionalProperties": false,
         "properties": {
+          "acquisition_status": {
+            "enum": [
+              "resolved",
+              "blocked",
+              "failed",
+              "pending"
+            ]
+          },
           "creator": {
             "type": [
               "string",
@@ -27,6 +35,10 @@
               "string",
               "null"
             ]
+          },
+          "media_result": {
+            "minLength": 1,
+            "type": "string"
           },
           "origin": {
             "minLength": 1,

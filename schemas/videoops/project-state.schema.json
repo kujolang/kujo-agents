@@ -29,6 +29,7 @@
         "EDITING",
         "DRAFT_READY",
         "REVIEWING",
+        "REVIEW_INCOMPLETE",
         "REVISION_REQUIRED",
         "APPROVED",
         "FINAL_RENDERING",

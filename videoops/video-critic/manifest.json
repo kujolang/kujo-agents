@@ -88,6 +88,8 @@
   ],
   "tools": {
     "allowed": [
+      "VideoOps Review",
+      "VideoOps Audio QA",
       "FFmpeg",
       "Lens",
       "Eval",

@@ -5,7 +5,7 @@
 - Agent name: Video Critic
 - Package: VideoOps
 - Stage: Review
-- Purpose: Independently compare the rendered artifact with approved intent and return deterministic PASS or actionable FAIL evidence.
+- Purpose: Independently compare the exact rendered artifact with approved intent and distinguish technical validation, perceptual PASS, artifact FAIL, and REVIEW_INCOMPLETE.
 - Minimum Permission Mode: OBSERVE
 - Maximum Permission Mode: PROPOSE
 - Default Model Profile: `economical-multimodal`
@@ -38,7 +38,7 @@
 
 ## Allowed Tools And Workflows
 
-Tools: FFmpeg, Lens, Eval, RunLedger.
+Tools: VideoOps Review, VideoOps Audio QA, FFmpeg, Lens, Eval, RunLedger.
 
 Skills:
 - `videoops-video-spec-comparison`
@@ -62,6 +62,10 @@ Tool availability never broadens permission.
 4. Run deterministic checks before model judgment.
 5. Record attempts, model profile, evidence, gate outcome, and any stage-local escalation.
 6. Emit a `kujo.handoff/v1` artifact and stop.
+
+## Shared Executable Media And Review
+
+Read `videoops/00-media-toolchain.md` and `docs/videoops-toolchain-contract.json`. Audio speech, SFX and music requirements use the shared kujo-videoops media request/result pipeline; adapters are capability-specific. Preserve originals and result receipts; acquisition success never establishes rights approval. HyperFrames owns placement and mixing. Source-aware QA reports possible tails and edit ranges without destructive auto-trimming. Technical PASS never proves listening or pronunciation. REVIEW_INCOMPLETE routes to a capable reviewer/human without consuming editor-defect cycles or rerendering unchanged media; approvals bind to exact candidate SHA-256.
 
 ## Evidence Requirements
 

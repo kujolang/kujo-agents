@@ -70,6 +70,7 @@
   },
   "schema": "kujo.agent.manifest/v1",
   "skills": [
+    "videoops-media-provider-execution",
     "videoops-generated-still-production",
     "videoops-generated-motion-production",
     "videoops-brand-style-translation",
@@ -82,6 +83,7 @@
   ],
   "tools": {
     "allowed": [
+      "VideoOps Media",
       "Image Generation",
       "Video Generation",
       "FFmpeg",
