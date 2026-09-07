@@ -15,6 +15,10 @@ jobs:
           sudo apt-get install -y ffmpeg
           python3 -m venv /tmp/videoops-test-env
           /tmp/videoops-test-env/bin/pip install ./videoops/tools
+      - name: Verify installed package includes contracts
+        working-directory: /tmp
+        run: |
+          /tmp/videoops-test-env/bin/python -I -c "from videoops.media_contracts import CONTRACTS; from videoops.cli import parser; from importlib.metadata import version; assert version('kujo-agents-videoops') == '0.3.0'; assert 'site-packages' in str(CONTRACTS); assert len(list(CONTRACTS.glob('*.json'))) == 4; parser().parse_args(['--help'])"
       - name: Check contracts and production tools without sibling repositories
         run: |
           export PATH="/tmp/videoops-test-env/bin:$PATH"
