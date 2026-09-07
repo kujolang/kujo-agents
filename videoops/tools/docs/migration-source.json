@@ -1,0 +1,82 @@
+{
+  "source_repository": "kujolang/kujo-videoops",
+  "source_commit": "20b32df7fbe93ddfbad69ab0df9cb3c36519ecf2",
+  "destination": "kujolang/kujo-agents/videoops/tools",
+  "reason": "Operator correction: standalone repository retired; tools belong with canonical VideoOps agents.",
+  "preserved_source_files": [
+    {
+      "source": "videoops/media.py",
+      "sha256": "03cbac41bd03f010cd7fd653a092b25cfa9b9ac45d8d969a237850aea906e29b"
+    },
+    {
+      "source": "videoops/media_contracts.py",
+      "sha256": "f9622a9fa616c63ea44df8bbedce333ade2b4808b34c45069b4337b14001e1c4"
+    },
+    {
+      "source": "videoops/media_providers.py",
+      "sha256": "720eed1043484e7e12006300624a07feb02c52ace362d2419f4260b74606ed78"
+    },
+    {
+      "source": "videoops/audio_qa.py",
+      "sha256": "088e53af404ced6e0bf622b2d7b096c08ee8e140f2f7e4f418a19c18e72c354c"
+    },
+    {
+      "source": "videoops/review.py",
+      "sha256": "947aec93e0048e6ccd579027ab11808d1cc7335b2128bc6a79b167b0be4c5bb6"
+    },
+    {
+      "source": "videoops/errors.py",
+      "sha256": "6161dd824a59f8b948157b95de093f8a69019d8b7995eeb4bf3f7130a44d7f46"
+    },
+    {
+      "source": "tests/test_media.py",
+      "sha256": "934345d9ebdb8d69991c4180e20d09d4f035227f01c0d5c58b80b2e0c16c205b"
+    },
+    {
+      "source": "tests/test_audio_qa.py",
+      "sha256": "9e783b8987c27f7c993ccd1d3eef994ac3d110469c21ba0aed1cc0c678d27154"
+    },
+    {
+      "source": "tests/test_review.py",
+      "sha256": "554153950c7be56e632355bf6a215f3b8781f675442b54a5f2be01c38d979777"
+    },
+    {
+      "source": "scripts/build_media_contracts.py",
+      "sha256": "eb7d359deaa71184241c7ce7a3cae39e61a198096f0ff5d75490213f3c0e7e10"
+    },
+    {
+      "source": "contracts/media-request.schema.json",
+      "sha256": "a3ecc3e7f27394c3b84b3692bbd4db0a9266d291a94889267d9375705d0a591e"
+    },
+    {
+      "source": "contracts/media-result.schema.json",
+      "sha256": "38cab015a2acbc8cb20249145543d06fff15563cf2ed83615bcc7434bf4e58a2"
+    },
+    {
+      "source": "contracts/media-authorization.schema.json",
+      "sha256": "5ec5f3c909d34df4b7fcd8c0c5301899830cfec2206901802e1d29a0f19f6ec6"
+    },
+    {
+      "source": "contracts/review-decision.schema.json",
+      "sha256": "a126ddba10309f6f613bf013a52530ad41c4ac4c133745fbeed759e0ae2d7442"
+    },
+    {
+      "source": "docs/media-providers.md",
+      "sha256": "99688048270f779a8dd50c8f7b21961a525b6aafa1584a462f4a4bb5ffe57332"
+    },
+    {
+      "source": "docs/audio-qa.md",
+      "sha256": "a4e9415453be9a80f574636c03d1ecc71fdb254fc28e3f2d669eee60167a0f10"
+    },
+    {
+      "source": "docs/evidence/elevenlabs-smoke-v0.3.0.json",
+      "sha256": "7954d92fc920ecc9c728d6c86c03805ab7be58d166da3f1af13a07da482dd33e"
+    },
+    {
+      "source": "scripts/qa_media.py",
+      "sha256": "383313e938702a2e1bdc4dbacb27984fa32506b787176fd88bb69ad08fc39b7c"
+    }
+  ],
+  "excluded": "Legacy fixture orchestrator, HTTP job API, old Agent Projects and generated videos are not production media tools and are not migrated.",
+  "compatibility": "Preserve Python videoops imports and v1 schema identifiers; distribution name is kujo-agents-videoops."
+}

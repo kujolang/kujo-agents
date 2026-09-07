@@ -173,3 +173,7 @@ __pycache__/
 # /fence.toml
 # /.lens.toml
 # /packwrite.toml
+
+# VideoOps local package and private production state
+*.egg-info/
+.videoops-media/

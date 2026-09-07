@@ -1,0 +1,90 @@
+{
+  "schema": "kujo-videoops/live-smoke-summary/v1",
+  "tested_at": "2026-09-07T00:42:48.672558+00:00",
+  "scope": "Private, noncommercial adapter verification; no audio published; no listening approval claimed.",
+  "speech": {
+    "state": "SUCCESS",
+    "verification": "live",
+    "model": "eleven_multilingual_v2",
+    "metadata": {
+      "channels": 1,
+      "codec": "mp3",
+      "duration_seconds": 3.111474,
+      "sample_rate": 44100,
+      "streams": [
+        {
+          "codec": "mp3",
+          "type": "audio"
+        }
+      ]
+    },
+    "latency_seconds": 6.57336387700343,
+    "usage": {
+      "cost": null,
+      "credits": 53.0,
+      "currency": "USD",
+      "reserved_cost": 0,
+      "reserved_credits": 53,
+      "source": "provider_header"
+    }
+  },
+  "speech_audio_sha256": "84b46e3036f0f9ccbabeeea043e98bd277e0cb6c4e9119e9f304554971babc5e",
+  "speech_alignment_sha256": "e11f6c1671fa5a351dc51567022bd57ad7fe251800097efc00a440fe29d0cc3f",
+  "audio_qa": {
+    "deterministic": {
+      "status": "PASS",
+      "failures": []
+    },
+    "perceptual": {
+      "status": "REVIEW_INCOMPLETE",
+      "listening_exercised": false,
+      "required": [
+        "pronunciation",
+        "speech completeness",
+        "audible cuts",
+        "mix comfort"
+      ]
+    },
+    "levels": {
+      "peak": 0.506335973739624,
+      "peak_dbfs": -5.911224322434739,
+      "rms": 0.06372201043565118,
+      "rms_dbfs": -23.91421061242884,
+      "clipped_channel_samples": 0
+    },
+    "integrated_loudness_lufs": -24.46,
+    "true_peak_dbtp": -5.9,
+    "heuristic_findings": [],
+    "alignment_adaptation": "Contiguous non-whitespace characters grouped as words; punctuation retained. Original character alignment preserved."
+  },
+  "sound_effects": {
+    "state": "FAILED",
+    "error": "HTTP_UNAUTHORIZED",
+    "verification": "live",
+    "latency_seconds": 0.5781611299898941,
+    "usage": {
+      "cost": null,
+      "credits": null,
+      "currency": "USD",
+      "reserved_cost": 0,
+      "reserved_credits": 40,
+      "source": "unavailable"
+    }
+  },
+  "music": {
+    "state": "BLOCKED",
+    "error": "ENTITLEMENT_DENIED",
+    "network_dispatch": false,
+    "reason": "Free plan lacks Music API entitlement"
+  },
+  "external_actions": {
+    "subscription_gets": 3,
+    "speech_posts": 1,
+    "sound_effects_posts": 1,
+    "music_posts": 0,
+    "observed_credit_delta": 53,
+    "account_upgrade": false,
+    "audio_publication": false
+  },
+  "limits": "TTS live success verifies this one request; SFX permission cause not confirmed; music only mock-tested. Monetary cost and model tokens unavailable."
+}
