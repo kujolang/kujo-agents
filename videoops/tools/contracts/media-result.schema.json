@@ -1,0 +1,579 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.ai/contracts/videoops/media-result/v1",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "videoops-media-result/v1"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "job_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "asset_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "requirement_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "shot_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+      },
+      "maxItems": 10000
+    },
+    "fingerprint": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "attempt": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "retry_of": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "state": {
+      "enum": [
+        "SUCCESS",
+        "BLOCKED",
+        "UNSUPPORTED",
+        "FAILED",
+        "CANCELLED",
+        "UNKNOWN_OUTCOME"
+      ]
+    },
+    "provider": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "capability": {
+      "enum": [
+        "speech",
+        "sound_effects",
+        "music",
+        "transcription",
+        "alignment",
+        "catalog",
+        "local_import"
+      ]
+    },
+    "model": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "voice": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "settings": {
+      "type": "object",
+      "properties": {
+        "stability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "similarity_boost": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "style": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "speed": {
+          "type": "number",
+          "minimum": 0.7,
+          "maximum": 1.2
+        },
+        "use_speaker_boost": {
+          "type": "boolean"
+        },
+        "prompt_influence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "force_instrumental": {
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "output_format": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "authorization_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "original": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512,
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "derived": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512,
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 10000
+    },
+    "metadata": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "duration_seconds": {
+              "type": "number",
+              "minimum": 0
+            },
+            "sample_rate": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "channels": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "codec": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "streams": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "codec": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  }
+                },
+                "required": [
+                  "type",
+                  "codec"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 10000
+            }
+          },
+          "required": [
+            "duration_seconds",
+            "sample_rate",
+            "channels",
+            "codec",
+            "streams"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "alignment": {
+      "type": "object",
+      "properties": {
+        "availability": {
+          "enum": [
+            "available",
+            "unavailable",
+            "not_requested"
+          ]
+        },
+        "units": {
+          "const": "seconds"
+        },
+        "time_origin": {
+          "const": "original_media_start"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "artifact": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512,
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "availability",
+        "units",
+        "time_origin",
+        "source",
+        "artifact"
+      ],
+      "additionalProperties": false
+    },
+    "provider_request_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "credits": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cost": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "currency": {
+          "enum": [
+            "USD"
+          ]
+        },
+        "source": {
+          "enum": [
+            "provider_header",
+            "local",
+            "unavailable"
+          ]
+        },
+        "reserved_credits": {
+          "type": "number",
+          "minimum": 0
+        },
+        "reserved_cost": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "credits",
+        "cost",
+        "currency",
+        "source",
+        "reserved_credits",
+        "reserved_cost"
+      ],
+      "additionalProperties": false
+    },
+    "latency_seconds": {
+      "type": "number",
+      "minimum": 0
+    },
+    "retries": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "rights": {
+      "type": "object",
+      "properties": {
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512,
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "attribution": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "restrictions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "maxItems": 10000
+        },
+        "intended_use": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "evidence",
+        "license",
+        "attribution",
+        "restrictions",
+        "intended_use"
+      ],
+      "additionalProperties": false
+    },
+    "verification": {
+      "enum": [
+        "local",
+        "mock",
+        "live"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "enum": [
+            "AUTHORIZATION_REQUIRED",
+            "AUTHORIZATION_INVALID",
+            "BUDGET_EXHAUSTED",
+            "ENTITLEMENT_UNKNOWN",
+            "ENTITLEMENT_DENIED",
+            "CREDENTIAL_UNAVAILABLE",
+            "HTTP_UNAUTHORIZED",
+            "HTTP_RATE_LIMIT",
+            "HTTP_REJECTED",
+            "HTTP_SERVER_ERROR",
+            "UNSUPPORTED_CAPABILITY",
+            "UNSUPPORTED_SETTINGS",
+            "MALFORMED_RESPONSE",
+            "INVALID_MEDIA",
+            "MISSING_ALIGNMENT",
+            "ALIGNMENT_INVALID",
+            "UNKNOWN_DISPATCH_OUTCOME",
+            "CANCELLED_BY_OPERATOR"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "receipt_path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+    },
+    "manifest_path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+    },
+    "handoff_path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+    }
+  },
+  "required": [
+    "schema",
+    "request_id",
+    "job_id",
+    "asset_id",
+    "requirement_id",
+    "shot_ids",
+    "fingerprint",
+    "attempt",
+    "retry_of",
+    "state",
+    "provider",
+    "capability",
+    "model",
+    "voice",
+    "settings",
+    "output_format",
+    "authorization_id",
+    "original",
+    "derived",
+    "metadata",
+    "alignment",
+    "provider_request_id",
+    "usage",
+    "latency_seconds",
+    "retries",
+    "rights",
+    "verification",
+    "created_at",
+    "error",
+    "receipt_path",
+    "manifest_path",
+    "handoff_path"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kujolang.ai/contracts/videoops/media-authorization/v1",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "videoops-media-authorization/v1"
+    },
+    "authorization_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "workspace": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "provider": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "speech",
+          "sound_effects",
+          "music",
+          "transcription",
+          "alignment",
+          "catalog",
+          "local_import"
+        ]
+      },
+      "maxItems": 10000
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+      },
+      "maxItems": 10000
+    },
+    "voices": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+      },
+      "maxItems": 10000
+    },
+    "output_formats": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+      },
+      "maxItems": 10000
+    },
+    "request_bounds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fingerprint": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "max_credits": {
+            "type": "number",
+            "minimum": 0
+          },
+          "max_cost": {
+            "type": "number",
+            "minimum": 0
+          },
+          "evidence": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 512,
+                "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "fingerprint",
+          "max_credits",
+          "max_cost",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 10000
+    },
+    "max_calls": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_credits": {
+      "type": "number",
+      "minimum": 0
+    },
+    "max_cost": {
+      "type": "number",
+      "minimum": 0
+    },
+    "currency": {
+      "enum": [
+        "USD"
+      ]
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "credential_ref": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "enum": [
+                "env",
+                "keychain",
+                "secret-service"
+              ]
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "account": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "name",
+            "account"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "entitlements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "capability": {
+            "enum": [
+              "speech",
+              "sound_effects",
+              "music",
+              "transcription",
+              "alignment",
+              "catalog",
+              "local_import"
+            ]
+          },
+          "allowed": {
+            "type": "boolean"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "evidence": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 512,
+                "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          "remaining_credits": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "no_overage": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "capability",
+          "allowed",
+          "expires_at",
+          "evidence",
+          "remaining_credits",
+          "no_overage"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 10000
+    }
+  },
+  "required": [
+    "schema",
+    "authorization_id",
+    "workspace",
+    "provider",
+    "capabilities",
+    "models",
+    "voices",
+    "output_formats",
+    "request_bounds",
+    "max_calls",
+    "max_credits",
+    "max_cost",
+    "currency",
+    "expires_at",
+    "credential_ref",
+    "entitlements"
+  ],
+  "additionalProperties": false
+}

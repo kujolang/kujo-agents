@@ -110,12 +110,16 @@ roles. Rebuild it and the role package files with
 `python3 scripts/generate_agent_manifests.py`, then validate them with
 `python3 scripts/validate_agent_packages.py`.
 
+## Canonical VideoOps tooling
+
+The VideoOps team and its executable media, audio QA and review tools live together in this repository. Use [`videoops/tools/README.md`](videoops/tools/README.md) for setup and commands. The retired standalone `kujo-videoops` repository is not a runtime or schema dependency. See [migration history](docs/videoops-canonical-migration.md).
+
 ## Release Status
 
 `v1.4.0` adds shared media-provider, source-aware audio QA, and exact-candidate
 review contracts to the VideoOps team while preserving Chain of Command,
 WebOps, and Publishing House. The Producer routes speech, sound effects and
-music through the capability-specific `kujo-videoops` adapters, with local
+music through the capability-specific adapters in `videoops/tools`, with local
 import, scoped operator authorization, provenance receipts and explicit cost
 bounds. Missing playback or listening capability routes to human review;
 it does not consume editor repair cycles.
@@ -150,6 +154,7 @@ python3 scripts/validate_webops.py
 python3 scripts/validate_publishing_house.py
 kujo run scripts/validate_videoops.kujo
 python3 scripts/validate_agent_packages.py
+bash videoops/tools/tests/run.sh
 test "$(cat VERSION)" = "1.4.0"
 git diff --check
 ```
