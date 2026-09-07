@@ -1,0 +1,21 @@
+name: videoops-production-tools
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  production-tools:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install local test dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python3 -m venv /tmp/videoops-test-env
+          /tmp/videoops-test-env/bin/pip install ./videoops/tools
+      - name: Check contracts and production tools without sibling repositories
+        run: |
+          export PATH="/tmp/videoops-test-env/bin:$PATH"
+          bash videoops/tools/tests/run.sh

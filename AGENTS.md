@@ -40,6 +40,7 @@ bash .github/scripts/check-kujo-tool-artifacts.sh
 python3 scripts/validate_webops.py
 python3 scripts/validate_publishing_house.py
 python3 scripts/validate_agent_packages.py
+bash videoops/tools/tests/run.sh
 kujo run scripts/validate_videoops.kujo
 test "$(cat VERSION)" = "1.4.0"
 git diff --check
@@ -58,3 +59,5 @@ git diff --check
 Do not use live credentials, publish packages, create public releases, push
 final tags, alter branch protection, force-push, rewrite history, or claim that
 templates enforce policy or sandboxing.
+
+VideoOps executable production tools and their canonical contracts belong in `videoops/tools/`. Do not add a runtime or schema dependency on the retired standalone `kujo-videoops` repository. Role templates remain guidance; executable tools enforce only their documented boundaries.

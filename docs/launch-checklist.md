@@ -49,6 +49,7 @@ python3 scripts/validate_webops.py
 python3 scripts/validate_publishing_house.py
 kujo run scripts/validate_videoops.kujo
 python3 scripts/validate_agent_packages.py
+bash videoops/tools/tests/run.sh
 test "$(cat VERSION)" = "1.4.0"
 rg -n '1\.0\.0' README.md CHANGELOG.md docs/launch-checklist.md
 git diff --check
@@ -73,3 +74,7 @@ The role templates do not themselves enforce sandboxing, permissions, policy,
 or third-party platform behavior. Package publication, later public releases,
 hosted deployment, branch-protection changes, force-pushes, and live credential
 use require separate approval.
+
+## Canonical tooling correction
+
+VideoOps executable media/QA/review tools are now owned by `videoops/tools`. CI checks the production-tool suite in a checkout without sibling repositories. The historical 1.4.0 release scope above remains a record; see `docs/videoops-canonical-migration.md` for the correction and retained source provenance.

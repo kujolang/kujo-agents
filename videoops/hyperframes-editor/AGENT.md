@@ -68,7 +68,7 @@ Tool availability never broadens permission.
 
 ## Shared Executable Media And Review
 
-Read `videoops/00-media-toolchain.md` and `docs/videoops-toolchain-contract.json`. Audio speech, SFX and music requirements use the shared kujo-videoops media request/result pipeline; adapters are capability-specific. Preserve originals and result receipts; acquisition success never establishes rights approval. HyperFrames owns placement and mixing. Source-aware QA reports possible tails and edit ranges without destructive auto-trimming. Technical PASS never proves listening or pronunciation. REVIEW_INCOMPLETE routes to a capable reviewer/human without consuming editor-defect cycles or rerendering unchanged media; approvals bind to exact candidate SHA-256.
+Read `videoops/00-media-toolchain.md` and `docs/videoops-toolchain-contract.json`. Audio speech, SFX and music requirements use the repo-local `videoops/tools/bin/videoops` media request/result pipeline owned by kujo-agents; adapters are capability-specific. Preserve originals and result receipts; acquisition success never establishes rights approval. HyperFrames owns placement and mixing. Source-aware QA reports possible tails and edit ranges without destructive auto-trimming. Technical PASS never proves listening or pronunciation. REVIEW_INCOMPLETE routes to a capable reviewer/human without consuming editor-defect cycles or rerendering unchanged media; approvals bind to exact candidate SHA-256.
 
 ## Evidence Requirements
 

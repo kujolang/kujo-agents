@@ -26,3 +26,7 @@ Start with [`00-agent-map.md`](00-agent-map.md), [`00-production-standard.md`](0
 Every run uses workspace-relative artifacts under `intake/`, `planning/`, `assets/`, `production/`, `review/`, and `output/`. Required decisions are written to files; downstream roles never depend on hidden conversation state.
 
 No contract is permanently coupled to a provider or named model. Mechanical stages are economical-first, deterministic checks precede semantic judgment, economical attempts are capped at two, and escalation is local to the failing stage. Live provider, paid generation, cloud render, or publication actions require separate operator approval.
+
+## Repository-owned production tools
+
+Use [`tools/README.md`](tools/README.md) for the local media-provider, authorization, provenance, audio QA and exact-candidate review tools. The canonical tools and schemas ship with this VideoOps package; no retired standalone runtime checkout is required.

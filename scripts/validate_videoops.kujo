@@ -17,6 +17,15 @@ func add_error(errors, message) { return push(errors, message) }
 func main() {
     root := path_absolute(".")
     repos := dirname(root)
+    argv := args()
+    mut arg_index := 0
+    while arg_index < len(argv) {
+        if argv[arg_index] == "--repo-base" && arg_index + 1 < len(argv) {
+            arg_index = arg_index + 1
+            repos = path_absolute(argv[arg_index])
+        } else { eprint("unsupported argument: " + argv[arg_index]); exit(1) }
+        arg_index = arg_index + 1
+    }
     catalog_path := path_join(root, "videoops/videoops-catalog.json")
     loaded := load_object(catalog_path)
     if !loaded["ok"] { print(to_json_pretty({"valid":false,"errors":[loaded["error"]]})); exit(1) }
@@ -40,6 +49,7 @@ func main() {
         for heading in ["Agent Contract","Inputs Expected","Outputs Required","Allowed Tools And Workflows","Evidence Requirements","Degraded Operation","Handoff Rules","Model Routing And Cost","Escalation Rules","Stop Conditions","Anti-Scope"] {
             if contains(body, "## " + heading) == 0 { errors = add_error(errors, slug + ": missing heading " + heading) }
         }
+        if contains(body, "repo-local `videoops/tools/bin/videoops`") == 0 { errors = add_error(errors, slug + ": missing canonical executable handoff") }
         manifest_loaded := load_object(path_join(folder, "manifest.json"))
         if manifest_loaded["ok"] {
             manifest := manifest_loaded["value"]
@@ -63,11 +73,21 @@ func main() {
         else if get(schema_loaded["value"], "$schema", "") != "https://json-schema.org/draft/2020-12/schema" { errors = add_error(errors, name + ": schema dialect mismatch") }
     }
     for name in ["media-request","media-result","media-authorization","review-decision"] {
-        source := path_join(repos, "kujo-videoops/contracts/" + name + ".schema.json")
+        source := path_join(root, "videoops/tools/contracts/" + name + ".schema.json")
         copy := path_join(root, "schemas/videoops/runtime/" + name + ".schema.json")
         if !path_is_file(source) || !path_is_file(copy) { errors = add_error(errors, "missing runtime contract: " + name) }
         else if sha256_file(source) != sha256_file(copy) { errors = add_error(errors, "runtime contract drift: " + name) }
     }
+    toolchain := load_object(path_join(root, "docs/videoops-toolchain-contract.json"))
+    if !toolchain["ok"] { errors = add_error(errors, toolchain["error"]) }
+    else {
+        if get(toolchain["value"], "canonical_schema_owner", "") != "kujo-agents/videoops/tools/contracts" { errors = add_error(errors, "toolchain canonical owner mismatch") }
+        for operation in get(toolchain["value"], "operations", []) {
+            if get(operation, "owner", "") != "kujo-agents/videoops/tools" { errors = add_error(errors, "toolchain operation owner mismatch") }
+        }
+    }
+    synced := spawn_process(["kujo", "run", "scripts/sync_videoops_media_contracts.kujo", "--", "--check"], {"timeout_ms":30000})
+    if synced.exitcode != 0 { errors = add_error(errors, "runtime contract sync validation failed") }
     result := {"valid":len(errors)==0,"videoops_agents":len(agents),"skill_references":skill_count,"schemas":7,"errors":errors}
     print(to_json_pretty(result))
     if len(errors) > 0 { exit(1) }

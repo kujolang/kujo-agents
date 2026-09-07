@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Correct VideoOps tool ownership: production media providers, scoped authorization, provenance, source-aware audio QA, exact-candidate review and their tests now live in `videoops/tools` alongside the canonical agents. Remove the retired sibling runtime/schema dependency; preserve v1 artifacts and historical verification evidence.
+
 All notable changes to Kujo Agents are documented here.
 
 The format follows Keep a Changelog and Semantic Versioning.

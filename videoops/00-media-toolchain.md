@@ -1,8 +1,10 @@
 # Shared media and review runtime
 
-The executable owner is `kujo-videoops`, not these Markdown roles. See
-`docs/videoops-toolchain-contract.json`. Run its CLI from that repository or an
-operator-installed environment. Never copy a production's private provider script.
+The executable tools are owned by `kujo-agents` under `videoops/tools/`. See
+`docs/videoops-toolchain-contract.json`. Run `videoops/tools/bin/videoops` from
+this repository; the retired `kujo-videoops` repository is not required. Markdown
+role contracts remain guidance, while these local tools enforce their implemented
+dispatch boundaries. Never copy a production's private provider script.
 
 Audio requirements use versioned media requests. Speech, SFX and music are separate
 capabilities: successful speech access does not establish music entitlement.
@@ -37,28 +39,33 @@ All mandatory gates and the current SHA-256 must pass before promotion; filename
 and previous approvals are insufficient. Keep user revisions, render attempts,
 technical repairs, critic failures and review attempts separate.
 
-The canonical new runtime JSON schemas live in `kujo-videoops/contracts`. Regenerate
+The canonical new runtime JSON schemas live in `videoops/tools/contracts` in this repository. Regenerate
 portable copies with `kujo run scripts/sync_videoops_media_contracts.kujo`; verify
 with the same command plus `-- --check`. Copies under `schemas/videoops/runtime`
-are byte-identical and have a SHA manifest. The existing legacy schemas and explicit
+are byte-identical and have a SHA manifest. Schema sync always reads this
+checkout, with no external source override. For isolated checkouts, role validation
+accepts `kujo run scripts/validate_videoops.kujo -- --repo-base <repos-directory>`
+to locate the separate skills/workflows catalogs; schemas remain repo-local. The existing legacy schemas and explicit
 offline fixtures remain supported; never reinterpret their synthetic approval as
-production judgment. Runtime schemas reject unknown versions.
+production judgment. Runtime schemas reject unknown versions. Existing schema IDs and the Python
+`videoops` import namespace remain stable for receipt compatibility; neither
+implies ownership by or a dependency on the retired repository.
 
 ## CLI handoff
 
-From the kujo-videoops runtime directory:
+From the kujo-agents repository root:
 
 ```bash
-python3 -m videoops.cli media doctor --workspace /absolute/project
-python3 -m videoops.cli media providers --workspace /absolute/project
-python3 -m videoops.cli media import --workspace /absolute/project --request /absolute/project/requests/import.json
-python3 -m videoops.cli media authorize --workspace /absolute/project --authorization /absolute/project/requests/authority.json --authorize-local
-python3 -m videoops.cli media generate --workspace /absolute/project --request /absolute/project/requests/speech.json
-python3 -m videoops.cli media status --workspace /absolute/project --request-id speech-001
-python3 -m videoops.cli review submit-candidate --workspace /absolute/project --candidate output/draft.mp4
-python3 -m videoops.cli review record --workspace /absolute/project --decision /absolute/project/review/human.json --authorize-local
-python3 -m videoops.cli review resume --workspace /absolute/project
-python3 -m videoops.cli review promote --workspace /absolute/project --destination output/final.mp4 --authorize-local
+videoops/tools/bin/videoops media doctor --workspace /absolute/project
+videoops/tools/bin/videoops media providers --workspace /absolute/project
+videoops/tools/bin/videoops media import --workspace /absolute/project --request /absolute/project/requests/import.json
+videoops/tools/bin/videoops media authorize --workspace /absolute/project --authorization /absolute/project/requests/authority.json --authorize-local
+videoops/tools/bin/videoops media generate --workspace /absolute/project --request /absolute/project/requests/speech.json
+videoops/tools/bin/videoops media status --workspace /absolute/project --request-id speech-001
+videoops/tools/bin/videoops review submit-candidate --workspace /absolute/project --candidate output/draft.mp4
+videoops/tools/bin/videoops review record --workspace /absolute/project --decision /absolute/project/review/human.json --authorize-local
+videoops/tools/bin/videoops review resume --workspace /absolute/project
+videoops/tools/bin/videoops review promote --workspace /absolute/project --destination output/final.mp4 --authorize-local
 ```
 
 The example IDs/paths require project-specific schema-valid artifacts. Authority
@@ -74,7 +81,7 @@ authenticated entitlement inspection, not a media-file inspector. Revoke and
 reconcile also require `--authorize-local`. Use doctor/providers for local-only
 discovery. `review render-attempt --attempt-id <id> --outcome failed|succeeded`
 records harness render attempts separately. Source-aware QA is invoked from the
-runtime with `python3 scripts/qa_media.py <workspace> --video <relative-media>
+runtime with `python3 videoops/tools/scripts/qa_media.py <workspace> --video <relative-media>
 --audio-only --audio-config <relative-config>`; the config declares sources, edits
 and cue comparisons rather than silently inventing them.
 
@@ -83,7 +90,7 @@ and cue comparisons rather than silently inventing them.
 Authorization binds a `request_bounds` entry to each exact request fingerprint,
 maximum credits/cost and estimate evidence approved by the operator. A request
 cannot reduce its own reservation to evade the authorized budget. Compute the
-fingerprint with `python3 -m videoops.cli media fingerprint --workspace <absolute-workspace> --request <workspace-request.json>`,
+fingerprint with `videoops/tools/bin/videoops media fingerprint --workspace <absolute-workspace> --request <workspace-request.json>`,
 review the request and estimate evidence, then include that exact fingerprint and
 bounds in the authorization artifact. Changing the request needs a newly approved
 bound; do not reuse a fingerprint for different content, model or output settings.

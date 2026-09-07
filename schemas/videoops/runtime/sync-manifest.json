@@ -1,6 +1,6 @@
 {
   "generator": "scripts/sync_videoops_media_contracts.kujo",
-  "owner": "kujo-videoops/contracts",
+  "owner": "kujo-agents/videoops/tools/contracts",
   "schema": "kujo.videoops.contract-sync/v1",
   "sha256": {
     "media-authorization.schema.json": "5ec5f3c909d34df4b7fcd8c0c5301899830cfec2206901802e1d29a0f19f6ec6",
