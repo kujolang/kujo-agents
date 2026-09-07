@@ -93,6 +93,8 @@
   ],
   "tools": {
     "allowed": [
+      "VideoOps Media",
+      "VideoOps Audio QA",
       "HyperFrames",
       "FFmpeg",
       "Eval",

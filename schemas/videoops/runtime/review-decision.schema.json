@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VideoOps exact-candidate review decision v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "id",
+    "candidate_sha256",
+    "technical",
+    "perceptual",
+    "reviewer",
+    "evidence",
+    "defects",
+    "reviewed_at"
+  ],
+  "properties": {
+    "version": {
+      "const": "videoops-review-decision/v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]{1,128}$"
+    },
+    "candidate_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "technical": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "NOT_REVIEWED"
+      ]
+    },
+    "perceptual": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "REVIEW_INCOMPLETE",
+        "NOT_REVIEWED"
+      ]
+    },
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identity",
+        "type",
+        "capabilities_exercised"
+      ],
+      "properties": {
+        "identity": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "type": {
+          "enum": [
+            "human",
+            "agent",
+            "technical_tool"
+          ]
+        },
+        "capabilities_exercised": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "deterministic_validation",
+              "visual_playback",
+              "audio_listening",
+              "embedded_feed_review"
+            ]
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Contained workspace-relative regular file; runtime rejects symlinks and binds its SHA-256."
+      }
+    },
+    "defects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "gate",
+          "description"
+        ],
+        "properties": {
+          "gate": {
+            "enum": [
+              "technical",
+              "perceptual"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "description": "Canonical ownership: kujo-videoops/contracts/review-decision.schema.json; portable kujo-agents/schemas/videoops/runtime copies are synchronized from this source. Runtime additionally enforces gate-capability consistency, actionable FAIL defects, configured mandatory gates, timestamp not in future, contained evidence, and exact active checksum. Legacy fixture PASS does not migrate to production approval."
+}

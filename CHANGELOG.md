@@ -6,11 +6,21 @@ The format follows Keep a Changelog and Semantic Versioning.
 
 ## Unreleased
 
+## 1.4.0 - 2026-09-06
+
 ### Added
 
 - Add the harness-neutral VideoOps Producer, portable mega-prompt template, and
   direct invocation contract for running arbitrary productions through the five
   specialist roles without treating the offline fixture as the product.
+
+- Add a versioned VideoOps toolchain contract and synchronized runtime schemas
+  for capability-based speech, sound effects, music, local import, scoped
+  authorization and original/derived media receipts.
+- Extend portable roles with source-aware audio QA, exact-candidate review,
+  human handoff and incomplete-review routing without wasted editor cycles.
+- Keep executable adapters in `kujo-videoops`, composition in HyperFrames, and
+  live entitlement, observed usage and rights evidence specific to each run.
 
 ## 1.3.0 - 2026-09-04
 

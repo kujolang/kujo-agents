@@ -37,7 +37,8 @@
       "enum": [
         "completed",
         "blocked",
-        "revision_required"
+        "revision_required",
+        "review_incomplete"
       ]
     },
     "run_id": {

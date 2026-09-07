@@ -168,6 +168,7 @@
       "slug": "asset-scout",
       "stop": "Stop when every requested asset has a terminal status and all approved production paths and provenance records validate.",
       "tools": [
+        "VideoOps Media",
         "Lens",
         "FFmpeg",
         "RunLedger"
@@ -179,7 +180,7 @@
     {
       "boundary": "Do not generate for non-GENERATE requirements, alter the thesis or timing, acquire external footage, or perform the final edit.",
       "degraded": "Without an approved generation provider, emit exact generation requests and BLOCKED records. The local fixture generator proves contracts only, not provider quality.",
-      "escalation": "Escalate art direction only after a targeted retry fails. Paid or account-backed generation always pauses for explicit operator approval.",
+      "escalation": "Escalate art direction only after a targeted retry fails. Paid or account-backed generation requires a retained, unexpired scoped operator authorization; ask again only outside its scope. Never retry UNKNOWN_OUTCOME without explicit reconciliation or retry disposition.",
       "evidence": "Record generation purpose, provider/tool class, related shots, crop/duration intent, local path, inspection metadata, and selected variant.",
       "inputs": [
         "planning/shot-list.json",
@@ -209,6 +210,7 @@
         "media-inspection"
       ],
       "skills": [
+        "videoops-media-provider-execution",
         "videoops-generated-still-production",
         "videoops-generated-motion-production",
         "videoops-brand-style-translation",
@@ -219,6 +221,7 @@
       "slug": "media-generator",
       "stop": "Stop when every GENERATE item is resolved to an inspected approved path or explicitly BLOCKED.",
       "tools": [
+        "VideoOps Media",
         "Image Generation",
         "Video Generation",
         "FFmpeg",
@@ -282,6 +285,8 @@
       "slug": "hyperframes-editor",
       "stop": "Stop when draft technical gates pass, every fix has a terminal implementation status, or a required asset/runtime capability blocks progress.",
       "tools": [
+        "VideoOps Media",
+        "VideoOps Audio QA",
         "HyperFrames",
         "FFmpeg",
         "Eval",
@@ -318,7 +323,7 @@
         "review/fix-list.json"
       ],
       "profile": "economical-multimodal",
-      "purpose": "Independently compare the rendered artifact with approved intent and return deterministic PASS or actionable FAIL evidence.",
+      "purpose": "Independently compare the exact rendered artifact with approved intent and distinguish technical validation, perceptual PASS, artifact FAIL, and REVIEW_INCOMPLETE.",
       "recommended": [
         "multimodal",
         "video-understanding"
@@ -341,6 +346,8 @@
       "slug": "video-critic",
       "stop": "Stop after explicit PASS, actionable FAIL, or three failed revision cycles with unresolved issues recorded.",
       "tools": [
+        "VideoOps Review",
+        "VideoOps Audio QA",
         "FFmpeg",
         "Lens",
         "Eval",

@@ -1,6 +1,6 @@
 # Kujo Agents
 
-[![Version](https://img.shields.io/badge/version-1.3.0-black)](https://github.com/kujolang/kujo-agents)
+[![Version](https://img.shields.io/badge/version-1.4.0-black)](https://github.com/kujolang/kujo-agents)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
 [![built with Kujo](https://img.shields.io/badge/built%20with-Kujo-white.svg)](https://github.com/kujolang/kujo)
 
@@ -112,12 +112,21 @@ roles. Rebuild it and the role package files with
 
 ## Release Status
 
-`v1.3.0` preserves the stable Chain of Command, WebOps, and Publishing House
-baselines while adding the VideoOps Producer and five-role production line, Kujo-native
-package generation, strict schemas, economical logical model routing, and
-credential-free runtime adapter metadata. Runtime packages and
-operator-configured adapters remain responsible for enforcement and external
-effects.
+`v1.4.0` adds shared media-provider, source-aware audio QA, and exact-candidate
+review contracts to the VideoOps team while preserving Chain of Command,
+WebOps, and Publishing House. The Producer routes speech, sound effects and
+music through the capability-specific `kujo-videoops` adapters, with local
+import, scoped operator authorization, provenance receipts and explicit cost
+bounds. Missing playback or listening capability routes to human review;
+it does not consume editor repair cycles.
+
+Start with [`videoops/00-media-toolchain.md`](videoops/00-media-toolchain.md)
+and the versioned [`VideoOps toolchain contract`](docs/videoops-toolchain-contract.json).
+These packages provide portable role guidance and synchronized schemas. The
+runtime enforces dispatch boundaries; HyperFrames owns editing and mixing.
+Provider implementation and mocked tests do not establish live access or rights
+for every capability. Account-specific live verification belongs in runtime
+receipts, and successful generation never grants audiovisual approval.
 
 See [`CHANGELOG.md`](CHANGELOG.md) for release history and
 [`docs/launch-checklist.md`](docs/launch-checklist.md) for the verified release
@@ -141,7 +150,7 @@ python3 scripts/validate_webops.py
 python3 scripts/validate_publishing_house.py
 kujo run scripts/validate_videoops.kujo
 python3 scripts/validate_agent_packages.py
-test "$(cat VERSION)" = "1.3.0"
+test "$(cat VERSION)" = "1.4.0"
 git diff --check
 ```
 

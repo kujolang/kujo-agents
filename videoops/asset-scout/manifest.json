@@ -84,6 +84,7 @@
   ],
   "tools": {
     "allowed": [
+      "VideoOps Media",
       "Lens",
       "FFmpeg",
       "RunLedger"

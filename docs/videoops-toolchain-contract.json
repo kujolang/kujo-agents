@@ -1,0 +1,270 @@
+{
+  "schema": "kujo.videoops.toolchain/v1",
+  "release_boundary": "implemented development integration; no live provider verification implied",
+  "canonical_schema_owner": "kujo-videoops/contracts",
+  "portable_schema_sync": "scripts/sync_videoops_media_contracts.kujo",
+  "operations": [
+    {
+      "command": "python3 -m videoops.cli media doctor --workspace <absolute-workspace>",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "local-inspection",
+      "authority": "none by default",
+      "budget_behavior": "diagnostic capability facts; authenticated inspection only with explicit authority",
+      "input_versions": null,
+      "output_versions": [
+        "videoops-media-doctor/v1"
+      ],
+      "implementation_status": "implemented",
+      "capability": "media.doctor"
+    },
+    {
+      "command": "python3 -m videoops.cli media providers --workspace <absolute-workspace>",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "local-inspection",
+      "authority": "none by default",
+      "budget_behavior": "diagnostic capability facts; authenticated inspection only with explicit authority",
+      "input_versions": null,
+      "output_versions": [
+        "videoops-media-capabilities/v1"
+      ],
+      "implementation_status": "implemented",
+      "capability": "media.providers"
+    },
+    {
+      "command": "python3 -m videoops.cli media fingerprint --workspace <absolute-workspace> --request <workspace-request.json>",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "local-read",
+      "authority": "workspace request read",
+      "budget_behavior": "no account access or generation",
+      "input_versions": [
+        "videoops-media-request/v1"
+      ],
+      "output_versions": null,
+      "implementation_status": "implemented",
+      "capability": "media.fingerprint",
+      "output_notes": "Unversioned fingerprint object; does not authorize dispatch."
+    },
+    {
+      "command": "python3 -m videoops.cli media generate --workspace <absolute-workspace> --request <workspace-request.json>",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "provider-call-and-workspace-write",
+      "authority": "persistent scoped authorization",
+      "budget_behavior": "operator-approved exact request fingerprint/max-credit/max-cost/evidence bounds; atomic reservations across workers; request cannot self-underreserve; unknown outcome blocks blind retry",
+      "input_versions": [
+        "videoops-media-request/v1"
+      ],
+      "output_versions": [
+        "videoops-media-result/v1",
+        null
+      ],
+      "implementation_status": "implemented",
+      "capability": "media.generate",
+      "output_notes": "Persisted result or unversioned in-progress/unknown-outcome status; null denotes an unversioned response."
+    },
+    {
+      "command": "python3 -m videoops.cli media import --workspace <absolute-workspace> --request <workspace-request.json>",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "workspace-write",
+      "authority": "bounded local import",
+      "budget_behavior": "no provider call",
+      "input_versions": [
+        "videoops-media-request/v1"
+      ],
+      "output_versions": [
+        "videoops-media-result/v1",
+        null
+      ],
+      "implementation_status": "implemented",
+      "capability": "media.import",
+      "output_notes": "Persisted result or unversioned in-progress/unknown-outcome status; null denotes an unversioned response."
+    },
+    {
+      "command": "python3 -m videoops.cli media authorize --workspace <absolute-workspace> --authorization <workspace-authorization.json> --authorize-local",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "authorization-write",
+      "authority": "operator scope creation/revocation",
+      "budget_behavior": "no media generation",
+      "input_versions": [
+        "videoops-media-authorization/v1"
+      ],
+      "output_versions": null,
+      "implementation_status": "implemented",
+      "capability": "media.authorize",
+      "output_notes": "Unversioned authorization mutation acknowledgement, not a media result."
+    },
+    {
+      "command": "python3 -m videoops.cli media revoke --workspace <absolute-workspace> --authorization-id <id> --authorize-local",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "authorization-write",
+      "authority": "operator scope creation/revocation",
+      "budget_behavior": "no media generation",
+      "input_versions": null,
+      "output_versions": null,
+      "implementation_status": "implemented",
+      "capability": "media.revoke",
+      "output_notes": "Unversioned authorization mutation acknowledgement, not a media result."
+    },
+    {
+      "command": "python3 -m videoops.cli media inspect --workspace <absolute-workspace> --authorization-id <id> --authorize-local",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "authenticated-provider-inspection",
+      "authority": "explicit local authorization and retained provider scope",
+      "budget_behavior": "no media generation; scoped subscription inspection only",
+      "input_versions": null,
+      "output_versions": null,
+      "implementation_status": "implemented",
+      "capability": "media.inspect",
+      "output_notes": "Unversioned provider entitlement inspection."
+    },
+    {
+      "command": "python3 -m videoops.cli media status --workspace <absolute-workspace> --request-id <id>",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "local-read-or-reconciliation",
+      "authority": "scoped explicit disposition for reconciliation",
+      "budget_behavior": "no automatic duplicate provider dispatch",
+      "input_versions": null,
+      "output_versions": [
+        "videoops-media-result/v1",
+        null
+      ],
+      "implementation_status": "implemented",
+      "capability": "media.status",
+      "output_notes": "Persisted result or unversioned in-progress/unknown-outcome status; null denotes an unversioned response."
+    },
+    {
+      "command": "python3 -m videoops.cli media reconcile --workspace <absolute-workspace> --request-id <id> --disposition <confirmed-failed|confirmed-cancelled> --authorize-local",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "local-read-or-reconciliation",
+      "authority": "scoped explicit disposition for reconciliation",
+      "budget_behavior": "no automatic duplicate provider dispatch",
+      "input_versions": null,
+      "output_versions": [
+        "videoops-media-result/v1",
+        null
+      ],
+      "implementation_status": "implemented",
+      "capability": "media.reconcile",
+      "output_notes": "Persisted result or unversioned in-progress/unknown-outcome status; null denotes an unversioned response."
+    },
+    {
+      "command": "python3 -m videoops.cli review submit-candidate --workspace <absolute-workspace> --candidate <relative-media>",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "local-review-and-promotion",
+      "authority": "authorized local reviewer with exact candidate hash",
+      "budget_behavior": "all mandatory gates; incomplete review consumes no repair cycle",
+      "input_versions": null,
+      "output_versions": null,
+      "implementation_status": "implemented",
+      "capability": "review.submit-candidate",
+      "output_notes": "Unversioned review ledger status/counters, with promotion fields for promote; decision input is separately versioned."
+    },
+    {
+      "command": "python3 -m videoops.cli review record --workspace <absolute-workspace> --decision <workspace-decision.json> --authorize-local",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "local-review-and-promotion",
+      "authority": "authorized local reviewer with exact candidate hash",
+      "budget_behavior": "all mandatory gates; incomplete review consumes no repair cycle",
+      "input_versions": [
+        "videoops-review-decision/v1"
+      ],
+      "output_versions": null,
+      "implementation_status": "implemented",
+      "capability": "review.record",
+      "output_notes": "Unversioned review ledger status/counters, with promotion fields for promote; decision input is separately versioned."
+    },
+    {
+      "command": "python3 -m videoops.cli review status --workspace <absolute-workspace>",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "local-review-and-promotion",
+      "authority": "authorized local reviewer with exact candidate hash",
+      "budget_behavior": "all mandatory gates; incomplete review consumes no repair cycle",
+      "input_versions": null,
+      "output_versions": null,
+      "implementation_status": "implemented",
+      "capability": "review.status",
+      "output_notes": "Unversioned review ledger status/counters, with promotion fields for promote; decision input is separately versioned."
+    },
+    {
+      "command": "python3 -m videoops.cli review resume --workspace <absolute-workspace>",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "local-review-and-promotion",
+      "authority": "authorized local reviewer with exact candidate hash",
+      "budget_behavior": "all mandatory gates; incomplete review consumes no repair cycle",
+      "input_versions": null,
+      "output_versions": null,
+      "implementation_status": "implemented",
+      "capability": "review.resume",
+      "output_notes": "Unversioned review ledger status/counters, with promotion fields for promote; decision input is separately versioned."
+    },
+    {
+      "command": "python3 -m videoops.cli review promote --workspace <absolute-workspace> --destination <relative-media> --authorize-local",
+      "owner": "kujo-videoops",
+      "verification": "consult runtime test receipts; not live-verified by declaration",
+      "effects": "local-review-and-promotion",
+      "authority": "authorized local reviewer with exact candidate hash",
+      "budget_behavior": "all mandatory gates; incomplete review consumes no repair cycle",
+      "input_versions": null,
+      "output_versions": null,
+      "implementation_status": "implemented",
+      "capability": "review.promote",
+      "output_notes": "Unversioned review ledger status/counters, with promotion fields for promote; decision input is separately versioned."
+    },
+    {
+      "command": "python3 -m videoops.cli review render-attempt --workspace <absolute-workspace> --attempt-id <id> --outcome <failed|succeeded>",
+      "owner": "kujo-videoops",
+      "capability": "review.render-attempt",
+      "implementation_status": "implemented",
+      "verification": "runtime tests; no media generation",
+      "effects": "local-counter-write",
+      "authority": "bounded harness workspace",
+      "budget_behavior": "records attempts; does not generate media",
+      "input_versions": null,
+      "output_versions": null,
+      "output_notes": "Unversioned review ledger status/counters, with promotion fields for promote; decision input is separately versioned."
+    },
+    {
+      "command": "python3 scripts/qa_media.py <workspace> --video <relative-media> --audio-only --audio-config <relative-config>",
+      "owner": "kujo-videoops",
+      "capability": "audio.source-aware-qa",
+      "implementation_status": "implemented",
+      "verification": "synthetic local defect tests; not listening approval",
+      "effects": "read-source-write-report",
+      "authority": "contained workspace source/config/report",
+      "budget_behavior": "local ffprobe/ffmpeg; no provider credits",
+      "input_versions": [],
+      "output_versions": [
+        "kujo-videoops/media-qa/v1"
+      ]
+    }
+  ],
+  "boundaries": {
+    "fixture": "explicit offline acceptance only",
+    "harness": "planning, scouting, composition and perceptual review remain harness-owned",
+    "mixing": "HyperFrames",
+    "providers": {
+      "elevenlabs": [
+        "speech",
+        "sound_effects",
+        "music"
+      ],
+      "local": [
+        "local_import"
+      ]
+    },
+    "unsupported": "do not infer transcription/catalog support or account entitlement from provider identity"
+  }
+}

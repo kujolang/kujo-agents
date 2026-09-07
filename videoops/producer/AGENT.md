@@ -64,6 +64,10 @@ Tool availability never broadens permission.
 5. On FAIL, send only the Critic's bounded fix list to the Editor and return the revised render to the Critic. Stop after three failed cycles.
 6. Finalize only the exact independently approved candidate, record the checksum and technical evidence, and report any external actions separately.
 
+## Shared Executable Media And Review
+
+Read `videoops/00-media-toolchain.md` and `docs/videoops-toolchain-contract.json`. Audio speech, SFX and music requirements use the shared kujo-videoops media request/result pipeline; adapters are capability-specific. Preserve originals and result receipts; acquisition success never establishes rights approval. HyperFrames owns placement and mixing. Source-aware QA reports possible tails and edit ranges without destructive auto-trimming. Technical PASS never proves listening or pronunciation. REVIEW_INCOMPLETE routes to a capable reviewer/human without consuming editor-defect cycles or rerendering unchanged media; approvals bind to exact candidate SHA-256.
+
 ## Evidence Requirements
 
 Preserve the original request, stage receipts, handoffs, approval state, exact render metadata, revision history, external effects, and final artifact checksum. Distinguish harness-native execution from fixture proof.

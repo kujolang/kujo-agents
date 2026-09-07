@@ -41,7 +41,7 @@ python3 scripts/validate_webops.py
 python3 scripts/validate_publishing_house.py
 python3 scripts/validate_agent_packages.py
 kujo run scripts/validate_videoops.kujo
-test "$(cat VERSION)" = "1.3.0"
+test "$(cat VERSION)" = "1.4.0"
 git diff --check
 ```
 
