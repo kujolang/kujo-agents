@@ -2,6 +2,40 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-09-12 Audit
+
+### Payments Operations Agent
+
+- Proposed role: Payments Operations Agent.
+- Problem or gap: `kujo-payments-review` contains a source-grounded architecture and proof-fixture packet for agent-safe payment intent, execution, authorization, receipt, provider observation, reconciliation, and lifecycle boundaries.
+- Repository-backed evidence: `../../kujo-payments-review/release-audits/payments-2026-09-10/02-standards.md`, `04-contracts.md`, `05-lifecycle.md`, `06-providers.md`, and `09-verification.md`.
+- Relevant tools/skills/repositories: Kujo Payments Review, Ability, Ability Gateway, Commerce, Email receipts, Backend Developer, Integration Engineer, Systems Architect, Security Reviewer, Risk Officer, QA Lead, Release Verifier, Product Strategist.
+- Expected inputs: tenant/principal identity, purchase reference, payee/payment profile aliases, exact money and expiry constraints, provider capability snapshot, Ability approval boundary, idempotency key, credential policy, reconciliation policy, and live versus fixture scope.
+- Expected outputs: payment intent/execution/receipt evidence, provider observation mapping, reconciliation or incident record, security/risk review, fixture proof, release blockers, and explicit unresolved authority gaps.
+- Overlap: Backend Developer, Integration Engineer, Systems Architect, Security Reviewer, Risk Officer, QA Lead, Release Verifier, Product Strategist, and existing Commerce/Ability review responsibilities.
+- Why not add now: the reviewed material is an architecture and fixture packet, not an implemented Kujo payment runtime. A named operator would imply money-movement, credential, approval, and finance authority before an executable contract and independent security/release evidence exist.
+- Required authority boundaries: no live charge, checkout mutation, payment credential handling, provider enrollment, refund, chargeback action, merchant approval, finance decision, account mutation, public deployment, or production-readiness claim without explicit human authorization and least-privilege credentials.
+- Verification requirements: implemented schema validators, state-machine tests, crash/idempotency proofs, SQLite transaction tests in the chosen Kujo API, provider fixture tests, approval replay/substitution tests, reconciliation tests, credential-redaction review, load and latency budgets, and independent security/release signoff.
+- Risks/costs/token impact: a dedicated role would be high-risk and expensive, likely duplicate existing architecture/backend/integration/security/risk/release roles, and could normalize speculative live-provider actions during routine audits.
+- Recommendation: defer.
+- Evidence still required: implemented runtime repository or accepted contract, dedicated skill/workflow, completed fixture and fault tests in Kujo, live-provider boundary decision, and governance approval for any money-movement authority.
+
+### Agent City Operator
+
+- Proposed role: Agent City Operator.
+- Problem or gap: `agent-city` exposes a local visual mission-observation and demo app with real SDK, Dispatch, RAG, MCP, Watchdog, browser proof, replay, and local Codex provider integration.
+- Repository-backed evidence: `../../agent-city/README.md`, `../../agent-city/WORKING-EXPERIENCE.md`, `../../agent-city/RELEASE-BLOCKERS.md`, and `../../agent-city/package.json`.
+- Relevant tools/skills/repositories: Agent City, Agents SDK, Dispatch, RAG, MCP, Watchdog, Lens/browser proof, Frontend Developer, Integration Engineer, Visual QA Agent, QA Lead, Security Reviewer, Documentation Writer, Product Strategist.
+- Expected inputs: local app target, provider configuration, mission type, source catalog, browser/runtime environment, replay bundle, credential boundary, and verification commands.
+- Expected outputs: mission proof, browser proof, replay evidence, release-blocker status, integration/security findings, and documentation updates.
+- Overlap: Frontend Developer, Integration Engineer, Visual QA Agent, QA Lead, Security Reviewer, Documentation Writer, Product Strategist.
+- Why not add now: Agent City is a product and demo surface, not a durable chain runtime or coordination primitive. Existing roles cover its frontend, integration, QA, security, documentation, and product-review needs without creating an operator that appears to own model credentials or agent execution authority.
+- Required authority boundaries: no credential capture, custom team import, production release, mission-quality guarantee, Codex account mutation, broad tool execution, browser automation beyond test proof, or chain-routing authority without explicit approval.
+- Verification requirements: `npm run verify`, mission contract proof, browser proof, replay proof, provider adapter security review, release gate, and independent visual/security/release review.
+- Risks/costs/token impact: a standalone operator would duplicate existing product/review roles and risk confusing visualization/demo state with authoritative agent-chain state.
+- Recommendation: reject for now; keep Agent City under existing task-specific roles.
+- Evidence still required: none unless a stable operational workflow emerges that cannot be handled by existing roles.
+
 ## 2026-09-05 Audit
 
 ### Ability Gateway Operator
