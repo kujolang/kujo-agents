@@ -2,6 +2,72 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-09-19 Audit
+
+### Payments Operations Agent
+
+- Proposed role: Payments Operations Agent.
+- Problem or gap: `payments` now implements the previously deferred payments architecture as a developer-alpha Kujo payment request/status service with simulated local purchases, Ability-bound approvals, single-use execution claims, uncertain-result reconciliation, private operator controls, optional MCP/Agents SDK/Dispatch/Workcell integrations, and synthetic Link adapter tests.
+- Repository-backed evidence: `../../payments/README.md`, `../../payments/docs/implementation-status.md`, `../../payments/docs/release-checklist.md`, `../../payments/docs/deployment.md`, and `../../payments/docs/operator.md`.
+- Relevant tools/skills/repositories: Payments, Ability, Commerce, Email receipts, MCP, Agents SDK, Dispatch, Workcell, Backend Developer, Integration Engineer, Systems Architect, Security Reviewer, Risk Officer, QA Lead, Release Verifier, Product Strategist.
+- Expected inputs: tenant/principal identity, payment profile alias, merchant and purchase reference, exact money and expiry constraints, approval and idempotency keys, provider capability snapshot, credential isolation policy, reconciliation policy, execution environment, and live versus fixture scope.
+- Expected outputs: payment request/status/receipt evidence, approval and claim state, provider observation mapping, reconciliation or incident record, operator/security/release findings, fixture proof, and explicit real-money blockers.
+- Overlap: Backend Developer, Integration Engineer, Systems Architect, Security Reviewer, Risk Officer, QA Lead, Release Verifier, Product Strategist, and existing Commerce/Ability review responsibilities.
+- Why not add now: the repository is explicit developer alpha and not ready for real-money use. A named operator would imply money-movement, credential, provider-account, approval, and finance authority before live Link sandbox validation, deployment isolation, recovery gates, and independent security/release signoff are complete.
+- Required authority boundaries: no live charge, checkout mutation, payment credential handling, provider enrollment, refund, chargeback action, merchant approval, finance decision, account mutation, public deployment, or production-readiness claim without explicit human authorization and least-privilege credentials.
+- Verification requirements: `bash scripts/test.sh`, package bootstrap evidence, schema/state-machine tests, crash/idempotency/concurrency proofs, approval replay/substitution tests, reconciliation tests, credential-redaction and deployment-isolation review, synthetic provider tests, live sandbox gates only when authorized, and independent security/release signoff.
+- Risks/costs/token impact: a dedicated role remains high-risk and expensive, duplicates several existing independent review roles, and could normalize live-provider actions during routine audits.
+- Recommendation: defer.
+- Evidence still required: dedicated skill/workflow, real Link sandbox validation, provider/account authority decision, deployment isolation proof, recovery/operations evidence, and governance approval for any money-movement authority.
+
+### Command Code Host Integrator
+
+- Proposed role: Command Code Host Integrator.
+- Problem or gap: `kujo-cmd` projects profile-selected Kujo Abilities and Agent Skills into Command Code through a local STDIO MCP server with local source acquisition, approvals, idempotency, receipts, bounded output, and restart recovery.
+- Repository-backed evidence: `../../kujo-cmd/README.md`, `../../kujo-cmd/docs/THREAT-MODEL.md`, `../../kujo-cmd/docs/COMMAND-CODE.md`, `../../kujo-cmd/docs/GAP-ANALYSIS.md`, and `../../kujo-cmd/docs/HARDENING-EVALUATION.md`.
+- Relevant tools/skills/repositories: Kujo CMD, Ability, MCP, Scout, Scent, PatchBrief, ChangeBucket, ShipCheck, Fence, Spec, Eval, RunLedger, Dispatch, RAG, Watchdog, Integration Engineer, Tooling Developer, Security Reviewer, QA Lead, Release Verifier, Context Packager, Code Reviewer, Documentation Writer.
+- Expected inputs: Command Code project, selected Ability profile, local source/runtime version, host model/provider boundary, project MCP settings, approval policy, receipt path, and verification commands.
+- Expected outputs: host-integration implementation or review, MCP/skill projection evidence, approval/idempotency/receipt proof, security notes, compatibility boundary, and release blockers.
+- Overlap: Integration Engineer, Tooling Developer, Security Reviewer, QA Lead, Release Verifier, Context Packager, Code Reviewer, Documentation Writer.
+- Why not add now: host integration work fits existing integration/tooling/security/QA/release/documentation roles, and a standalone role could obscure ownership of the underlying Kujo products that Kujo CMD projects.
+- Required authority boundaries: no Command Code account mutation, host-permission bypass, Kujo approval bypass, live provider/model use, source-pin update, npm publication, or receipt retention-policy change without explicit approval and verification.
+- Verification requirements: `npm test`, package/e2e setup checks, MCP discovery/call smoke, approval replay and idempotency tests, receipt rotation/bounds checks, path/symlink/security tests, and host-version compatibility proof.
+- Risks/costs/token impact: a dedicated role would duplicate integration/tooling/release work and may encourage retesting every projected Kujo tool when only the host projection changed.
+- Recommendation: reject for now; keep Kujo CMD under existing roles.
+- Evidence still required: repeated Command Code-only maintenance load plus a stable multi-host capability contract that existing roles cannot cover safely.
+
+### Foreman Release Operator
+
+- Proposed role: Foreman Release Operator.
+- Problem or gap: `kujo-foreman` is a release-readiness agent and operator console that analyzes a Git change, derives acceptance criteria, runs verification and risk lanes, applies bounded low-risk repairs, fails closed through a deterministic Kujo judge, emits checksummed evidence, and escalates high-consequence ambiguity.
+- Repository-backed evidence: `../../kujo-foreman/README.md`, `../../kujo-foreman/docs/architecture.md`, `../../kujo-foreman/docs/threat-model.md`, `../../kujo-foreman/abilities/catalog.json`, and `../../kujo-foreman/package.json`.
+- Relevant tools/skills/repositories: Kujo Foreman, Kujo runtime, Ability, Spec, Eval, Workcell, Strands Agents, Bedrock, AgentCore, Systems Architect, Integration Engineer, Tooling Developer, QA Lead, Code Reviewer, Security Reviewer, Risk Officer, Release Verifier, Frontend Developer, Visual QA Agent, Documentation Writer, Product Strategist.
+- Expected inputs: target repository, base/head, trusted operator intent, verification adapter map, repair policy, cloud/local mode, credential boundary, human-decision policy, and evidence-output path.
+- Expected outputs: release-readiness disposition, verification/risk/repair artifacts, human-decision packet, evidence manifest, UI/browser proof where applicable, security/risk/release findings, and unresolved authority blockers.
+- Overlap: Release Verifier, Risk Officer, QA Lead, Code Reviewer, Security Reviewer, Systems Architect, Integration Engineer, Tooling Developer, Frontend Developer, Visual QA Agent, Documentation Writer, Product Strategist.
+- Why not add now: Foreman is itself a product/review surface, not a replacement for the Kujo agent chain's independent verification and release authority. Existing roles can inspect, improve, and verify it when assigned without creating a role that appears to own release decisions.
+- Required authority boundaries: no production release approval, CI replacement, cloud deployment, Bedrock/AgentCore credential use, autonomous high-consequence repair, branch mutation outside a managed workspace, or human-decision bypass without explicit approval.
+- Verification requirements: `npm run check`, `npm test`, `npm run test:kujo`, AgentCore validation/smoke where authorized, evidence-manifest verification, prompt-injection and high-consequence escalation tests, UI/browser proof, and independent security/release review.
+- Risks/costs/token impact: a dedicated operator could collapse product operation, release verification, repair authority, and human approval into one role while increasing cloud and model-token cost.
+- Recommendation: defer.
+- Evidence still required: stable chain-specific workflow, repeated Foreman operation workload, governance decision on Foreman versus Release Verifier, and cloud credential/release authority policy.
+
+### bb Theme Maintainer
+
+- Proposed role: bb Theme Maintainer.
+- Problem or gap: `bb-kujo` packages Kujo's visual language as a bb theme/plugin with bundled assets, compatibility notes, and UI contract tests.
+- Repository-backed evidence: `../../bb-kujo/README.md`, `../../bb-kujo/docs/compatibility.md`, and `../../bb-kujo/package.json`.
+- Relevant tools/skills/repositories: bb-kujo, SiteKit, Frontend Developer, Visual QA Agent, Documentation Writer, Product Strategist, Release Verifier.
+- Expected inputs: target bb version, theme mode, screenshots/browser evidence, generated asset state, accessibility/reduced-motion checks, and release scope.
+- Expected outputs: theme implementation/review, screenshot or contract evidence, compatibility notes, documentation updates, and release blockers.
+- Overlap: Frontend Developer, Visual QA Agent, Documentation Writer, Product Strategist, Release Verifier.
+- Why not add now: bb-kujo is a branded product/theme surface, not a Kujo tool, workflow, runtime, or agent capability. Existing roles cover design, QA, documentation, and release needs.
+- Required authority boundaries: no bb host mutation, plugin marketplace submission, public release, third-party asset substitution, or compatibility claim beyond verified host versions without approval.
+- Verification requirements: `npm run check`, `npm test`, generated asset check, visual proof where changed, and release review.
+- Risks/costs/token impact: a standalone role would add agent proliferation for a narrow theme repository.
+- Recommendation: reject.
+- Evidence still required: none unless bb theme work becomes a recurring workflow that existing frontend/docs/release roles cannot safely cover.
+
 ## 2026-09-12 Audit
 
 ### Payments Operations Agent
