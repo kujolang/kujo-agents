@@ -10,7 +10,15 @@ templates remain in the same chain package.
 
 ## Existing Skills
 
-The local `kujo-skills/skills/` folder contains workflow skills for Agents SDK, AI SDK, CaseFile, ChangeBucket, Concord, Dispatch, Eval, Fence, Howl, Kennel, Lens, MCP, Muzzle, PackWrite, PatchBrief, RAG, RunLedger, Scent, Scout, ShipCheck, Spec, SSG, Watchdog, Redact, Capsule benchmark work, release gates, readiness auditing, maintainer review, security hardening, tool building, runtime parity, CLI contracts, docs drift, and related KUJO repo work.
+The local `kujo-skills/skills/` folder currently contains 135 focused skills
+covering Agents SDK, AI SDK, CaseFile, ChangeBucket, Concord, Dispatch, Eval,
+Fence, Howl, Kennel, Lens, MCP, Muzzle, PackWrite, PatchBrief, RAG, RunLedger,
+Scent, Scout, ShipCheck, Spec, SSG, Watchdog, Redact, Capsule benchmark work,
+the Kujo Way development baseline, WebOps, Publishing House, VideoOps, release
+gates, readiness auditing, maintainer review, security hardening, tool building,
+runtime parity, CLI contracts, docs drift, and related KUJO repo work. Treat the
+skills repository as support/distribution guidance; it does not enforce runtime
+behavior by itself.
 
 ## Existing Workflows
 
@@ -130,6 +138,15 @@ The 2026-09-19 audit window added or refreshed these agent-facing relationships:
 - `searchbridge`: recent Node 22 SDK typing alignment and pinned GitHub Action refresh preserve the existing WebOps toolchain relationship. No chain ownership changes were warranted.
 - `watchdog`, `workcell`, `dispatch`, `paperclip`, and `email`: recent pricing, launch-environment, dependency, pinned dependency, and email hardening commits refresh existing evidence boundaries without broadening chain authority or routine delegation.
 
+The 2026-09-26 audit window added or refreshed these agent-facing relationships:
+
+- `kujo`: current stable runtime documentation now identifies `v1.5.0` as the stable baseline and adds Agent Project CLI contracts, editor-adapter baselines, machine-readable CLI contract detail, generator/async completion notes, and AI-native release evidence. Existing Tooling Developer, Core Developer, Release Verifier, Security Reviewer, Documentation Writer, Systems Architect, and Integration Engineer ownership remains current; do not infer that Agent Projects bypass package, skill, workflow, approval, credential, or host-policy boundaries.
+- `kujo-skills`: the skills pack is now a `0.7.0` support/distribution technical preview with 135 skills, including the Kujo Way development baseline, WebOps, Publishing House, VideoOps operator/production skills, and reusable video presets. Existing skill-routing relationships remain current; skills are agent-readable guidance and must not be represented as runtime enforcement.
+- `kujo-workflows`: the workflow catalog remains a support/distribution repository for local proof workflows, not a hosted workflow runner. Recent Paperclip-oriented catalog work strengthens task-specific workflow selection for Integration Engineer, Tooling Developer, QA Lead, Security Reviewer, Context Packager, and Documentation Writer without granting live-provider, deployment, package-publication, or hosted-runner authority.
+- `scout`: Scout is now `v1.1.0`, requires Kujo `1.5.0+`, and converts security-scan, performance, and labeled-analysis quality checks into release-gated evidence while preserving its explicit non-goal of being a complete static analyzer or enterprise security certification. Existing Research Analyst and Security Reviewer ownership remains current; QA Lead and Release Verifier may rely on Scout receipts only within the documented corpus and contract boundaries.
+- `cms` and `cms-example`: CMS now has a certified local/customer-hosted Ability gateway contract and documented production-deployment boundaries, while CMS Example is a separate frontend/Studio adapter and portable theme package for the sibling backend. Treat CMS Core as a backend/integration/security/release review target and CMS Example as a frontend/Studio/theme target when assigned; do not claim managed multi-tenant production readiness, hosted auth, marketplace distribution, or backend contract ownership from the example repository.
+- `kujo-pi`, `leash`, `dispatch`, `eval`, `site-kit`, `lens`, `watchdog`, `kennel`, `kennel-registry`, `workcell`, `muzzle`, `redact`, `relay`, `tribunal`, `siteprobe`, `ssg`, `commerce`, and the Publishing House tools (`storydesk`, `dossier`, `galleypack`, `bluepencil`, `assetworks`, `versionseal`, `presswire`, `readersignal`) received recent hardening, release, contract, or documentation updates. These refresh existing role ownership and verification relevance but do not create new chain agents or broaden approval, credential, live-service, publication, or production authority.
+
 ## Repeated Operational Patterns
 
 - Read README and AGENTS files first.
@@ -155,6 +172,7 @@ Repo docs support routine local use for Spec, Eval, Scout, Dispatch offline fixt
 - Public Kennel registry behavior, public discovery, moderation, malware scanning, and trust scoring are deferred.
 - SITREP appears as a useful role name but not as a confirmed standalone KUJO tool.
 - Intake, Cinch, TotalRecall, Ward, Leash, Commerce, Source, Ability Gateway, Paperclip Plugin, Email, Payments, Kujo CMD, Kujo Foreman, Kujo Pi, Workcell Studio, and Hermes Kujo Discord Agents are deferred as broad chain capabilities until stable chain-specific skills or workflow contracts exist and their approval/credential/runtime/public-operation boundaries are reviewed.
+- Agent Project operation, CMS site/theme operation, Pi capability operation, and Leash mobile-supervision operation remain covered by existing planning, execution, verification, integration, security, release, documentation, and product roles. Do not create specialized agents for these surfaces without a repeated workload and a stable chain-specific workflow contract that preserves independent verification.
 - Kujo AI provider packages are supported as package/adapter review targets and AI SDK/native client integrations, but live model usage remains explicit-task-only because credentials, quota, pricing, provider retention, and current model availability are outside static repository proof.
 - TruthLens is a product/browser-extension target, not a chain capability. Use existing frontend, security, QA, and release roles for assigned work instead of adding routing or evidence authority.
 - Ability is mature enough for routine operation-contract review and integration design; its consumers still own credentials, handlers, persistence, authorization, and production runtime evidence.
