@@ -58,6 +58,8 @@ KUJO workflows support the chain by turning work into artifacts:
 - `Benchmark System` and `Kujo Hyperframes` are recognized as prompt-kit and campaign/video-surface repositories respectively; they remain under existing QA, product, frontend, visual QA, and documentation roles.
 - `TotalRecall`, `Ward`, `Leash`, `Intake`, and `Cinch` are recognized as sibling product/tool repositories with agent-facing surfaces, but no active chain ownership is granted until a stable skill/workflow contract is added or a task explicitly targets those repos.
 - `Ability Gateway`, `Paperclip Plugin`, and `Email` are recognized as sibling integration/product surfaces for task-specific review. Keep their credential, approval, live-service, and production-readiness boundaries explicit.
+- `Presentations` is recognized as an optional Kujo SSG/SiteKit slide-deck surface for documentation, frontend, visual QA, product, and release roles when decks are explicitly in scope. It is not a new chain agent or an upstream SSG/SiteKit dependency.
+- `Kujo OpenAI local plugin` is recognized as a private local-MCP host-integration experiment for task-specific integration, tooling, security, QA, release, and documentation review. It is not an approved public plugin distribution or managed gateway.
 
 See `00-tool-agent-map.md` for supported-versus-inferred behavior.
 

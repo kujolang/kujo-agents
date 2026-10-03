@@ -2,6 +2,40 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-10-03 Audit
+
+### Presentation Deck Producer
+
+- Proposed role: Presentation Deck Producer.
+- Problem or gap: `presentations` now exposes an agent-readable `CREATE_A_DECK.md` flow for static, browser-native slide decks built with Kujo SSG and SiteKit.
+- Repository-backed evidence: `../../presentations/README.md`, `../../presentations/CREATE_A_DECK.md`, `../../presentations/deck.schema.json`, `../../presentations/docs/release.md`, and `../../presentations/docs/verification.md`.
+- Relevant tools/skills/repositories: Presentations, SSG, SiteKit, Howl/social previews, Documentation Writer, Frontend Developer, Visual QA Agent, Product Strategist, Release Verifier.
+- Expected inputs: source-backed deck brief, target starter or custom deck, facts/images/licenses, theme constraints, output path, preview/PDF target, and verification commands.
+- Expected outputs: deck source, static build, text edition, optional PDF or social previews, visual-fit notes, factual-review boundary, and release blockers.
+- Overlap: Documentation Writer, Frontend Developer, Visual QA Agent, Product Strategist, Release Verifier, and existing VideoOps roles for motion/video deliverables.
+- Why not add now: the repository is an optional preview package, and deck authoring naturally fits existing documentation, frontend, product, visual QA, and release lanes. A standalone role would add process around a narrow artifact type and might blur content creation with independent factual and visual review.
+- Required authority boundaries: no unsourced factual claims, third-party asset substitution, public deployment, client presentation approval, PDF distribution, or brand/legal signoff without explicit assignment and review.
+- Verification requirements: `npm run deck -- check --deck <deck> --ready`, `npm run deck -- build --deck <deck>`, preview/browser proof, PDF export where requested, schema validation, link/asset checks, and independent review of facts and visual fit.
+- Risks/costs/token impact: a specialized role could duplicate existing writing/frontend/QA review and encourage expensive slide-by-slide iteration when a bounded brief plus visual review is enough.
+- Recommendation: reject for now; keep Presentations under existing roles.
+- Evidence still required: repeated deck-production workload plus a stable chain skill/workflow contract showing a dedicated role improves handoffs without weakening independent review.
+
+### OpenAI Local MCP Plugin Operator
+
+- Proposed role: OpenAI Local MCP Plugin Operator.
+- Problem or gap: `kujo-openai` is experimenting with a native local-MCP plugin that projects Kujo Ability contracts through bounded stdio and durable receipts without requiring end users to install Node, Git, credentials, tunnels, or hosting.
+- Repository-backed evidence: `../../kujo-openai/README.md`, `../../kujo-openai/native/README.md`, `../../kujo-openai/docs/PREINSTALLED-RUNTIME.md`, `../../kujo-openai/docs/PREINSTALLED-SUBMISSION.md`, and `../../kujo-openai/OPENAI_LOCAL_MCP_APPROVAL.md`.
+- Relevant tools/skills/repositories: Kujo OpenAI local plugin, Ability, MCP, Kujo runtime, native host packaging, Integration Engineer, Tooling Developer, Security Reviewer, QA Lead, Release Verifier, Documentation Writer.
+- Expected inputs: plugin target host, native host platform, Kujo runtime contract, Ability profile, receipt policy, submission boundary, local-MCP approval status, and verification commands.
+- Expected outputs: plugin integration or review packet, native acceptance evidence, bounded stdio/MCP contract proof, receipt and data-handling notes, security findings, release blockers, and unresolved approval questions.
+- Overlap: Integration Engineer, Tooling Developer, Security Reviewer, QA Lead, Release Verifier, Documentation Writer, Ability/MCP maintainers.
+- Why not add now: the README says the native-only public plugin remains blocked, the default manifest is still legacy Node, and public local-MCP approval plus native distribution remain unresolved. Existing roles can inspect and harden the plugin without creating an operator that appears to own public plugin approval or host policy.
+- Required authority boundaries: no OpenAI submission, public plugin release, host-policy claim, credential use, local-MCP approval assertion, native binary publication, end-user support promise, or approval bypass without explicit human authorization and current host evidence.
+- Verification requirements: `npm run check:submission`, `npm run package:submission`, native platform acceptance, legacy MCP negotiation tests, receipt evidence checks, data-handling/security review, Windows/Linux/macOS path and process-boundary proof, and external host approval evidence when applicable.
+- Risks/costs/token impact: a dedicated role could blur integration, security, packaging, release, and host-approval ownership while encouraging repeated platform-wide validation for narrow changes.
+- Recommendation: defer.
+- Evidence still required: public local-MCP approval path, stable native distribution contract, repeated plugin-operation workload, and governance decision on who may operate or submit host plugins.
+
 ## 2026-09-19 Audit
 
 ### Payments Operations Agent
