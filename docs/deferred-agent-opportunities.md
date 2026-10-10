@@ -2,6 +2,40 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-10-10 Audit
+
+### Commerce Checkout Operator
+
+- Proposed role: Commerce Checkout Operator.
+- Problem or gap: `commerce` now goes beyond static catalog/cart generation with safe checkout restart, operator recovery, Square lifecycle binding, verified money-state preservation, recovery-race fences, and checkout submission guards.
+- Repository-backed evidence: `../../commerce/README.md`, `../../commerce/AGENTS.md`, recent commits `8035f88`, `07e9ae2`, `2368180`, `33c997d`, `e7cf515`, and `b65946a`.
+- Relevant tools/skills/repositories: Commerce, SSG, Ability, Payments, Email receipts, Backend Developer, Frontend Developer, Integration Engineer, Security Reviewer, Risk Officer, QA Lead, Release Verifier, Product Strategist.
+- Expected inputs: site path, catalog and cart contracts, checkout provider profile, Square credential boundary, approved payment intent, restart/recovery scope, order/customer data policy, and verification commands.
+- Expected outputs: catalog/build evidence, checkout/recovery proof, provider capability boundary, redacted receipt/event evidence, unresolved provider or production blockers, and independent security/release findings.
+- Overlap: Frontend Developer, Backend Developer, Integration Engineer, Security Reviewer, Risk Officer, QA Lead, Release Verifier, Product Strategist, and Payments review responsibilities.
+- Why not add now: checkout work naturally spans existing implementation and independent review roles. A standalone operator would imply payment-provider, credential, order-data, restart/recovery, or production-commerce authority before a stable chain-specific workflow and governance boundary exist.
+- Required authority boundaries: no payment-provider credential use, checkout mutation, live charge, order/customer data handling, refund, account/provider configuration, deployment, or production-readiness claim without explicit human authorization and least-privilege credentials.
+- Verification requirements: `npm run validate`, catalog/event schema checks, SSG integration build, cart/browser smoke, provider fixture/runtime tests, recovery/restart/idempotency tests, credential-redaction review, and independent security/release signoff.
+- Risks/costs/token impact: a dedicated role could duplicate existing agents while increasing credential, money-movement, privacy, and provider-cost risk.
+- Recommendation: defer.
+- Evidence still required: stable Kujo skill/workflow contract, repeated checkout/recovery workload, explicit provider credential policy, live sandbox evidence where authorized, and governance approval for any money-adjacent authority.
+
+### AI Chat Harness Supervisor
+
+- Proposed role: AI Chat Harness Supervisor.
+- Problem or gap: `ai-chat` and `ai-chat-diff-viewer` now expose attention inboxes, scoped MCP/attention runtimes, extension command surfaces, chat supervision UI, deterministic release fixtures, and approval-loop recovery behavior.
+- Repository-backed evidence: `../../ai-chat/README.md`, `../../ai-chat/AGENTS.md`, `../../ai-chat/docs/HARNESS_PRODUCT_ROADMAP.md`, recent commits `694aa29`, `629a565`, `d32e649`, and `../../ai-chat-diff-viewer/README.md` with recent commits `4f0901c`, `6599378`, `708aa08`.
+- Relevant tools/skills/repositories: AI Chat, AI Chat diff-viewer harness, MCP, Watchdog, PatchBrief/ChangeBucket review evidence, Frontend Developer, Backend Developer, Integration Engineer, Visual QA Agent, Security Reviewer, QA Lead, Code Reviewer, Product Strategist.
+- Expected inputs: local app target, harness scenario, scoped MCP policy, attention/approval state, extension target, provider configuration, runtime data boundary, and verification commands.
+- Expected outputs: UI/browser proof, scoped MCP/attention evidence, approval-loop recovery proof, extension-management notes, security findings, and unresolved host/provider blockers.
+- Overlap: Frontend Developer, Backend Developer, Integration Engineer, Visual QA Agent, Security Reviewer, QA Lead, Code Reviewer, Product Strategist.
+- Why not add now: the harness is a product/review surface, and existing roles already cover UI, backend, integration, scoped MCP, security, QA, and review needs. A new supervisor role could blur human approval, host permission, and managed-agent-host boundaries.
+- Required authority boundaries: no unattended approvals, provider/model spending, host permission broadening, scoped MCP bypass, runtime data export, extension installation in a live user profile, or production-agent-host claim without explicit authorization.
+- Verification requirements: repository release fixtures, UI/browser proof, scoped MCP/transport tests, attention/approval recovery tests, security review for host/runtime boundaries, and independent QA.
+- Risks/costs/token impact: a dedicated role could encourage expensive replay of chat harness scenarios and duplicate frontend/integration/security review.
+- Recommendation: reject for now; keep AI Chat harness work under existing roles.
+- Evidence still required: repeated harness-only operational workload plus a stable chain-specific workflow proving separate ownership improves safety without weakening independent review.
+
 ## 2026-10-03 Audit
 
 ### Presentation Deck Producer
@@ -243,6 +277,7 @@ This record captures credible new-agent candidates discovered during periodic au
 ### Static Commerce Operator
 
 - Proposed role: Static Commerce Operator.
+- Current status: superseded by the 2026-10-10 `Commerce Checkout Operator` entry, which carries the newer checkout, recovery, and provider-boundary evidence.
 - Problem or gap: `commerce` adds catalog validation, browser cart state, normalized commerce events, SSG integration, and optional provider checkout runtime for static Kujo sites.
 - Repository-backed evidence: `../../commerce/README.md`, `../../commerce/AGENTS.md`, `../../commerce/package.json`, `../../commerce/schemas/catalog.schema.json`, `../../commerce/schemas/cart.schema.json`, `../../commerce/schemas/event.schema.json`.
 - Relevant tools/skills/repositories: Commerce, SSG, Frontend Developer, Backend Developer, Integration Engineer, Security Reviewer, QA Lead, Release Verifier.
