@@ -1,0 +1,203 @@
+{
+  "schema": "kujo-videoops/live-verification-summary/v1",
+  "date": "2026-10-19",
+  "scope": "One successful SFX retry and three successful music tests via canonical kujo-agents tools. Credentials, prompts, balances, private audio and reusable presets excluded.",
+  "account_plan": "creator",
+  "sfx_access_resolution": "Operator reported enabling key permissions; subsequent scoped retry succeeded. Earlier failure retained in private evidence.",
+  "tests": [
+    {
+      "state": "SUCCESS",
+      "capability": "sound_effects",
+      "model": "eleven_text_to_sound_v2",
+      "metadata": {
+        "channels": 2,
+        "codec": "mp3",
+        "duration_seconds": 1.0,
+        "sample_rate": 44100,
+        "streams": [
+          {
+            "codec": "mp3",
+            "type": "audio"
+          }
+        ]
+      },
+      "latency_seconds": 2.2990472330129705,
+      "usage": {
+        "cost": null,
+        "credits": 11.0,
+        "currency": "USD",
+        "reserved_cost": 0,
+        "reserved_credits": 40,
+        "source": "provider_header"
+      },
+      "created_at": "2026-10-19T17:40:33.963463+00:00",
+      "test": "sound-effects",
+      "original_sha256": "a82778fdc682e057491dd33418c2a67db936bafdf7af77c88b7f95f403e2c1c6",
+      "preview_sha256": "a82778fdc682e057491dd33418c2a67db936bafdf7af77c88b7f95f403e2c1c6",
+      "preview_qa": {
+        "failures": [],
+        "status": "PASS"
+      },
+      "preview_levels": {
+        "clipped_channel_samples": 0,
+        "peak": 0.6189333200454712,
+        "peak_dbfs": -4.1671227319131425,
+        "rms": 0.060178120089370415,
+        "rms_dbfs": -24.41122766710159
+      },
+      "preview_loudness_lufs": -17.41,
+      "listening_review": "Not certified by software"
+    },
+    {
+      "state": "SUCCESS",
+      "capability": "music",
+      "model": "music_v2_5",
+      "metadata": {
+        "channels": 2,
+        "codec": "mp3",
+        "duration_seconds": 15.0465,
+        "sample_rate": 44100,
+        "streams": [
+          {
+            "codec": "mp3",
+            "type": "audio"
+          }
+        ]
+      },
+      "latency_seconds": 5.0623512039892375,
+      "usage": {
+        "cost": null,
+        "credits": null,
+        "currency": "USD",
+        "reserved_cost": 0,
+        "reserved_credits": 500,
+        "source": "unavailable"
+      },
+      "created_at": "2026-10-19T17:47:04.588802+00:00",
+      "test": "music-test-1",
+      "original_sha256": "f3247906297d4b47e424ff6e95e8d4bc90f360ce915b90a4553e546896a356e3",
+      "preview_sha256": "f3247906297d4b47e424ff6e95e8d4bc90f360ce915b90a4553e546896a356e3",
+      "preview_qa": {
+        "failures": [],
+        "status": "PASS"
+      },
+      "preview_levels": {
+        "clipped_channel_samples": 0,
+        "peak": 0.2688835561275482,
+        "peak_dbfs": -11.408715134517616,
+        "rms": 0.04617093826840505,
+        "rms_dbfs": -26.712625995808253
+      },
+      "preview_loudness_lufs": -23.52,
+      "listening_review": "Not certified by software"
+    },
+    {
+      "state": "SUCCESS",
+      "capability": "music",
+      "model": "music_v2_5",
+      "metadata": {
+        "channels": 2,
+        "codec": "mp3",
+        "duration_seconds": 15.0465,
+        "sample_rate": 44100,
+        "streams": [
+          {
+            "codec": "mp3",
+            "type": "audio"
+          }
+        ]
+      },
+      "latency_seconds": 8.231066042964812,
+      "usage": {
+        "cost": null,
+        "credits": null,
+        "currency": "USD",
+        "reserved_cost": 0,
+        "reserved_credits": 500,
+        "source": "unavailable"
+      },
+      "created_at": "2026-10-19T17:51:23.406425+00:00",
+      "test": "music-test-2",
+      "original_sha256": "5acb6eb1b10bcfbe090a68bc759d089756550baac3640044d9a08173362f86c5",
+      "preview_sha256": "d5ccce79110ae1e13b10a50da23eb8dd5ab91f670c54753547c599cb51c1fa67",
+      "preview_qa": {
+        "failures": [],
+        "status": "PASS"
+      },
+      "preview_levels": {
+        "clipped_channel_samples": 0,
+        "peak": 0.7747681140899658,
+        "peak_dbfs": -2.2165652231713904,
+        "rms": 0.139488261346558,
+        "rms_dbfs": -17.10924677926597
+      },
+      "preview_loudness_lufs": -15.22,
+      "listening_review": "Not certified by software",
+      "original_qa": {
+        "failures": [
+          "clipped channel samples exceed limit",
+          "true peak exceeds required ceiling"
+        ],
+        "status": "FAIL"
+      },
+      "preview_gain_db": -3,
+      "note": "Original retained. Gain reduction and re-encoding pass output peak checks but do not reconstruct prior clipped samples."
+    },
+    {
+      "state": "SUCCESS",
+      "capability": "music",
+      "model": "music_v2_5",
+      "metadata": {
+        "channels": 2,
+        "codec": "mp3",
+        "duration_seconds": 15.0465,
+        "sample_rate": 44100,
+        "streams": [
+          {
+            "codec": "mp3",
+            "type": "audio"
+          }
+        ]
+      },
+      "latency_seconds": 10.773861769004725,
+      "usage": {
+        "cost": null,
+        "credits": null,
+        "currency": "USD",
+        "reserved_cost": 0,
+        "reserved_credits": 500,
+        "source": "unavailable"
+      },
+      "created_at": "2026-10-19T17:55:01.669079+00:00",
+      "test": "music-test-3",
+      "original_sha256": "7f71f3c3f92aad0252808492df26899f940cd54735d7dcf73adf3efd56c07f15",
+      "preview_sha256": "01f94a2cf2a881066b57b4eae27f6d3cbd295135faed499d98672f07b3366031",
+      "preview_qa": {
+        "failures": [],
+        "status": "PASS"
+      },
+      "preview_levels": {
+        "clipped_channel_samples": 0,
+        "peak": 0.6864050030708313,
+        "peak_dbfs": -3.2683911932180214,
+        "rms": 0.13381432331467377,
+        "rms_dbfs": -17.46994795504189
+      },
+      "preview_loudness_lufs": -15.0,
+      "listening_review": "Not certified by software",
+      "original_qa": {
+        "failures": [
+          "clipped channel samples exceed limit",
+          "true peak exceeds required ceiling"
+        ],
+        "status": "FAIL"
+      },
+      "preview_gain_db": -3,
+      "note": "Original retained. Gain reduction and re-encoding pass output peak checks but do not reconstruct prior clipped samples.",
+      "user_feedback": "User accepted this individual test; explicitly requested no reusable profile."
+    }
+  ],
+  "usage_limitations": "SFX header reported 11 credits. Music per-request credits and monetary cost unavailable; reservations are not charges. Account deltas can lag or include concurrent activity.",
+  "publication": false,
+  "reusable_audio_profile_created": false
+}

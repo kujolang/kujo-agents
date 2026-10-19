@@ -7,8 +7,8 @@ These production tools are owned by `kujo-agents/videoops/tools`. They support t
 | Provider | Capability | Execution | Verification |
 | --- | --- | --- | --- |
 | ElevenLabs | Speech with optional/required character timestamps | Synchronous HTTP POST | Live Free-plan smoke PASS, 2026-09-07 UTC; timestamps and deterministic audio QA verified |
-| ElevenLabs | Sound effects | Synchronous HTTP POST | Mocked binary response; live saved-key request rejected as unauthorized |
-| ElevenLabs | Music | Synchronous HTTP POST, capability-specific entitlement required | Mocked binary response; Free-plan preflight blocked, no live generation |
+| ElevenLabs | Sound effects | Synchronous HTTP POST | Live Creator-account retry PASS, 2026-10-19, after operator enabled key permissions |
+| ElevenLabs | Music | Synchronous HTTP POST, capability-specific entitlement required | Live Creator-account Music v2.5: three requests PASS, 2026-10-19; historical Free-plan gate retained |
 | Local | Existing audio/video import | No network; original bytes preserved | Real local CLI/workflow test |
 | Any | Transcription, separate alignment, catalog, asynchronous jobs | Explicitly unsupported in this version | No capability claim |
 
@@ -90,3 +90,12 @@ Create an API key in ElevenLabs with access to the endpoints you intend to test:
 Use offline doctor first. Prepare a Scout manifest, request, hashed rights/pricing/entitlement evidence, and an explicit authorization bound to the computed fingerprint. Free-plan TTS does not grant commercial rights or Music API access. Confirm the current included allowance and no-overage setting; scope the smoke to a short script and a fixed credit/cost ceiling. The subscription GET itself requires inspection authority and counts as a call.
 
 If an endpoint returns `HTTP_UNAUTHORIZED`, check the key's endpoint permissions and account entitlement with the operator. Do not automatically retry or upgrade. After the cause is resolved, reconcile the previous outcome and grant a bounded retry using the next attempt number and `retry_of`. A successful TTS call does not establish SFX access. For audio QA, adapt provider character timestamps into nonempty text segments; whitespace characters are separators, not standalone QA segments. Preserve the complete original alignment artifact.
+
+
+## Live verification follow-up — 2026-10-19
+
+The saved credential authenticated a Creator account. An SFX request was initially rejected; after the operator enabled Sound Effects and Music Generation permissions, a reconciled one-call SFX retry succeeded. It produced a one-second stereo MP3 at 44.1 kHz; the provider header reported 11 credits. Three explicitly requested 15-second `music_v2_5` calls also succeeded, each returning a 15.0465-second stereo MP3 at 44.1 kHz. No implementation change or account upgrade was required.
+
+The SFX and first music output passed deterministic audio QA directly. The second and third music originals exceeded peak/clipping limits; originals were preserved and preview copies lowered by 3 dB and re-encoded. Preview QA passed. This does not restore samples already clipped in the source or establish perceptual approval. Keep source and derivative evidence separate.
+
+The operator accepted the final individual music test and explicitly declined creating a reusable profile. No default style, preset, prompt template, private media, credential or account balance is distributed here. Music per-request usage headers were absent, so credits and monetary costs remain null; a reservation or delayed account delta is not an invoice. The dated [sanitized verification artifact](evidence/elevenlabs-live-verification-2026-10-19.json) records metadata, hashes, QA and these limits. Historical Free-plan/unauthorized receipts remain valid records of those earlier attempts, not current access blockers for the tested account.

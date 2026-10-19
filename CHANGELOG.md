@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Record successful scoped ElevenLabs SFX and Music v2.5 live verification, clarify key-permission resolution and original-versus-preview audio QA, and retain unknown usage honestly without adding reusable audio profiles.
+
 - Correct VideoOps tool ownership: production media providers, scoped authorization, provenance, source-aware audio QA, exact-candidate review and their tests now live in `videoops/tools` alongside the canonical agents. Remove the retired sibling runtime/schema dependency; preserve v1 artifacts and historical verification evidence.
 
 All notable changes to Kujo Agents are documented here.
