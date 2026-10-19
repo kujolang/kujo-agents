@@ -1,6 +1,6 @@
 # Kujo Agents
 
-[![Version](https://img.shields.io/badge/version-1.4.0-black)](https://github.com/kujolang/kujo-agents)
+[![Version](https://img.shields.io/badge/version-1.5.0-black)](https://github.com/kujolang/kujo-agents)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
 [![built with Kujo](https://img.shields.io/badge/built%20with-Kujo-white.svg)](https://github.com/kujolang/kujo)
 
@@ -116,8 +116,8 @@ The VideoOps team and its executable media, audio QA and review tools live toget
 
 ## Release Status
 
-`v1.4.0` adds shared media-provider, source-aware audio QA, and exact-candidate
-review contracts to the VideoOps team while preserving Chain of Command,
+`v1.5.0` brings executable media-provider, source-aware audio QA, and exact-candidate
+review tools into the canonical VideoOps agent package while preserving Chain of Command,
 WebOps, and Publishing House. The Producer routes speech, sound effects and
 music through the capability-specific adapters in `videoops/tools`, with local
 import, scoped operator authorization, provenance receipts and explicit cost
@@ -155,7 +155,7 @@ python3 scripts/validate_publishing_house.py
 kujo run scripts/validate_videoops.kujo
 python3 scripts/validate_agent_packages.py
 bash videoops/tools/tests/run.sh
-test "$(cat VERSION)" = "1.4.0"
+test "$(cat VERSION)" = "1.5.0"
 git diff --check
 ```
 
