@@ -175,6 +175,16 @@ The 2026-10-10 audit window added or refreshed these agent-facing relationships:
 - `kujo-cmd`: `0.2.0` added broader Command Code integrations including offline Tribunal review, Dossier evidence inspection, Howl validation/rendering, Lens browser QA lifecycle, a projected browser-review agent, and Command Code 1.75.1 compatibility evidence. Existing Integration Engineer, Tooling Developer, Security Reviewer, QA Lead, Release Verifier, Context Packager, Code Reviewer, and Documentation Writer ownership remains current; Command Code permissions remain separate from Kujo approvals and host/session/model identity remains caller-asserted.
 - `kujo-docs`, `docs.kujolang.ai`, `kujo-site-release`, and related site worktrees published Kujo 1.8, Kujo CMD 0.2.0, AI Chat 1.3.0, Tribunal 1.0.2, Presentations, and Agent City guidance across docs, website, MCP catalog, and registry surfaces. Treat these as documentation/frontend/release surfaces with provenance checks, not as maturity promotion for every documented repository.
 
+The 2026-10-31 audit window added or refreshed these agent-facing relationships:
+
+- `kujo`: current stable runtime is `v1.9.0`; recent performance work remains runtime-local and does not broaden agent authority or introduce a new chain capability. Existing implementation, verification, security, documentation, architecture, and integration ownership remains current.
+- `kujo-skills`: current support/distribution pack is `0.7.1` with the 135-skill inventory. The Agents SDK maintenance-agent example and authenticated Hermes/Watchdog routing notes are repo-backed guidance with bounded offline/live-verification requirements; they do not create a new agent or grant provider credentials.
+- `kujo-workflows`: current support/distribution catalog is `0.6.2` with 44 active workflows. The 2026-10-31 audit refreshed compatibility evidence and Publishing House support pins without changing workflow ownership or promoting live-provider execution beyond existing boundaries.
+- `agents-sdk`: the offline maintenance-agent example, approval boundary, redaction, stores, budget behavior, and contract tests are now explicit. Integration Engineer and Systems Architect ownership remains current; use the maintenance fixture as contract evidence, not as production execution or approval authority.
+- `watchdog`: authenticated Hermes routing now requires the named `hermes` profile through the local OAuth proxy, a separate Watchdog proxy token, and an actual completion check. Integration Engineer and Receipt Collector ownership remains current; listener health alone is insufficient evidence.
+
+The 2026-10-31 audit did not promote `intake`, `wordpress-migrator`, `workcell`, `kujo-videoops`, or other recently changed sibling repositories to active chain capabilities. Their changes remain repository-local, experimental, or lacking a stable chain skill/workflow contract; existing agents may inspect them only when explicitly assigned.
+
 ## Repeated Operational Patterns
 
 - Read README and AGENTS files first.
