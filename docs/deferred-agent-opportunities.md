@@ -2,6 +2,10 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-10-31 Audit
+
+No new agent opportunity was admitted. The new Agents SDK maintenance-agent example and authenticated Hermes/Watchdog route fit existing Systems Architect, Integration Engineer, Receipt Collector, QA Lead, Security Reviewer, and Release Verifier ownership. `intake`, `wordpress-migrator`, and recent Workcell/VideoOps changes remain deferred because no new stable chain-specific contract or ownership gap was verified.
+
 ## 2026-10-10 Audit
 
 ### Commerce Checkout Operator
