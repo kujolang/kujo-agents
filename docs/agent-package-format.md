@@ -36,3 +36,20 @@ python3 scripts/generate_runtime_adapters.py --target paperclip --output dist/pa
 The generated outputs are deployment inputs, not authority. The target runtime
 must still provide credentials, tools, sandboxing, approvals, persistence, and
 external-effect enforcement.
+
+## Schema validation
+
+Install the existing validation dependency with `python3 -m pip install ./videoops/tools`
+in a virtual environment. Then run:
+
+```sh
+python3 scripts/validate_agent_packages.py
+python3 -m unittest discover -s tests -p 'test_agent_contracts.py' -v
+```
+
+Validation checks every manifest against the canonical Draft 2020-12 schema and
+checks every role I/O and shared schema. VideoOps retains its existing string
+input/output descriptions and explicit `skills` and `model_policy` fields;
+the other packages retain named object contract fields. The schema checks these
+package-specific shapes without changing generated manifests. Host adapters must
+still enforce permissions and independently evaluate actual results.

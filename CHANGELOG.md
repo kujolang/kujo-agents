@@ -6,6 +6,13 @@ The format follows Keep a Changelog and Semantic Versioning.
 
 ## Unreleased
 
+### Fixed
+
+- Validate all 85 canonical manifests against their shared schema, including the
+  existing VideoOps string descriptions, skills, and bounded model-policy contract.
+- Check all shared and role I/O schema definitions and reject malformed manifest
+  fields in regression tests and CI. Existing generated role contracts are unchanged.
+
 ## 1.5.0 - 2026-10-19
 
 ### Added

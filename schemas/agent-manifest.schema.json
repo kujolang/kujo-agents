@@ -19,7 +19,7 @@
       "type": "object",
       "required": ["package", "layer", "model_tier"],
       "properties": {
-        "package": { "enum": ["chain-of-command", "webops", "publishing-house"] },
+        "package": { "enum": ["chain-of-command", "webops", "publishing-house", "videoops"] },
         "layer": { "type": "string" },
         "category": { "type": "string" },
         "desk": { "type": "string" },
@@ -49,12 +49,95 @@
     },
     "tools": { "type": "object" },
     "workflows": { "type": "array", "items": { "type": "string" } },
-    "inputs": { "type": "array", "items": { "$ref": "#/$defs/contractField" } },
-    "outputs": { "type": "array", "items": { "$ref": "#/$defs/contractField" } },
+    "inputs": { "type": "array" },
+    "outputs": { "type": "array" },
+    "skills": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "model_policy": {
+      "type": "object",
+      "required": [
+        "default_profile",
+        "provider_binding",
+        "max_economical_attempts",
+        "stage_local_escalation",
+        "observable"
+      ],
+      "properties": {
+        "default_profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider_binding": {
+          "type": "null"
+        },
+        "max_economical_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2
+        },
+        "stage_local_escalation": {
+          "const": true
+        },
+        "observable": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
     "handoff": { "type": "object", "required": ["schema", "required_fields"], "properties": { "schema": { "const": "kujo.handoff/v1" }, "required_fields": { "type": "array", "items": { "type": "string" } } }, "additionalProperties": false },
     "stop_conditions": { "type": "array", "items": { "type": "string" } },
     "adapters": { "type": "array", "items": { "enum": ["hermes", "paperclip", "openai", "mcp", "generic"] } }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "classification": {
+            "properties": {
+              "package": {
+                "const": "videoops"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "model_policy",
+          "skills"
+        ],
+        "properties": {
+          "inputs": {
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "outputs": {
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "inputs": {
+            "items": {
+              "$ref": "#/$defs/contractField"
+            }
+          },
+          "outputs": {
+            "items": {
+              "$ref": "#/$defs/contractField"
+            }
+          },
+          "skills": false,
+          "model_policy": false
+        }
+      }
+    }
+  ],
   "$defs": {
     "contractField": {
       "type": "object",

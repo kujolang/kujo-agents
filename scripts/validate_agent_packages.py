@@ -7,6 +7,8 @@ import re
 import sys
 from pathlib import Path
 
+from jsonschema import Draft202012Validator, SchemaError
+
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGES = {"chain-of-command": 28, "webops": 28, "publishing-house": 23, "videoops": 6}
 PERMS = {"OBSERVE": 0, "PROPOSE": 1, "ACT": 2}
@@ -22,6 +24,13 @@ def main() -> int:
         registry = json.loads(registry_path.read_text())
     if registry.get("agent_count") != sum(PACKAGES.values()):
         errors.append(f"registry agent_count does not equal {sum(PACKAGES.values())}")
+    manifest_schema = json.loads((ROOT / "schemas/agent-manifest.schema.json").read_text())
+    Draft202012Validator.check_schema(manifest_schema)
+    validator = Draft202012Validator(manifest_schema)
+    for path in (ROOT / "schemas").rglob("*.schema.json"):
+        try: Draft202012Validator.check_schema(json.loads(path.read_text()))
+        except (OSError, json.JSONDecodeError, SchemaError) as exc:
+            errors.append(f"{path.relative_to(ROOT)}: invalid schema: {exc}")
     ids: set[str] = set()
     for package, expected in PACKAGES.items():
         folders = [path for path in (ROOT / package).iterdir() if path.is_dir() and (path / "AGENT.md").is_file()]
@@ -35,6 +44,8 @@ def main() -> int:
             try: manifest = json.loads((folder / "manifest.json").read_text())
             except json.JSONDecodeError as exc:
                 errors.append(f"{folder.name}: invalid manifest JSON: {exc}"); continue
+            for error in validator.iter_errors(manifest):
+                errors.append(f"{folder.name}: manifest {list(error.path)}: {error.message}")
             required = {"schema", "id", "name", "version", "contract", "classification", "permissions", "capabilities", "inputs", "outputs", "handoff", "stop_conditions", "adapters"}
             missing = required - set(manifest)
             if missing: errors.append(f"{folder.name}: manifest missing {sorted(missing)}")
@@ -47,8 +58,8 @@ def main() -> int:
             if perms.get("enforcement") != "runtime-adapter": errors.append(f"{folder.name}: permission enforcement must be runtime-adapter")
             if manifest.get("contract") != {"agent": "AGENT.md", "skill": "SKILL.md"}: errors.append(f"{folder.name}: contract paths mismatch")
             for schema_name in ("input.schema.json", "output.schema.json"):
-                try: json.loads((folder / schema_name).read_text())
-                except (OSError, json.JSONDecodeError) as exc: errors.append(f"{folder.name}: invalid {schema_name}: {exc}")
+                try: Draft202012Validator.check_schema(json.loads((folder / schema_name).read_text()))
+                except (OSError, json.JSONDecodeError, SchemaError) as exc: errors.append(f"{folder.name}: invalid {schema_name}: {exc}")
     if len(ids) != sum(PACKAGES.values()): errors.append(f"expected {sum(PACKAGES.values())} unique agent ids, found {len(ids)}")
     if errors:
         print(json.dumps({"valid": False, "errors": errors}, indent=2)); return 1

@@ -22,4 +22,6 @@ jobs:
       - name: Check contracts and production tools without sibling repositories
         run: |
           export PATH="/tmp/videoops-test-env/bin:$PATH"
+          python3 scripts/validate_agent_packages.py
+          python3 -m unittest discover -s tests -p 'test_agent_contracts.py' -v
           bash videoops/tools/tests/run.sh
