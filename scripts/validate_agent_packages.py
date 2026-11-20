@@ -12,6 +12,47 @@ PACKAGES = {"chain-of-command": 28, "webops": 28, "publishing-house": 23, "video
 PERMS = {"OBSERVE": 0, "PROPOSE": 1, "ACT": 2}
 
 
+def validate_collaboration_index(profile_ids: set[str]) -> list[str]:
+    path = ROOT / "collaboration-integrations.json"
+    if not path.is_file():
+        return []
+    try:
+        index = json.loads(path.read_text())
+        if (index.get("schema") != "kujo.collaboration.compatibility/v1"
+                or not isinstance(index.get("entries"), list) or len(index["entries"]) > 500):
+            raise ValueError("unsupported compatibility index")
+        seen = set()
+        for entry in index["entries"]:
+            required = {"agent_ids", "platform", "host", "protocol_major", "status", "operations"}
+            qualified = entry["status"] == "qualified"
+            fields = required | ({"setup_url", "qualification_url"} if qualified else set())
+            if set(entry) != fields or entry["protocol_major"] != 1:
+                raise ValueError("invalid compatibility fields")
+            platform, host = entry["platform"], entry["host"]
+            if (platform not in {"local", "slack", "matrix", "teams", "paperclip", "board", "mcp"}
+                    or not re.fullmatch(r"[a-z0-9-]{1,60}", host)
+                    or entry["status"] not in {"fixture-only", "experimental", "qualified"}):
+                raise ValueError("invalid compatibility value")
+            if qualified and any(not re.fullmatch(r"https://(?:agents[.]kujolang[.]ai|github[.]com)/[A-Za-z0-9_./-]+", entry[key])
+                                 for key in ("setup_url", "qualification_url")):
+                raise ValueError("invalid qualification link")
+            operations = entry["operations"]
+            if (not isinstance(operations, list) or not operations or len(set(operations)) != len(operations)
+                    or any(not re.fullmatch(r"[a-z.-]{1,48}", operation) for operation in operations)):
+                raise ValueError("invalid compatibility operations")
+            profiles = entry["agent_ids"]
+            if not isinstance(profiles, list) or not profiles:
+                raise ValueError("compatibility entry has no profiles")
+            for agent in profiles:
+                key = (agent, platform, host)
+                if agent not in profile_ids or key in seen:
+                    raise ValueError("unknown or duplicate compatibility profile")
+                seen.add(key)
+    except (OSError, TypeError, ValueError, KeyError, AttributeError) as exc:
+        return [f"collaboration index: {exc}"]
+    return []
+
+
 def main() -> int:
     errors: list[str] = []
     registry_path = ROOT / "agent-registry.json"
@@ -50,6 +91,7 @@ def main() -> int:
                 try: json.loads((folder / schema_name).read_text())
                 except (OSError, json.JSONDecodeError) as exc: errors.append(f"{folder.name}: invalid {schema_name}: {exc}")
     if len(ids) != sum(PACKAGES.values()): errors.append(f"expected {sum(PACKAGES.values())} unique agent ids, found {len(ids)}")
+    errors.extend(validate_collaboration_index(ids))
     if errors:
         print(json.dumps({"valid": False, "errors": errors}, indent=2)); return 1
     print(json.dumps({"valid": True, "agents": len(ids), "packages": PACKAGES}, indent=2)); return 0
