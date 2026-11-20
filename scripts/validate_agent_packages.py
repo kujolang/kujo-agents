@@ -26,6 +26,11 @@ def validate_collaboration_index(profile_ids: set[str]) -> list[str]:
             required = {"agent_ids", "platform", "host", "protocol_major", "status", "operations"}
             qualified = entry["status"] == "qualified"
             fields = required | ({"setup_url", "qualification_url"} if qualified else set())
+            if "preview_url" in entry:
+                if (entry["status"] != "experimental" or entry["platform"] != "slack"
+                        or not re.fullmatch(r"https://agents[.]kujolang[.]ai/connect-slack-[a-z0-9-]+/", entry["preview_url"])):
+                    raise ValueError("invalid preview link")
+                fields.add("preview_url")
             if set(entry) != fields or entry["protocol_major"] != 1:
                 raise ValueError("invalid compatibility fields")
             platform, host = entry["platform"], entry["host"]

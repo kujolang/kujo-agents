@@ -2,6 +2,15 @@
   "schema": "kujo.collaboration.compatibility/v1",
   "entries": [
     {
+      "agent_ids": ["chain.general-commander"],
+      "platform": "slack",
+      "host": "local-setup",
+      "protocol_major": 1,
+      "status": "experimental",
+      "operations": ["task.request", "execution.observation"],
+      "preview_url": "https://agents.kujolang.ai/connect-slack-general-commander/"
+    },
+    {
       "agent_ids": ["chain.general-commander", "videoops.producer"],
       "platform": "slack",
       "host": "reference",
