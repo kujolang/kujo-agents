@@ -36,3 +36,9 @@ python3 scripts/generate_runtime_adapters.py --target paperclip --output dist/pa
 The generated outputs are deployment inputs, not authority. The target runtime
 must still provide credentials, tools, sandboxing, approvals, persistence, and
 external-effect enforcement.
+
+## Collaboration compatibility
+
+The optional [collaboration integrations index](../collaboration-integrations.json) joins on canonical agent IDs. Version 1 entries specify a platform, host, protocol major, qualification status and supported operations. The index is separate from the strict agent manifest. A profile or adapter descriptor does not install a runtime, grant authority or authorize a connection.
+
+Fixture-only entries describe a test and do not permit active public setup links. A qualified entry must include a separately reviewed HTTPS setup URL and qualification receipt. Provider credentials, workspace IDs and grants belong to the installed operator environment.

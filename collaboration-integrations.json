@@ -1,0 +1,21 @@
+{
+  "schema": "kujo.collaboration.compatibility/v1",
+  "entries": [
+    {
+      "agent_ids": ["chain.general-commander", "videoops.producer"],
+      "platform": "slack",
+      "host": "reference",
+      "protocol_major": 1,
+      "status": "fixture-only",
+      "operations": ["message", "task.request", "delegation.request"]
+    },
+    {
+      "agent_ids": ["chain.general-commander", "videoops.producer"],
+      "platform": "matrix",
+      "host": "reference",
+      "protocol_major": 1,
+      "status": "fixture-only",
+      "operations": ["message", "task.request", "delegation.request"]
+    }
+  ]
+}
