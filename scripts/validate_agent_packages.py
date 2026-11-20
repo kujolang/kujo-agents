@@ -28,7 +28,7 @@ def validate_collaboration_index(profile_ids: set[str]) -> list[str]:
             fields = required | ({"setup_url", "qualification_url"} if qualified else set())
             if "preview_url" in entry:
                 if (entry["status"] != "experimental" or entry["platform"] != "slack"
-                        or not re.fullmatch(r"https://agents[.]kujolang[.]ai/connect-slack-[a-z0-9-]+/", entry["preview_url"])):
+                        or not re.fullmatch(r"https://agents[.]kujolang[.]ai/connect-slack(?:-[a-z0-9-]+)?/", entry["preview_url"])):
                     raise ValueError("invalid preview link")
                 fields.add("preview_url")
             if set(entry) != fields or entry["protocol_major"] != 1:
@@ -48,6 +48,9 @@ def validate_collaboration_index(profile_ids: set[str]) -> list[str]:
             profiles = entry["agent_ids"]
             if not isinstance(profiles, list) or not profiles:
                 raise ValueError("compatibility entry has no profiles")
+            if (entry.get("preview_url") == "https://agents.kujolang.ai/connect-slack/"
+                    and (host != "local-setup" or set(profiles) != profile_ids)):
+                raise ValueError("Slack setup preview must cover the canonical catalog")
             for agent in profiles:
                 key = (agent, platform, host)
                 if agent not in profile_ids or key in seen:
