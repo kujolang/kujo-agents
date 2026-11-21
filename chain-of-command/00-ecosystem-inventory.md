@@ -10,7 +10,7 @@ templates remain in the same chain package.
 
 ## Existing Skills
 
-The local `kujo-skills/skills/` folder currently contains 135 focused skills
+The local `kujo-skills/skills/` folder currently contains 136 focused skills
 covering Agents SDK, AI SDK, CaseFile, ChangeBucket, Concord, Dispatch, Eval,
 Fence, Howl, Kennel, Lens, MCP, Muzzle, PackWrite, PatchBrief, RAG, RunLedger,
 Scent, Scout, ShipCheck, Spec, SSG, Watchdog, Redact, Capsule benchmark work,
@@ -178,12 +178,27 @@ The 2026-10-10 audit window added or refreshed these agent-facing relationships:
 The 2026-10-31 audit window added or refreshed these agent-facing relationships:
 
 - `kujo`: current stable runtime is `v1.9.0`; recent performance work remains runtime-local and does not broaden agent authority or introduce a new chain capability. Existing implementation, verification, security, documentation, architecture, and integration ownership remains current.
-- `kujo-skills`: current support/distribution pack is `0.7.1` with the 135-skill inventory. The Agents SDK maintenance-agent example and authenticated Hermes/Watchdog routing notes are repo-backed guidance with bounded offline/live-verification requirements; they do not create a new agent or grant provider credentials.
+- `kujo-skills`: current support/distribution pack is `0.7.1` with the 136-skill inventory. The Agents SDK maintenance-agent example and authenticated Hermes/Watchdog routing notes are repo-backed guidance with bounded offline/live-verification requirements; they do not create a new agent or grant provider credentials.
 - `kujo-workflows`: current support/distribution catalog is `0.6.2` with 44 active workflows. The 2026-10-31 audit refreshed compatibility evidence and Publishing House support pins without changing workflow ownership or promoting live-provider execution beyond existing boundaries.
 - `agents-sdk`: the offline maintenance-agent example, approval boundary, redaction, stores, budget behavior, and contract tests are now explicit. Integration Engineer and Systems Architect ownership remains current; use the maintenance fixture as contract evidence, not as production execution or approval authority.
 - `watchdog`: authenticated Hermes routing now requires the named `hermes` profile through the local OAuth proxy, a separate Watchdog proxy token, and an actual completion check. Integration Engineer and Receipt Collector ownership remains current; listener health alone is insufficient evidence.
 
 The 2026-10-31 audit did not promote `intake`, `wordpress-migrator`, `workcell`, `kujo-videoops`, or other recently changed sibling repositories to active chain capabilities. Their changes remain repository-local, experimental, or lacking a stable chain skill/workflow contract; existing agents may inspect them only when explicitly assigned.
+
+The 2026-11-07 audit window added or refreshed these agent-facing relationships:
+
+- `kujo-skills`: the `0.7.1` pack now has 136 skills and adds the repository-hardening skill `kujo-hardening`. It is directly useful to Systems Architect, Tooling Developer, Security Reviewer, Code Reviewer, QA Lead, and Release Verifier for bounded review or fix work; it does not authorize commits, pushes, publication, destructive changes, or live external operations.
+- `kujo-workflows`: the `0.6.2` catalog refreshed its weekly audit and support evidence for Kujo, Kujo Skills, AI Chat, and Watchdog. The 44-workflow catalog and existing ownership boundaries remain current; sibling-local failures and the Kujo disk-space blocker remain explicit watch items.
+- `kujo`, `ai-chat`, and `watchdog`: current heads advanced in workflow compatibility evidence. Their existing runtime, local chat, and telemetry relationships remain supported only within their documented fixture, host, authentication, and live-service boundaries.
+- `agent-black-box`, `kujo-hermes`, `hermes-kujo-discord-agents`, and `wordpress-migrator`: recent changes expose product, media, Discord-profile, and migration surfaces, but no new stable chain skill/workflow contract or ownership gap was verified. Keep them task-specific and deferred rather than adding broad agent access.
+
+The 2026-11-21 audit window added or refreshed these agent-facing relationships:
+
+- `kujo-skills`: current `0.7.1` support pack has 136 skills. SiteKit 1.2 routing and AI SDK/RAG provider-registry guidance are directly useful to existing frontend, documentation, integration, backend, security, QA, and release roles; external provider execution remains credential-, cost-, and fixture-gated.
+- `kujo-workflows`: the 2026-11-21 weekly audit refreshed evidence for Kujo Skills, SiteKit, AI SDK, RAG, Howl, Lens, and Kujo Agents. Existing AI SDK/Watchdog, RAG, WebOps, Publishing House, and VideoOps relationships remain supported within their documented fixture and host boundaries; external RAG adapters and provider certification remain partial or deferred.
+- `software-factory`: `0.2.0` exposes a local, bounded mission controller using canonical roles, Kujo Dispatch, Workcell, Eval, Lens, ShipCheck, and portable evidence. It is a product/integration surface rather than a new chain authority; local candidates do not grant merge, publication, deployment, provider, or approval authority.
+- `agent-collaboration`: the deterministic collaboration host has a scoped Slack pilot and local Matrix/fixture paths, with explicit human admission, deployment identity, and operator-owned credentials. It remains a task-specific integration surface; no broad transport authority or new agent is warranted.
+- `ai-sdk`, `rag`, `kujo`, `lens`, `digidex`, `docs.kujolang.ai`, `kennel`, `kennel-registry`, `kujolang-mcp`, and `agents.kujolang.ai`: recent changes refresh provider setup, evidence recovery, release/discovery, and Slack/documentation surfaces without changing chain ownership. Preserve independent review and current-runtime verification boundaries.
 
 ## Repeated Operational Patterns
 

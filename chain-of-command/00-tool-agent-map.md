@@ -2,6 +2,13 @@
 
 This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO skill definitions inspected in this workspace. Where a relationship is useful but not explicitly documented by a tool repo, it is marked `inferred`.
 
+The current `kujo-skills` pack is `0.7.1` with 136 skills. The directly
+verified `kujo-hardening` skill routes bounded repository hardening, cleanup,
+performance, resource, token/context-efficiency, and reliability review or fix
+work to existing architecture, tooling, security, code-review, QA, and release
+roles. It does not grant commit, push, publication, destructive-operation, or
+live-external authority.
+
 ## Tool Maturity Snapshot
 
 | Tool | Repo-backed behavior | Maturity signal from docs | Primary agents |
@@ -10,6 +17,8 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 | Kujo Doctor | Generic development-environment and repository readiness checks; no writes, no network | First-party workflow extension | Routine Worker, Release Verifier |
 | Agents SDK | Local-first agent primitives: runner, tools, security, memory, retrieval, handoffs, tracing, artifacts, budgets | Stable primitives; live production controls environment-dependent | Systems Architect, Integration Engineer |
 | AI SDK | Provider-gated OpenAI-compatible chat/embedding primitives and redaction/reliability tests | Strong enterprise-hardening baseline, not blanket certification | Integration Engineer, Backend Developer |
+| Software Factory | Local mission controller using canonical roles, Dispatch, Workcell, Eval, Lens, ShipCheck, and portable evidence with bounded repair/recovery paths | `0.2.0` local early release; product/integration surface only, with provider, rootless-engine, approval, and deployment boundaries remaining operator-owned | Integration Engineer, Tooling Developer, QA Lead, Release Verifier, Security Reviewer, Code Reviewer |
+| Agent Collaboration | Deterministic local collaboration host with canonical deployment enrollment, scoped Slack pilot, Matrix fixtures, human admission, replay, and operator-owned transport credentials | Unreleased reference with scoped Slack evidence; no blanket transport, impersonation, unattended approval, or production bot authority | Integration Engineer, Security Reviewer, QA Lead, Triage Agent, Documentation Writer |
 | Kujo AI provider packages | Provider-specific Kujo packages for Anthropic, OpenAI, Gemini, OpenRouter, xAI, Groq, Together, Fireworks, Mistral, Cerebras, DeepInfra, DeepSeek, Cloudflare AI, Hugging Face, Replicate, Cohere, Bedrock, Azure AI, Vertex AI, NVIDIA NIM, Perplexity, Z.ai, fal.ai, Baseten, and Ollama; each exposes native and/or AI SDK driver surfaces with offline release gates and opt-in live smoke paths | Contract-verified through sibling READMEs and package tests; live credentials, model availability, pricing, quotas, and provider policy remain operator-owned and retrieval-date sensitive | Integration Engineer, Backend Developer, Security Reviewer, QA Lead |
 | Spec | Task contracts, acceptance criteria, eval requirements, review expectations, approval points | Built for production use with environment validation | Planner, Spec Writer, Chief of Staff |
 | Eval | Deterministic local/CI checks for commands, files, JSON, HTTP, snapshots, workflow outputs, inventory gates, and metadata-only Watchdog telemetry projection | `v1.0.0` verified local/CI scope; no isolated sandbox or acceptance authority by itself | QA Lead, Test Runner, Release Verifier |
@@ -125,6 +134,8 @@ This map uses repo-backed behavior from local READMEs, AGENTS files, and KUJO sk
 - `Intake` and `Cinch` are credible future workflow surfaces, but they remain deferred in the agent chain because no narrow `kujo-skills` chain skill or `kujo-workflows` contract was verified for routine delegation.
 - `Presentations` is a directly inspectable docs/frontend/product surface for static slide decks. Existing Documentation Writer, Frontend Developer, Visual QA Agent, Product Strategist, and Release Verifier roles are sufficient; do not create a deck-specific agent unless a recurring production workflow and dedicated skill/workflow contract emerge.
 - `Kujo OpenAI local plugin` is a private host-integration experiment, not an approved public plugin or managed local-MCP distribution. Keep native distribution, Windows acceptance, public local-MCP approval, and end-user support boundaries explicit.
+- `Software Factory` is a bounded local product surface that composes existing chain roles and verification tools. Treat its catalogs and qualification records as task-specific evidence; do not make it a replacement for the chain, independent review, human approval, or release authority.
+- `Agent Collaboration` provides transport and deployment plumbing, not agent judgment or authority. Keep Slack/Matrix credentials, human admission, thread linking, and external writes operator-owned; a bot mention or typed handoff is not approval by itself.
 - `Commerce` is credible for static-site commerce work, but broad chain routing remains deferred until a narrow skill/workflow contract exists and payment-provider, credential, checkout, and order-data boundaries are explicitly reviewed.
 - `TruthLens` should not become a chain tool or new agent by default. It is a browser-extension/product repo with deterministic validation and probabilistic model limits; existing frontend, security, QA, and release roles are sufficient when assigned to it.
 - `Kujo Pi`, `Kujolang MCP`, `Workcell Studio`, and `Hermes Kujo Discord Agents` are concrete integration or product surfaces. Existing agents may work on them when explicitly assigned, but they do not grant new chain authority, unattended approvals, public bot operation, or remote deployment authority by implication.

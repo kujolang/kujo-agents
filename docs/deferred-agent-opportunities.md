@@ -2,6 +2,50 @@
 
 This record captures credible new-agent candidates discovered during periodic audits. It is intentionally conservative: do not scaffold or register these agents without separate human approval and repository-backed contracts.
 
+## 2026-11-21 Audit
+
+No new agent opportunity was admitted. Software Factory composes existing
+canonical roles and verification gates, while Agent Collaboration supplies
+transport/deployment plumbing rather than a distinct decision owner. The
+current `kujo-skills` and `kujo-workflows` refreshes strengthen SiteKit, AI SDK,
+RAG, Lens, Howl, and provider-registry evidence but do not establish a new
+chain-specific skill/workflow or an ownership gap.
+
+### Deferred Watch Items
+
+- `software-factory`: require a narrow chain contract before routine routing;
+  continue treating local mission qualification, rootless Workcell execution,
+  provider usage, and release evidence as scope-bound rather than general
+  chain guarantees.
+- `agent-collaboration`: require a versioned chain workflow and repeated
+  independently reviewed transport workload before active routing; preserve
+  human admission, credential, impersonation, and external-write boundaries.
+- `kujo-skills` AI SDK provider-registry guidance and RAG external
+  embedding/reranking adapters: require dedicated fixture/workflow coverage
+  before promoting them beyond partial verification.
+
+## 2026-11-07 Audit
+
+No new agent opportunity was admitted. The new `kujo-hardening` skill is a
+cross-cutting review/fix workflow that fits existing Systems Architect,
+Tooling Developer, Security Reviewer, Code Reviewer, QA Lead, and Release
+Verifier ownership. Recent `agent-black-box`, `kujo-hermes`,
+`hermes-kujo-discord-agents`, and `wordpress-migrator` changes remain
+task-specific or lack a stable chain skill/workflow contract; no new ownership
+gap was verified. The Kujo Workflows audit also retained explicit partial
+verification for AI Chat, Watchdog, Kujo disk space, and host-dependent
+Workcell execution.
+
+### Deferred Watch Items
+
+- `kujo-hardening`: monitor whether repeated cross-repository hardening work
+  creates a distinct ownership boundary; until then, route through existing
+  architecture, implementation, security, review, QA, and release roles.
+- `agent-black-box`, `kujo-hermes`, `hermes-kujo-discord-agents`, and
+  `wordpress-migrator`: require a narrow chain skill/workflow contract,
+  stable artifact/verification expectations, and explicit authority review
+  before active routing.
+
 ## 2026-10-31 Audit
 
 No new agent opportunity was admitted. The new Agents SDK maintenance-agent example and authenticated Hermes/Watchdog route fit existing Systems Architect, Integration Engineer, Receipt Collector, QA Lead, Security Reviewer, and Release Verifier ownership. `intake`, `wordpress-migrator`, and recent Workcell/VideoOps changes remain deferred because no new stable chain-specific contract or ownership gap was verified.
